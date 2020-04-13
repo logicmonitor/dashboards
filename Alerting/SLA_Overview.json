@@ -1,0 +1,508 @@
+{
+  "santabaRelease": 132,
+  "widgetTokens": [
+    {
+      "name": "defaultResourceGroup",
+      "value": "*"
+    },
+    {
+      "name": "defaultWebsiteGroup",
+      "value": "*"
+    },
+    {
+      "name": "defaultResourceName",
+      "value": "*"
+    }
+  ],
+  "name": "SLA Overview",
+  "description": "Presents example SLA monitoring using a variety of possible metrics.",
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 7,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "timezone": "",
+        "description": "",
+        "type": "websiteSLA",
+        "version": 2,
+        "daysInWeek": "1,2,3,4,5,6,7",
+        "name": "Websites: HTTP Availability",
+        "periodInOneDay": "*",
+        "theme": "newBorderDarkBlue",
+        "interval": 5,
+        "timescale": "Last 7 days",
+        "items": [{
+          "website": "*",
+          "excludeSDT": true,
+          "websiteGroup": "##defaultWebsiteGroup##"
+        }],
+        "colorThresholds": [
+          {
+            "level": 2,
+            "threshold": 98,
+            "relation": "<="
+          },
+          {
+            "level": 3,
+            "threshold": 95,
+            "relation": "<="
+          },
+          {
+            "level": 4,
+            "threshold": 90,
+            "relation": "<="
+          }
+        ]
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 3,
+        "row": 1,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "timezone": "America/Los_Angeles",
+        "description": "",
+        "type": "deviceSLA",
+        "version": 2,
+        "calculationMethod": 1,
+        "daysInWeek": "1,2,3,4,5,6,7",
+        "displayType": 0,
+        "topX": 10,
+        "bottomLabel": "Zero-Percent Ping Loss Time",
+        "name": "Network Resources: Ping Availability",
+        "displayPercentageBar": false,
+        "periodInOneDay": "*",
+        "theme": "newBorderDarkBlue",
+        "interval": 5,
+        "metrics": [{
+          "groupName": "Devices by Type/Network",
+          "instances": "*",
+          "metric": "PingLossPercent",
+          "dataSourceFullName": "Ping",
+          "bottomLabel": "Time Available",
+          "threshold": "= 0",
+          "deviceName": "##defaultResourceName##",
+          "exclusionSDTType": "ResourceGroupSDT"
+        }],
+        "timescale": "Last 7 days",
+        "unmonitoredTimeType": 0,
+        "colorThresholds": [
+          {
+            "level": 2,
+            "threshold": 98,
+            "relation": "<="
+          },
+          {
+            "level": 3,
+            "threshold": 95,
+            "relation": "<="
+          },
+          {
+            "level": 4,
+            "threshold": 90,
+            "relation": "<="
+          }
+        ]
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 3,
+        "row": 7,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "timezone": "America/Los_Angeles",
+        "description": "Percentage of time Windows Servers went less than 5 minutes without data acquisition from LogicMonitor.",
+        "type": "deviceSLA",
+        "version": 2,
+        "calculationMethod": 1,
+        "daysInWeek": "1,2,3,4,5,6,7",
+        "displayType": 0,
+        "topX": 10,
+        "bottomLabel": "Time Available",
+        "name": "Windows Servers: Host Status Availability",
+        "displayPercentageBar": false,
+        "periodInOneDay": "*",
+        "theme": "newBorderDarkBlue",
+        "interval": 5,
+        "metrics": [{
+          "groupName": "Devices by Type/Windows*",
+          "instances": "*",
+          "metric": "idleInterval",
+          "dataSourceFullName": "Host Status (HostStatus)",
+          "bottomLabel": "Time Available",
+          "threshold": "< 300",
+          "deviceName": "##defaultResourceName##",
+          "exclusionSDTType": "ResourceGroupSDT"
+        }],
+        "timescale": "Last 7 days",
+        "unmonitoredTimeType": 0,
+        "colorThresholds": [
+          {
+            "level": 2,
+            "threshold": 98,
+            "relation": "<="
+          },
+          {
+            "level": 3,
+            "threshold": 95,
+            "relation": "<="
+          },
+          {
+            "level": 4,
+            "threshold": 90,
+            "relation": "<="
+          }
+        ]
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 3,
+        "row": 4,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "timezone": "America/Los_Angeles",
+        "description": "",
+        "type": "deviceSLA",
+        "version": 2,
+        "calculationMethod": 1,
+        "daysInWeek": "1,2,3,4,5,6,7",
+        "displayType": 0,
+        "topX": 10,
+        "bottomLabel": "Time Available",
+        "name": "VMware Hosts: Host Status Availability",
+        "displayPercentageBar": false,
+        "periodInOneDay": "*",
+        "theme": "newBorderDarkBlue",
+        "interval": 5,
+        "metrics": [{
+          "groupName": "Devices by Type/VMware*",
+          "instances": "*",
+          "metric": "idleInterval",
+          "dataSourceFullName": "Host Status (HostStatus)",
+          "bottomLabel": "Time Available",
+          "threshold": "< 300",
+          "deviceName": "*",
+          "exclusionSDTType": "ResourceGroupSDT"
+        }],
+        "timescale": "Last 7 days",
+        "unmonitoredTimeType": 0,
+        "colorThresholds": [
+          {
+            "level": 2,
+            "threshold": 98,
+            "relation": "<="
+          },
+          {
+            "level": 3,
+            "threshold": 95,
+            "relation": "<="
+          },
+          {
+            "level": 4,
+            "threshold": 90,
+            "relation": "<="
+          }
+        ]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 1,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "timezone": "America/Los_Angeles",
+        "description": "Percentage of time Linux Servers went less than 5 minutes without data acquisition from a LogicMonitor collector.",
+        "type": "deviceSLA",
+        "version": 2,
+        "calculationMethod": 1,
+        "daysInWeek": "1,2,3,4,5,6,7",
+        "displayType": 0,
+        "topX": 10,
+        "bottomLabel": "Time Available",
+        "name": "Linux Servers: Host Status Availability",
+        "displayPercentageBar": false,
+        "periodInOneDay": "*",
+        "theme": "newBorderDarkBlue",
+        "interval": 5,
+        "metrics": [{
+          "groupName": "Devices by Type/Linux Servers",
+          "instances": "*",
+          "metric": "idleInterval",
+          "dataSourceFullName": "Host Status (HostStatus)",
+          "bottomLabel": "Time Available",
+          "threshold": "< 300",
+          "deviceName": "##defaultResourceName##",
+          "exclusionSDTType": "ResourceGroupSDT"
+        }],
+        "timescale": "Last 7 days",
+        "unmonitoredTimeType": 0,
+        "colorThresholds": [
+          {
+            "level": 2,
+            "threshold": 98,
+            "relation": "<="
+          },
+          {
+            "level": 3,
+            "threshold": 95,
+            "relation": "<="
+          },
+          {
+            "level": 4,
+            "threshold": 90,
+            "relation": "<="
+          }
+        ]
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 1,
+        "sizey": 5
+      },
+      "config": {
+        "displaySettings": {},
+        "timezone": "America/Los_Angeles",
+        "description": "",
+        "type": "deviceSLA",
+        "version": 2,
+        "calculationMethod": 1,
+        "daysInWeek": "1,2,3,4,5,6,7",
+        "displayType": 1,
+        "topX": 10,
+        "bottomLabel": "Time Available",
+        "name": "All Devices: Critical Availability Metrics",
+        "displayPercentageBar": false,
+        "periodInOneDay": "*",
+        "theme": "newSolidDarkBlue",
+        "interval": 5,
+        "metrics": [
+          {
+            "groupName": "##defaultResourceGroup##",
+            "instances": "*",
+            "metric": "idleInterval",
+            "dataSourceFullName": "Host Status (HostStatus)",
+            "bottomLabel": "Host Status Availability",
+            "threshold": "< 300",
+            "deviceName": "*",
+            "exclusionSDTType": "ResourceSDT"
+          },
+          {
+            "groupName": "##defaultResourceGroup##",
+            "instances": "*",
+            "metric": "PingLossPercent",
+            "dataSourceFullName": "Ping",
+            "bottomLabel": "Zero-Percent Ping Loss",
+            "threshold": "= 0",
+            "deviceName": "*",
+            "exclusionSDTType": "ResourceSDT"
+          },
+          {
+            "groupName": "##defaultResourceGroup##",
+            "instances": "*",
+            "metric": "status",
+            "dataSourceFullName": "dns",
+            "bottomLabel": "DNS Resolvable",
+            "threshold": "= 1",
+            "deviceName": "*",
+            "exclusionSDTType": "ResourceGroupSDT"
+          }
+        ],
+        "timescale": "Last 7 days",
+        "unmonitoredTimeType": 0,
+        "colorThresholds": [
+          {
+            "level": 2,
+            "threshold": 98,
+            "relation": "<"
+          },
+          {
+            "level": 3,
+            "threshold": 95,
+            "relation": "<"
+          },
+          {
+            "level": 4,
+            "threshold": 90,
+            "relation": "<"
+          }
+        ]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 4,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "timezone": "America/Los_Angeles",
+        "description": "",
+        "type": "deviceSLA",
+        "version": 2,
+        "calculationMethod": 1,
+        "daysInWeek": "1,2,3,4,5,6,7",
+        "displayType": 0,
+        "topX": 10,
+        "bottomLabel": "Time Available",
+        "name": "Storage Devices: Host Status Availability",
+        "displayPercentageBar": false,
+        "periodInOneDay": "*",
+        "theme": "newBorderDarkBlue",
+        "interval": 5,
+        "metrics": [{
+          "groupName": "Devices by Type/Storage",
+          "instances": "*",
+          "metric": "idleInterval",
+          "dataSourceFullName": "Host Status (HostStatus)",
+          "bottomLabel": "Time Available",
+          "threshold": "< 300",
+          "deviceName": "*",
+          "exclusionSDTType": "ResourceGroupSDT"
+        }],
+        "timescale": "Last 7 days",
+        "unmonitoredTimeType": 0,
+        "colorThresholds": [
+          {
+            "level": 2,
+            "threshold": 98,
+            "relation": "<="
+          },
+          {
+            "level": 3,
+            "threshold": 95,
+            "relation": "<="
+          },
+          {
+            "level": 4,
+            "threshold": 90,
+            "relation": "<="
+          }
+        ]
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 6,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Device Uptime Overview",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "WinUptimeSeconds * 60 * 60 * 24",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME##",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "WinUptimeDays"
+          }],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "UptimeDays",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Uptime- (SNMPUptime-)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "column",
+                "option": "custom"
+              },
+              "name": "UptimeDays",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "UptimeSeconds",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "System Uptime (WinSystemUptime)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "WinUptimeSeconds",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "days",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "7days",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2,
+  "group": {
+    "name": "Alerting",
+    "fullPath": "LogicMonitor Dashboards/Alerting",
+    "description": ""
+  }
+}

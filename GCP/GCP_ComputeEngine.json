@@ -1,0 +1,598 @@
+{
+  "widgetTokens": [],
+  "name": "GCP Compute Engine Overview",
+  "description": "",
+  "widgetsConfigVersion": 2,
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 9,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "sortDirection": "desc",
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n    Device/Website\n\n    ",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Effective Thresholds",
+              "columnKey": "alert-thresholds"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sortBy": "startEpoch"
+        },
+        "name": "Compute Engine Alerts",
+        "description": "",
+        "theme": "newSolidBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "dataPoint": "",
+          "host": "",
+          "rule": "",
+          "keyword": "",
+          "dataSource": "",
+          "acked": "all",
+          "cleared": "no",
+          "group": "%23%23defaultDeviceGroup%23%23%2FCompute%20Engine"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 1,
+        "sizey": 4
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 5,
+        "name": "Compute Engine NOC",
+        "displayCriticalAlert": true,
+        "theme": "newBorderBlue",
+        "interval": 3,
+        "sortBy": "name",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##HOSTNAME##",
+          "dataSourceDisplayName": "*",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultDeviceGroup##/Compute Engine",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 5,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top 10 Instances by CPU Utilization",
+        "description": "",
+        "theme": "newBorderBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "CPUUtilization",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Compute Engine (GCP_Compute_ComputeEngine)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "",
+              "type": "line",
+              "option": "default"
+            },
+            "name": "CPUUtilization",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##/Compute Engine"
+            }
+          }],
+          "verticalLabel": "percent used",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 5,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Bottom 10 Instances by CPU Utilization",
+        "description": "",
+        "theme": "newBorderBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "CPUUtilization",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Compute Engine (GCP_Compute_ComputeEngine)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "",
+              "type": "line",
+              "option": "default"
+            },
+            "name": "CPUUtilization",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##/Compute Engine"
+            }
+          }],
+          "verticalLabel": "percent used",
+          "aggregate": false,
+          "desc": false,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 13,
+        "sizey": 4
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [
+            {
+              "name": "europe-west3",
+              "appliesTo": "system.gcp.region == \"europe-west3\" && join(system.groups, \",\") =~ \"##defaultDeviceGroup##\" && hasCategory(\"GCP/ComputeEngine\")"
+            },
+            {
+              "name": "europe-west4",
+              "appliesTo": "system.gcp.region == \"europe-west4\" && join(system.groups, \",\") =~ \"##defaultDeviceGroup##\" && hasCategory(\"GCP/ComputeEngine\")"
+            },
+            {
+              "name": "europe-north1",
+              "appliesTo": "system.gcp.region == \"europe-north1\" && join(system.groups, \",\") =~ \"##defaultDeviceGroup##\" && hasCategory(\"GCP/ComputeEngine\")"
+            },
+            {
+              "name": "europe-west1",
+              "appliesTo": "system.gcp.region == \"europe-west1\" && join(system.groups, \",\") =~ \"##defaultDeviceGroup##\" && hasCategory(\"GCP/ComputeEngine\")"
+            }
+          ],
+          "dataPoints": [],
+          "bigNumberItems": [
+            {
+              "dataPointName": "europe-west1",
+              "useCommaSeparators": false,
+              "bottomLabel": "europe-west1",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "europe-west3",
+              "useCommaSeparators": false,
+              "bottomLabel": "europe-west3",
+              "rounding": 0,
+              "position": 2,
+              "rightLabel": "",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "europe-west4",
+              "useCommaSeparators": false,
+              "bottomLabel": "europe-west4",
+              "rounding": 0,
+              "position": 3,
+              "rightLabel": "",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "europe-north1",
+              "useCommaSeparators": false,
+              "bottomLabel": "europe-north1",
+              "rounding": 0,
+              "position": 4,
+              "rightLabel": "",
+              "colorThresholds": null
+            }
+          ]
+        },
+        "displaySettings": {},
+        "name": "Compute Engine Instances - Europe",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 17,
+        "sizey": 4
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [
+            {
+              "name": "asia-southeast1",
+              "appliesTo": "system.gcp.region == \"asia-southeast1\" && join(system.groups, \",\") =~ \"##defaultDeviceGroup##\" && hasCategory(\"GCP/ComputeEngine\")"
+            },
+            {
+              "name": "asia-east1",
+              "appliesTo": "system.gcp.region == \"asia-east1\" && join(system.groups, \",\") =~ \"##defaultDeviceGroup##\" && hasCategory(\"GCP/ComputeEngine\")"
+            },
+            {
+              "name": "asia-south1",
+              "appliesTo": "system.gcp.region == \"asia-south1\" && join(system.groups, \",\") =~ \"##defaultDeviceGroup##\" && hasCategory(\"GCP/ComputeEngine\")"
+            },
+            {
+              "name": "asia-northeast1",
+              "appliesTo": "system.gcp.region == \"asia-northeast1\" && join(system.groups, \",\") =~ \"##defaultDeviceGroup##\" && hasCategory(\"GCP/ComputeEngine\")"
+            }
+          ],
+          "dataPoints": [],
+          "bigNumberItems": [
+            {
+              "dataPointName": "asia-southeast1",
+              "useCommaSeparators": false,
+              "bottomLabel": "asia-southeast1",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "asia-east1",
+              "useCommaSeparators": false,
+              "bottomLabel": "asia-east1",
+              "rounding": 0,
+              "position": 2,
+              "rightLabel": "",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "asia-south1",
+              "useCommaSeparators": false,
+              "bottomLabel": "asia-south1",
+              "rounding": 0,
+              "position": 3,
+              "rightLabel": "",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "asia-northeast1",
+              "useCommaSeparators": false,
+              "bottomLabel": "asia-northeast1",
+              "rounding": 0,
+              "position": 4,
+              "rightLabel": "",
+              "colorThresholds": null
+            }
+          ]
+        },
+        "displaySettings": {},
+        "name": "Compute Engine Instances - Asia",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 13,
+        "sizey": 4
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [
+            {
+              "name": "us-central1",
+              "appliesTo": "system.gcp.region == \"us-central1\" && join(system.groups, \",\") =~ \"##defaultDeviceGroup##\" && hasCategory(\"GCP/ComputeEngine\")"
+            },
+            {
+              "name": "us-west1",
+              "appliesTo": "system.gcp.region == \"us-west1\" && join(system.groups, \",\") =~ \"##defaultDeviceGroup##\" && hasCategory(\"GCP/ComputeEngine\")"
+            },
+            {
+              "name": "us-east4",
+              "appliesTo": "system.gcp.region == \"us-east4\" && join(system.groups, \",\") =~ \"##defaultDeviceGroup##\" && hasCategory(\"GCP/ComputeEngine\")"
+            },
+            {
+              "name": "us-west2",
+              "appliesTo": "system.gcp.region == \"us-west2\" && join(system.groups, \",\") =~ \"##defaultDeviceGroup##\" && hasCategory(\"GCP/ComputeEngine\")"
+            }
+          ],
+          "dataPoints": [],
+          "bigNumberItems": [
+            {
+              "dataPointName": "us-central1",
+              "useCommaSeparators": false,
+              "bottomLabel": "us-central1",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "us-west1",
+              "useCommaSeparators": false,
+              "bottomLabel": "us-west1",
+              "rounding": 0,
+              "position": 2,
+              "rightLabel": "",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "us-east4",
+              "useCommaSeparators": false,
+              "bottomLabel": "us-east4",
+              "rounding": 0,
+              "position": 3,
+              "rightLabel": "",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "us-west2",
+              "useCommaSeparators": false,
+              "bottomLabel": "us-west2",
+              "rounding": 0,
+              "position": 4,
+              "rightLabel": "",
+              "colorThresholds": null
+            }
+          ]
+        },
+        "displaySettings": {},
+        "name": "Compute Engine Instances - US",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 17,
+        "sizey": 4
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [
+            {
+              "name": "europe-west2",
+              "appliesTo": "system.gcp.region == \"europe-west2\" && join(system.groups, \",\") =~ \"##defaultDeviceGroup##\" && hasCategory(\"GCP/ComputeEngine\")"
+            },
+            {
+              "name": "us-east1",
+              "appliesTo": "system.gcp.region == \"us-east1\" && join(system.groups, \",\") =~ \"##defaultDeviceGroup##\" && hasCategory(\"GCP/ComputeEngine\")"
+            },
+            {
+              "name": "australia-southeast1",
+              "appliesTo": "system.gcp.region == \"australia-southeast1\" && join(system.groups, \",\") =~ \"##defaultDeviceGroup##\" && hasCategory(\"GCP/ComputeEngine\")"
+            },
+            {
+              "name": "northamerica-northeast1",
+              "appliesTo": "system.gcp.region == \"northamerica-northeast1\" && join(system.groups, \",\") =~ \"##defaultDeviceGroup##\" && hasCategory(\"GCP/ComputeEngine\")"
+            }
+          ],
+          "dataPoints": [],
+          "bigNumberItems": [
+            {
+              "dataPointName": "europe-west2",
+              "useCommaSeparators": false,
+              "bottomLabel": "europe-west2",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "us-east1",
+              "useCommaSeparators": false,
+              "bottomLabel": "us-east1",
+              "rounding": 0,
+              "position": 2,
+              "rightLabel": "",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "australia-southeast1",
+              "useCommaSeparators": false,
+              "bottomLabel": "australia-southeast1",
+              "rounding": 0,
+              "position": 3,
+              "rightLabel": "",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "northamerica-northeast1",
+              "useCommaSeparators": false,
+              "bottomLabel": "northamerica-northeast1",
+              "rounding": 0,
+              "position": 4,
+              "rightLabel": "",
+              "colorThresholds": null
+            }
+          ]
+        },
+        "displaySettings": {},
+        "name": "Compute Engine Instances - Other",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2
+}
