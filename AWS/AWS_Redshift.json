@@ -1,0 +1,1024 @@
+{
+  "santabaRelease": 111,
+  "widgetTokens": [],
+  "name": "AWS RedShift - Billing Disabled",
+  "description": "",
+  "widgetsConfigVersion": 2,
+  "widgets": [
+    {
+      "position": {
+        "col": 5,
+        "sizex": 3,
+        "row": 5,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top 10 Nodes by CPU Utilization",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "CPUUtilization",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "AWS Redshift Nodes (AWS_Redshift_Nodes)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##_##DATASOURCENAME##_##INSTANCE##",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "CPUUtilization",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##*"
+            }
+          }],
+          "verticalLabel": "percent",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 9,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Network Throughput",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [
+            {
+              "dataPointName": "NetworkReceiveThroughput",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "AWS Redshift Nodes (AWS_Redshift_Nodes)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##HOSTNAME##_##DATASOURCENAME##_##INSTANCE##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "Receive",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultDeviceGroup##"
+              }
+            },
+            {
+              "dataPointName": "NetworkTransmitThroughput",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "AWS Redshift Nodes (AWS_Redshift_Nodes)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##HOSTNAME##_##DATASOURCENAME##_##INSTANCE##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "Transmit",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultDeviceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "per second",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 8,
+        "sizex": 3,
+        "row": 9,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {"pageSize": "25"},
+        "columns": [{
+          "rpn": "",
+          "dataPointName": "PercentageDiskSpaceUsed",
+          "displayType": "percent",
+          "minValue": 0,
+          "maxValue": 100,
+          "colorThresholds": [
+            {
+              "level": 2,
+              "threshold": 75,
+              "relation": ">"
+            },
+            {
+              "level": 3,
+              "threshold": 85,
+              "relation": ">"
+            },
+            {
+              "level": 4,
+              "threshold": 95,
+              "relation": ">"
+            }
+          ],
+          "columnName": "PercentageDiskSpaceUsed",
+          "enableForecast": false,
+          "roundingDecimal": 2
+        }],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##HOSTNAME##_##INSTANCE##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultDeviceGroup##"
+        }],
+        "version": 2,
+        "topX": 10,
+        "dataSourceFullName": "AWS Redshift Nodes (AWS_Redshift_Nodes)",
+        "sortOrder": "ascending",
+        "name": "Underutilized Nodes by Storage",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 1,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top 10 Nodes by Total IOPS",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "ReadIOPS",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "AWS Redshift Nodes (AWS_Redshift_Nodes)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##HOSTNAME##_##DATASOURCENAME##_##INSTANCE##",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "ReadIOPS",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultDeviceGroup##"
+              }
+            },
+            {
+              "dataPointName": "WriteIOPS",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "AWS Redshift Nodes (AWS_Redshift_Nodes)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##HOSTNAME##_##DATASOURCENAME##_##INSTANCE##",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "WriteIOPS",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultDeviceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "IOPS",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 1,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Read/Write Latency",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "(ReadLatency + WriteLatency) / 2",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##_##DATASOURCENAME##_##INSTANCE##",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "Average_ReadWrite_Latency"
+          }],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [
+            {
+              "dataPointName": "ReadLatency",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "AWS Redshift Nodes (AWS_Redshift_Nodes)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "ReadLatency",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultDeviceGroup##"
+              }
+            },
+            {
+              "dataPointName": "WriteLatency",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "AWS Redshift Nodes (AWS_Redshift_Nodes)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "WriteLatency",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultDeviceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "percent",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 5,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Read/Write Throughput",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "ReadThroughput",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "AWS Redshift Nodes (AWS_Redshift_Nodes)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##HOSTNAME##_##DATASOURCENAME##_##INSTANCE##",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "ReadThroughput",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultDeviceGroup##"
+              }
+            },
+            {
+              "dataPointName": "WriteThroughput",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "AWS Redshift Nodes (AWS_Redshift_Nodes)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##HOSTNAME##_##DATASOURCENAME##_##INSTANCE##",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "WriteThroughput",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultDeviceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "Seconds",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 5,
+        "sizey": 4
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "redshift",
+            "appliesTo": "hascategory(\"AWS/RedShift\") && join(system.groups,\",\") =~ \"##defaultDeviceGroup##\""
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "redshift",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Total Nodes",
+        "description": "",
+        "theme": "solidBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 3,
+        "row": 9,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {"pageSize": "25"},
+        "columns": [{
+          "rpn": "",
+          "dataPointName": "CPUUtilization",
+          "displayType": "percent",
+          "minValue": 0,
+          "maxValue": 100,
+          "colorThresholds": [],
+          "columnName": "CPUUtilization",
+          "enableForecast": false,
+          "roundingDecimal": 2
+        }],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##HOSTNAME##_##INSTANCE##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultDeviceGroup##"
+        }],
+        "version": 2,
+        "topX": 10,
+        "dataSourceFullName": "AWS Redshift Nodes (AWS_Redshift_Nodes)",
+        "sortOrder": "ascending",
+        "name": "Underutilized Nodes by CPU",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 9,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "sortDirection": "desc",
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n    Device/Website\n\n    ",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Effective Thresholds",
+              "columnKey": "alert-thresholds"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sortBy": "startEpoch"
+        },
+        "name": "AWS Service Health",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "dataPoint": "",
+          "host": "",
+          "rule": "",
+          "keyword": "",
+          "dataSource": "AWS%20Service%20Health",
+          "acked": "all",
+          "cleared": "no",
+          "group": "%23%23defaultDeviceGroup%23%23*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 8,
+        "sizex": 3,
+        "row": 5,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top 10 nodes by Storage",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "PercentageDiskSpaceUsed",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "AWS Redshift Nodes (AWS_Redshift_Nodes)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##_##DATASOURCENAME##_##INSTANCE##",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "PercentageDiskSpaceUsed",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "percent",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 13,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Cluster CPU Utilization",
+        "description": "",
+        "theme": "newSolidBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "CPUUtilization",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Redshift Cluster (AWS_RedshiftCluster)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##_##DATASOURCENAME##_##INSTANCE##",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "CPUUtilization",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "percent",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 3,
+        "row": 13,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Cluster Network Throughput",
+        "description": "",
+        "theme": "newSolidBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "NetworkReceiveThroughput",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Redshift Cluster (AWS_RedshiftCluster)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##HOSTNAME##_##DATASOURCENAME##_##INSTANCE##",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "Receive",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultDeviceGroup##"
+              }
+            },
+            {
+              "dataPointName": "NetworkTransmitThroughput",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Redshift Cluster (AWS_RedshiftCluster)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##HOSTNAME##_##DATASOURCENAME##_##INSTANCE##",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "NetworkTransmitThroughput",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultDeviceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "per second",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 3,
+        "row": 13,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Cluster Storage",
+        "description": "",
+        "theme": "newSolidBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "PercentageDiskSpaceUsed",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Redshift Cluster (AWS_RedshiftCluster)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##_##DATASOURCENAME##_##INSTANCE##",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "PercentageDiskSpaceUsed",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "percent",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 13,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Cluster Database Connections",
+        "description": "",
+        "theme": "newSolidBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "DatabaseConnections",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Redshift Cluster (AWS_RedshiftCluster)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##_##DATASOURCENAME##_##INSTANCE##",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "DatabaseConnections",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "Connections",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 1,
+        "sizey": 4
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 1,
+        "name": "Cluster Alerts",
+        "displayCriticalAlert": true,
+        "theme": "newSolidBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [
+          {
+            "dataPointName": "HealthStatus",
+            "instanceName": "*",
+            "name": "##INSTANCE##_##DATAPOINT##",
+            "dataSourceDisplayName": "Redshift Cluster",
+            "groupBy": "dataPoint",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultDeviceGroup##",
+            "deviceDisplayName": "*"
+          },
+          {
+            "dataPointName": "CPUUtilization",
+            "instanceName": "*",
+            "name": "##INSTANCE##_##DATAPOINT##",
+            "dataSourceDisplayName": "Redshift Cluster",
+            "groupBy": "dataPoint",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultDeviceGroup##",
+            "deviceDisplayName": "*"
+          },
+          {
+            "dataPointName": "PercentageDiskSpaceUsed",
+            "instanceName": "*",
+            "name": "##INSTANCE##_##DATAPOINT##",
+            "dataSourceDisplayName": "Redshift Cluster",
+            "groupBy": "dataPoint",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultDeviceGroup##",
+            "deviceDisplayName": "*"
+          }
+        ]
+      }
+    }
+  ],
+  "version": 2
+}

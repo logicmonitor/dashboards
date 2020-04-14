@@ -1,0 +1,293 @@
+{
+  "widgetTokens": [],
+  "name": "AWS EBS Overview",
+  "description": "",
+  "widgetsConfigVersion": 2,
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 1,
+        "sizey": 3
+      },
+      "config": {
+        "ackChecked": true,
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "extra": "{\"displayAs\":\"table\"}",
+        "displayColumn": 5,
+        "name": "EBS NOC",
+        "displayCriticalAlert": true,
+        "theme": "newBorderBlue",
+        "interval": 5,
+        "sortBy": "name",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##HOSTNAME##",
+          "dataSourceDisplayName": "*",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultDeviceGroup##/EBS",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "extra": "{\"columns\":[{\"columnKey\":\"alert-severity\",\"columnLabel\":\"Severity\",\"visible\":false},{\"columnKey\":\"alert-full-path\",\"columnLabel\":\"Full Path\",\"visible\":false},{\"columnKey\":\"alert-began\",\"columnLabel\":\"Began\",\"visible\":true},{\"columnKey\":\"alert-device\",\"columnLabel\":\"\\n    Device/Service\\n\\n    \",\"visible\":true},{\"columnKey\":\"alert-datasource\",\"columnLabel\":\"DataSource\",\"visible\":true},{\"columnKey\":\"alert-datasource-instance\",\"columnLabel\":\"Instance\",\"visible\":true},{\"columnKey\":\"alert-datapoint\",\"columnLabel\":\"Datapoint\",\"visible\":true},{\"columnKey\":\"alert-value\",\"columnLabel\":\"Value\",\"visible\":true},{\"columnKey\":\"alert-thresholds\",\"columnLabel\":\"Effective Thresholds\",\"visible\":true},{\"columnKey\":\"alert-group\",\"columnLabel\":\"Group\",\"visible\":true},{\"columnKey\":\"alert-notes\",\"columnLabel\":\"Notes\",\"visible\":true},{\"columnKey\":\"alert-acked-by\",\"columnLabel\":\"Acknowledged By\",\"visible\":true},{\"columnKey\":\"alert-acked-on\",\"columnLabel\":\"Acknowledged On\",\"visible\":true},{\"columnKey\":\"alert-cleared-on\",\"columnLabel\":\"Cleared On\",\"visible\":true},{\"columnKey\":\"alert-in-sdt\",\"columnLabel\":\"In SDT\",\"visible\":true},{\"columnKey\":\"alert-rule-name\",\"columnLabel\":\"Alert Rule\",\"visible\":true},{\"columnKey\":\"alert-escalation-chain\",\"columnLabel\":\"Escalation Chain\",\"visible\":true},{\"columnKey\":\"alert-datasource-instance-description\",\"columnLabel\":\"Instance Description\",\"visible\":true}],\"showFilter\":false,\"fontsize\":\"normal-font\",\"sortBy\":\"startEpoch\",\"sortDirection\":\"desc\",\"playSound\":{},\"isShowAll\":true}",
+        "name": "EBS Alerts",
+        "description": "",
+        "theme": "newSolidBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "dataPoint": "",
+          "host": "",
+          "rule": "",
+          "keyword": "",
+          "dataSource": "",
+          "acked": "all",
+          "cleared": "no",
+          "group": "%23%23defaultDeviceGroup%23%23%2FEBS"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 6,
+        "sizey": 3
+      },
+      "config": {
+        "extra": "",
+        "name": "Top EBS by Read & Write Latency",
+        "description": "",
+        "theme": "newBorderBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "ReadLatency",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "consolidateFunction": 1,
+              "dataSourceFullName": "EBS (AWS_EBS)",
+              "display": {
+                "color": "Auto",
+                "legend": "",
+                "type": 1,
+                "option": "default"
+              },
+              "name": "ReadLatency",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": false,
+                "value": "##defaultDeviceGroup##/EBS"
+              }
+            },
+            {
+              "dataPointName": "WriteLatency",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "consolidateFunction": 1,
+              "dataSourceFullName": "EBS (AWS_EBS)",
+              "display": {
+                "color": "Auto",
+                "legend": "",
+                "type": 1,
+                "option": "default"
+              },
+              "name": "WriteLatency",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": false,
+                "value": "##defaultDeviceGroup##/EBS"
+              }
+            }
+          ],
+          "verticalLabel": "ms",
+          "aggregate": false,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "extra": "",
+        "name": "Top EBS by Busy Percent",
+        "description": "",
+        "theme": "newBorderBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "BusyPercent",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "consolidateFunction": 1,
+            "dataSourceFullName": "EBS (AWS_EBS)",
+            "display": {
+              "color": "Auto",
+              "legend": "",
+              "type": 1,
+              "option": "default"
+            },
+            "name": "BusyPercent",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": false,
+              "value": "##defaultDeviceGroup##/EBS"
+            }
+          }],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 7,
+        "sizey": 2
+      },
+      "config": {
+        "extra": "{\"columns\":[{\"columnKey\":\"alert-severity\",\"columnLabel\":\"Severity\",\"visible\":false},{\"columnKey\":\"alert-full-path\",\"columnLabel\":\"Full Path\",\"visible\":false},{\"columnKey\":\"alert-began\",\"columnLabel\":\"Began\",\"visible\":true},{\"columnKey\":\"alert-device\",\"columnLabel\":\"\\n    Device/Service\\n\\n    \",\"visible\":true},{\"columnKey\":\"alert-datasource\",\"columnLabel\":\"DataSource\",\"visible\":true},{\"columnKey\":\"alert-datasource-instance\",\"columnLabel\":\"Instance\",\"visible\":true},{\"columnKey\":\"alert-datapoint\",\"columnLabel\":\"Datapoint\",\"visible\":true},{\"columnKey\":\"alert-value\",\"columnLabel\":\"Value\",\"visible\":true},{\"columnKey\":\"alert-thresholds\",\"columnLabel\":\"Effective Thresholds\",\"visible\":true},{\"columnKey\":\"alert-group\",\"columnLabel\":\"Group\",\"visible\":true},{\"columnKey\":\"alert-notes\",\"columnLabel\":\"Notes\",\"visible\":true},{\"columnKey\":\"alert-acked-by\",\"columnLabel\":\"Acknowledged By\",\"visible\":true},{\"columnKey\":\"alert-acked-on\",\"columnLabel\":\"Acknowledged On\",\"visible\":true},{\"columnKey\":\"alert-cleared-on\",\"columnLabel\":\"Cleared On\",\"visible\":true},{\"columnKey\":\"alert-in-sdt\",\"columnLabel\":\"In SDT\",\"visible\":true},{\"columnKey\":\"alert-rule-name\",\"columnLabel\":\"Alert Rule\",\"visible\":true},{\"columnKey\":\"alert-escalation-chain\",\"columnLabel\":\"Escalation Chain\",\"visible\":true},{\"columnKey\":\"alert-datasource-instance-description\",\"columnLabel\":\"Instance Description\",\"visible\":true}],\"showFilter\":false,\"fontsize\":\"normal-font\",\"sortBy\":\"startEpoch\",\"sortDirection\":\"desc\",\"playSound\":{},\"isShowAll\":true}",
+        "name": "AWS Service Health",
+        "description": "",
+        "theme": "newSolidBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "dataPoint": "",
+          "host": "",
+          "rule": "",
+          "keyword": "",
+          "dataSource": "AWS%20Service%20Health",
+          "acked": "all",
+          "cleared": "no",
+          "group": "%23%23defaultDeviceGroup%23%23*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 4,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [
+            {
+              "name": "EBS",
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultDeviceGroup##\" && hasCategory(\"AWS/EBS\")"
+            },
+            {
+              "name": "Unattached_EBS",
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultDeviceGroup##\" && startsWith(system.aws.attachments, \"[]\")"
+            }
+          ],
+          "dataPoints": [],
+          "bigNumberItems": [
+            {
+              "dataPointName": "EBS",
+              "useCommaSeparators": false,
+              "bottomLabel": "EBS Volumes",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "Unattached_EBS",
+              "useCommaSeparators": false,
+              "bottomLabel": "Unattached EBS Volumes",
+              "rounding": 0,
+              "position": 2,
+              "rightLabel": "",
+              "colorThresholds": null
+            }
+          ]
+        },
+        "extra": "",
+        "name": "EBS Volume Inventory",
+        "description": "",
+        "theme": "newSolidBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2
+}

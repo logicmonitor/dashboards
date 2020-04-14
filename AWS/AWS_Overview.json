@@ -1,0 +1,108 @@
+{
+  "widgetTokens": [],
+  "name": "AWS Overview",
+  "description": "",
+  "widgetsConfigVersion": 2,
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 5,
+        "sizey": 4
+      },
+      "config": {
+        "ackChecked": true,
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "extra": "{\"displayAs\":\"table\",\"showTypeIcon\":true}",
+        "displayColumn": 5,
+        "name": "##defaultDeviceGroup## NOC",
+        "displayCriticalAlert": true,
+        "theme": "newBorderBlue",
+        "interval": 5,
+        "sortBy": "name",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##DEVICEGROUP##",
+          "dataSourceDisplayName": "*",
+          "groupBy": "deviceGroup",
+          "type": "device",
+          "deviceGroupFullPath": "(##defaultDeviceGroup##|##defaultDeviceGroup##/!(*/*))",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 1,
+        "sizey": 4
+      },
+      "config": {
+        "extra": "{\"columns\":[{\"columnKey\":\"alert-severity\",\"columnLabel\":\"Severity\",\"visible\":false},{\"columnKey\":\"alert-full-path\",\"columnLabel\":\"Full Path\",\"visible\":false},{\"columnKey\":\"alert-began\",\"columnLabel\":\"Began\",\"visible\":true},{\"columnKey\":\"alert-device\",\"columnLabel\":\"\\n    Device/Service\\n\\n    \",\"visible\":true},{\"columnKey\":\"alert-datasource\",\"columnLabel\":\"LogicModule\",\"visible\":true},{\"columnKey\":\"alert-datasource-instance\",\"columnLabel\":\"Instance\",\"visible\":true},{\"columnKey\":\"alert-datapoint\",\"columnLabel\":\"Datapoint\",\"visible\":true},{\"columnKey\":\"alert-value\",\"columnLabel\":\"Value\",\"visible\":true},{\"columnKey\":\"alert-thresholds\",\"columnLabel\":\"Effective Thresholds\",\"visible\":true},{\"columnKey\":\"alert-group\",\"columnLabel\":\"Group\",\"visible\":true},{\"columnKey\":\"alert-notes\",\"columnLabel\":\"Notes\",\"visible\":true},{\"columnKey\":\"alert-acked-by\",\"columnLabel\":\"Acknowledged By\",\"visible\":true},{\"columnKey\":\"alert-acked-on\",\"columnLabel\":\"Acknowledged On\",\"visible\":true},{\"columnKey\":\"alert-cleared-on\",\"columnLabel\":\"Cleared On\",\"visible\":true},{\"columnKey\":\"alert-in-sdt\",\"columnLabel\":\"In SDT\",\"visible\":true},{\"columnKey\":\"alert-rule-name\",\"columnLabel\":\"Alert Rule\",\"visible\":true},{\"columnKey\":\"alert-escalation-chain\",\"columnLabel\":\"Escalation Chain\",\"visible\":true},{\"columnKey\":\"alert-datasource-instance-description\",\"columnLabel\":\"Instance Description\",\"visible\":true}],\"showFilter\":false,\"fontsize\":\"normal-font\",\"sortBy\":\"startEpoch\",\"sortDirection\":\"desc\",\"playSound\":{},\"isShowAll\":true}",
+        "name": "##defaultDeviceGroup## Alerts",
+        "description": "",
+        "theme": "newSolidBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "dataPoint": "",
+          "host": "",
+          "rule": "",
+          "keyword": "",
+          "dataSource": "!(AWS%20Service%20Health)",
+          "acked": "all",
+          "cleared": "no",
+          "group": "%23%23defaultDeviceGroup%23%23*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 1,
+        "sizey": 4
+      },
+      "config": {
+        "extra": "{\"columns\":[{\"columnKey\":\"alert-severity\",\"columnLabel\":\"Severity\",\"visible\":false},{\"columnKey\":\"alert-full-path\",\"columnLabel\":\"Full Path\",\"visible\":false},{\"columnKey\":\"alert-began\",\"columnLabel\":\"Began\",\"visible\":true},{\"columnKey\":\"alert-device\",\"columnLabel\":\"\\n    Device/Service\\n\\n    \",\"visible\":true},{\"columnKey\":\"alert-datasource\",\"columnLabel\":\"DataSource\",\"visible\":true},{\"columnKey\":\"alert-datasource-instance\",\"columnLabel\":\"Instance\",\"visible\":true},{\"columnKey\":\"alert-datapoint\",\"columnLabel\":\"Datapoint\",\"visible\":true},{\"columnKey\":\"alert-value\",\"columnLabel\":\"Value\",\"visible\":true},{\"columnKey\":\"alert-thresholds\",\"columnLabel\":\"Effective Thresholds\",\"visible\":true},{\"columnKey\":\"alert-group\",\"columnLabel\":\"Group\",\"visible\":true},{\"columnKey\":\"alert-notes\",\"columnLabel\":\"Notes\",\"visible\":true},{\"columnKey\":\"alert-acked-by\",\"columnLabel\":\"Acknowledged By\",\"visible\":true},{\"columnKey\":\"alert-acked-on\",\"columnLabel\":\"Acknowledged On\",\"visible\":true},{\"columnKey\":\"alert-cleared-on\",\"columnLabel\":\"Cleared On\",\"visible\":true},{\"columnKey\":\"alert-in-sdt\",\"columnLabel\":\"In SDT\",\"visible\":true},{\"columnKey\":\"alert-rule-name\",\"columnLabel\":\"Alert Rule\",\"visible\":true},{\"columnKey\":\"alert-escalation-chain\",\"columnLabel\":\"Escalation Chain\",\"visible\":true},{\"columnKey\":\"alert-datasource-instance-description\",\"columnLabel\":\"Instance Description\",\"visible\":true}],\"showFilter\":false,\"fontsize\":\"normal-font\",\"sortBy\":\"startEpoch\",\"sortDirection\":\"desc\",\"playSound\":{},\"isShowAll\":true}",
+        "name": "AWS Service Health",
+        "description": "",
+        "theme": "newSolidBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "dataPoint": "",
+          "host": "",
+          "rule": "",
+          "keyword": "",
+          "dataSource": "AWS%20Service%20Health",
+          "acked": "all",
+          "cleared": "no",
+          "group": "%23%23defaultDeviceGroup%23%23*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2
+}
