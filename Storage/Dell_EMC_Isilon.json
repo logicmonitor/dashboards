@@ -1,0 +1,1103 @@
+{
+  "santabaRelease": 134,
+  "widgetTokens": [
+    {
+      "name": "defaultResourceGroup",
+      "value": "*"
+    },
+    {
+      "name": "defaultResourceName",
+      "value": "*"
+    }
+  ],
+  "name": "Dell EMC Isilon",
+  "description": "",
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 7,
+        "name": "Isilon Node Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##RESOURCENAME##",
+          "dataSourceDisplayName": "Node*",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "##defaultResourceName##"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 7,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Isilon Node CPU Utilization Breakdown (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [
+            {
+              "dataPointName": "CPUNicePercent",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Node Performance (Isilion Node Performance)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## Nice",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "CPUNicePercent",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "CPUInteruptPercent",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Node Performance (Isilion Node Performance)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## Interrupt",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "CPUInteruptPercent",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "CPUSystemPercent",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Node Performance (Isilion Node Performance)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## System",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "CPUSystemPercent",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "CPUUserPercent",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Node Performance (Isilion Node Performance)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## User",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "CPUUserPercent",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 18,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Isilon Node IFS Throughput",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [
+            {
+              "rpn": "NodeIFSInBitsPerSecond/8",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## In",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "InBytes"
+            },
+            {
+              "rpn": "NodeIFSOutBitsPerSecond/8",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## Out",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "OutBytes"
+            }
+          ],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "NodeIFSInBitsPerSecond",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Node Performance (Isilion Node Performance)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "NodeIFSInBitsPerSecond",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "NodeIFSOutBitsPerSecond",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Node Performance (Isilion Node Performance)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "NodeIFSOutBitsPerSecond",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bytes/sec.",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 6,
+        "sizex": 5,
+        "row": 1,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Isilon Disks by IOPS (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "DiskOpsPerSecond",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Node Disks- (Isilon Node Disks-)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "DiskOpsPerSecond",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "##defaultResourceName##"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "IOPS",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 5,
+        "row": 1,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Isilon Disks by Throughput (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "(DiskInbitsPerSecond + DiskOutBitsPerSecond) / 8",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "TotalThroughput_Bytes"
+          }],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "DiskInbitsPerSecond",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Node Disks- (Isilon Node Disks-)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "DiskInbitsPerSecond",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "DiskOutBitsPerSecond",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Node Disks- (Isilon Node Disks-)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "DiskOutBitsPerSecond",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bytes/sec",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 10,
+        "sizey": 4
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 7,
+        "name": "Isilon Node Fan Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##INSTANCE## - ##RESOURCENAME##",
+          "dataSourceDisplayName": "Node Fans-",
+          "groupBy": "instance",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "##defaultResourceName##"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 10,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Isilon Node Protocol Performance (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "OpsPerSecond",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Node Protocol Performance- (Isilon Node Protocol Performance-)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE##",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "OpsPerSecond",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "##defaultResourceName##"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "operations/sec.",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 18,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Isilon Node Network Performance",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "nodeNetworkInBitsPerSecond",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Node Network Performance (Isilon Node Network Performance)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## In",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "clusterNetworkInBitsPerSecond",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "nodeNetworkOutBitsPerSecond",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Node Network Performance (Isilon Node Network Performance)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## Out",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "clusterNetworkOutBitsPerSecond",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bits per second",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 5,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 8,
+        "name": "Isilon Disks Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "diskStatus",
+          "instanceName": "*",
+          "name": "##INSTANCE## - ##RESOURCENAME##",
+          "dataSourceDisplayName": "Node Disks-",
+          "groupBy": "instance",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "##defaultResourceName##"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 21,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Effective Thresholds",
+              "columnKey": "alert-thresholds"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "name": "Isilon Alerts",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "%23%23defaultResourceName%23%23",
+          "keyword": "",
+          "dataSource": "Node*",
+          "cleared": "no",
+          "group": "%23%23defaultResourceGroup%23%23*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 10,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Isilon Node Protocol Distribution",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "pieChart",
+        "timescale": "day",
+        "pieChartInfo": {
+          "maxSlicesCanBeShown": 25,
+          "virtualDataPoints": [],
+          "showLabelsAndLinesOnPC": true,
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "OpsPerSecond",
+            "top10": true,
+            "instanceName": "*",
+            "dataSourceFullName": "Node Protocol Performance- (Isilon Node Protocol Performance-)",
+            "name": "OpsPerSecond",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "##defaultResourceName##",
+            "aggregate": false
+          }],
+          "hideZeroPercentSlices": false,
+          "groupRemainingAsOthers": false,
+          "pieChartItems": [{
+            "dataPointName": "OpsPerSecond",
+            "color": "Auto",
+            "legend": "##INSTANCE## - ##RESOURCENAME##"
+          }],
+          "title": "Isilon Node Protocol Distribution"
+        },
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 7,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 153,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            User CPU Utilization\n            \n        ",
+              "columnSize": 135,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            System CPU Utilization\n            \n        ",
+              "columnSize": 153,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Idle CPU Utilization\n            \n        ",
+              "columnSize": 136,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Interrupt CPU Utilization\n            \n        ",
+              "columnSize": 161,
+              "columnKey": "3"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Nice CPU Utilization\n            \n        ",
+              "columnSize": 162,
+              "columnKey": "4"
+            }
+          ],
+          "pageSize": "10"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "CPUUserPercent",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "User CPU Utilization",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "CPUSystemPercent",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "System CPU Utilization",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "CPUIdlePercent",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "%",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Idle CPU Utilization",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "CPUInteruptPercent",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "%",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Interrupt CPU Utilization",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "CPUNicePercent",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "%",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Nice CPU Utilization",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME##",
+          "deviceDisplayName": "##defaultResourceName##",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 10,
+        "dataSourceFullName": "Node Performance (Isilion Node Performance)",
+        "sortOrder": "descending",
+        "name": "Isilon CPU Statistics",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 3,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "nodes",
+            "appliesTo": "hasCategory(\"Isilon\")"
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "nodes",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Total Isilon Nodes",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Isilon Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 7,
+        "row": 14,
+        "sizey": 4
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 8,
+        "name": "Isilon Node Temperature Sensor Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "tempSensorValue",
+          "instanceName": "*",
+          "name": "##INSTANCE## - ##RESOURCENAME##",
+          "dataSourceDisplayName": "Node Temperature Sensor-",
+          "groupBy": "instance",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "##defaultResourceName##"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 8,
+        "sizex": 5,
+        "row": 14,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Isilon Node Temperature Sensors (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "tempSensorValue",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Node Temperature Sensor- (Isilon Temp Sensor-)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "tempSensorValue",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "##defaultResourceName##"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "°C",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2,
+  "group": {
+    "name": "Storage",
+    "fullPath": "LogicMonitor Dashboards/Storage",
+    "description": ""
+  }
+}

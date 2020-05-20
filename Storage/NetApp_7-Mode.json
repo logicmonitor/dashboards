@@ -1,0 +1,1177 @@
+{
+  "santabaRelease": 134,
+  "widgetTokens": [
+    {
+      "name": "defaultResourceGroup",
+      "value": "*"
+    },
+    {
+      "name": "defaultResourceName",
+      "value": "*"
+    }
+  ],
+  "name": "NetApp 7-Mode",
+  "description": "",
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 12,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "NetApp Volume Utilization (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "volume_utilization",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "NetApp Volumes (NetApp_7mode_Volumes)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE##: ##RESOURCENAME##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "volume_utilization",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "##defaultResourceName##"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "NetApp Global IOPS",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "total_ops",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "NetApp Global Performance (NetApp_7mode_GlobalPerformance)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME## - ##INSTANCE##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "total_ops",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "##defaultResourceName##"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "IOPS",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 4,
+        "row": 11,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "NetApp Network Throughput",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "(net_data_recv*8) + (net_data_sent*8)",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "total_bps"
+          }],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "net_data_recv",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "NetApp Global Performance (NetApp_7mode_GlobalPerformance)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "net_data_recv",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "net_data_sent",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "NetApp Global Performance (NetApp_7mode_GlobalPerformance)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "net_data_sent",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bits per second",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 15,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 255,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Aggregate Utilization\n            \n        ",
+              "columnSize": 160,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n                    Days Until Alert\n                ",
+              "columnSize": 177,
+              "columnKey": "0-forecast"
+            }
+          ],
+          "pageSize": "5"
+        },
+        "columns": [{
+          "rpn": "",
+          "dataPointName": "storage_utilization",
+          "displayType": "percent",
+          "minValue": 0,
+          "unitLabel": "",
+          "maxValue": 100,
+          "colorThresholds": [
+            {
+              "level": 2,
+              "threshold": 85,
+              "relation": ">="
+            },
+            {
+              "level": 3,
+              "threshold": 95,
+              "relation": ">="
+            }
+          ],
+          "columnName": "Aggregate Utilization",
+          "enableForecast": true,
+          "roundingDecimal": 2
+        }],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 7 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME## - ##INSTANCE##",
+          "deviceDisplayName": "##defaultResourceName##",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 25,
+        "dataSourceFullName": "NetApp Aggregates (NetApp_7mode_Aggregates)",
+        "sortOrder": "descending",
+        "name": "NetApp Aggregate Utilization",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 3,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 272,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            CPU Utilization\n            \n        ",
+              "columnSize": 136,
+              "columnKey": "0"
+            }
+          ],
+          "pageSize": "5"
+        },
+        "columns": [{
+          "rpn": "",
+          "dataPointName": "cpu_busy_percent",
+          "displayType": "percent",
+          "minValue": 0,
+          "unitLabel": "",
+          "maxValue": 100,
+          "colorThresholds": [
+            {
+              "level": 2,
+              "threshold": 90,
+              "relation": ">"
+            },
+            {
+              "level": 3,
+              "threshold": 93,
+              "relation": ">"
+            },
+            {
+              "level": 4,
+              "threshold": 96,
+              "relation": ">"
+            }
+          ],
+          "columnName": "CPU Usage percent",
+          "enableForecast": false,
+          "roundingDecimal": 2
+        }],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME##",
+          "deviceDisplayName": "##defaultResourceName##",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 25,
+        "dataSourceFullName": "NetApp Global Performance (NetApp_7mode_GlobalPerformance)",
+        "sortOrder": "descending",
+        "name": "NetApp CPU Utilization",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 9,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 238,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Volume Usage %\n            \n        ",
+              "columnSize": 116,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n                    Days Until Alert\n                ",
+              "columnSize": 87,
+              "columnKey": "0-forecast"
+            }
+          ],
+          "pageSize": "5"
+        },
+        "columns": [{
+          "rpn": "",
+          "dataPointName": "volume_utilization",
+          "displayType": "percent",
+          "minValue": 0,
+          "unitLabel": "",
+          "maxValue": 100,
+          "colorThresholds": [{
+            "level": 2,
+            "threshold": 85,
+            "relation": ">"
+          }],
+          "columnName": "Volume Usage %",
+          "enableForecast": true,
+          "roundingDecimal": 2
+        }],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 7 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME## - ##INSTANCE##",
+          "deviceDisplayName": "##defaultResourceName##",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 25,
+        "dataSourceFullName": "NetApp Volumes (NetApp_7mode_Volumes)",
+        "sortOrder": "descending",
+        "name": "NetApp Volume Utilization",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 3,
+        "sizey": 12
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "list"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 1,
+        "name": "Netapp Disk Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "DiskBusyPercent",
+          "instanceName": "*",
+          "name": "##INSTANCE##",
+          "dataSourceDisplayName": "NetApp Disks",
+          "groupBy": "instance",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "##defaultResourceName##"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 8,
+        "sizex": 3,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Netapp Disks by IOPS",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "user_reads+ user_writes",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE##: ##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "total_ops"
+          }],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "user_reads",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "NetApp Disks (NetApp_7mode_Disks)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "user_reads",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "user_writes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "NetApp Disks (NetApp_7mode_Disks)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "user_writes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "IOPS",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 8,
+        "sizex": 3,
+        "row": 7,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Netapp Busiest Disks",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "DiskBusyPercent",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "NetApp Disks (NetApp_7mode_Disks)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE##: ##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "DiskBusyPercent",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "##defaultResourceName##"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 8,
+        "sizex": 3,
+        "row": 11,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Netapp Least Busy Disks",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "DiskBusyPercent",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "NetApp Disks (NetApp_7mode_Disks)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE##: ##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "DiskBusyPercent",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "##defaultResourceName#"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": false,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 6,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "NetApp CPU Utilization (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "cpu_busy_percent",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "NetApp Global Performance (NetApp_7mode_GlobalPerformance)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "cpu_busy_percent",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 15,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "NetApp Aggregate Utilization (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "storage_utilization",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "NetApp Aggregates (NetApp_7mode_Aggregates)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE##: ##RESOURCENAME##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "storage_utilization",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "##defaultResourceName##"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Netapp RAIDs by Total Block Operations",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "blocks_read + blocks_written",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "total_ops"
+          }],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "blocks_read",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "NetApp RAID (NetApp_7mode_RAID)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "blocks_read",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "blocks_written",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "NetApp RAID (NetApp_7mode_RAID)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "blocks_written",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "operations/sec",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 18,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Effective Thresholds",
+              "columnKey": "alert-thresholds"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "name": "NetApp Alerts",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "%23%23defaultResourceName%23%23",
+          "keyword": "",
+          "dataSource": "NetApp*",
+          "cleared": "no",
+          "group": "%23%23defaultResourceGroup%23%23*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 6,
+        "name": "NetApp Cluster + Node Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "##RESOURCENAME##",
+            "dataSourceDisplayName": "NetApp*",
+            "groupBy": "device",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "##defaultResourceName##"
+          },
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "##RESOURCENAME##  - ##INSTANCE##",
+            "dataSourceDisplayName": "NetApp Aggregates",
+            "groupBy": "instance",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "##defaultResourceName##"
+          }
+        ]
+      }
+    },
+    {
+      "position": {
+        "sizex": 4,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 232,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Newest Snapshot (hours)\n            \n        ",
+              "columnSize": 113,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Oldest Snapshot (hours)\n            \n        ",
+              "columnSize": 107,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Max Configured Snapshot Age\n            \n        ",
+              "columnSize": 138,
+              "columnKey": "2"
+            }
+          ],
+          "pageSize": "10"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "newest_snapshot_hours",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Newest Snapshot (hours)",
+            "enableForecast": false,
+            "roundingDecimal": 1
+          },
+          {
+            "rpn": "",
+            "dataPointName": "oldest_snapshot_hours",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Oldest Snapshot (hours)",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "max_snapshot_age_hours",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Max Configured Snapshot Age",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 7 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME## - ##INSTANCE##",
+          "deviceDisplayName": "##defaultResourceName##",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 25,
+        "dataSourceFullName": "NetApp Snapshot Scheduler (NetApp_7mode_SnapshotScheduler)",
+        "sortOrder": "descending",
+        "name": "NetApp Snapshot Schedulers",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    }
+  ],
+  "version": 2,
+  "group": {
+    "name": "Storage",
+    "fullPath": "LogicMonitor Dashboards/Storage",
+    "description": ""
+  }
+}

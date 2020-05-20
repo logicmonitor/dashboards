@@ -1,0 +1,817 @@
+{
+  "santabaRelease": 134,
+  "widgetTokens": [
+    {
+      "name": "defaultResourceGroup",
+      "value": "Devices by Type/Windows Servers"
+    },
+    {
+      "name": "defaultResourceName",
+      "value": "*"
+    }
+  ],
+  "name": "IIS",
+  "description": "Microsoft Internet Information Server",
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 8,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Microsoft IIS Connections (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "CurrentConnections",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "IIS- (WinIIS-)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##HOSTNAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "CurrentConnections",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "##defaultResourceName##"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "per second",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 8,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Microsoft IIS Requests (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "TotalMethodRequests",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "IIS- (WinIIS-)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## Method - ##HOSTNAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "TotalMethodRequests",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "TotalGetRequests",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "IIS- (WinIIS-)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## Get - ##HOSTNAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "TotalGetRequests",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "per second",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 16,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Microsoft IIS Service Uptime (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "ServiceUptime/60/60/24",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "uptime_days"
+          }],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "ServiceUptime",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "IIS- (WinIIS-)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": null,
+              "legend": null,
+              "type": "line",
+              "option": "none"
+            },
+            "name": "ServiceUptime",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "##defaultResourceName##"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "days",
+          "aggregate": false,
+          "desc": false,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1month",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 12,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Microsoft IIS Website Throughput - Received (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "BytesReceivedPerSec",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "IIS- (WinIIS-)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##HOSTNAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "BytesReceivedPerSec",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "##defaultResourceName##"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "per second",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 12,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Microsoft IIS Website Throughput - Sent (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "BytesSentPerSec",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "IIS- (WinIIS-)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##HOSTNAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "BytesSentPerSec",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "##defaultResourceName##"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "per second",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 7,
+        "name": "Microsoft IIS Resource Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "name",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##HOSTNAME##",
+          "dataSourceDisplayName": "(IIS-|Application Pools-)",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 20,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Effective Thresholds",
+              "columnKey": "alert-thresholds"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "name": "Microsoft IIS Alerts",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
+          "keyword": "",
+          "dataSource": "IIS-,Windows%20IIS%20Events",
+          "cleared": "no",
+          "group": ""
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 8,
+        "row": 3,
+        "sizey": 5
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 197,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Current Connections\n            \n        ",
+              "columnSize": 132,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Get Requests\n            \n        ",
+              "columnSize": 123,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Method Requests\n            \n        ",
+              "columnSize": 122,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            404s\n            \n        ",
+              "columnSize": 147,
+              "columnKey": "3"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Not Found\n            \n        ",
+              "columnSize": 108,
+              "columnKey": "4"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Received\n            \n        ",
+              "columnSize": 125,
+              "columnKey": "5"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Sent\n            \n        ",
+              "columnSize": 140,
+              "columnKey": "6"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Uptime\n            \n        ",
+              "columnSize": 110,
+              "columnKey": "7"
+            }
+          ],
+          "pageSize": "10"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "CurrentConnections",
+            "displayType": "colorBar",
+            "minValue": 0,
+            "unitLabel": " connections",
+            "maxValue": 1000,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 50,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 100,
+                "relation": ">"
+              }
+            ],
+            "columnName": "Current Connections",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "TotalGetRequests",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " requests/sec.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Get Requests",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "TotalMethodRequests",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " requests/sec.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Method Requests",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "404Percent",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [{
+              "level": 2,
+              "threshold": 20,
+              "relation": ">="
+            }],
+            "columnName": "404 Responses",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "NotFoundErrorsPerSec",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " errors/sec.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Not Found",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "BytesReceivedPerSec",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " bytes/sec.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Received",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "BytesSentPerSec",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " bytes/sec.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Sent",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "Uptime/60/60/24",
+            "dataPointName": "ServiceUptime",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " days",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Uptime",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME##",
+          "deviceDisplayName": "##defaultResourceName##",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 25,
+        "dataSourceFullName": "IIS- (WinIIS-)",
+        "sortOrder": "descending",
+        "name": "Microsoft IIS Statistics",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 5
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Microsoft IIS Connection Distribution",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "pieChart",
+        "timescale": "day",
+        "pieChartInfo": {
+          "maxSlicesCanBeShown": 25,
+          "virtualDataPoints": [],
+          "showLabelsAndLinesOnPC": true,
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "CurrentConnections",
+            "top10": true,
+            "instanceName": "*",
+            "dataSourceFullName": "IIS- (WinIIS-)",
+            "name": "CurrentConnections",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "##defaultResourceName##",
+            "aggregate": false
+          }],
+          "hideZeroPercentSlices": false,
+          "groupRemainingAsOthers": false,
+          "pieChartItems": [{
+            "dataPointName": "CurrentConnections",
+            "color": "Auto",
+            "legend": "##RESOURCENAME##"
+          }],
+          "title": "Microsoft IIS Connection Distribution"
+        },
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 12,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Microsoft IIS 404 Responses (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "404Percent",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "IIS- (WinIIS-)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##HOSTNAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "404Percent",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "##defaultResourceName##"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2,
+  "group": {
+    "name": "Microsoft",
+    "fullPath": "LogicMonitor Dashboards/Microsoft",
+    "description": ""
+  }
+}

@@ -1,0 +1,940 @@
+{
+  "santabaRelease": 134,
+  "widgetTokens": [
+    {
+      "name": "defaultResourceGroup",
+      "value": "*"
+    },
+    {
+      "name": "defaultResourceName",
+      "value": "*"
+    },
+    {
+      "name": "defaultResourceProduct",
+      "value": "Cisco Call Manager"
+    }
+  ],
+  "name": "Cisco Call Manager",
+  "description": "",
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": false,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 2,
+        "name": "##defaultResourceProduct## Cluster Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##HOSTNAME##",
+          "dataSourceDisplayName": "Call Manager Cluster-",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 16,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Effective Thresholds",
+              "columnKey": "alert-thresholds"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "name": "##defaultResourceProduct## Alerts",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
+          "keyword": "",
+          "dataSource": "Cisco%20CUCM*",
+          "cleared": "no",
+          "group": "%23%23defaultResourceGroup%23%23*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 9,
+        "row": 13,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##defaultResourceProduct## CTI Device Registrations (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 100,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "ccmCTIDeviceStatus",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Cisco CUCM CTI Devices-",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "ccmCTIDeviceStatus",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "##defaultResourceName##"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "CTI Device Registration Status",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 13,
+        "sizey": 3
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "list"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 2,
+        "name": "##defaultResourceProduct## CTI Devices",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##INSTANCE## - ##RESOURCENAME##",
+          "dataSourceDisplayName": "Cisco CUCM CTI Devices-",
+          "groupBy": "instance",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "##defaultResourceName##"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 8,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##defaultResourceProduct## Media Device Registration",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 100,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "ccmMediaDeviceStatus",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Cisco CUCM Media Devices-",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##RESOURCENAME##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "ccmMediaDeviceStatus",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "##defaultResourceName##"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "Media Registration Status",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 8,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##defaultResourceProduct## Phone Registration Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "RegisteredPhones",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Cisco CUCM Phones-",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## Registered",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "RegisteredPhones",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "UnregisteredPhones",
+              "instanceName": {
+                "isGlob": false,
+                "value": "0"
+              },
+              "dataSourceFullName": "Cisco CUCM Phones-",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##HOSTNAME## Unregistered",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "UnregisteredPhones",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": false,
+                "value": "ccm-sub.fl.vital"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "RejectedPhones",
+              "instanceName": {
+                "isGlob": false,
+                "value": "0"
+              },
+              "dataSourceFullName": "Cisco CUCM Phones-",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##HOSTNAME## Rejected",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "RejectedPhones",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "Phones",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 5,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top ##defaultResourceProduct## Processes by CPU Time (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "CPU * 10",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##RESOURCENAME##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "CPUms"
+          }],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "CPU",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Cisco CUCM Processes (Cisco_CUCM_Processes)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": null,
+              "legend": null,
+              "type": "line",
+              "option": "none"
+            },
+            "name": "CPU",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "##defaultResourceName##"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "milliseconds per second",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 5,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top ##defaultResourceProduct## Processes by Memory Usage",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "Memory",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Cisco CUCM Processes (Cisco_CUCM_Processes)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##RESOURCENAME##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "Memory",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "bytes",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 11,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 7,
+        "name": "##defaultResourceProduct## Gateway Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##INSTANCE##",
+          "dataSourceDisplayName": "Cisco CUCM Gateways-",
+          "groupBy": "instance",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "##defaultResourceName##"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 5
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 227,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            CPU Time\n            \n        ",
+              "columnSize": 96,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Memory\n            \n        ",
+              "columnSize": 85,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Count\n            \n        ",
+              "columnSize": 86,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Status\n            \n        ",
+              "columnSize": 98,
+              "columnKey": "3"
+            }
+          ],
+          "pageSize": "25"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "CPU",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ms/sec.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "CPU Time",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "Memory/1024/1024",
+            "dataPointName": "Memory",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " MB",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Memory",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "Count",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " processes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Count",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "Status",
+            "displayType": "colorBar",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 5,
+            "colorThresholds": [{
+              "level": 2,
+              "threshold": 2,
+              "relation": ">"
+            }],
+            "columnName": "Status",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##INSTANCE## - ##RESOURCENAME##",
+          "deviceDisplayName": "##defaultResourceName##",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 10,
+        "dataSourceFullName": "Cisco CUCM Processes (Cisco_CUCM_Processes)",
+        "sortOrder": "descending",
+        "name": "##defaultResourceProduct## Process Statistics",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 8,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 6,
+        "name": "##defaultResourceProduct## Media Device Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "ccmMediaDeviceStatus",
+          "instanceName": "*",
+          "name": "##INSTANCE## - ##RESOURCENAME##",
+          "dataSourceDisplayName": "Cisco CUCM Media Devices-",
+          "groupBy": "instance",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "##defaultResourceName##"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 2,
+        "row": 3,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "RegisteredGateways",
+            "instanceName": "*",
+            "dataSourceFullName": "Cisco CUCM Phones-",
+            "name": "RegisteredGateways",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "##defaultResourceName##"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "RegisteredGateways",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Registered Gateways",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceProduct## Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 2,
+        "row": 3,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "RegisteredPhones",
+            "instanceName": "*",
+            "dataSourceFullName": "Cisco CUCM Phones-",
+            "name": "RegisteredGateways",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "##defaultResourceName##"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "RegisteredGateways",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Registered Phones",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceProduct## Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 2,
+        "row": 3,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "RejectedPhones",
+            "instanceName": "*",
+            "dataSourceFullName": "Cisco CUCM Phones-",
+            "name": "RegisteredGateways",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "##defaultResourceName##"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "RegisteredGateways",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Rejected Phones",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceProduct## Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 3,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "UnregisteredPhones",
+            "instanceName": "*",
+            "dataSourceFullName": "Cisco CUCM Phones-",
+            "name": "RegisteredGateways",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "##defaultResourceName##"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "RegisteredGateways",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Unregistered Phones",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceProduct## Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2,
+  "group": {
+    "name": "Voice",
+    "fullPath": "LogicMonitor Dashboards/Voice",
+    "description": ""
+  }
+}
