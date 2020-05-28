@@ -24,6 +24,7 @@ Format: Dashboard Name | Required Dynamic Group Name | Dynamic Group Definition
 - Docker | Devices by Type/ Linux Servers | isLinux()
 - Nginx | Devices by Type/ Linux Servers | isLinux()
 - Office 365 | * | (No specific group requirement)
+- Slack | * | (No specific group requirement)
 - Zoom | * | (No specific group requirement)
 
 **Databases**
@@ -54,23 +55,37 @@ Format: Dashboard Name | Required Dynamic Group Name | Dynamic Group Definition
 - DHCP Servers | Devices by Type/ Windows Servers | isWindows()
 - DNS Servers | Devices by Type/ Windows Servers | isWindows()
 - File Servers | Devices by Type/ Windows Servers | isWindows()
+- IIS | Devices by Type/ Windows Servers | isWindows()
+- Microsoft .NET Framework | Devices by Type/ Windows Servers | isWindows()
+- Microsoft Message Queue | Devices by Type/ Windows Servers | isWindows()
 - Windows | Devices by Type/ Windows Servers | isWindows()
 
 **Network**
 
 - Cisco ASA | * | (No specific group requirement)
-- Cisco Wireless | Devices by Type/ Network | (No specific group requirement)
+- Cisco Viptela | * | (No specific group requirement)
+- F5 BIG-IP | * | (No specific group requirement)
+- Fortinet Fortigate | * | (No specific group requirement)
+- Infoblox | * | (No specific group requirement)
 - Local Network Latency | Devices by Type/* | (No specific group requirement)
 - Network Performance | Devices by Type/ Network | isNetwork()
 - Palo Alto | Devices by Type/ Palo Alto | hasCategory("PaloAlto")
+- Pulse Secure | * | (No specific group requirement)
 - Ubiquiti Unifi | Devices by Type/ Network | isNetwork()
 
 **Storage**
-- NetApp | * | (No specific group requirement)
+- Dell EMC Isilon | * | (No specific group requirement)
+- HP 3PAR | * | (No specific group requirement)
+- NetApp 7-mode | * | (No specific group requirement)
+- NetApp Cluster Mode | * | (No specific group requirement)
 
 **Virtualization**
 - Cisco Hyperflex | * | (No specific group requirement)
 - Hyper-V | Devices by Type/ Hyper-V | hasCategory("HyperV")
 - Nutanix | * | (No specific group requirement)
-- vSphere_ESXi_Overview | Devices by Type/ VMware Hosts | system.virtualization =~ "VMware ESXi Host"
-- vSphere_vCenter_Overview | Devices by Type/ VMware vCenters | system.virtualization =~ "VMware ESXi vCenter"
+- vCenter Server Appliance | * | (No specific group requirement)
+- vSphere ESXi Overview | Devices by Type/ VMware Hosts | system.virtualization =~ "VMware ESXi Host"
+- vSphere vCenter Overview | Devices by Type/ VMware vCenters | system.virtualization =~ "VMware ESXi vCenter"
+
+**Voice**
+- Cisco Unified Communications | * | (No specific group requirement)
