@@ -1,0 +1,359 @@
+{
+  "santabaRelease": 135,
+  "widgetTokens": [],
+  "name": "AWS Application ELB",
+  "description": "",
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 7,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnSize": 266,
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnSize": 254,
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnSize": 326,
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnSize": 405,
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnSize": 214,
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnSize": 89,
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Effective Thresholds",
+              "columnSize": 204,
+              "columnKey": "alert-thresholds"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "name": "##defaultResourceGroup## Application ELB Alerts",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
+          "keyword": "",
+          "dataSource": "",
+          "cleared": "no",
+          "group": "%23%23defaultResourceGroup%23%23%2FApplicationELB"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 7,
+        "name": "##defaultResourceGroup## Application ELB Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##RESOURCENAME##",
+          "dataSourceDisplayName": "*",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##/ApplicationELB*",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "RejectedConnectionCount",
+            "instanceName": "*",
+            "dataSourceFullName": "Application ELB (AWS_Application_ELB)",
+            "name": "RejectionConnectionCount",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "RejectionConnectionCount",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Rejected Connections",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## Rejected Connections",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 5,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top ##defaultResourceGroup## ELB by Unhealthy Hosts (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "UnHealthyHostCount",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Application ELB (AWS_Application_ELB)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "UnHealthyHostCount",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##*"
+            }
+          }],
+          "verticalLabel": "hosts",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "7days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "UnHealthyHostCount",
+              "instanceName": "*",
+              "dataSourceFullName": "Application ELB (AWS_Application_ELB)",
+              "name": "UnHealthyHostCount",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "ActiveConnectionCount",
+              "instanceName": "*",
+              "dataSourceFullName": "Application ELB (AWS_Application_ELB)",
+              "name": "ActiveConnectionCount",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [
+            {
+              "dataPointName": "ActiveConnectionCount",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Active Connection Count",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "UnHealthyHostCount",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 2,
+              "rightLabel": "Unhealthy Instances",
+              "colorThresholds": null
+            }
+          ]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## ELB Unhealthy Hosts",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2
+}

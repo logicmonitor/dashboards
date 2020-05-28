@@ -1,0 +1,769 @@
+{
+  "santabaRelease": 135,
+  "widgetTokens": [],
+  "name": "AWS Inventory",
+  "description": "",
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 9,
+        "sizex": 2,
+        "row": 5,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "apiGateway",
+            "appliesTo": "hasCategory(\"AWS/APIGateway\") && join(system.groups,\",\") =~ \"##defaultResourceGroup##\""
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "apiGateway",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## API Gateway",
+        "description": "",
+        "theme": "newSolidGray",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [
+            {
+              "name": "autoScaling",
+              "appliesTo": "hasCategory(\"AWS/AutoScaling\") && join(system.groups,\",\") =~ \"##defaultResourceGroup##\""
+            },
+            {
+              "name": "autoScaling_instances",
+              "appliesTo": "getPropValue(\"system.aws.tag.aws:autoscaling:groupName\") && join(system.groups,\",\") =~ \"##defaultResourceGroup##\""
+            }
+          ],
+          "dataPoints": [],
+          "bigNumberItems": [
+            {
+              "dataPointName": "autoScaling",
+              "useCommaSeparators": false,
+              "bottomLabel": "AutoScaling Groups",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "autoScaling_instances",
+              "useCommaSeparators": false,
+              "bottomLabel": "AutoScaling EC2 Instances",
+              "rounding": 0,
+              "position": 2,
+              "rightLabel": "",
+              "colorThresholds": null
+            }
+          ]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## AutoScaling",
+        "description": "",
+        "theme": "newSolidBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 3,
+        "sizex": 2,
+        "row": 5,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "CloudFront",
+            "appliesTo": "hasCategory(\"AWS/CloudFront\") && join(system.groups,\",\") =~ \"##defaultResourceGroup##\""
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "CloudFront",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## CloudFront",
+        "description": "",
+        "theme": "newSolidGray",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 5,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "dynamoDB",
+            "appliesTo": "hasCategory(\"AWS/DynamoDB\") && join(system.groups,\",\") =~ \"##defaultResourceGroup##\""
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "dynamoDB",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## DynamoDB",
+        "description": "",
+        "theme": "newSolidGray",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 1,
+        "sizey": 4
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [
+            {
+              "name": "EBS",
+              "appliesTo": "hasCategory(\"AWS/EBS\") && join(system.groups,\",\") =~ \"##defaultResourceGroup##\""
+            },
+            {
+              "name": "Unattached_EBS",
+              "appliesTo": "startsWith(system.aws.attachments, \"[]\") && join(system.groups,\",\") =~ \"##defaultResourceGroup##\""
+            }
+          ],
+          "dataPoints": [],
+          "bigNumberItems": [
+            {
+              "dataPointName": "EBS",
+              "useCommaSeparators": false,
+              "bottomLabel": "EBS Volumes",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "Unattached_EBS",
+              "useCommaSeparators": false,
+              "bottomLabel": "Unattached EBS Volumes",
+              "rounding": 0,
+              "position": 2,
+              "rightLabel": "",
+              "colorThresholds": null
+            }
+          ]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## EBS Volumes",
+        "description": "",
+        "theme": "newSolidBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 1,
+        "sizey": 4
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [
+            {
+              "name": "Running_Instances",
+              "appliesTo": "system.aws.stateName == \"running\" && join(system.groups,\",\") =~ \"##defaultResourceGroup##\""
+            },
+            {
+              "name": "Stopped_Instances",
+              "appliesTo": "system.aws.stateName == \"stopped\" && join(system.groups,\",\") =~ \"##defaultResourceGroup##\""
+            },
+            {
+              "name": "Terminated_Instances",
+              "appliesTo": "system.aws.stateName == \"terminated\" && join(system.groups,\",\") =~ \"##defaultResourceGroup##\""
+            }
+          ],
+          "dataPoints": [],
+          "bigNumberItems": [
+            {
+              "dataPointName": "Running_Instances",
+              "useCommaSeparators": false,
+              "bottomLabel": "Running Instances",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "Stopped_Instances",
+              "useCommaSeparators": false,
+              "bottomLabel": "Stopped Instances",
+              "rounding": 0,
+              "position": 2,
+              "rightLabel": "",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "Terminated_Instances",
+              "useCommaSeparators": false,
+              "bottomLabel": "Terminated Instances",
+              "rounding": 0,
+              "position": 3,
+              "rightLabel": "",
+              "colorThresholds": null
+            }
+          ]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## EC2 Instances",
+        "description": "",
+        "theme": "newSolidBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 2,
+        "row": 5,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "ECS",
+            "appliesTo": "hasCategory(\"AWS/ECS\") && join(system.groups,\",\") =~ \"##defaultResourceGroup##\""
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "ECS",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## ECS",
+        "description": "",
+        "theme": "newSolidGray",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 2,
+        "row": 9,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "EFS",
+            "appliesTo": "hasCategory(\"AWS/EFS\") && join(system.groups,\",\") =~ \"##defaultResourceGroup##\""
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "EFS",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## EFS",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 9,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "ElastiCache",
+            "appliesTo": "hasCategory(\"AWS/ElastiCache\") && join(system.groups,\",\") =~ \"##defaultResourceGroup##\""
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "ElastiCache",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## ElastiCache",
+        "description": "&& join(\"system.staticgroups\",\"\") =~ \"##defaultResourceGroup##\"",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 2,
+        "row": 9,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Elasticsearch",
+            "appliesTo": "hasCategory(\"AWS/Elasticsearch\") && join(system.groups,\",\") =~ \"##defaultResourceGroup##\""
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Elasticsearch",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## Elasticsearch",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [
+            {
+              "name": "streams",
+              "appliesTo": "hasCategory(\"AWS/Kinesis\") && join(system.groups,\",\") =~ \"##defaultResourceGroup##\""
+            },
+            {
+              "name": "firehose",
+              "appliesTo": "hasCategory(\"AWS/Firehose\") && join(system.groups,\",\") =~ \"##defaultResourceGroup##\""
+            }
+          ],
+          "dataPoints": [],
+          "bigNumberItems": [
+            {
+              "dataPointName": "firehose",
+              "useCommaSeparators": false,
+              "bottomLabel": "Firehose",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "streams",
+              "useCommaSeparators": false,
+              "bottomLabel": "Streams",
+              "rounding": 0,
+              "position": 2,
+              "rightLabel": "",
+              "colorThresholds": null
+            }
+          ]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## Kinesis",
+        "description": "",
+        "theme": "newSolidBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 2,
+        "row": 5,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Lambda",
+            "appliesTo": "hasCategory(\"AWS/Lambda\") && join(system.groups,\",\") =~ \"##defaultResourceGroup##\""
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Lambda",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## Lambda",
+        "description": "",
+        "theme": "newSolidGray",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 1,
+        "sizey": 4
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [
+            {
+              "name": "ELB",
+              "appliesTo": "hasCategory(\"AWS/ELB\") && join(system.groups,\",\") =~ \"##defaultResourceGroup##\""
+            },
+            {
+              "name": "ALB",
+              "appliesTo": "hasCategory(\"AWS/ApplicationELB\") && join(system.groups,\",\") =~ \"##defaultResourceGroup##\""
+            },
+            {
+              "name": "NLB",
+              "appliesTo": "hasCategory(\"AWS/NetworkELB\") && join(system.groups,\",\") =~ \"##defaultResourceGroup##\""
+            }
+          ],
+          "dataPoints": [],
+          "bigNumberItems": [
+            {
+              "dataPointName": "ELB",
+              "useCommaSeparators": false,
+              "bottomLabel": "Classic Load Balancers",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "ALB",
+              "useCommaSeparators": false,
+              "bottomLabel": "Application Load Balancers",
+              "rounding": 0,
+              "position": 2,
+              "rightLabel": "",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "NLB",
+              "useCommaSeparators": false,
+              "bottomLabel": "Network Load Balancers",
+              "rounding": 0,
+              "position": 3,
+              "rightLabel": "",
+              "colorThresholds": null
+            }
+          ]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## Load Balancers",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 2,
+        "row": 5,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "RDS",
+            "appliesTo": "hasCategory(\"AWS/RDS\") && join(system.groups,\",\") =~ \"##defaultResourceGroup##\""
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "RDS",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## RDS",
+        "description": "",
+        "theme": "newSolidGray",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 3,
+        "sizex": 2,
+        "row": 9,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Route53",
+            "appliesTo": "hasCategory(\"AWS/Route53\") && join(system.groups,\",\") =~ \"##defaultResourceGroup##\""
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Route53",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## Route53",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 2,
+        "row": 9,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "S3",
+            "appliesTo": "hasCategory(\"AWS/S3\") && join(system.groups,\",\") =~ \"##defaultResourceGroup##\""
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "S3",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## S3",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 2,
+        "row": 9,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "SQS",
+            "appliesTo": "hasCategory(\"AWS/SQS\") && join(system.groups,\",\") =~ \"##defaultResourceGroup##\""
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "SQS",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## SQS",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [
+            {
+              "name": "activities",
+              "appliesTo": "hasCategory(\"AWS/SWF-ActivityType\") && join(system.groups,\",\") =~ \"##defaultResourceGroup##\""
+            },
+            {
+              "name": "workers",
+              "appliesTo": "hasCategory(\"AWS/SWF-WorkflowType\") && join(system.groups,\",\") =~ \"##defaultResourceGroup##\""
+            }
+          ],
+          "dataPoints": [],
+          "bigNumberItems": [
+            {
+              "dataPointName": "activities",
+              "useCommaSeparators": false,
+              "bottomLabel": "Activities",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "workers",
+              "useCommaSeparators": false,
+              "bottomLabel": "Workflows",
+              "rounding": 0,
+              "position": 2,
+              "rightLabel": "",
+              "colorThresholds": null
+            }
+          ]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## SWF",
+        "description": "",
+        "theme": "newSolidBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2
+}
