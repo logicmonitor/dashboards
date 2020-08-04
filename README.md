@@ -25,9 +25,12 @@ Format: Dashboard Name | Required Dynamic Group Name | Dynamic Group Definition
 - Nginx | Devices by Type/ Linux Servers | isLinux()
 - Office 365 | * | (No specific group requirement)
 - Slack | * | (No specific group requirement)
+- Tomcat Server | * | (No specific group requirement)
+- Veeam Backup & Replication | * | (No specific group requirement)
 - Zoom | * | (No specific group requirement)
 
 **Databases**
+- MySQL | * | (No specific group requirement)
 - SQL Server | Devices by Type/ SQL Servers | hasCategory("MSSQL")
 
 **Hardware**
@@ -37,8 +40,8 @@ Format: Dashboard Name | Required Dynamic Group Name | Dynamic Group Definition
 
 **Kubernetes**
 - Kubernetes Cluster Overview | * | (No specific group requirement)
-- k8s Cluster | * | (No specific group requirement)
-- k8s Pods | * | (No specific group requirement)
+- Kubernetes Inventory | * | (No specific group requirement)
+- Kubernetes Pods | * | (No specific group requirement)
 
 **Linux**
 - Linux | Devices by Type/ Linux Servers | isLinux()
@@ -54,23 +57,31 @@ Format: Dashboard Name | Required Dynamic Group Name | Dynamic Group Definition
 - Active Directory | Devices by Type/ Windows Servers | isWindows()
 - DHCP Servers | Devices by Type/ Windows Servers | isWindows()
 - DNS Servers | Devices by Type/ Windows Servers | isWindows()
+- Failover Clustering | Devices by Type/ Windows Servers | isWindows()
 - File Servers | Devices by Type/ Windows Servers | isWindows()
 - IIS | Devices by Type/ Windows Servers | isWindows()
 - Microsoft .NET Framework | Devices by Type/ Windows Servers | isWindows()
 - Microsoft Message Queue | Devices by Type/ Windows Servers | isWindows()
-- Windows | Devices by Type/ Windows Servers | isWindows()
+- Windows Servers| Devices by Type/ Windows Servers | isWindows()
 
 **Network**
 
+- Arista | * | (No specific group requirement)
+- Aruba Wireless | * | (No specific group requirement)
+- BGP | * | (No specific group requirement)
 - Cisco ASA | * | (No specific group requirement)
 - Cisco Viptela | * | (No specific group requirement)
+- Cisco Wireless | * | (No specific group requirement)
+- EIGRP | * | (No specific group requirement)
 - F5 BIG-IP | * | (No specific group requirement)
 - Fortinet Fortigate | * | (No specific group requirement)
 - Infoblox | * | (No specific group requirement)
 - Local Network Latency | Devices by Type/* | (No specific group requirement)
 - Network Performance | Devices by Type/ Network | isNetwork()
+- OSPF | * | (No specific group requirement)
 - Palo Alto | Devices by Type/ Palo Alto | hasCategory("PaloAlto")
 - Pulse Secure | * | (No specific group requirement)
+- SSL Certificates | * | (No specific group requirement)
 - Ubiquiti Unifi | Devices by Type/ Network | isNetwork()
 
 **Storage**
@@ -78,6 +89,8 @@ Format: Dashboard Name | Required Dynamic Group Name | Dynamic Group Definition
 - HP 3PAR | * | (No specific group requirement)
 - NetApp 7-mode | * | (No specific group requirement)
 - NetApp Cluster Mode | * | (No specific group requirement)
+- Nimble | * | (No specific group requirement)
+- Pure Storage | * | (No specific group requirement)
 
 **Virtualization**
 - Cisco Hyperflex | * | (No specific group requirement)
@@ -88,4 +101,5 @@ Format: Dashboard Name | Required Dynamic Group Name | Dynamic Group Definition
 - vSphere vCenter Overview | Devices by Type/ VMware vCenters | system.virtualization =~ "VMware ESXi vCenter"
 
 **Voice**
+- Cisco Unified Border Element | * | (No specific group requirement)
 - Cisco Unified Communications | * | (No specific group requirement)
