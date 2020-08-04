@@ -1,16 +1,16 @@
 {
-  "santabaRelease": 136,
+  "santabaRelease": 138,
   "widgetTokens": [
     {
       "name": "defaultResourceGroup",
-      "value": "*"
+      "value": "Devices by Type/Windows Servers"
     },
     {
       "name": "defaultResourceName",
       "value": "*"
     }
   ],
-  "name": "Local Network Latency",
+  "name": "Failover Clustering",
   "description": "",
   "overwriteGroupFields": false,
   "widgetsConfigVersion": 2,
@@ -18,14 +18,52 @@
   "widgets": [
     {
       "position": {
-        "col": 7,
-        "sizex": 6,
+        "col": 10,
+        "sizex": 3,
         "row": 1,
+        "sizey": 5
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "list"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 2,
+        "name": "Cluster Node Drain",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "NodeDrain",
+          "instanceName": "*",
+          "name": "##RESOURCENAME## - ##INSTANCE##",
+          "dataSourceDisplayName": "Cluster Node State",
+          "groupBy": "instance",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 6,
         "sizey": 4
       },
       "config": {
         "displaySettings": {},
-        "name": "Top Resources by ICMP Ping Latency",
+        "name": "Cluster Node Drain Trend",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -33,33 +71,33 @@
           "virtualDataPoints": [],
           "minValue": 0,
           "topX": 25,
-          "maxValue": "NaN",
+          "maxValue": 100,
           "dataPoints": [{
-            "dataPointName": "average",
+            "dataPointName": "NodeDrain",
             "instanceName": {
               "isGlob": true,
               "value": "*"
             },
-            "dataSourceFullName": "Ping",
+            "dataSourceFullName": "Cluster Node State (Windows_Cluster_NodeState)",
             "consolidateFunction": "average",
             "display": {
               "color": "Auto",
-              "legend": "##RESOURCENAME##",
-              "type": "line",
+              "legend": "##RESOURCENAME## - ##INSTANCE##",
+              "type": "stack",
               "option": "custom"
             },
-            "name": "average",
+            "name": "NodeDrain",
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "##defaultResourceName##"
+              "value": "*"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
               "value": "##defaultResourceGroup##"
             }
           }],
-          "verticalLabel": "ms",
+          "verticalLabel": "state",
           "aggregate": false,
           "desc": true,
           "scaleUnit": 1000,
@@ -73,13 +111,51 @@
     {
       "position": {
         "col": 1,
-        "sizex": 6,
-        "row": 8,
+        "sizex": 3,
+        "row": 1,
+        "sizey": 5
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "list"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 2,
+        "name": "Cluster Node State",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "State",
+          "instanceName": "*",
+          "name": "##RESOURCENAME## - ##INSTANCE##",
+          "dataSourceDisplayName": "Cluster Node State",
+          "groupBy": "instance",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 6,
         "sizey": 4
       },
       "config": {
         "displaySettings": {},
-        "name": "Top Resources by HTTP Latency",
+        "name": "Cluster Node State Trend",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -87,22 +163,22 @@
           "virtualDataPoints": [],
           "minValue": 0,
           "topX": 25,
-          "maxValue": "NaN",
+          "maxValue": 100,
           "dataPoints": [{
-            "dataPointName": "ResponseTime",
+            "dataPointName": "State",
             "instanceName": {
               "isGlob": true,
               "value": "*"
             },
-            "dataSourceFullName": "HTTP (HTTP-)",
+            "dataSourceFullName": "Cluster Node State (Windows_Cluster_NodeState)",
             "consolidateFunction": "average",
             "display": {
               "color": "Auto",
-              "legend": "##HOSTNAME## - ##INSTANCE##",
-              "type": "line",
+              "legend": "##RESOURCENAME## - ##INSTANCE##",
+              "type": "stack",
               "option": "custom"
             },
-            "name": "ResponseTime",
+            "name": "State",
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
@@ -113,11 +189,11 @@
               "value": "##defaultResourceGroup##"
             }
           }],
-          "verticalLabel": "ms",
+          "verticalLabel": "state",
           "aggregate": false,
           "desc": true,
           "scaleUnit": 1000,
-          "globalConsolidateFunction": "default"
+          "globalConsolidateFunction": "VaST"
         },
         "type": "cgraph",
         "timescale": "1day",
@@ -127,86 +203,9 @@
     {
       "position": {
         "col": 7,
-        "sizex": 3,
-        "row": 8,
-        "sizey": 7
-      },
-      "config": {
-        "displaySettings": {
-          "columns": [
-            {
-              "visible": true,
-              "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 221,
-              "columnKey": "device-name-1452842526600"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            Response Time (ms)\n            \n        ",
-              "columnSize": 141,
-              "columnKey": "0"
-            }
-          ],
-          "pageSize": "15"
-        },
-        "columns": [{
-          "rpn": "",
-          "dataPointName": "ResponseTime",
-          "displayType": "colorBar",
-          "minValue": 0,
-          "unitLabel": " ms",
-          "maxValue": 1000,
-          "colorThresholds": [
-            {
-              "level": 2,
-              "threshold": 500,
-              "relation": ">="
-            },
-            {
-              "level": 3,
-              "threshold": 750,
-              "relation": ">="
-            },
-            {
-              "level": 4,
-              "threshold": 1500,
-              "relation": ">="
-            }
-          ],
-          "columnName": "Response Time",
-          "enableForecast": false,
-          "roundingDecimal": 2
-        }],
-        "description": "",
-        "forecast": {
-          "severity": "warn",
-          "confidence": 70,
-          "timeRange": "Last 30 days",
-          "algorithm": "Linear"
-        },
-        "type": "dynamicTable",
-        "rows": [{
-          "instanceName": "*",
-          "label": "##HOSTNAME## port ##INSTANCE##",
-          "deviceDisplayName": "*",
-          "groupFullPath": "##defaultResourceGroup##"
-        }],
-        "version": 2,
-        "topX": 25,
-        "dataSourceFullName": "HTTP (HTTP-)",
-        "sortOrder": "descending",
-        "name": "Top Resources by HTTP Latency",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "timescale": "day"
-      }
-    },
-    {
-      "position": {
-        "col": 1,
         "sizex": 3,
         "row": 1,
-        "sizey": 7
+        "sizey": 5
       },
       "config": {
         "displaySettings": {
@@ -214,43 +213,43 @@
             {
               "visible": true,
               "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 263,
+              "columnSize": 125,
               "columnKey": "device-name-1452842526600"
             },
             {
               "visible": true,
-              "columnLabel": "\n            Response Time\n            \n        ",
-              "columnSize": 118,
+              "columnLabel": "\n            PercentUsed\n            \n        ",
+              "columnSize": 268,
               "columnKey": "0"
             }
           ],
-          "pageSize": "15"
+          "pageSize": "25"
         },
         "columns": [{
           "rpn": "",
-          "dataPointName": "average",
-          "displayType": "colorBar",
+          "dataPointName": "PercentUsed",
+          "displayType": "percent",
           "minValue": 0,
-          "unitLabel": " ms",
-          "maxValue": 1000,
+          "unitLabel": "",
+          "maxValue": 100,
           "colorThresholds": [
             {
               "level": 2,
-              "threshold": 250,
-              "relation": ">="
+              "threshold": 85,
+              "relation": ">"
             },
             {
               "level": 3,
-              "threshold": 500,
-              "relation": ">="
+              "threshold": 92,
+              "relation": ">"
             },
             {
               "level": 4,
-              "threshold": 750,
-              "relation": ">="
+              "threshold": 97,
+              "relation": ">"
             }
           ],
-          "columnName": "Response Time",
+          "columnName": "PercentUsed",
           "enableForecast": false,
           "roundingDecimal": 2
         }],
@@ -264,161 +263,30 @@
         "type": "dynamicTable",
         "rows": [{
           "instanceName": "*",
-          "label": "##RESOURCENAME##",
-          "deviceDisplayName": "##defaultResourceName##",
-          "groupFullPath": "##defaultResourceGroup##"
-        }],
-        "version": 2,
-        "topX": 25,
-        "dataSourceFullName": "Ping",
-        "sortOrder": "descending",
-        "name": "Top Resources by ICMP Ping Latency",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "timescale": "day"
-      }
-    },
-    {
-      "position": {
-        "col": 10,
-        "sizex": 3,
-        "row": 8,
-        "sizey": 7
-      },
-      "config": {
-        "displaySettings": {
-          "columns": [
-            {
-              "visible": true,
-              "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 229,
-              "columnKey": "device-name-1452842526600"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            Response Time (ms)\n            \n        ",
-              "columnSize": 144,
-              "columnKey": "0"
-            }
-          ],
-          "pageSize": "15"
-        },
-        "columns": [{
-          "rpn": "",
-          "dataPointName": "ResponseTime",
-          "displayType": "colorBar",
-          "minValue": 0,
-          "unitLabel": " ms",
-          "maxValue": 1000,
-          "colorThresholds": [
-            {
-              "level": 2,
-              "threshold": 750,
-              "relation": ">="
-            },
-            {
-              "level": 3,
-              "threshold": 1000,
-              "relation": ">="
-            },
-            {
-              "level": 4,
-              "threshold": 1500,
-              "relation": ">="
-            }
-          ],
-          "columnName": "Response Time",
-          "enableForecast": false,
-          "roundingDecimal": 2
-        }],
-        "description": "",
-        "forecast": {
-          "severity": "warn",
-          "confidence": 70,
-          "timeRange": "Last 30 days",
-          "algorithm": "Linear"
-        },
-        "type": "dynamicTable",
-        "rows": [{
-          "instanceName": "*",
-          "label": "##HOSTNAME## port ##INSTANCE##",
+          "label": "##RESOURCENAME## - ##INSTANCE##",
           "deviceDisplayName": "*",
           "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
-        "topX": 25,
-        "dataSourceFullName": "HTTPS (HTTPS-)",
+        "topX": 10,
+        "dataSourceFullName": "Cluster Partition Utilitization (Windows_Cluster_DiskPartitions)",
         "sortOrder": "descending",
-        "name": "Top Resources by HTTPS Latency",
+        "name": "Cluster Partition Utilization",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
-      }
-    },
-    {
-      "position": {
-        "col": 1,
-        "sizex": 6,
-        "row": 12,
-        "sizey": 3
-      },
-      "config": {
-        "displaySettings": {},
-        "name": "Top Resources by HTTPS Latency",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "graphInfo": {
-          "virtualDataPoints": [],
-          "minValue": 0,
-          "topX": 25,
-          "maxValue": "NaN",
-          "dataPoints": [{
-            "dataPointName": "ResponseTime",
-            "instanceName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "dataSourceFullName": "HTTPS (HTTPS-)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "Auto",
-              "legend": "##HOSTNAME## - ##INSTANCE##",
-              "type": "line",
-              "option": "custom"
-            },
-            "name": "HTTPSResponseTime",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
-            }
-          }],
-          "verticalLabel": "ms",
-          "aggregate": false,
-          "desc": true,
-          "scaleUnit": 1000,
-          "globalConsolidateFunction": "default"
-        },
-        "type": "cgraph",
-        "timescale": "1day",
-        "version": 2
       }
     },
     {
       "position": {
         "col": 7,
-        "sizex": 6,
-        "row": 5,
-        "sizey": 3
+        "sizex": 3,
+        "row": 6,
+        "sizey": 4
       },
       "config": {
         "displaySettings": {},
-        "name": "Top Resources by Port Latency",
+        "name": "Cluster Partition Utilization Trend",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -426,33 +294,33 @@
           "virtualDataPoints": [],
           "minValue": 0,
           "topX": 10,
-          "maxValue": "NaN",
+          "maxValue": 100,
           "dataPoints": [{
-            "dataPointName": "ResponseTime",
+            "dataPointName": "PercentUsed",
             "instanceName": {
               "isGlob": true,
               "value": "*"
             },
-            "dataSourceFullName": "Port-",
+            "dataSourceFullName": "Cluster Partition Utilitization (Windows_Cluster_DiskPartitions)",
             "consolidateFunction": "average",
             "display": {
               "color": "Auto",
-              "legend": "##HOSTNAME## - Port ##INSTANCE##",
+              "legend": "##RESOURCENAME## - ##INSTANCE##",
               "type": "area",
               "option": "custom"
             },
-            "name": "ResponseTime",
+            "name": "PercentUsed",
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "##defaultResourceName##"
+              "value": "*"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
               "value": "##defaultResourceGroup##"
             }
           }],
-          "verticalLabel": "ms",
+          "verticalLabel": "%",
           "aggregate": false,
           "desc": true,
           "scaleUnit": 1000,
@@ -468,7 +336,7 @@
         "col": 4,
         "sizex": 3,
         "row": 1,
-        "sizey": 7
+        "sizey": 5
       },
       "config": {
         "displaySettings": {
@@ -476,43 +344,38 @@
             {
               "visible": true,
               "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 246,
+              "columnSize": 239,
               "columnKey": "device-name-1452842526600"
             },
             {
               "visible": true,
-              "columnLabel": "\n            Response Time\n            \n        ",
-              "columnSize": 135,
+              "columnLabel": "\n            State\n            \n        ",
+              "columnSize": 154,
               "columnKey": "0"
             }
           ],
-          "pageSize": "15"
+          "pageSize": "25"
         },
         "columns": [{
           "rpn": "",
-          "dataPointName": "ResponseTime",
+          "dataPointName": "State",
           "displayType": "colorBar",
           "minValue": 0,
-          "unitLabel": " ms",
-          "maxValue": 1000,
+          "unitLabel": "",
+          "maxValue": 3,
           "colorThresholds": [
             {
               "level": 2,
-              "threshold": 500,
-              "relation": ">="
+              "threshold": 2,
+              "relation": ">"
             },
             {
               "level": 3,
-              "threshold": 500,
-              "relation": ">="
-            },
-            {
-              "level": 4,
-              "threshold": 750,
-              "relation": ">="
+              "threshold": 2,
+              "relation": ">"
             }
           ],
-          "columnName": "Response Time",
+          "columnName": "State",
           "enableForecast": false,
           "roundingDecimal": 2
         }],
@@ -526,15 +389,15 @@
         "type": "dynamicTable",
         "rows": [{
           "instanceName": "*",
-          "label": "##RESOURCENAME## port ##INSTANCE##",
-          "deviceDisplayName": "##defaultResourceName##",
+          "label": "##RESOURCENAME## - ##INSTANCE##",
+          "deviceDisplayName": "*",
           "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
-        "topX": 25,
-        "dataSourceFullName": "Port-",
+        "topX": 10,
+        "dataSourceFullName": "Cluster Resource State (Windows_Cluster_ResourceState)",
         "sortOrder": "descending",
-        "name": "Top Resources by Port Latency",
+        "name": "Cluster Resource State",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -542,9 +405,63 @@
     },
     {
       "position": {
+        "col": 4,
+        "sizex": 3,
+        "row": 6,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Cluster Resource State Trend",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "State",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Cluster Resource State (Windows_Cluster_ResourceState)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME## - ##INSTANCE##",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "State",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "state",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
         "col": 1,
         "sizex": 12,
-        "row": 15,
+        "row": 10,
         "sizey": 4
       },
       "config": {
@@ -598,12 +515,12 @@
               "columnKey": "alert-group"
             },
             {
-              "visible": true,
+              "visible": false,
               "columnLabel": "Notes",
               "columnKey": "alert-notes"
             },
             {
-              "visible": true,
+              "visible": false,
               "columnLabel": "Acknowledged By",
               "columnKey": "alert-acked-by"
             },
@@ -643,16 +560,11 @@
               "columnKey": "alert-full-path"
             }
           ],
-          "playSound": {
-            "criticalAlertAudioFileName": "",
-            "errorAlertAudioFileName": "",
-            "warningAlertAudioFileName": "",
-            "shouldPlay": false
-          },
+          "playSound": {},
           "fontsize": "normal-font",
           "sort": "-startEpoch"
         },
-        "name": "Local Network Latency Alerts",
+        "name": "Failover Clustering Alerts",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -668,7 +580,7 @@
           "dependencyRole": "",
           "host": "",
           "keyword": "",
-          "dataSource": "HTTP-%7CHTTPS-%7CPort-%7CPing",
+          "dataSource": "Cluster",
           "cleared": "no",
           "group": ""
         },
@@ -680,8 +592,8 @@
   ],
   "version": 2,
   "group": {
-    "name": "Network",
-    "fullPath": "LogicMonitor Dashboards/Network",
+    "name": "Microsoft",
+    "fullPath": "LogicMonitor Dashboards/Microsoft",
     "description": ""
   }
 }

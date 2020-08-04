@@ -1,19 +1,21 @@
 {
+  "santabaRelease": 138,
   "widgetTokens": [],
   "name": "GCP Compute Engine Overview",
   "description": "",
+  "overwriteGroupFields": false,
   "widgetsConfigVersion": 2,
+  "type": "dashboard",
   "widgets": [
     {
       "position": {
         "col": 1,
         "sizex": 12,
-        "row": 9,
+        "row": 10,
         "sizey": 4
       },
       "config": {
         "displaySettings": {
-          "sortDirection": "desc",
           "isShowAll": false,
           "showFilter": false,
           "columns": [
@@ -29,7 +31,7 @@
             },
             {
               "visible": true,
-              "columnLabel": "\n    Device/Website\n\n    ",
+              "columnLabel": "Resource/Website",
               "columnKey": "alert-device"
             },
             {
@@ -51,11 +53,6 @@
               "visible": true,
               "columnLabel": "Value",
               "columnKey": "alert-value"
-            },
-            {
-              "visible": true,
-              "columnLabel": "Effective Thresholds",
-              "columnKey": "alert-thresholds"
             },
             {
               "visible": false,
@@ -106,15 +103,40 @@
               "visible": false,
               "columnLabel": "Full Path",
               "columnKey": "alert-full-path"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
             }
           ],
           "playSound": {},
           "fontsize": "normal-font",
-          "sortBy": "startEpoch"
+          "sort": "-startEpoch"
         },
-        "name": "Compute Engine Alerts",
+        "name": "GCP Compute Engine Alert Detail",
         "description": "",
-        "theme": "newSolidBlue",
+        "theme": "newSolidDarkBlue",
         "interval": 3,
         "filters": {
           "severity": "",
@@ -122,11 +144,13 @@
           "chain": "",
           "instance": "",
           "dataPoint": "",
-          "host": "",
           "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
           "keyword": "",
           "dataSource": "",
-          "acked": "all",
           "cleared": "no",
           "group": "%23%23defaultDeviceGroup%23%23%2FCompute%20Engine"
         },
@@ -138,9 +162,9 @@
     {
       "position": {
         "col": 1,
-        "sizex": 12,
+        "sizex": 8,
         "row": 1,
-        "sizey": 4
+        "sizey": 2
       },
       "config": {
         "ackChecked": true,
@@ -153,10 +177,10 @@
         "type": "noc",
         "version": 2,
         "displayErrorAlert": true,
-        "displayColumn": 5,
-        "name": "Compute Engine NOC",
+        "displayColumn": 7,
+        "name": "GCP Compute Engine Instance Alert Status",
         "displayCriticalAlert": true,
-        "theme": "newBorderBlue",
+        "theme": "newSolidDarkBlue",
         "interval": 3,
         "sortBy": "name",
         "timescale": "day",
@@ -164,11 +188,11 @@
         "items": [{
           "dataPointName": "*",
           "instanceName": "*",
-          "name": "##HOSTNAME##",
+          "name": "##RESOURCENAME##",
           "dataSourceDisplayName": "*",
           "groupBy": "device",
           "type": "device",
-          "deviceGroupFullPath": "##defaultDeviceGroup##/Compute Engine",
+          "deviceGroupFullPath": "##defaultResourceGroup##/Compute Engine",
           "deviceDisplayName": "*"
         }]
       }
@@ -176,15 +200,15 @@
     {
       "position": {
         "col": 1,
-        "sizex": 6,
-        "row": 5,
-        "sizey": 4
+        "sizex": 4,
+        "row": 7,
+        "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Top 10 Instances by CPU Utilization",
+        "name": "Top GCP Compute Engine Instances by CPU Utilization (Trend)",
         "description": "",
-        "theme": "newBorderBlue",
+        "theme": "newBorderDarkBlue",
         "interval": 3,
         "graphInfo": {
           "virtualDataPoints": [],
@@ -223,22 +247,22 @@
           "globalConsolidateFunction": "default"
         },
         "type": "cgraph",
-        "timescale": "1day",
+        "timescale": "2days",
         "version": 2
       }
     },
     {
       "position": {
-        "col": 7,
-        "sizex": 6,
-        "row": 5,
-        "sizey": 4
+        "col": 5,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Bottom 10 Instances by CPU Utilization",
+        "name": "Bottom GCP Compute Engine Instances by CPU Utilization (Trend)",
         "description": "",
-        "theme": "newBorderBlue",
+        "theme": "newBorderDarkBlue",
         "interval": 3,
         "graphInfo": {
           "virtualDataPoints": [],
@@ -255,9 +279,9 @@
             "consolidateFunction": "average",
             "display": {
               "color": "Auto",
-              "legend": "",
+              "legend": "##RESOURCENAME##",
               "type": "line",
-              "option": "default"
+              "option": "custom"
             },
             "name": "CPUUtilization",
             "aggregateFunction": "SUM",
@@ -277,15 +301,15 @@
           "globalConsolidateFunction": "default"
         },
         "type": "cgraph",
-        "timescale": "1day",
+        "timescale": "2days",
         "version": 2
       }
     },
     {
       "position": {
-        "col": 1,
-        "sizex": 6,
-        "row": 13,
+        "col": 4,
+        "sizex": 3,
+        "row": 3,
         "sizey": 4
       },
       "config": {
@@ -362,8 +386,8 @@
     {
       "position": {
         "col": 7,
-        "sizex": 6,
-        "row": 17,
+        "sizex": 3,
+        "row": 3,
         "sizey": 4
       },
       "config": {
@@ -439,9 +463,9 @@
     },
     {
       "position": {
-        "col": 7,
-        "sizex": 6,
-        "row": 13,
+        "col": 1,
+        "sizex": 3,
+        "row": 3,
         "sizey": 4
       },
       "config": {
@@ -517,9 +541,9 @@
     },
     {
       "position": {
-        "col": 1,
-        "sizex": 6,
-        "row": 17,
+        "col": 10,
+        "sizex": 3,
+        "row": 3,
         "sizey": 4
       },
       "config": {
@@ -590,6 +614,148 @@
         "interval": 3,
         "type": "bigNumber",
         "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Compute Engine Instances",
+            "appliesTo": "hasCategory(\"GCP/ComputeEngine\") && join(system.groups, \",\") =~ \"##defaultResourceGroup##\""
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Compute Engine Instances",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Total Compute Instances",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "GCP Compute Inventory",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "ReservedCores",
+            "instanceName": "*",
+            "dataSourceFullName": "Compute Engine (GCP_Compute_ComputeEngine)",
+            "name": "ReservedCores",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "ReservedCores",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Reserved Cores",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "GCP Compute Inventory",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "GCP Compute Engine Instances by Region",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "pieChart",
+        "timescale": "day",
+        "pieChartInfo": {
+          "maxSlicesCanBeShown": 25,
+          "virtualDataPoints": [],
+          "showLabelsAndLinesOnPC": true,
+          "counters": [
+            {
+              "name": "Europe",
+              "appliesTo": "join(system.staticgroups, \",\") =~ \"##defaultResourceGroup##\" && system.gcp.region =~ \"europe\" && system.devicetype == \"7\""
+            },
+            {
+              "name": "Asia",
+              "appliesTo": "join(system.staticgroups, \",\") =~ \"##defaultResourceGroup##\" && system.gcp.region =~ \"asia\" && system.devicetype == \"7\""
+            },
+            {
+              "name": "United States",
+              "appliesTo": "join(system.staticgroups, \",\") =~ \"##defaultResourceGroup##\" && system.gcp.region =~ \"us-\" || system.gcp.region =~ \"america\" && system.devicetype == \"7\""
+            },
+            {
+              "name": "Australia",
+              "appliesTo": "join(system.staticgroups, \",\") =~ \"##defaultResourceGroup##\" && system.gcp.region =~ \"australia\" && system.devicetype == \"7\""
+            }
+          ],
+          "dataPoints": [],
+          "hideZeroPercentSlices": false,
+          "groupRemainingAsOthers": true,
+          "pieChartItems": [
+            {
+              "dataPointName": "Australia",
+              "color": "Auto",
+              "legend": "Australia"
+            },
+            {
+              "dataPointName": "United States",
+              "color": "Auto",
+              "legend": "United States"
+            },
+            {
+              "dataPointName": "Asia",
+              "color": "Auto",
+              "legend": "Asia"
+            },
+            {
+              "dataPointName": "Europe",
+              "color": "Auto",
+              "legend": "Europe"
+            }
+          ],
+          "title": "GCP Compute Engine Instances by Region"
+        },
         "version": 2
       }
     }

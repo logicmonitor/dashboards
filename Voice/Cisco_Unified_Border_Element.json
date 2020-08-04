@@ -1,0 +1,1697 @@
+{
+  "santabaRelease": 138,
+  "widgetTokens": [{
+    "name": "defaultResourceGroup",
+    "value": "*"
+  }],
+  "name": "Cisco Unified Border Element",
+  "description": "",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 2,
+        "name": "Cisco CUBE Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##RESOURCEGROUP##: ##HOSTNAME##",
+          "dataSourceDisplayName": "Cisco SIP Overview",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 6,
+        "sizex": 7,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Cisco Call Volume Connection Types",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "h323",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Cisco_VoiceDialControl_ConnectionCallVolume"
+              },
+              "dataSourceFullName": "Cisco Call Volume Connections (Cisco_VoiceDialControl_ConnectionCallVolume)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## H.323",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "h323",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "mgcp",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Cisco_VoiceDialControl_ConnectionCallVolume"
+              },
+              "dataSourceFullName": "Cisco Call Volume Connections (Cisco_VoiceDialControl_ConnectionCallVolume)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## MGCP",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "mgcp",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "sccp",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Cisco_VoiceDialControl_ConnectionCallVolume"
+              },
+              "dataSourceFullName": "Cisco Call Volume Connections (Cisco_VoiceDialControl_ConnectionCallVolume)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## SCCP",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "sccp",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "sip",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Cisco_VoiceDialControl_ConnectionCallVolume"
+              },
+              "dataSourceFullName": "Cisco Call Volume Connections (Cisco_VoiceDialControl_ConnectionCallVolume)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## SIP",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "sip",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "calls",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Cisco SIP Traffic Subscribe Requests",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "cSipStatsTrafficSubscribeIns",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Cisco SIP Traffic (Cisco_SIP_Traffic)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## In",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "cSipStatsTrafficSubscribeIns",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "cSipStatsTrafficSubscribeOuts",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Cisco SIP Traffic (Cisco_SIP_Traffic)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## Out",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "cSipStatsTrafficSubscribeOuts",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "subscribes",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Cisco SIP Traffic Update Requests",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "cSipStatsTrafficUpdateIns",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Cisco_SIP_Traffic"
+              },
+              "dataSourceFullName": "Cisco SIP Traffic (Cisco_SIP_Traffic)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## In",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "cSipStatsTrafficUpdateIns",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "cSipStatsTrafficUpdateOuts",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Cisco_SIP_Traffic"
+              },
+              "dataSourceFullName": "Cisco SIP Traffic (Cisco_SIP_Traffic)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## Out",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "cSipStatsTrafficUpdateOuts",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "updates",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Cisco SIP Traffic Invite Requests",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "cSipStatsTrafficInviteIns",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Cisco_SIP_Traffic"
+              },
+              "dataSourceFullName": "Cisco SIP Traffic (Cisco_SIP_Traffic)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## In",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "cSipStatsTrafficInviteIns",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "cSipStatsTrafficInviteOuts",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Cisco_SIP_Traffic"
+              },
+              "dataSourceFullName": "Cisco SIP Traffic (Cisco_SIP_Traffic)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## Out",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "cSipStatsTrafficInviteOuts",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "invites",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 11,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Cisco SIP Internal Server Errors (5XX)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "cSipStatsServerIntErrorIns",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Cisco_SIP_Server_Errors"
+              },
+              "dataSourceFullName": "Cisco SIP Server Errors (Cisco_SIP_Server_Errors)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_Server_Int_ErrorIn",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "cSipStatsServerIntErrorIns",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "cSipStatsServerIntErrorOuts",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Cisco_SIP_Server_Errors"
+              },
+              "dataSourceFullName": "Cisco SIP Server Errors (Cisco_SIP_Server_Errors)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_Server_Int_Error_Out",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "cSipStatsServerIntErrorOuts",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "cSipStatsServerServiceUnavailIns",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Cisco SIP Server Errors (Cisco_SIP_Server_Errors)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_Service_Unavailable_In",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "cSipStatsServerServiceUnavailIns",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "cSipStatsServerServiceUnavailOuts",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Cisco SIP Server Errors (Cisco_SIP_Server_Errors)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_Service_Unavailable_Out",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "cSipStatsServerServiceUnavailOuts",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "cSipStatsServerGatewayTimeoutIns",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Cisco_SIP_Server_Errors"
+              },
+              "dataSourceFullName": "Cisco SIP Server Errors (Cisco_SIP_Server_Errors)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_Gateway_Timeout_In",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "cSipStatsServerGatewayTimeoutIns",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "cSipStatsServerGatewayTimeoutOuts",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Cisco_SIP_Server_Errors"
+              },
+              "dataSourceFullName": "Cisco SIP Server Errors (Cisco_SIP_Server_Errors)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_Gateway_Timeout_Out",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "cSipStatsServerGatewayTimeoutOuts",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "cSipStatsServerBadGatewayIns",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Cisco_SIP_Server_Errors"
+              },
+              "dataSourceFullName": "Cisco SIP Server Errors (Cisco_SIP_Server_Errors)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_Bad_Gateway_In",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "cSipStatsServerBadGatewayIns",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "cSipStatsServerBadGatewayOuts",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Cisco_SIP_Server_Errors"
+              },
+              "dataSourceFullName": "Cisco SIP Server Errors (Cisco_SIP_Server_Errors)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_Bad_Gateway_Out",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "cSipStatsServerBadGatewayOuts",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "errors",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 11,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Cisco SIP Global Failures (6XX)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "cSipStatsGlobalBusyEverywhereIns",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Cisco_SIP_GlobalFail"
+              },
+              "dataSourceFullName": "Cisco SIP Global Fail (Cisco_SIP_GlobalFail)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_Busy Everywhere_In",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "cSipStatsGlobalBusyEverywhereIns",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "cSipStatsGlobalBusyEverywhereOuts",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Cisco_SIP_GlobalFail"
+              },
+              "dataSourceFullName": "Cisco SIP Global Fail (Cisco_SIP_GlobalFail)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_Busy Everywhere_Out",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "cSipStatsGlobalBusyEverywhereOuts",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "cSipStatsGlobalDeclineIns",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Cisco_SIP_GlobalFail"
+              },
+              "dataSourceFullName": "Cisco SIP Global Fail (Cisco_SIP_GlobalFail)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_Decline_In",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "cSipStatsGlobalDeclineIns",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "cSipStatsGlobalDeclineOuts",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Cisco_SIP_GlobalFail"
+              },
+              "dataSourceFullName": "Cisco SIP Global Fail (Cisco_SIP_GlobalFail)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_Decline_Out",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "cSipStatsGlobalDeclineOuts",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "cSipStatsGlobalNotAcceptableIns",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Cisco_SIP_GlobalFail"
+              },
+              "dataSourceFullName": "Cisco SIP Global Fail (Cisco_SIP_GlobalFail)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_Not Acceptable_In",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "cSipStatsGlobalNotAcceptableIns",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "cSipStatsGlobalNotAcceptableOuts",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Cisco_SIP_GlobalFail"
+              },
+              "dataSourceFullName": "Cisco SIP Global Fail (Cisco_SIP_GlobalFail)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_Not Acceptable_Out",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "cSipStatsGlobalNotAcceptableOuts",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "cSipStatsGlobalNotAnywhereIns",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Cisco_SIP_GlobalFail"
+              },
+              "dataSourceFullName": "Cisco SIP Global Fail (Cisco_SIP_GlobalFail)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_Not Anywhere_In",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "cSipStatsGlobalNotAnywhereIns",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "cSipStatsGlobalNotAnywhereOuts",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Cisco_SIP_GlobalFail"
+              },
+              "dataSourceFullName": "Cisco SIP Global Fail (Cisco_SIP_GlobalFail)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_Not Anywhere_Out",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "cSipStatsGlobalNotAnywhereOuts",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "failures",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 5,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 249,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Incoming\n            \n        ",
+              "columnSize": 85,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Outgoing\n            \n        ",
+              "columnSize": 84,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Total\n            \n        ",
+              "columnSize": 98,
+              "columnKey": "2"
+            }
+          ],
+          "pageSize": "5"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "incomingPeerCalls",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " peer calls",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Incoming",
+            "enableForecast": false,
+            "roundingDecimal": 0
+          },
+          {
+            "rpn": "",
+            "dataPointName": "outgoingPeerCalls",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " peer calls",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Outgoing",
+            "enableForecast": false,
+            "roundingDecimal": 0
+          },
+          {
+            "rpn": "",
+            "dataPointName": "totalPeerCalls",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " peer calls",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Total",
+            "enableForecast": false,
+            "roundingDecimal": 0
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME##_##INSTANCE##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": -1,
+        "dataSourceFullName": "Cisco Call Volume Peers (Cisco_VoiceDialControl_PeerCallVolume)",
+        "sortOrder": "descending",
+        "name": "Cisco Call Peer Statistics",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 11,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Cisco SIP Client Errors (4XX)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "cSipStatsClientNotFoundOuts",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Cisco SIP Client Errors (Cisco_SIP_Client_Errors)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_Not_Found_Out",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "cSipStatsClientNotFoundOuts",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "cSipStatsClientNotFoundIns",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Cisco SIP Client Errors (Cisco_SIP_Client_Errors)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_Not_Found_In",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "cSipStatsClientNotFoundIns",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "cSipStatsClientForbiddenIns",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Cisco SIP Client Errors (Cisco_SIP_Client_Errors)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_Forbidden_In",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "cSipStatsClientForbiddenIns",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "cSipStatsClientForbiddenOuts",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Cisco SIP Client Errors (Cisco_SIP_Client_Errors)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_Forbidden_Out",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "cSipStatsClientForbiddenOuts",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "cSipStatsClientTempNotAvailIns",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Cisco SIP Client Errors (Cisco_SIP_Client_Errors)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_Temp_Not_Avail_In",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "cSipStatsClientTempNotAvailIns",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "cSipStatsClientTempNotAvailOuts",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Cisco SIP Client Errors (Cisco_SIP_Client_Errors)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_Temp_Not_Avail_Out",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "cSipStatsClientTempNotAvailOuts",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "cSipStatsClientCallLegNoExistOuts",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Cisco SIP Client Errors (Cisco_SIP_Client_Errors)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_CallLeg_Not_Exist_Out",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "cSipStatsClientCallLegNoExistOuts",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "cSipStatsClientCallLegNoExistIns",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Cisco SIP Client Errors (Cisco_SIP_Client_Errors)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_CallLeg_Not_Exist_In",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "cSipStatsClientCallLegNoExistIns",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "cSipStatsClientBusyHereIns",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Cisco SIP Client Errors (Cisco_SIP_Client_Errors)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_Busy_Here_In",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "cSipStatsClientBusyHereIns",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "cSipStatsClientBusyHereOuts",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Cisco SIP Client Errors (Cisco_SIP_Client_Errors)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_Busy_Here_Out",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "cSipStatsClientBusyHereOuts",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "errors",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 15,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Effective Thresholds",
+              "columnKey": "alert-thresholds"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "name": "Cisco CUBE Alerts",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
+          "keyword": "",
+          "dataSource": "Cisco%20SIP*",
+          "cleared": "no",
+          "group": "%23%23defaultResourceGroup%23%23*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "sip",
+              "instanceName": "*",
+              "dataSourceFullName": "Cisco Call Volume Connections (Cisco_VoiceDialControl_ConnectionCallVolume)",
+              "name": "sip",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "sccp",
+              "instanceName": "*",
+              "dataSourceFullName": "Cisco Call Volume Connections (Cisco_VoiceDialControl_ConnectionCallVolume)",
+              "name": "sccp",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "mgcp",
+              "instanceName": "*",
+              "dataSourceFullName": "Cisco Call Volume Connections (Cisco_VoiceDialControl_ConnectionCallVolume)",
+              "name": "mgcp",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "h323",
+              "instanceName": "*",
+              "dataSourceFullName": "Cisco Call Volume Connections (Cisco_VoiceDialControl_ConnectionCallVolume)",
+              "name": "h323",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [{
+            "dataPointName": "sip",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "SIP",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "CUBE Current Calls",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 1,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "sip",
+              "instanceName": "*",
+              "dataSourceFullName": "Cisco Call Volume Connections (Cisco_VoiceDialControl_ConnectionCallVolume)",
+              "name": "sip",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "sccp",
+              "instanceName": "*",
+              "dataSourceFullName": "Cisco Call Volume Connections (Cisco_VoiceDialControl_ConnectionCallVolume)",
+              "name": "sccp",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "mgcp",
+              "instanceName": "*",
+              "dataSourceFullName": "Cisco Call Volume Connections (Cisco_VoiceDialControl_ConnectionCallVolume)",
+              "name": "mgcp",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "h323",
+              "instanceName": "*",
+              "dataSourceFullName": "Cisco Call Volume Connections (Cisco_VoiceDialControl_ConnectionCallVolume)",
+              "name": "h323",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [{
+            "dataPointName": "sccp",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "SCCP",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "CUBE Current Calls",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 1,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "sip",
+              "instanceName": "*",
+              "dataSourceFullName": "Cisco Call Volume Connections (Cisco_VoiceDialControl_ConnectionCallVolume)",
+              "name": "sip",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "sccp",
+              "instanceName": "*",
+              "dataSourceFullName": "Cisco Call Volume Connections (Cisco_VoiceDialControl_ConnectionCallVolume)",
+              "name": "sccp",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "mgcp",
+              "instanceName": "*",
+              "dataSourceFullName": "Cisco Call Volume Connections (Cisco_VoiceDialControl_ConnectionCallVolume)",
+              "name": "mgcp",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "h323",
+              "instanceName": "*",
+              "dataSourceFullName": "Cisco Call Volume Connections (Cisco_VoiceDialControl_ConnectionCallVolume)",
+              "name": "h323",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [{
+            "dataPointName": "h323",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "H323",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "CUBE Current Calls",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 1,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 3,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "sip",
+              "instanceName": "*",
+              "dataSourceFullName": "Cisco Call Volume Connections (Cisco_VoiceDialControl_ConnectionCallVolume)",
+              "name": "sip",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "sccp",
+              "instanceName": "*",
+              "dataSourceFullName": "Cisco Call Volume Connections (Cisco_VoiceDialControl_ConnectionCallVolume)",
+              "name": "sccp",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "mgcp",
+              "instanceName": "*",
+              "dataSourceFullName": "Cisco Call Volume Connections (Cisco_VoiceDialControl_ConnectionCallVolume)",
+              "name": "mgcp",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "h323",
+              "instanceName": "*",
+              "dataSourceFullName": "Cisco Call Volume Connections (Cisco_VoiceDialControl_ConnectionCallVolume)",
+              "name": "h323",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [{
+            "dataPointName": "mgcp",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "MGCP",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "CUBE Current Calls",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 1,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2  ,
+  "group": {
+    "name": "Voice",
+    "fullPath": "LogicMonitor Dashboards/Voice",
+    "description": ""
+  }
+}
