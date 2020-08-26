@@ -1,0 +1,815 @@
+{
+  "santabaRelease": 139,
+  "widgetTokens": [],
+  "name": "GCP Cloud SQL",
+  "description": "",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 11,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "name": "Cloud SQL Alerts",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
+          "keyword": "",
+          "dataSource": "",
+          "cleared": "no",
+          "group": "%23%23defaultResourceGroup%23%23%2FCloud+SQL"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 5,
+        "row": 1,
+        "sizey": 3
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": false,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 5,
+        "name": "GCP Cloud SQL Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "name",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##RESOURCENAME##",
+          "dataSourceDisplayName": "*",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##/Cloud SQL",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 8,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 3
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "network_connections",
+              "instanceName": "*",
+              "dataSourceFullName": "Cloud SQL (GCP_Database_CloudSQL)",
+              "name": "mysqlConnections",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##/Cloud SQL",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "postgresql_num_backends",
+              "instanceName": "*",
+              "dataSourceFullName": "Cloud SQL (GCP_Database_CloudSQL)",
+              "name": "postgresqlConnections",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##/Cloud SQL",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [{
+            "dataPointName": "postgresqlConnections",
+            "useCommaSeparators": false,
+            "bottomLabel": "PostgreSQL",
+            "rounding": 0,
+            "position": 2,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Cloud SQL Connections",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 1,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "legend": "uptimePercent",
+        "maxValue": 100,
+        "dataPoint": {
+          "rpn": "",
+          "dataPointName": "database_uptime_percent",
+          "instanceName": "*",
+          "dataSourceFullName": "Cloud SQL (GCP_Database_CloudSQL)",
+          "dataSeries": "average",
+          "aggregateFunction": "SUM",
+          "deviceGroupFullPath": "##defaultResourceGroup##/Cloud SQL",
+          "deviceDisplayName": "*"
+        },
+        "description": "",
+        "displayUnit": "",
+        "type": "gauge",
+        "version": 2,
+        "minValue": 0,
+        "displayType": 0,
+        "peakTimeRange": "7days",
+        "showPeak": true,
+        "name": "GCP Cloud SQL Database Uptime",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day",
+        "colorThresholds": [
+          {
+            "level": 2,
+            "threshold": 100,
+            "relation": "<"
+          },
+          {
+            "level": 3,
+            "threshold": 98,
+            "relation": "<"
+          },
+          {
+            "level": 4,
+            "threshold": 96,
+            "relation": "<"
+          }
+        ]
+      }
+    },
+    {
+      "position": {
+        "col": 6,
+        "sizex": 4,
+        "row": 4,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top GCP Cloud SQL Instance by Disk IOPS (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "disk_read_iops",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Cloud SQL (GCP_Database_CloudSQL)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## read IOPS",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "disk_read_iops",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##/Cloud SQL"
+              }
+            },
+            {
+              "dataPointName": "disk_write_iops",
+              "instanceName": {
+                "isGlob": false,
+                "value": "GCP_Database_CloudSQL"
+              },
+              "dataSourceFullName": "Cloud SQL (GCP_Database_CloudSQL)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## write IOPS",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "disk_write_iops",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##/Cloud SQL"
+              }
+            }
+          ],
+          "verticalLabel": "IOPS",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 7,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top GCP Cloud SQL Instances by MySQL Queries (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "mysql_queries",
+              "instanceName": {
+                "isGlob": false,
+                "value": "GCP_Database_CloudSQL"
+              },
+              "dataSourceFullName": "Cloud SQL (GCP_Database_CloudSQL)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## queries",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "mysql_queries",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##/Cloud SQL"
+              }
+            },
+            {
+              "dataPointName": "mysql_questions",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Cloud SQL (GCP_Database_CloudSQL)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## questions",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "mysql_questions",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##/Cloud SQL"
+              }
+            }
+          ],
+          "verticalLabel": "queries/sec",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 4,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top GCP Cloud SQL Instances by Network Throughput (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "network_sent_bytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Cloud SQL (GCP_Database_CloudSQL)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## bytes sent",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "network_sent_bytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##/Cloud SQL"
+              }
+            },
+            {
+              "dataPointName": "network_received_bytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Cloud SQL (GCP_Database_CloudSQL)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## bytes received",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "network_received_bytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##/Cloud SQL"
+              }
+            }
+          ],
+          "verticalLabel": "bytes/second",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 7,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top GCP Cloud SQL Instances by PostgreSQL Transactions (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "postgresql_transactions",
+            "instanceName": {
+              "isGlob": false,
+              "value": "GCP_Database_CloudSQL"
+            },
+            "dataSourceFullName": "Cloud SQL (GCP_Database_CloudSQL)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME## transactions",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "postgresql_transactions",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##/Cloud SQL"
+            }
+          }],
+          "verticalLabel": "transactions/sec",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 5,
+        "row": 4,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 174,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            CPU Utilization\n            \n        ",
+              "columnSize": 117,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Memory Utilization\n            \n        ",
+              "columnSize": 134,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Disk Utilization\n            \n        ",
+              "columnSize": 121,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Read IOPS\n            \n        ",
+              "columnSize": 97,
+              "columnKey": "3"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Write IOPS\n            \n        ",
+              "columnSize": 100,
+              "columnKey": "4"
+            }
+          ],
+          "pageSize": "5"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "cpu_utilization",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 85,
+                "relation": ">="
+              },
+              {
+                "level": 3,
+                "threshold": 95,
+                "relation": ">="
+              },
+              {
+                "level": 4,
+                "threshold": 95,
+                "relation": ">="
+              }
+            ],
+            "columnName": "CPU Utilization",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "memory_utilization",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 85,
+                "relation": ">="
+              },
+              {
+                "level": 3,
+                "threshold": 95,
+                "relation": ">="
+              }
+            ],
+            "columnName": "Memory Utilization",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "disk_utilization",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "%",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Disk Utilization",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "disk_read_iops",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " IOPS",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Read IOPS",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "disk_write_iops",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " IOPS",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Write IOPS",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME##",
+          "deviceDisplayName": "!(*post*)",
+          "groupFullPath": "##defaultResourceGroup##/Cloud SQL"
+        }],
+        "version": 2,
+        "topX": 10,
+        "dataSourceFullName": "Cloud SQL (GCP_Database_CloudSQL)",
+        "sortOrder": "descending",
+        "name": "GCP Cloud SQL Instance Statistics",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 6,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 3
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "network_connections",
+              "instanceName": "*",
+              "dataSourceFullName": "Cloud SQL (GCP_Database_CloudSQL)",
+              "name": "mysqlConnections",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##/Cloud SQL",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "postgresql_num_backends",
+              "instanceName": "*",
+              "dataSourceFullName": "Cloud SQL (GCP_Database_CloudSQL)",
+              "name": "postgresqlConnections",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##/Cloud SQL",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [{
+            "dataPointName": "mysqlConnections",
+            "useCommaSeparators": false,
+            "bottomLabel": "MySQL",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Cloud SQL Connections",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2
+}
