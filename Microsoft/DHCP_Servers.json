@@ -1,5 +1,5 @@
 {
-  "santabaRelease": 136,
+  "santabaRelease": 145,
   "widgetTokens": [
     {
       "name": "defaultResourceGroup",
@@ -434,7 +434,7 @@
             "dataSourceFullName": "DHCP IPv4 Scopes (Microsoft_DHCP_IPv4Scopes)",
             "name": "addressesFree",
             "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultDeviceGroup##",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
             "deviceDisplayName": "*"
           }],
           "bigNumberItems": [{
@@ -471,10 +471,10 @@
           "dataPoints": [{
             "dataPointName": "TotalScopes",
             "instanceName": "*",
-            "dataSourceFullName": "DHCP IPv4 Server (Microsoft_DHCP_IPv4Server)",
+            "dataSourceFullName": "DHCP IPv4 Servers (Microsoft_DHCP_IPv4Servers)",
             "name": "dhcpScopes",
             "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultDeviceGroup##",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
             "deviceDisplayName": "*"
           }],
           "bigNumberItems": [{
@@ -509,7 +509,7 @@
           "virtualDataPoints": [],
           "counters": [{
             "name": "dhcpServers",
-            "appliesTo": "hasCategory(\"Windows_DHCP\")"
+            "appliesTo": "hasCategory(\"Windows_DHCP\") && \njoin(system.groups,\",\") =~ \"##defaultResourceGroup##\""
           }],
           "dataPoints": [],
           "bigNumberItems": [{
@@ -822,7 +822,7 @@
             "dataSourceFullName": "DHCP IPv4 Scopes (Microsoft_DHCP_IPv4Scopes)",
             "name": "addressesUsed",
             "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultDeviceGroup##",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
             "deviceDisplayName": "*"
           }],
           "bigNumberItems": [{
