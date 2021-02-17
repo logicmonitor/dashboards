@@ -1,5 +1,5 @@
 {
-  "santabaRelease": 131,
+  "santabaRelease": 146,
   "widgetTokens": [
     {
       "name": "defaultResourceGroup",
@@ -7,14 +7,894 @@
     },
     {
       "name": "defaultResourceName",
-      "value": "LogicMonitor"
+      "value": "*"
     }
   ],
   "name": "Portal Metrics",
-  "description": "Populated by the LogicMonitor_Portal_Metrics datasource. We recommended creating a LogicMonitor \"device\" in the portal, then applying this module to that device.\n\nFor additional instructions, see: https://bit.ly/2HSsAjl",
+  "description": "Populated by the LogicMonitor_Portal_* datasources.",
+  "overwriteGroupFields": false,
   "widgetsConfigVersion": 2,
   "type": "dashboard",
   "widgets": [
+    {
+      "position": {
+        "col": 6,
+        "sizex": 3,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Alert Severities (Real-time)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "type": "pieChart",
+        "timescale": "day",
+        "pieChartInfo": {
+          "maxSlicesCanBeShown": 10,
+          "virtualDataPoints": [],
+          "showLabelsAndLinesOnPC": true,
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "totalAlerts",
+              "top10": false,
+              "instanceName": "LogicMonitor_Portal_Alerts-Error Alerts",
+              "dataSourceFullName": "LogicMonitor Alerts (LogicMonitor_Portal_Alerts)",
+              "name": "ErrorAlerts",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "##defaultResourceName##",
+              "aggregate": true
+            },
+            {
+              "dataPointName": "totalAlerts",
+              "top10": false,
+              "instanceName": "LogicMonitor_Portal_Alerts-Warning Alerts",
+              "dataSourceFullName": "LogicMonitor Alerts (LogicMonitor_Portal_Alerts)",
+              "name": "WarningAlerts",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "##defaultResourceName##",
+              "aggregate": true
+            },
+            {
+              "dataPointName": "totalAlerts",
+              "top10": false,
+              "instanceName": "LogicMonitor_Portal_Alerts-Critical Alerts",
+              "dataSourceFullName": "LogicMonitor Alerts (LogicMonitor_Portal_Alerts)",
+              "name": "CriticalAlerts",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "##defaultResourceName##",
+              "aggregate": true
+            }
+          ],
+          "hideZeroPercentSlices": false,
+          "groupRemainingAsOthers": false,
+          "pieChartItems": [
+            {
+              "dataPointName": "CriticalAlerts",
+              "color": "red",
+              "legend": "Criticals"
+            },
+            {
+              "dataPointName": "WarningAlerts",
+              "color": "yellow",
+              "legend": "Warnings"
+            },
+            {
+              "dataPointName": "ErrorAlerts",
+              "color": "orange2",
+              "legend": "Errors"
+            }
+          ],
+          "title": "Alert Severities (Real-time)"
+        },
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 18,
+        "sizey": 5
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Cloud Resources by Provider",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "type": "pieChart",
+        "timescale": "day",
+        "pieChartInfo": {
+          "maxSlicesCanBeShown": 10,
+          "virtualDataPoints": [],
+          "showLabelsAndLinesOnPC": true,
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "totalResources",
+              "top10": false,
+              "instanceName": "LogicMonitor_Portal_Resources-Azure Resources*",
+              "dataSourceFullName": "LogicMonitor Resources (LogicMonitor_Portal_Resources)",
+              "name": "AzureCount",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "##defaultResourceName##",
+              "aggregate": true
+            },
+            {
+              "dataPointName": "totalResources",
+              "top10": false,
+              "instanceName": "LogicMonitor_Portal_Resources-AWS Resources",
+              "dataSourceFullName": "LogicMonitor Resources (LogicMonitor_Portal_Resources)",
+              "name": "AWSCount",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "##defaultResourceName##",
+              "aggregate": true
+            },
+            {
+              "dataPointName": "totalResources",
+              "top10": false,
+              "instanceName": "LogicMonitor_Portal_Resources-GCP Resources*",
+              "dataSourceFullName": "LogicMonitor Resources (LogicMonitor_Portal_Resources)",
+              "name": "GCPCount",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "##defaultResourceName##",
+              "aggregate": true
+            }
+          ],
+          "hideZeroPercentSlices": false,
+          "groupRemainingAsOthers": false,
+          "pieChartItems": [
+            {
+              "dataPointName": "GCPCount",
+              "color": "Auto",
+              "legend": "GCP"
+            },
+            {
+              "dataPointName": "AWSCount",
+              "color": "Auto",
+              "legend": "AWS"
+            },
+            {
+              "dataPointName": "AzureCount",
+              "color": "Auto",
+              "legend": "Azure"
+            }
+          ],
+          "title": "Cloud Resources by Provider"
+        },
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 9,
+        "row": 20,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Cloud Resources by Provider (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "totalResources",
+              "instanceName": {
+                "isGlob": false,
+                "value": "AWS Resources"
+              },
+              "dataSourceFullName": "LogicMonitor Resources (LogicMonitor_Portal_Resources)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "orange2",
+                "legend": "AWS",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "totalResourcesAWS",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "totalResources",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Azure Resources"
+              },
+              "dataSourceFullName": "LogicMonitor Resources (LogicMonitor_Portal_Resources)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "Azure",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "totalResourcesAzure",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "totalResources",
+              "instanceName": {
+                "isGlob": false,
+                "value": "GCP Resources"
+              },
+              "dataSourceFullName": "LogicMonitor Resources (LogicMonitor_Portal_Resources)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "GCP",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "totalResourcesGCP",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "count",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "7days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 2,
+        "row": 14,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "aliveCollectors",
+            "instanceName": "*",
+            "dataSourceFullName": "LogicMonitor Collectors (LogicMonitor_Portal_Collectors)",
+            "name": "AliveCollectors",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "##defaultResourceName##"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "AliveCollectors",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 2,
+            "rightLabel": "Alive",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Collectors Alive",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 2,
+        "row": 16,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "downCollectors",
+            "instanceName": "*",
+            "dataSourceFullName": "LogicMonitor Collectors (LogicMonitor_Portal_Collectors)",
+            "name": "DeadCollectors",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "##defaultResourceName##"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "DeadCollectors",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 3,
+            "rightLabel": "Down",
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 0,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 0,
+                "relation": ">"
+              },
+              {
+                "level": 4,
+                "threshold": 0,
+                "relation": ">"
+              }
+            ]
+          }]
+        },
+        "displaySettings": {},
+        "name": "Collectors Dead",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 2,
+        "row": 7,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "activeUsers",
+            "instanceName": "*",
+            "dataSourceFullName": "LogicMonitor Users (LogicMonitor_Portal_Users)",
+            "name": "RecentUsers",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "##defaultResourceName##"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "RecentUsers",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 2,
+            "rightLabel": "Active Accounts",
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 0,
+                "relation": "="
+              },
+              {
+                "level": 3,
+                "threshold": 0,
+                "relation": "="
+              },
+              {
+                "level": 4,
+                "threshold": 0,
+                "relation": "="
+              }
+            ]
+          }]
+        },
+        "displaySettings": {},
+        "name": "LogicMonitor Activity",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 5,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "LogicMonitor Alert Severities (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "totalAlerts",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Warning Alerts"
+              },
+              "dataSourceFullName": "LogicMonitor Alerts (LogicMonitor_Portal_Alerts)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "yellow",
+                "legend": "Warning",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "totalWarnings",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "totalAlerts",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Error Alerts"
+              },
+              "dataSourceFullName": "LogicMonitor Alerts (LogicMonitor_Portal_Alerts)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "orange2",
+                "legend": "Error",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "totalErrors",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "totalAlerts",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Critical Alerts"
+              },
+              "dataSourceFullName": "LogicMonitor Alerts (LogicMonitor_Portal_Alerts)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "red",
+                "legend": "Critical",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "totalCriticals",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "totalAlerts",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "LogicMonitor Alerts (LogicMonitor_Portal_Alerts)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "black",
+                "legend": "Total",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "totalAlerts",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "alerts",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "7days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 15,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "LogicMonitor Collector Health (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "aliveCollectors",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "LogicMonitor Collectors (LogicMonitor_Portal_Collectors)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "olive",
+                "legend": "Alive",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "aliveCollectors",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "downCollectors",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "LogicMonitor Collectors (LogicMonitor_Portal_Collectors)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "red",
+                "legend": "Down",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "downCollectors",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "totalCollectors",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "LogicMonitor Collectors (LogicMonitor_Portal_Collectors)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "black",
+                "legend": "Total",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "totalCollectors",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "#",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "7days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "LogicMonitor Resource Status (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "deadResources",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "LogicMonitor Resources (LogicMonitor_Portal_Resources)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "red2",
+                "legend": "Dead",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "deadResources",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "aliveResources",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "LogicMonitor Resources (LogicMonitor_Portal_Resources)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "olive",
+                "legend": "Alive",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "aliveResources",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "totalResources",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "LogicMonitor Resources (LogicMonitor_Portal_Resources)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "black",
+                "legend": "Total",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "totalResources",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "count",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "7days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 7,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "totalUsers",
+            "instanceName": "*",
+            "dataSourceFullName": "LogicMonitor Users (LogicMonitor_Portal_Users)",
+            "name": "TotalUsers",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "##defaultResourceName##"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "TotalUsers",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Total Accounts",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "LogicMonitor Users",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "deadResources",
+            "instanceName": "*",
+            "dataSourceFullName": "LogicMonitor Resources (LogicMonitor_Portal_Resources)",
+            "name": "DeadDevices",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "##defaultResourceName##"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "DeadDevices",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Resources Dead",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Resource Status",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "aliveResources",
+            "instanceName": "*",
+            "dataSourceFullName": "LogicMonitor Resources (LogicMonitor_Portal_Resources)",
+            "name": "AliveResources",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "##defaultResourceName##"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "AliveResources",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Resources Alive",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Resource Status",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
     {
       "position": {
         "col": 1,
@@ -112,903 +992,6 @@
     {
       "position": {
         "col": 1,
-        "sizex": 5,
-        "row": 3,
-        "sizey": 4
-      },
-      "config": {
-        "displaySettings": {},
-        "name": "LogicMonitor Alert Severities (Trend)",
-        "description": "",
-        "theme": "newBorderDarkBlue",
-        "interval": 3,
-        "graphInfo": {
-          "virtualDataPoints": [],
-          "minValue": 0,
-          "topX": 0,
-          "maxValue": "NaN",
-          "dataPoints": [
-            {
-              "dataPointName": "WarningAlerts",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": "yellow",
-                "legend": "Warning",
-                "type": "stack",
-                "option": "custom"
-              },
-              "name": "WarningAlerts",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "##defaultResourceName##"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "##defaultResourceGroup##"
-              }
-            },
-            {
-              "dataPointName": "ErrorAlerts",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": "orange2",
-                "legend": "Error",
-                "type": "stack",
-                "option": "custom"
-              },
-              "name": "ErrorAlerts",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "##defaultResourceName##"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "##defaultResourceGroup##"
-              }
-            },
-            {
-              "dataPointName": "CriticalAlerts",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": "red",
-                "legend": "Critical",
-                "type": "stack",
-                "option": "custom"
-              },
-              "name": "CriticalAlerts",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "##defaultResourceName##"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "##defaultResourceGroup##"
-              }
-            },
-            {
-              "dataPointName": "TotalAlerts",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": "black",
-                "legend": "Total",
-                "type": "line",
-                "option": "custom"
-              },
-              "name": "TotalAlerts",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "##defaultResourceName##"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "##defaultResourceGroup##"
-              }
-            }
-          ],
-          "verticalLabel": "alerts",
-          "aggregate": true,
-          "desc": true,
-          "scaleUnit": 1000,
-          "globalConsolidateFunction": "VaST"
-        },
-        "type": "cgraph",
-        "timescale": "1month",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 9,
-        "sizex": 4,
-        "row": 3,
-        "sizey": 4
-      },
-      "config": {
-        "displaySettings": {},
-        "name": "LogicMonitor Resource Status (Trend)",
-        "description": "",
-        "theme": "newBorderDarkBlue",
-        "interval": 3,
-        "graphInfo": {
-          "virtualDataPoints": [],
-          "minValue": 0,
-          "topX": 0,
-          "maxValue": "NaN",
-          "dataPoints": [
-            {
-              "dataPointName": "DeadResources",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": "red2",
-                "legend": "Dead",
-                "type": "stack",
-                "option": "custom"
-              },
-              "name": "DeadResources",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "##defaultResourceName##"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "##defaultResourceGroup##"
-              }
-            },
-            {
-              "dataPointName": "AliveResources",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": "olive",
-                "legend": "Alive",
-                "type": "stack",
-                "option": "custom"
-              },
-              "name": "AliveResources",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "##defaultResourceName##"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "##defaultResourceGroup##"
-              }
-            },
-            {
-              "dataPointName": "TotalResources",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": "black",
-                "legend": "Total",
-                "type": "line",
-                "option": "custom"
-              },
-              "name": "TotalResources",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "##defaultResourceName##"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "##defaultResourceGroup##"
-              }
-            }
-          ],
-          "verticalLabel": "count",
-          "aggregate": true,
-          "desc": true,
-          "scaleUnit": 1000,
-          "globalConsolidateFunction": "VaST"
-        },
-        "type": "cgraph",
-        "timescale": "1month",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 7,
-        "sizex": 6,
-        "row": 15,
-        "sizey": 3
-      },
-      "config": {
-        "displaySettings": {},
-        "name": "LogicMonitor Collector Health (Trend)",
-        "description": "",
-        "theme": "newBorderDarkBlue",
-        "interval": 3,
-        "graphInfo": {
-          "virtualDataPoints": [],
-          "minValue": 0,
-          "topX": 0,
-          "maxValue": "NaN",
-          "dataPoints": [
-            {
-              "dataPointName": "AliveCollectors",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": "olive",
-                "legend": "Alive",
-                "type": "stack",
-                "option": "custom"
-              },
-              "name": "AliveCollectors",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "##defaultResourceName##"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "##defaultResourceGroup##"
-              }
-            },
-            {
-              "dataPointName": "DeadCollectors",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": "red",
-                "legend": "Dead",
-                "type": "stack",
-                "option": "custom"
-              },
-              "name": "DeadCollectors",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "##defaultResourceName##"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "##defaultResourceGroup##"
-              }
-            },
-            {
-              "dataPointName": "TotalCollectors",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": "black",
-                "legend": "Total",
-                "type": "line",
-                "option": "custom"
-              },
-              "name": "TotalCollectors",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "##defaultResourceName##"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "##defaultResourceGroup##"
-              }
-            }
-          ],
-          "verticalLabel": "#",
-          "aggregate": true,
-          "desc": true,
-          "scaleUnit": 1000,
-          "globalConsolidateFunction": "default"
-        },
-        "type": "cgraph",
-        "timescale": "7days",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 1,
-        "sizex": 2,
-        "row": 7,
-        "sizey": 2
-      },
-      "config": {
-        "bigNumberInfo": {
-          "virtualDataPoints": [],
-          "counters": [],
-          "dataPoints": [{
-            "dataPointName": "TotalResources",
-            "instanceName": "*",
-            "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-            "name": "DeviceCount",
-            "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "##defaultResourceName##"
-          }],
-          "bigNumberItems": [{
-            "dataPointName": "DeviceCount",
-            "useCommaSeparators": false,
-            "bottomLabel": "",
-            "rounding": 0,
-            "position": 1,
-            "rightLabel": "Total",
-            "colorThresholds": null
-          }]
-        },
-        "displaySettings": {},
-        "name": "Total Resources",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "type": "bigNumber",
-        "timescale": "day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 5,
-        "sizex": 2,
-        "row": 16,
-        "sizey": 2
-      },
-      "config": {
-        "bigNumberInfo": {
-          "virtualDataPoints": [],
-          "counters": [],
-          "dataPoints": [
-            {
-              "dataPointName": "TotalCollectors",
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "TotalCollectors",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
-            },
-            {
-              "dataPointName": "AliveCollectors",
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "AliveCollectors",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
-            },
-            {
-              "dataPointName": "DeadCollectors",
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "DeadCollectors",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
-            }
-          ],
-          "bigNumberItems": [{
-            "dataPointName": "DeadCollectors",
-            "useCommaSeparators": false,
-            "bottomLabel": "",
-            "rounding": 0,
-            "position": 3,
-            "rightLabel": "Dead",
-            "colorThresholds": [
-              {
-                "level": 2,
-                "threshold": 0,
-                "relation": ">"
-              },
-              {
-                "level": 3,
-                "threshold": 0,
-                "relation": ">"
-              },
-              {
-                "level": 4,
-                "threshold": 0,
-                "relation": ">"
-              }
-            ]
-          }]
-        },
-        "displaySettings": {},
-        "name": "Collectors Dead",
-        "description": "",
-        "theme": "newBorderDarkBlue",
-        "interval": 3,
-        "type": "bigNumber",
-        "timescale": "day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 1,
-        "sizex": 6,
-        "row": 20,
-        "sizey": 4
-      },
-      "config": {
-        "displaySettings": {},
-        "name": "Cloud Resources by Provider (Trend)",
-        "description": "",
-        "theme": "newBorderDarkBlue",
-        "interval": 3,
-        "graphInfo": {
-          "virtualDataPoints": [{
-            "rpn": "AWSCount+AzureCount+ GCPCount",
-            "display": {
-              "color": "black",
-              "legend": "Total",
-              "type": "line",
-              "option": "custom"
-            },
-            "name": "TotalCloud"
-          }],
-          "minValue": 0,
-          "topX": 0,
-          "maxValue": "NaN",
-          "dataPoints": [
-            {
-              "dataPointName": "AWSCount",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": "orange2",
-                "legend": "AWS",
-                "type": "stack",
-                "option": "custom"
-              },
-              "name": "AWSCount",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "##defaultResourceName##"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "##defaultResourceGroup##"
-              }
-            },
-            {
-              "dataPointName": "AzureCount",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": "Auto",
-                "legend": "Azure",
-                "type": "stack",
-                "option": "custom"
-              },
-              "name": "AzureCount",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "##defaultResourceName##"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "##defaultResourceGroup##"
-              }
-            },
-            {
-              "dataPointName": "GCPCount",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": "Auto",
-                "legend": "GCP",
-                "type": "stack",
-                "option": "custom"
-              },
-              "name": "GCPCount",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "##defaultResourceName##"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "##defaultResourceGroup##"
-              }
-            }
-          ],
-          "verticalLabel": "count",
-          "aggregate": true,
-          "desc": true,
-          "scaleUnit": 1000,
-          "globalConsolidateFunction": "VaST"
-        },
-        "type": "cgraph",
-        "timescale": "7days",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 7,
-        "sizex": 3,
-        "row": 12,
-        "sizey": 3
-      },
-      "config": {
-        "displaySettings": {},
-        "name": "User Accounts (Trend)",
-        "description": "",
-        "theme": "newBorderDarkBlue",
-        "interval": 3,
-        "graphInfo": {
-          "virtualDataPoints": [],
-          "minValue": 0,
-          "topX": 0,
-          "maxValue": "NaN",
-          "dataPoints": [
-            {
-              "dataPointName": "TotalUsers",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": "black",
-                "legend": "Total Users",
-                "type": "line",
-                "option": "custom"
-              },
-              "name": "TotalUsers",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "##defaultResourceName##"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "##defaultResourceGroup##"
-              }
-            },
-            {
-              "dataPointName": "RecentUsers",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": "orange2",
-                "legend": "Recent Users",
-                "type": "area",
-                "option": "custom"
-              },
-              "name": "RecentUsers",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "##defaultResourceName##"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "##defaultResourceGroup##"
-              }
-            }
-          ],
-          "verticalLabel": "count",
-          "aggregate": true,
-          "desc": true,
-          "scaleUnit": 1000,
-          "globalConsolidateFunction": "VaST"
-        },
-        "type": "cgraph",
-        "timescale": "7days",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 10,
-        "sizex": 3,
-        "row": 12,
-        "sizey": 3
-      },
-      "config": {
-        "displaySettings": {},
-        "name": "Website Checks (Trend)",
-        "description": "",
-        "theme": "newBorderDarkBlue",
-        "interval": 3,
-        "graphInfo": {
-          "virtualDataPoints": [],
-          "minValue": 0,
-          "topX": 0,
-          "maxValue": "NaN",
-          "dataPoints": [{
-            "dataPointName": "WebsiteCount",
-            "instanceName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "silver",
-              "legend": "Websites",
-              "type": "area",
-              "option": "custom"
-            },
-            "name": "WebsiteCount",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "##defaultResourceName##"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
-            }
-          }],
-          "verticalLabel": "count",
-          "aggregate": true,
-          "desc": true,
-          "scaleUnit": 1000,
-          "globalConsolidateFunction": "VaST"
-        },
-        "type": "cgraph",
-        "timescale": "7days",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 9,
-        "sizex": 2,
-        "row": 7,
-        "sizey": 2
-      },
-      "config": {
-        "bigNumberInfo": {
-          "virtualDataPoints": [],
-          "counters": [],
-          "dataPoints": [{
-            "dataPointName": "RecentUsers",
-            "instanceName": "*",
-            "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-            "name": "RecentUsers",
-            "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "##defaultResourceName##"
-          }],
-          "bigNumberItems": [{
-            "dataPointName": "RecentUsers",
-            "useCommaSeparators": false,
-            "bottomLabel": "",
-            "rounding": 0,
-            "position": 2,
-            "rightLabel": "Recent Logins",
-            "colorThresholds": [
-              {
-                "level": 2,
-                "threshold": 0,
-                "relation": "="
-              },
-              {
-                "level": 3,
-                "threshold": 0,
-                "relation": "="
-              },
-              {
-                "level": 4,
-                "threshold": 0,
-                "relation": "="
-              }
-            ]
-          }]
-        },
-        "displaySettings": {},
-        "name": "LogicMonitor Activity",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "type": "bigNumber",
-        "timescale": "day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 7,
-        "sizex": 3,
-        "row": 20,
-        "sizey": 4
-      },
-      "config": {
-        "bigNumberInfo": {
-          "virtualDataPoints": [{
-            "rpn": "AWSCount + AzureCount + GCPCount",
-            "name": "TotalCloud"
-          }],
-          "counters": [],
-          "dataPoints": [
-            {
-              "dataPointName": "AWSCount",
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "AWSCount",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
-            },
-            {
-              "dataPointName": "AzureCount",
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "AzureCount",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
-            },
-            {
-              "dataPointName": "GCPCount",
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "GCPCount",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
-            }
-          ],
-          "bigNumberItems": [
-            {
-              "dataPointName": "TotalCloud",
-              "useCommaSeparators": false,
-              "bottomLabel": "",
-              "rounding": 0,
-              "position": 1,
-              "rightLabel": "Total",
-              "colorThresholds": null
-            },
-            {
-              "dataPointName": "AWSCount",
-              "useCommaSeparators": false,
-              "bottomLabel": "",
-              "rounding": 0,
-              "position": 2,
-              "rightLabel": "AWS",
-              "colorThresholds": null
-            },
-            {
-              "dataPointName": "AzureCount",
-              "useCommaSeparators": false,
-              "bottomLabel": "",
-              "rounding": 0,
-              "position": 3,
-              "rightLabel": "Azure",
-              "colorThresholds": null
-            },
-            {
-              "dataPointName": "GCPCount",
-              "useCommaSeparators": false,
-              "bottomLabel": "",
-              "rounding": 0,
-              "position": 4,
-              "rightLabel": "GCP",
-              "colorThresholds": null
-            }
-          ]
-        },
-        "displaySettings": {},
-        "name": "Cloud Resources",
-        "description": "",
-        "theme": "newBorderDarkBlue",
-        "interval": 3,
-        "type": "bigNumber",
-        "timescale": "day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 7,
-        "sizex": 2,
-        "row": 7,
-        "sizey": 2
-      },
-      "config": {
-        "bigNumberInfo": {
-          "virtualDataPoints": [],
-          "counters": [],
-          "dataPoints": [{
-            "dataPointName": "WebsiteCount",
-            "instanceName": "*",
-            "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-            "name": "WebsiteChecks",
-            "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "##defaultResourceName##"
-          }],
-          "bigNumberItems": [{
-            "dataPointName": "WebsiteChecks",
-            "useCommaSeparators": false,
-            "bottomLabel": "",
-            "rounding": 0,
-            "position": 1,
-            "rightLabel": "Website Checks",
-            "colorThresholds": null
-          }]
-        },
-        "displaySettings": {},
-        "name": "Website Checks",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "type": "bigNumber",
-        "timescale": "day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 1,
         "sizex": 6,
         "row": 9,
         "sizey": 3
@@ -1020,27 +1003,18 @@
         "theme": "newBorderDarkBlue",
         "interval": 3,
         "graphInfo": {
-          "virtualDataPoints": [{
-            "rpn": "DeviceCount - (CombinedAWSCount + CombinedAzureCount + CombinedGCPCount + StandardCount)",
-            "display": {
-              "color": "aqua",
-              "legend": "Light Devices",
-              "type": "stack",
-              "option": "custom"
-            },
-            "name": "LightDevices"
-          }],
+          "virtualDataPoints": [],
           "minValue": 0,
           "topX": 0,
           "maxValue": "NaN",
           "dataPoints": [
             {
-              "dataPointName": "CombinedAWSCount",
+              "dataPointName": "totalResources",
               "instanceName": {
-                "isGlob": true,
-                "value": "*"
+                "isGlob": false,
+                "value": "AWS Resources"
               },
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
+              "dataSourceFullName": "LogicMonitor Resources (LogicMonitor_Portal_Resources)",
               "consolidateFunction": "average",
               "display": {
                 "color": "orange2",
@@ -1048,7 +1022,7 @@
                 "type": "stack",
                 "option": "custom"
               },
-              "name": "CombinedAWSCount",
+              "name": "totalAWS",
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
@@ -1060,12 +1034,12 @@
               }
             },
             {
-              "dataPointName": "CombinedAzureCount",
+              "dataPointName": "totalResources",
               "instanceName": {
                 "isGlob": true,
-                "value": "*"
+                "value": "Azure Resources"
               },
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
+              "dataSourceFullName": "LogicMonitor Resources (LogicMonitor_Portal_Resources)",
               "consolidateFunction": "average",
               "display": {
                 "color": "aqua",
@@ -1073,7 +1047,7 @@
                 "type": "stack",
                 "option": "custom"
               },
-              "name": "CombinedAzureCount",
+              "name": "totalAzure",
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
@@ -1085,12 +1059,12 @@
               }
             },
             {
-              "dataPointName": "CombinedGCPCount",
+              "dataPointName": "totalResources",
               "instanceName": {
                 "isGlob": true,
-                "value": "*"
+                "value": "GCP Resources"
               },
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
+              "dataSourceFullName": "LogicMonitor Resources (LogicMonitor_Portal_Resources)",
               "consolidateFunction": "average",
               "display": {
                 "color": "olive",
@@ -1098,7 +1072,7 @@
                 "type": "stack",
                 "option": "custom"
               },
-              "name": "CombinedGCPCount",
+              "name": "totalGCP",
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
@@ -1110,12 +1084,12 @@
               }
             },
             {
-              "dataPointName": "DeviceCount",
+              "dataPointName": "totalResources",
               "instanceName": {
                 "isGlob": true,
                 "value": "*"
               },
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
+              "dataSourceFullName": "LogicMonitor Resources (LogicMonitor_Portal_Resources)",
               "consolidateFunction": "average",
               "display": {
                 "color": "black",
@@ -1123,7 +1097,7 @@
                 "type": "line",
                 "option": "custom"
               },
-              "name": "DeviceCount",
+              "name": "totalResources",
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
@@ -1135,12 +1109,12 @@
               }
             },
             {
-              "dataPointName": "StandardCount",
+              "dataPointName": "totalResources",
               "instanceName": {
-                "isGlob": true,
-                "value": "*"
+                "isGlob": false,
+                "value": "Standard Resources"
               },
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
+              "dataSourceFullName": "LogicMonitor Resources (LogicMonitor_Portal_Resources)",
               "consolidateFunction": "average",
               "display": {
                 "color": "silver",
@@ -1148,7 +1122,32 @@
                 "type": "stack",
                 "option": "custom"
               },
-              "name": "StandardCount",
+              "name": "totalStandard",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "totalResources",
+              "instanceName": {
+                "isGlob": false,
+                "value": "LM Services"
+              },
+              "dataSourceFullName": "LogicMonitor Resources (LogicMonitor_Portal_Resources)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "fuchsia",
+                "legend": "Services",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "totalServices",
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
@@ -1160,20 +1159,20 @@
               }
             }
           ],
-          "verticalLabel": "count",
+          "verticalLabel": "resources",
           "aggregate": true,
           "desc": true,
           "scaleUnit": 1000,
           "globalConsolidateFunction": "default"
         },
         "type": "cgraph",
-        "timescale": "1month",
+        "timescale": "7days",
         "version": 2
       }
     },
     {
       "position": {
-        "col": 10,
+        "col": 7,
         "sizex": 3,
         "row": 9,
         "sizey": 3
@@ -1191,12 +1190,12 @@
           "maxValue": "NaN",
           "dataPoints": [
             {
-              "dataPointName": "DownServices",
+              "dataPointName": "deadResources",
               "instanceName": {
                 "isGlob": false,
-                "value": "LogicMonitor_Portal_Metrics"
+                "value": "LM Services"
               },
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
+              "dataSourceFullName": "LogicMonitor Resources (LogicMonitor_Portal_Resources)",
               "consolidateFunction": "average",
               "display": {
                 "color": "red",
@@ -1204,7 +1203,7 @@
                 "type": "area",
                 "option": "custom"
               },
-              "name": "DownServices",
+              "name": "deadServices",
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
@@ -1216,12 +1215,12 @@
               }
             },
             {
-              "dataPointName": "ServiceCount",
+              "dataPointName": "totalResources",
               "instanceName": {
                 "isGlob": false,
-                "value": "LogicMonitor_Portal_Metrics"
+                "value": "LM Services"
               },
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
+              "dataSourceFullName": "LogicMonitor Resources (LogicMonitor_Portal_Resources)",
               "consolidateFunction": "average",
               "display": {
                 "color": "yellow",
@@ -1229,7 +1228,7 @@
                 "type": "area",
                 "option": "custom"
               },
-              "name": "ServiceCount",
+              "name": "totalResources",
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
@@ -1249,446 +1248,6 @@
         },
         "type": "cgraph",
         "timescale": "1day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 7,
-        "sizex": 3,
-        "row": 9,
-        "sizey": 3
-      },
-      "config": {
-        "displaySettings": {},
-        "name": "ConfigSource Instances (Trend)",
-        "description": "",
-        "theme": "newBorderDarkBlue",
-        "interval": 3,
-        "graphInfo": {
-          "virtualDataPoints": [],
-          "minValue": 0,
-          "topX": 0,
-          "maxValue": "NaN",
-          "dataPoints": [{
-            "dataPointName": "ConfigSourceCount",
-            "instanceName": {
-              "isGlob": false,
-              "value": "LogicMonitor_Portal_Metrics"
-            },
-            "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "purple",
-              "legend": "ConfigSources",
-              "type": "area",
-              "option": "custom"
-            },
-            "name": "ConfigSourceCount",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "##defaultResourceName##"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
-            }
-          }],
-          "verticalLabel": "count",
-          "aggregate": true,
-          "desc": true,
-          "scaleUnit": 1000,
-          "globalConsolidateFunction": "default"
-        },
-        "type": "cgraph",
-        "timescale": "1day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 1,
-        "sizex": 9,
-        "row": 18,
-        "sizey": 2
-      },
-      "config": {
-        "displaySettings": {
-          "columns": [
-            {
-              "visible": true,
-              "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 242,
-              "columnKey": "device-name-1452842526600"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            AWS (Stopped)\n            \n        ",
-              "columnSize": 103,
-              "columnKey": "0"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            AWS (Term.)\n            \n        ",
-              "columnSize": 91,
-              "columnKey": "1"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            AWS (Total)\n            \n        ",
-              "columnSize": 88,
-              "columnKey": "2"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            Azure (Stopped)\n            \n        ",
-              "columnSize": 109,
-              "columnKey": "3"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            Azure (Term.)\n            \n        ",
-              "columnSize": 91,
-              "columnKey": "4"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            Azure (Total)\n            \n        ",
-              "columnSize": 91,
-              "columnKey": "5"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            GCP (Stopped)\n            \n        ",
-              "columnSize": 101,
-              "columnKey": "6"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            GCP (Term.)\n            \n        ",
-              "columnSize": 85,
-              "columnKey": "7"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            GCP (Total)\n            \n        ",
-              "columnSize": 121,
-              "columnKey": "8"
-            }
-          ],
-          "pageSize": "5"
-        },
-        "columns": [
-          {
-            "rpn": "",
-            "dataPointName": "StoppedAWSCount",
-            "displayType": "raw",
-            "minValue": 0,
-            "unitLabel": "",
-            "maxValue": 100,
-            "colorThresholds": [],
-            "columnName": "AWS (Stopped)",
-            "enableForecast": false,
-            "roundingDecimal": 2
-          },
-          {
-            "rpn": "",
-            "dataPointName": "TerminatedAWSCount",
-            "displayType": "raw",
-            "minValue": 0,
-            "unitLabel": "",
-            "maxValue": 100,
-            "colorThresholds": [],
-            "columnName": "AWS (Term.)",
-            "enableForecast": false,
-            "roundingDecimal": 2
-          },
-          {
-            "rpn": "",
-            "dataPointName": "AWSCount",
-            "displayType": "raw",
-            "minValue": 0,
-            "unitLabel": "",
-            "maxValue": 100,
-            "colorThresholds": [],
-            "columnName": "AWS (Total)",
-            "enableForecast": false,
-            "roundingDecimal": 2
-          },
-          {
-            "rpn": "",
-            "dataPointName": "StoppedAzureCount",
-            "displayType": "raw",
-            "minValue": 0,
-            "unitLabel": "",
-            "maxValue": 100,
-            "colorThresholds": [],
-            "columnName": "Azure (Stopped)",
-            "enableForecast": false,
-            "roundingDecimal": 2
-          },
-          {
-            "rpn": "",
-            "dataPointName": "TerminatedAzureCount",
-            "displayType": "raw",
-            "minValue": 0,
-            "unitLabel": "",
-            "maxValue": 100,
-            "colorThresholds": [],
-            "columnName": "Azure (Term.)",
-            "enableForecast": false,
-            "roundingDecimal": 2
-          },
-          {
-            "rpn": "",
-            "dataPointName": "AzureCount",
-            "displayType": "raw",
-            "minValue": 0,
-            "unitLabel": "",
-            "maxValue": 100,
-            "colorThresholds": [],
-            "columnName": "Azure (Total)",
-            "enableForecast": false,
-            "roundingDecimal": 2
-          },
-          {
-            "rpn": "",
-            "dataPointName": "StoppedGCPCount",
-            "displayType": "raw",
-            "minValue": 0,
-            "unitLabel": "",
-            "maxValue": 100,
-            "colorThresholds": [],
-            "columnName": "GCP (Stopped)",
-            "enableForecast": false,
-            "roundingDecimal": 2
-          },
-          {
-            "rpn": "",
-            "dataPointName": "TerminatedGCPCount",
-            "displayType": "raw",
-            "minValue": 0,
-            "unitLabel": "",
-            "maxValue": 100,
-            "colorThresholds": [],
-            "columnName": "GCP (Term.)",
-            "enableForecast": false,
-            "roundingDecimal": 2
-          },
-          {
-            "rpn": "",
-            "dataPointName": "GCPCount",
-            "displayType": "raw",
-            "minValue": 0,
-            "unitLabel": "",
-            "maxValue": 100,
-            "colorThresholds": [],
-            "columnName": "GCP (Total)",
-            "enableForecast": false,
-            "roundingDecimal": 2
-          }
-        ],
-        "description": "",
-        "forecast": {
-          "severity": "warn",
-          "confidence": 70,
-          "timeRange": "Last 30 days",
-          "algorithm": "Linear"
-        },
-        "type": "dynamicTable",
-        "rows": [{
-          "instanceName": "*",
-          "label": "##RESOURCENAME##",
-          "deviceDisplayName": "##defaultResourceName##",
-          "groupFullPath": "##defaultResourceGroup##"
-        }],
-        "version": 2,
-        "topX": 10,
-        "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-        "sortOrder": "descending",
-        "name": "Multi-Cloud Provider Resources (Trend)",
-        "theme": "newBorderDarkBlue",
-        "interval": 3,
-        "timescale": "day"
-      }
-    },
-    {
-      "position": {
-        "col": 10,
-        "sizex": 3,
-        "row": 22,
-        "sizey": 2
-      },
-      "config": {
-        "displaySettings": {
-          "columns": [
-            {
-              "visible": true,
-              "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 176,
-              "columnKey": "device-name-1452842526600"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            AWS\n            \n        ",
-              "columnSize": 59,
-              "columnKey": "0"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            Azure\n            \n        ",
-              "columnSize": 74,
-              "columnKey": "1"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            GCP\n            \n        ",
-              "columnSize": 72,
-              "columnKey": "2"
-            }
-          ],
-          "pageSize": "5"
-        },
-        "columns": [
-          {
-            "rpn": "",
-            "dataPointName": "CombinedAWSCount",
-            "displayType": "raw",
-            "minValue": 0,
-            "unitLabel": "",
-            "maxValue": 100,
-            "colorThresholds": [],
-            "columnName": "AWS",
-            "enableForecast": false,
-            "roundingDecimal": 2
-          },
-          {
-            "rpn": "",
-            "dataPointName": "CombinedAzureCount",
-            "displayType": "raw",
-            "minValue": 0,
-            "unitLabel": "",
-            "maxValue": 100,
-            "colorThresholds": [],
-            "columnName": "Azure",
-            "enableForecast": false,
-            "roundingDecimal": 2
-          },
-          {
-            "rpn": "",
-            "dataPointName": "CombinedGCPCount",
-            "displayType": "raw",
-            "minValue": 0,
-            "unitLabel": "",
-            "maxValue": 100,
-            "colorThresholds": [],
-            "columnName": "GCP",
-            "enableForecast": false,
-            "roundingDecimal": 2
-          }
-        ],
-        "description": "",
-        "forecast": {
-          "severity": "warn",
-          "confidence": 70,
-          "timeRange": "Last 30 days",
-          "algorithm": "Linear"
-        },
-        "type": "dynamicTable",
-        "rows": [{
-          "instanceName": "*",
-          "label": "##RESOURCENAME##",
-          "deviceDisplayName": "##defaultResourceName##",
-          "groupFullPath": "##defaultResourceGroup##"
-        }],
-        "version": 2,
-        "topX": 10,
-        "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-        "sortOrder": "descending",
-        "name": "Cloud Resources Monitored by Collectors",
-        "theme": "newBorderDarkBlue",
-        "interval": 3,
-        "timescale": "day"
-      }
-    },
-    {
-      "position": {
-        "col": 11,
-        "sizex": 2,
-        "row": 1,
-        "sizey": 2
-      },
-      "config": {
-        "bigNumberInfo": {
-          "virtualDataPoints": [],
-          "counters": [],
-          "dataPoints": [{
-            "dataPointName": "DeadResources",
-            "instanceName": "*",
-            "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-            "name": "DeadDevices",
-            "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "##defaultResourceName##"
-          }],
-          "bigNumberItems": [{
-            "dataPointName": "DeadDevices",
-            "useCommaSeparators": false,
-            "bottomLabel": "",
-            "rounding": 0,
-            "position": 1,
-            "rightLabel": "Resources Dead",
-            "colorThresholds": null
-          }]
-        },
-        "displaySettings": {},
-        "name": "Resource Status",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "type": "bigNumber",
-        "timescale": "day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 9,
-        "sizex": 2,
-        "row": 1,
-        "sizey": 2
-      },
-      "config": {
-        "bigNumberInfo": {
-          "virtualDataPoints": [],
-          "counters": [],
-          "dataPoints": [{
-            "dataPointName": "AliveResources",
-            "instanceName": "*",
-            "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-            "name": "AliveResources",
-            "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "##defaultResourceName##"
-          }],
-          "bigNumberItems": [{
-            "dataPointName": "AliveResources",
-            "useCommaSeparators": false,
-            "bottomLabel": "",
-            "rounding": 0,
-            "position": 1,
-            "rightLabel": "Resources Alive",
-            "colorThresholds": null
-          }]
-        },
-        "displaySettings": {},
-        "name": "Resource Status",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "type": "bigNumber",
-        "timescale": "day",
         "version": 2
       }
     },
@@ -1704,9 +1263,9 @@
           "virtualDataPoints": [],
           "counters": [],
           "dataPoints": [{
-            "dataPointName": "ServiceCount",
-            "instanceName": "*",
-            "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
+            "dataPointName": "totalResources",
+            "instanceName": "LogicMonitor_Portal_Resources-LM Services",
+            "dataSourceFullName": "LogicMonitor Resources (LogicMonitor_Portal_Resources)",
             "name": "ServiceCount",
             "aggregateFunction": "SUM",
             "deviceGroupFullPath": "##defaultResourceGroup##",
@@ -1734,85 +1293,6 @@
     },
     {
       "position": {
-        "col": 10,
-        "sizex": 3,
-        "row": 18,
-        "sizey": 4
-      },
-      "config": {
-        "displaySettings": {},
-        "name": "Cloud Resources by Provider",
-        "description": "",
-        "theme": "newBorderDarkBlue",
-        "interval": 3,
-        "type": "pieChart",
-        "timescale": "day",
-        "pieChartInfo": {
-          "maxSlicesCanBeShown": 10,
-          "virtualDataPoints": [],
-          "showLabelsAndLinesOnPC": true,
-          "counters": [],
-          "dataPoints": [
-            {
-              "dataPointName": "AzureCount",
-              "top10": false,
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "AzureCount",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##",
-              "aggregate": true
-            },
-            {
-              "dataPointName": "AWSCount",
-              "top10": false,
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "AWSCount",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##",
-              "aggregate": true
-            },
-            {
-              "dataPointName": "GCPCount",
-              "top10": false,
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "GCPCount",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##",
-              "aggregate": true
-            }
-          ],
-          "hideZeroPercentSlices": false,
-          "groupRemainingAsOthers": false,
-          "pieChartItems": [
-            {
-              "dataPointName": "GCPCount",
-              "color": "Auto",
-              "legend": "GCP"
-            },
-            {
-              "dataPointName": "AWSCount",
-              "color": "Auto",
-              "legend": "AWS"
-            },
-            {
-              "dataPointName": "AzureCount",
-              "color": "Auto",
-              "legend": "Azure"
-            }
-          ],
-          "title": "Cloud Resources by Provider"
-        },
-        "version": 2
-      }
-    },
-    {
-      "position": {
         "col": 3,
         "sizex": 2,
         "row": 7,
@@ -1823,9 +1303,9 @@
           "virtualDataPoints": [],
           "counters": [],
           "dataPoints": [{
-            "dataPointName": "StandardCount",
-            "instanceName": "*",
-            "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
+            "dataPointName": "totalResources",
+            "instanceName": "LogicMonitor_Portal_Resources-Standard Resources",
+            "dataSourceFullName": "LogicMonitor Resources (LogicMonitor_Portal_Resources)",
             "name": "StandardCount",
             "aggregateFunction": "SUM",
             "deviceGroupFullPath": "##defaultResourceGroup##",
@@ -1853,7 +1333,47 @@
     },
     {
       "position": {
-        "col": 11,
+        "col": 5,
+        "sizex": 2,
+        "row": 12,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "totalCollectors",
+            "instanceName": "*",
+            "dataSourceFullName": "LogicMonitor Collectors (LogicMonitor_Portal_Collectors)",
+            "name": "TotalCollectors",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "##defaultResourceName##"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "TotalCollectors",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Total",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Total Collectors",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
         "sizex": 2,
         "row": 7,
         "sizey": 2
@@ -1863,26 +1383,26 @@
           "virtualDataPoints": [],
           "counters": [],
           "dataPoints": [{
-            "dataPointName": "TotalUsers",
+            "dataPointName": "totalResources",
             "instanceName": "*",
-            "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-            "name": "TotalUsers",
+            "dataSourceFullName": "LogicMonitor Resources (LogicMonitor_Portal_Resources)",
+            "name": "DeviceCount",
             "aggregateFunction": "SUM",
             "deviceGroupFullPath": "##defaultResourceGroup##",
             "deviceDisplayName": "##defaultResourceName##"
           }],
           "bigNumberItems": [{
-            "dataPointName": "TotalUsers",
+            "dataPointName": "DeviceCount",
             "useCommaSeparators": false,
             "bottomLabel": "",
             "rounding": 0,
             "position": 1,
-            "rightLabel": "User Accounts",
+            "rightLabel": "Total",
             "colorThresholds": null
           }]
         },
         "displaySettings": {},
-        "name": "LogicMonitor Users",
+        "name": "Total Resources",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -1893,80 +1413,269 @@
     },
     {
       "position": {
-        "col": 6,
+        "col": 7,
+        "sizex": 2,
+        "row": 7,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "totalWebsites",
+            "instanceName": "*",
+            "dataSourceFullName": "LogicMonitor Websites (LogicMonitor_Portal_Websites)",
+            "name": "WebsiteChecks",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "##defaultResourceName##"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "WebsiteChecks",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Website Checks",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Website Checks",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
         "sizex": 3,
-        "row": 3,
-        "sizey": 4
+        "row": 9,
+        "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Alert Severities (Real-time)",
+        "name": "Website Checks (Trend)",
         "description": "",
         "theme": "newBorderDarkBlue",
         "interval": 3,
-        "type": "pieChart",
-        "timescale": "day",
-        "pieChartInfo": {
-          "maxSlicesCanBeShown": 10,
+        "graphInfo": {
           "virtualDataPoints": [],
-          "showLabelsAndLinesOnPC": true,
-          "counters": [],
-          "dataPoints": [
-            {
-              "dataPointName": "ErrorAlerts",
-              "top10": false,
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "ErrorAlerts",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##",
-              "aggregate": true
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "totalWebsites",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
             },
-            {
-              "dataPointName": "WarningAlerts",
-              "top10": false,
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "WarningAlerts",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##",
-              "aggregate": true
+            "dataSourceFullName": "LogicMonitor Websites (LogicMonitor_Portal_Websites)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "silver",
+              "legend": "Websites",
+              "type": "area",
+              "option": "custom"
             },
-            {
-              "dataPointName": "CriticalAlerts",
-              "top10": false,
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "CriticalAlerts",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##",
-              "aggregate": true
+            "name": "totalWebsites",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "##defaultResourceName##"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
             }
-          ],
-          "hideZeroPercentSlices": false,
-          "groupRemainingAsOthers": false,
-          "pieChartItems": [
-            {
-              "dataPointName": "CriticalAlerts",
-              "color": "red",
-              "legend": "Criticals"
-            },
-            {
-              "dataPointName": "WarningAlerts",
-              "color": "orange2",
-              "legend": "Warnings"
-            },
-            {
-              "dataPointName": "ErrorAlerts",
-              "color": "yellow",
-              "legend": "Errors"
-            }
-          ],
-          "title": "Alert Severities (Real-time)"
+          }],
+          "verticalLabel": "count",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
         },
+        "type": "cgraph",
+        "timescale": "7days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 12,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "User Accounts",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "totalUsers",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "LogicMonitor Users (LogicMonitor_Portal_Users)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "orange2",
+              "legend": "Total Users",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "totalUsers",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "##defaultResourceName##"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "count",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "7days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 18,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "totalResources",
+            "instanceName": "LogicMonitor_Portal_Resources-AWS Resources",
+            "dataSourceFullName": "LogicMonitor Resources (LogicMonitor_Portal_Resources)",
+            "name": "AWSCount",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "##defaultResourceName##"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "AWSCount",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 2,
+            "rightLabel": "AWS",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "AWS Resources",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 3,
+        "row": 18,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "totalResources",
+            "instanceName": "LogicMonitor_Portal_Resources-Azure Resources",
+            "dataSourceFullName": "LogicMonitor Resources (LogicMonitor_Portal_Resources)",
+            "name": "AzureCount",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "##defaultResourceName##"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "AzureCount",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 3,
+            "rightLabel": "Azure",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Azure Resources",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 3,
+        "row": 18,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "totalResources",
+            "instanceName": "LogicMonitor_Portal_Resources-GCP Resources",
+            "dataSourceFullName": "LogicMonitor Resources (LogicMonitor_Portal_Resources)",
+            "name": "GCPCount",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "##defaultResourceName##"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "GCPCount",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 4,
+            "rightLabel": "GCP",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "GCP Resources",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
         "version": 2
       }
     },
@@ -1981,47 +1690,18 @@
         "bigNumberInfo": {
           "virtualDataPoints": [],
           "counters": [],
-          "dataPoints": [
-            {
-              "dataPointName": "TotalAlerts",
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "TotalAlerts",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
-            },
-            {
-              "dataPointName": "WarningAlerts",
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "WarningAlerts",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
-            },
-            {
-              "dataPointName": "ErrorAlerts",
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "ErrorAlerts",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
-            },
-            {
-              "dataPointName": "CriticalAlerts",
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "CriticalAlerts",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
-            }
-          ],
+          "dataPoints": [{
+            "dataPointName": "totalAlerts",
+            "instanceName": "*",
+            "dataSourceFullName": "LogicMonitor Alerts (LogicMonitor_Portal_Alerts)",
+            "name": "totalAlerts",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "##defaultResourceName##"
+          }],
           "bigNumberItems": [{
-            "dataPointName": "TotalAlerts",
-            "useCommaSeparators": false,
+            "dataPointName": "totalAlerts",
+            "useCommaSeparators": true,
             "bottomLabel": "",
             "rounding": 0,
             "position": 1,
@@ -2050,51 +1730,22 @@
         "bigNumberInfo": {
           "virtualDataPoints": [],
           "counters": [],
-          "dataPoints": [
-            {
-              "dataPointName": "TotalAlerts",
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "TotalAlerts",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
-            },
-            {
-              "dataPointName": "WarningAlerts",
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "WarningAlerts",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
-            },
-            {
-              "dataPointName": "ErrorAlerts",
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "ErrorAlerts",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
-            },
-            {
-              "dataPointName": "CriticalAlerts",
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "CriticalAlerts",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
-            }
-          ],
+          "dataPoints": [{
+            "dataPointName": "totalAlerts",
+            "instanceName": "LogicMonitor_Portal_Alerts-Warning Alerts",
+            "dataSourceFullName": "LogicMonitor Alerts (LogicMonitor_Portal_Alerts)",
+            "name": "totalAlerts",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "##defaultResourceName##"
+          }],
           "bigNumberItems": [{
-            "dataPointName": "WarningAlerts",
-            "useCommaSeparators": false,
+            "dataPointName": "totalAlerts",
+            "useCommaSeparators": true,
             "bottomLabel": "",
             "rounding": 0,
-            "position": 2,
-            "rightLabel": "Warning",
+            "position": 1,
+            "rightLabel": "Total",
             "colorThresholds": [{
               "level": 2,
               "threshold": 0,
@@ -2123,51 +1774,22 @@
         "bigNumberInfo": {
           "virtualDataPoints": [],
           "counters": [],
-          "dataPoints": [
-            {
-              "dataPointName": "TotalAlerts",
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "TotalAlerts",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
-            },
-            {
-              "dataPointName": "WarningAlerts",
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "WarningAlerts",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
-            },
-            {
-              "dataPointName": "ErrorAlerts",
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "ErrorAlerts",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
-            },
-            {
-              "dataPointName": "CriticalAlerts",
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "CriticalAlerts",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
-            }
-          ],
+          "dataPoints": [{
+            "dataPointName": "totalAlerts",
+            "instanceName": "LogicMonitor_Portal_Alerts-Error Alerts",
+            "dataSourceFullName": "LogicMonitor Alerts (LogicMonitor_Portal_Alerts)",
+            "name": "totalAlerts",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "##defaultResourceName##"
+          }],
           "bigNumberItems": [{
-            "dataPointName": "ErrorAlerts",
-            "useCommaSeparators": false,
+            "dataPointName": "totalAlerts",
+            "useCommaSeparators": true,
             "bottomLabel": "",
             "rounding": 0,
-            "position": 3,
-            "rightLabel": "Error",
+            "position": 1,
+            "rightLabel": "Total",
             "colorThresholds": [
               {
                 "level": 2,
@@ -2194,60 +1816,29 @@
     },
     {
       "position": {
-        "col": 7,
         "sizex": 2,
-        "row": 1,
         "sizey": 2
       },
       "config": {
         "bigNumberInfo": {
           "virtualDataPoints": [],
           "counters": [],
-          "dataPoints": [
-            {
-              "dataPointName": "TotalAlerts",
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "TotalAlerts",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
-            },
-            {
-              "dataPointName": "WarningAlerts",
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "WarningAlerts",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
-            },
-            {
-              "dataPointName": "ErrorAlerts",
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "ErrorAlerts",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
-            },
-            {
-              "dataPointName": "CriticalAlerts",
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "CriticalAlerts",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
-            }
-          ],
+          "dataPoints": [{
+            "dataPointName": "totalAlerts",
+            "instanceName": "LogicMonitor_Portal_Alerts-Critical Alerts",
+            "dataSourceFullName": "LogicMonitor Alerts (LogicMonitor_Portal_Alerts)",
+            "name": "totalAlerts",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "##defaultResourceName##"
+          }],
           "bigNumberItems": [{
-            "dataPointName": "CriticalAlerts",
-            "useCommaSeparators": false,
+            "dataPointName": "totalAlerts",
+            "useCommaSeparators": true,
             "bottomLabel": "",
             "rounding": 0,
-            "position": 4,
-            "rightLabel": "Critical",
+            "position": 1,
+            "rightLabel": "Total",
             "colorThresholds": [
               {
                 "level": 2,
@@ -2276,132 +1867,7 @@
         "timescale": "day",
         "version": 2
       }
-    },
-    {
-      "position": {
-        "col": 5,
-        "sizex": 2,
-        "row": 12,
-        "sizey": 2
-      },
-      "config": {
-        "bigNumberInfo": {
-          "virtualDataPoints": [],
-          "counters": [],
-          "dataPoints": [
-            {
-              "dataPointName": "TotalCollectors",
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "TotalCollectors",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
-            },
-            {
-              "dataPointName": "AliveCollectors",
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "AliveCollectors",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
-            },
-            {
-              "dataPointName": "DeadCollectors",
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "DeadCollectors",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
-            }
-          ],
-          "bigNumberItems": [{
-            "dataPointName": "TotalCollectors",
-            "useCommaSeparators": false,
-            "bottomLabel": "",
-            "rounding": 0,
-            "position": 1,
-            "rightLabel": "Total",
-            "colorThresholds": null
-          }]
-        },
-        "displaySettings": {},
-        "name": "Total Collectors",
-        "description": "",
-        "theme": "newBorderDarkBlue",
-        "interval": 3,
-        "type": "bigNumber",
-        "timescale": "day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 5,
-        "sizex": 2,
-        "row": 14,
-        "sizey": 2
-      },
-      "config": {
-        "bigNumberInfo": {
-          "virtualDataPoints": [],
-          "counters": [],
-          "dataPoints": [
-            {
-              "dataPointName": "TotalCollectors",
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "TotalCollectors",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
-            },
-            {
-              "dataPointName": "AliveCollectors",
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "AliveCollectors",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
-            },
-            {
-              "dataPointName": "DeadCollectors",
-              "instanceName": "*",
-              "dataSourceFullName": "LogicMonitor Portal Metrics (LogicMonitor_Portal_Metrics)",
-              "name": "DeadCollectors",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
-            }
-          ],
-          "bigNumberItems": [{
-            "dataPointName": "AliveCollectors",
-            "useCommaSeparators": false,
-            "bottomLabel": "",
-            "rounding": 0,
-            "position": 2,
-            "rightLabel": "Alive",
-            "colorThresholds": null
-          }]
-        },
-        "displaySettings": {},
-        "name": "Collectors Alive",
-        "description": "",
-        "theme": "newBorderDarkBlue",
-        "interval": 3,
-        "type": "bigNumber",
-        "timescale": "day",
-        "version": 2
-      }
     }
   ],
-  "version": 2,
-  "group": {
-    "name": "LogicMonitor",
-    "fullPath": "LogicMonitor Dashboards/LogicMonitor",
-    "description": ""
-  }
+  "version": 2
 }
