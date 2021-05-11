@@ -38,7 +38,7 @@
             "consolidateFunction": "average",
             "display": {
               "color": "Auto",
-              "legend": "##RESOURCENAME##_##INSTANCE##",
+              "legend": "##INSTANCE## - ##RESOURCENAME##",
               "type": "line",
               "option": "custom"
             },
@@ -50,7 +50,7 @@
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "status code",
@@ -104,7 +104,7 @@
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "%",
@@ -146,7 +146,7 @@
             "consolidateFunction": "average",
             "display": {
               "color": "Auto",
-              "legend": "##RESOURCENAME##_##INSTANCE##",
+              "legend": "##INSTANCE## - ##RESOURCENAME##",
               "type": "line",
               "option": "custom"
             },
@@ -190,7 +190,7 @@
             "rpn": "net_inboundBps + net_outboundBps",
             "display": {
               "color": "Auto",
-              "legend": "##RESOURCENAME##_##INSTANCE##",
+              "legend": "##INSTANCE## - ##RESOURCENAME##",
               "type": "line",
               "option": "custom"
             },
@@ -222,7 +222,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "*"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -247,7 +247,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "*"
+                "value": "##defaultResourceGroup##"
               }
             }
           ],
@@ -264,14 +264,14 @@
     },
     {
       "position": {
-        "col": 1,
+        "col": 7,
         "sizex": 6,
         "row": 10,
         "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Unity Pools-Storage Details",
+        "name": "Top Unity Pools by Storage Usage (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -280,108 +280,31 @@
           "minValue": 0,
           "topX": 10,
           "maxValue": "NaN",
-          "dataPoints": [
-            {
-              "dataPointName": "sizeFree",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "Unity Pools (EMC_Unity_Pools)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": "Auto",
-                "legend": "##RESOURCENAME##_Free",
-                "type": "stack",
-                "option": "custom"
-              },
-              "name": "sizeFree",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "*"
-              }
+          "dataPoints": [{
+            "dataPointName": "sizeUsed",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
             },
-            {
-              "dataPointName": "sizeSubscribed",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "Unity Pools (EMC_Unity_Pools)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": "Auto",
-                "legend": "##RESOURCENAME##_Subscribed",
-                "type": "line",
-                "option": "custom"
-              },
-              "name": "sizeSubscribed",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "*"
-              }
+            "dataSourceFullName": "Unity Pools (EMC_Unity_Pools)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##RESOURCENAME## Used",
+              "type": "line",
+              "option": "custom"
             },
-            {
-              "dataPointName": "sizeTotal",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "Unity Pools (EMC_Unity_Pools)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": "Auto",
-                "legend": "##RESOURCENAME##_Total",
-                "type": "line",
-                "option": "custom"
-              },
-              "name": "sizeTotal",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "*"
-              }
+            "name": "sizeUsed",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
             },
-            {
-              "dataPointName": "sizeUsed",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "Unity Pools (EMC_Unity_Pools)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": "Auto",
-                "legend": "##RESOURCENAME##_Used",
-                "type": "stack",
-                "option": "custom"
-              },
-              "name": "sizeUsed",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "*"
-              }
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
             }
-          ],
+          }],
           "verticalLabel": "bytes",
           "aggregate": false,
           "desc": true,
@@ -397,12 +320,12 @@
       "position": {
         "col": 7,
         "sizex": 6,
-        "row": 10,
+        "row": 13,
         "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Unity Pools-Storage Utilization",
+        "name": "Top Unity Pools by Storage Utilization (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -433,7 +356,7 @@
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "%",
@@ -451,7 +374,7 @@
       "position": {
         "col": 1,
         "sizex": 12,
-        "row": 13,
+        "row": 16,
         "sizey": 5
       },
       "config": {
@@ -757,6 +680,186 @@
           "deviceGroupFullPath": "##defaultResourceGroup##",
           "deviceDisplayName": "*"
         }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 10,
+        "sizey": 6
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 234,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Health\n            \n        ",
+              "columnSize": 52,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Total\n            \n        ",
+              "columnSize": 117,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Used\n            \n        ",
+              "columnSize": 103,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Free\n            \n        ",
+              "columnSize": 117,
+              "columnKey": "3"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Subscribed\n            \n        ",
+              "columnSize": 117,
+              "columnKey": "4"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Utilization\n            \n        ",
+              "columnSize": 154,
+              "columnKey": "5"
+            }
+          ],
+          "pageSize": "10"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "health_state",
+            "displayType": "colorBar",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 30,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 5,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 7,
+                "relation": ">"
+              },
+              {
+                "level": 4,
+                "threshold": 19,
+                "relation": ">"
+              }
+            ],
+            "columnName": "Health",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "Total/1024/1024/1024/1024",
+            "dataPointName": "sizeTotal",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " TB",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Total",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "Used/1024/1024/1024",
+            "dataPointName": "sizeUsed",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " GB",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Used",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "Free/1024/1024/1024",
+            "dataPointName": "sizeFree",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " GB",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Free",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "Subscribed/1024/1024/1024",
+            "dataPointName": "sizeSubscribed",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " GB",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Subscribed",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "spaceUtilization",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 85,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 95,
+                "relation": ">"
+              }
+            ],
+            "columnName": "Utilization",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##INSTANCE## - ##RESOURCENAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 25,
+        "dataSourceFullName": "Unity Pools (EMC_Unity_Pools)",
+        "sortOrder": "descending",
+        "name": "Unity Pool Statistics",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
       }
     }
   ],

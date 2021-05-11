@@ -1,5 +1,5 @@
 {
-  "santabaRelease": 138,
+  "santabaRelease": 148,
   "widgetTokens": [],
   "name": "Kubernetes Inventory",
   "description": "",
@@ -831,6 +831,161 @@
         },
         "type": "cgraph",
         "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 11,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Total",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && hasCategory(\"KubernetesHorizontalPodAutoscaler\")"
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Total",
+            "useCommaSeparators": false,
+            "bottomLabel": "Total Monitored",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Horizontal Pod Autoscalers",
+        "description": "Total HorizontalPodAutoscalers",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 3,
+        "row": 11,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "HPAableToScale",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes HPA (Kubernetes_HPA)",
+            "name": "HPAableToScale",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "HPAableToScale",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Able To Scale",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Horizontal Pod Autoscalers",
+        "description": "AbleToScale HorizontalPodAutoscalers: HPA can access Target Object to scale",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 3,
+        "row": 11,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "HPAscalingActive",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes HPA (Kubernetes_HPA)",
+            "name": "HPAscalingActive",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "HPAscalingActive",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Scaling Active",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Horizontal Pod Autoscalers",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 11,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "HPAscalingLimited",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes HPA (Kubernetes_HPA)",
+            "name": "HPAscalingLimited",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "HPAscalingLimited",
+            "useCommaSeparators": false,
+            "bottomLabel": "Scaling Limited",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Horizontal Pod Autoscalers",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
         "version": 2
       }
     }

@@ -1,84 +1,93 @@
 {
-  "santabaRelease": 114,
+  "santabaRelease": 148,
   "widgetTokens": [],
   "name": "Kubernetes Cluster Overview",
   "description": "Kubernetes cluster overview.",
+  "overwriteGroupFields": false,
   "widgetsConfigVersion": 2,
+  "type": "dashboard",
   "widgets": [
     {
       "position": {
-        "col": 5,
-        "sizex": 8,
-        "row": 33,
-        "sizey": 7
+        "col": 1,
+        "sizex": 4,
+        "row": 4,
+        "sizey": 4
       },
       "config": {
-        "ackChecked": true,
-        "displaySettings": {
-          "showTypeIcon": false,
-          "displayAs": "table"
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "allocatable_cpu",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Node (Kubernetes_Node)",
+            "name": "allocatable_cpu",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "allocatable_cpu",
+            "useCommaSeparators": false,
+            "bottomLabel": "cores",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "CPU",
+            "colorThresholds": null
+          }]
         },
-        "displayWarnAlert": true,
+        "displaySettings": {},
+        "name": "Aggregate Cluster CPU Cores",
         "description": "",
-        "type": "noc",
-        "version": 2,
-        "displayErrorAlert": true,
-        "displayColumn": 9,
-        "name": "Containers",
-        "displayCriticalAlert": true,
-        "theme": "newBorderBlue",
+        "theme": "newSolidDarkBlue",
         "interval": 3,
-        "sortBy": "name",
+        "type": "bigNumber",
         "timescale": "day",
-        "sdtChecked": true,
-        "items": [{
-          "dataPointName": "*",
-          "instanceName": "*",
-          "name": "##INSTANCE##",
-          "dataSourceDisplayName": "Kubernetes Container",
-          "groupBy": "instance",
-          "type": "device",
-          "deviceGroupFullPath": "##defaultDeviceGroup##",
-          "deviceDisplayName": "*"
-        }]
+        "version": 2
       }
     },
     {
       "position": {
         "col": 1,
-        "sizex": 8,
-        "row": 22,
-        "sizey": 7
+        "sizex": 4,
+        "row": 8,
+        "sizey": 4
       },
       "config": {
-        "ackChecked": true,
-        "displaySettings": {
-          "showTypeIcon": false,
-          "displayAs": "table"
+        "bigNumberInfo": {
+          "virtualDataPoints": [{
+            "rpn": "allocatable_memory / pow(2,30)",
+            "name": "memInGb"
+          }],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "allocatable_memory",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Node (Kubernetes_Node)",
+            "name": "allocatable_memory",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "memInGb",
+            "useCommaSeparators": false,
+            "bottomLabel": "Memory",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "GB",
+            "colorThresholds": null
+          }]
         },
-        "displayWarnAlert": true,
+        "displaySettings": {},
+        "name": "Aggregate Cluster Memory",
         "description": "",
-        "type": "noc",
-        "version": 2,
-        "displayErrorAlert": true,
-        "displayColumn": 9,
-        "name": "Pods",
-        "displayCriticalAlert": true,
-        "theme": "newBorderBlue",
+        "theme": "newSolidDarkBlue",
         "interval": 3,
-        "sortBy": "name",
+        "type": "bigNumber",
         "timescale": "day",
-        "sdtChecked": true,
-        "items": [{
-          "dataPointName": "*",
-          "instanceName": "*",
-          "name": "##HOSTNAME##",
-          "dataSourceDisplayName": "Kubernetes Pod",
-          "groupBy": "device",
-          "type": "device",
-          "deviceGroupFullPath": "##defaultDeviceGroup##/Pods",
-          "deviceDisplayName": "*"
-        }]
+        "version": 2
       }
     },
     {
@@ -90,7 +99,6 @@
       },
       "config": {
         "displaySettings": {
-          "sortDirection": "desc",
           "isShowAll": false,
           "showFilter": false,
           "columns": [
@@ -106,7 +114,7 @@
             },
             {
               "visible": true,
-              "columnLabel": "\n    Device/Website\n\n    ",
+              "columnLabel": "Resource/Website",
               "columnKey": "alert-device"
             },
             {
@@ -128,11 +136,6 @@
               "visible": true,
               "columnLabel": "Value",
               "columnKey": "alert-value"
-            },
-            {
-              "visible": true,
-              "columnLabel": "Effective Thresholds",
-              "columnKey": "alert-thresholds"
             },
             {
               "visible": false,
@@ -183,6 +186,31 @@
               "visible": false,
               "columnLabel": "Full Path",
               "columnKey": "alert-full-path"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
             }
           ],
           "playSound": {
@@ -192,7 +220,7 @@
             "shouldPlay": false
           },
           "fontsize": "small-font",
-          "sortBy": "startEpoch"
+          "sort": "-startEpoch"
         },
         "name": "Cluster Alerts",
         "description": "",
@@ -204,93 +232,17 @@
           "chain": "",
           "instance": "*",
           "dataPoint": "",
-          "host": "",
           "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
           "keyword": "",
           "dataSource": "*",
-          "acked": "all",
           "cleared": "all",
-          "group": "%23%23defaultDeviceGroup%23%23*"
+          "group": "%23%23defaultResourceGroup%23%23*"
         },
         "type": "alert",
-        "timescale": "day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 5,
-        "sizex": 8,
-        "row": 16,
-        "sizey": 6
-      },
-      "config": {
-        "ackChecked": true,
-        "displaySettings": {
-          "showTypeIcon": true,
-          "displayAs": "table"
-        },
-        "displayWarnAlert": true,
-        "description": "",
-        "type": "noc",
-        "version": 2,
-        "displayErrorAlert": true,
-        "displayColumn": 9,
-        "name": "Nodes",
-        "displayCriticalAlert": true,
-        "theme": "newBorderBlue",
-        "interval": 3,
-        "sortBy": "name",
-        "timescale": "day",
-        "sdtChecked": true,
-        "items": [{
-          "dataPointName": "*",
-          "instanceName": "*",
-          "name": "##HOSTNAME##",
-          "dataSourceDisplayName": "Kubernetes Node",
-          "groupBy": "device",
-          "type": "device",
-          "deviceGroupFullPath": "##defaultDeviceGroup##/Nodes",
-          "deviceDisplayName": "*"
-        }]
-      }
-    },
-    {
-      "position": {
-        "col": 1,
-        "sizex": 4,
-        "row": 4,
-        "sizey": 4
-      },
-      "config": {
-        "bigNumberInfo": {
-          "virtualDataPoints": [],
-          "counters": [],
-          "dataPoints": [{
-            "dataPointName": "allocatable_cpu",
-            "instanceName": "*",
-            "dataSourceFullName": "Kubernetes Node (Kubernetes_Node)",
-            "name": "allocatable_cpu",
-            "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultDeviceGroup##",
-            "deviceDisplayName": "*"
-          }],
-          "bigNumberItems": [{
-            "dataPointName": "allocatable_cpu",
-            "useCommaSeparators": false,
-            "bottomLabel": "cores",
-            "rounding": 0,
-            "position": 1,
-            "rightLabel": "CPU",
-            "colorThresholds": null
-          }]
-        },
-        "displaySettings": {},
-        "name": "Aggregate Cluster CPU Cores",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "type": "bigNumber",
         "timescale": "day",
         "version": 2
       }
@@ -336,7 +288,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -361,7 +313,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -386,7 +338,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             }
           ],
@@ -398,49 +350,6 @@
         },
         "type": "cgraph",
         "timescale": "1day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 1,
-        "sizex": 4,
-        "row": 8,
-        "sizey": 4
-      },
-      "config": {
-        "bigNumberInfo": {
-          "virtualDataPoints": [{
-            "rpn": "allocatable_memory / pow(2,30)",
-            "name": "memInGb"
-          }],
-          "counters": [],
-          "dataPoints": [{
-            "dataPointName": "allocatable_memory",
-            "instanceName": "*",
-            "dataSourceFullName": "Kubernetes Node (Kubernetes_Node)",
-            "name": "allocatable_memory",
-            "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultDeviceGroup##",
-            "deviceDisplayName": "*"
-          }],
-          "bigNumberItems": [{
-            "dataPointName": "memInGb",
-            "useCommaSeparators": false,
-            "bottomLabel": "Memory",
-            "rounding": 0,
-            "position": 1,
-            "rightLabel": "GB",
-            "colorThresholds": null
-          }]
-        },
-        "displaySettings": {},
-        "name": "Aggregate Cluster Memory",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "type": "bigNumber",
-        "timescale": "day",
         "version": 2
       }
     },
@@ -485,7 +394,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -510,7 +419,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -535,7 +444,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             }
           ],
@@ -590,7 +499,7 @@
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "pods",
@@ -602,6 +511,122 @@
         "type": "cgraph",
         "timescale": "1day",
         "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 33,
+        "sizey": 3
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "health_running",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Container (Kubernetes_Container)",
+            "name": "health_running",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "health_running",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Container Count",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 36,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "timezone": "America/Los_Angeles",
+        "description": "",
+        "type": "deviceSLA",
+        "version": 2,
+        "calculationMethod": 0,
+        "daysInWeek": "1,2,3,4,5,6,7",
+        "displayType": 2,
+        "topX": 10,
+        "bottomLabel": "Time Available",
+        "name": "Container Health",
+        "displayPercentageBar": false,
+        "periodInOneDay": "*",
+        "theme": "newBorderBlue",
+        "interval": 5,
+        "metrics": [{
+          "groupName": "##defaultResourceGroup##/*",
+          "instances": "*",
+          "metric": "health_running",
+          "dataSourceFullName": "Kubernetes Container (Kubernetes_Container)",
+          "bottomLabel": "##INSTANCE##",
+          "threshold": "= 1",
+          "deviceName": "*",
+          "exclusionSDTType": "ResourceSDT"
+        }],
+        "timescale": "Last 24 hours",
+        "unmonitoredTimeType": 0,
+        "colorThresholds": null
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 8,
+        "row": 33,
+        "sizey": 7
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": false,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 9,
+        "name": "Containers",
+        "displayCriticalAlert": true,
+        "theme": "newBorderBlue",
+        "interval": 3,
+        "sortBy": "name",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##INSTANCE##",
+          "dataSourceDisplayName": "Kubernetes Container",
+          "groupBy": "instance",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        }]
       }
     },
     {
@@ -621,7 +646,7 @@
             "dataSourceFullName": "Kubernetes Node (Kubernetes_Node)",
             "name": "ready",
             "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultDeviceGroup##",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
             "deviceDisplayName": "*"
           }],
           "bigNumberItems": [{
@@ -662,7 +687,7 @@
           "dataSourceFullName": "Kubernetes Node (Kubernetes_Node)",
           "dataSeries": "average",
           "aggregateFunction": "AVERAGE",
-          "deviceGroupFullPath": "##defaultDeviceGroup##",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
           "deviceDisplayName": "*"
         },
         "description": "",
@@ -682,6 +707,44 @@
     },
     {
       "position": {
+        "col": 5,
+        "sizex": 8,
+        "row": 16,
+        "sizey": 6
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 9,
+        "name": "Nodes",
+        "displayCriticalAlert": true,
+        "theme": "newBorderBlue",
+        "interval": 3,
+        "sortBy": "name",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##HOSTNAME##",
+          "dataSourceDisplayName": "Kubernetes Node",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##/Nodes",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
         "col": 9,
         "sizex": 4,
         "row": 22,
@@ -697,7 +760,7 @@
             "dataSourceFullName": "Kubernetes Pod (Kubernetes_Pod)",
             "name": "pod_up",
             "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultDeviceGroup##",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
             "deviceDisplayName": "*"
           }],
           "bigNumberItems": [{
@@ -733,6 +796,7 @@
         "description": "",
         "type": "deviceSLA",
         "version": 2,
+        "calculationMethod": 0,
         "daysInWeek": "1,2,3,4,5,6,7",
         "displayType": 2,
         "topX": 50,
@@ -743,14 +807,14 @@
         "theme": "newBorderBlue",
         "interval": 5,
         "metrics": [{
-          "groupName": "##defaultDeviceGroup##/*",
+          "groupName": "##defaultResourceGroup##/*",
           "instances": "*",
           "metric": "pod_up",
           "dataSourceFullName": "Kubernetes Pod (Kubernetes_Pod)",
           "bottomLabel": "##HOSTNAME##",
           "threshold": "= 1",
           "deviceName": "*",
-          "exclusionSDTType": "DeviceSDT"
+          "exclusionSDTType": "ResourceSDT"
         }],
         "timescale": "Last 24 hours",
         "unmonitoredTimeType": 0,
@@ -807,7 +871,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -832,7 +896,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             }
           ],
@@ -850,35 +914,111 @@
     {
       "position": {
         "col": 1,
-        "sizex": 4,
-        "row": 33,
+        "sizex": 8,
+        "row": 22,
+        "sizey": 7
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": false,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 9,
+        "name": "Pods",
+        "displayCriticalAlert": true,
+        "theme": "newBorderBlue",
+        "interval": 3,
+        "sortBy": "name",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##HOSTNAME##",
+          "dataSourceDisplayName": "Kubernetes Pod",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##/Pods",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 42,
         "sizey": 3
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": false,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 3,
+        "name": "Horizontal Pod Autoscalers",
+        "displayCriticalAlert": true,
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##RESOURCENAME##",
+          "dataSourceDisplayName": "Kubernetes HPA",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 40,
+        "sizey": 2
       },
       "config": {
         "bigNumberInfo": {
           "virtualDataPoints": [],
           "counters": [],
           "dataPoints": [{
-            "dataPointName": "health_running",
+            "dataPointName": "HPAableToScale",
             "instanceName": "*",
-            "dataSourceFullName": "Kubernetes Container (Kubernetes_Container)",
-            "name": "health_running",
+            "dataSourceFullName": "Kubernetes HPA (Kubernetes_HPA)",
+            "name": "HPAableToScale",
             "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultDeviceGroup##",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
             "deviceDisplayName": "*"
           }],
           "bigNumberItems": [{
-            "dataPointName": "health_running",
+            "dataPointName": "HPAableToScale",
             "useCommaSeparators": false,
             "bottomLabel": "",
             "rounding": 0,
             "position": 1,
-            "rightLabel": "",
+            "rightLabel": "Horizontal Pod Autoscalers",
             "colorThresholds": null
           }]
         },
         "displaySettings": {},
-        "name": "Container Count",
+        "name": "Horizontal Pod Autoscalers",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -890,85 +1030,125 @@
     {
       "position": {
         "col": 1,
-        "sizex": 4,
-        "row": 36,
-        "sizey": 4
-      },
-      "config": {
-        "displaySettings": {},
-        "timezone": "America/Los_Angeles",
-        "description": "",
-        "type": "deviceSLA",
-        "version": 2,
-        "daysInWeek": "1,2,3,4,5,6,7",
-        "displayType": 2,
-        "topX": 10,
-        "bottomLabel": "Time Available",
-        "name": "Container Health",
-        "displayPercentageBar": false,
-        "periodInOneDay": "*",
-        "theme": "newBorderBlue",
-        "interval": 5,
-        "metrics": [{
-          "groupName": "##defaultDeviceGroup##/*",
-          "instances": "*",
-          "metric": "health_running",
-          "dataSourceFullName": "Kubernetes Container (Kubernetes_Container)",
-          "bottomLabel": "##INSTANCE##",
-          "threshold": "= 1",
-          "deviceName": "*",
-          "exclusionSDTType": "DeviceSDT"
-        }],
-        "timescale": "Last 24 hours",
-        "unmonitoredTimeType": 0,
-        "colorThresholds": null
-      }
-    },
-    {
-      "position": {
-        "col": 1,
-        "sizex": 6,
+        "sizex": 5,
         "row": 40,
-        "sizey": 4
+        "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Container CPU Usage",
+        "name": "Kubernetes HPA Replica Counts",
         "description": "",
         "theme": "newBorderBlue",
         "interval": 3,
         "graphInfo": {
           "virtualDataPoints": [],
           "minValue": 0,
-          "topX": 100,
-          "maxValue": 100,
-          "dataPoints": [{
-            "dataPointName": "cpu_usagePercentCores",
-            "instanceName": {
-              "isGlob": true,
-              "value": "*"
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "CurrentReplicas",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Kubernetes_HPA"
+              },
+              "dataSourceFullName": "Kubernetes HPA (Kubernetes_HPA)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "olive",
+                "legend": "Current replicas",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "CurrentReplicas",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             },
-            "dataSourceFullName": "Kubernetes Container (Kubernetes_Container)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "Auto",
-              "legend": "",
-              "type": "line",
-              "option": "default"
+            {
+              "dataPointName": "DesiredReplicas",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Kubernetes_HPA"
+              },
+              "dataSourceFullName": "Kubernetes HPA (Kubernetes_HPA)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "blue",
+                "legend": "Desired replicas",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "DesiredReplicas",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             },
-            "name": "cpu_usagePercentCores",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "*"
+            {
+              "dataPointName": "MaxReplicas",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Kubernetes_HPA"
+              },
+              "dataSourceFullName": "Kubernetes HPA (Kubernetes_HPA)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "red2",
+                "legend": "Max replicas",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "MaxReplicas",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+            {
+              "dataPointName": "MinReplicas",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Kubernetes_HPA"
+              },
+              "dataSourceFullName": "Kubernetes HPA (Kubernetes_HPA)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "yellow",
+                "legend": "Min replicas",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "MinReplicas",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             }
-          }],
-          "verticalLabel": "%",
-          "aggregate": false,
+          ],
+          "verticalLabel": "count",
+          "aggregate": true,
           "desc": true,
           "scaleUnit": 1000,
           "globalConsolidateFunction": "default"
@@ -980,56 +1160,187 @@
     },
     {
       "position": {
-        "col": 7,
-        "sizex": 6,
-        "row": 40,
-        "sizey": 4
+        "col": 1,
+        "sizex": 5,
+        "row": 43,
+        "sizey": 2
       },
       "config": {
         "displaySettings": {},
-        "name": "Container Memory Usage",
+        "name": "Kubernetes HPA Conditions",
         "description": "",
         "theme": "newBorderBlue",
         "interval": 3,
         "graphInfo": {
           "virtualDataPoints": [],
-          "minValue": "NaN",
-          "topX": 100,
-          "maxValue": "NaN",
-          "dataPoints": [{
-            "dataPointName": "memory_usageBytes",
-            "instanceName": {
-              "isGlob": true,
-              "value": "*"
+          "minValue": -1,
+          "topX": 0,
+          "maxValue": 2,
+          "dataPoints": [
+            {
+              "dataPointName": "HPAableToScale",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Kubernetes_HPA"
+              },
+              "dataSourceFullName": "Kubernetes HPA (Kubernetes_HPA)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "blue",
+                "legend": "Able to scale",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "HPAableToScale",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             },
-            "dataSourceFullName": "Kubernetes Container (Kubernetes_Container)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "Auto",
-              "legend": "",
-              "type": "line",
-              "option": "default"
+            {
+              "dataPointName": "HPAhealth",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Kubernetes_HPA"
+              },
+              "dataSourceFullName": "Kubernetes HPA (Kubernetes_HPA)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "olive",
+                "legend": "Overall health of HPA",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "HPAhealth",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             },
-            "name": "memory_usageBytes",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "*"
+            {
+              "dataPointName": "HPAscalingActive",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Kubernetes_HPA"
+              },
+              "dataSourceFullName": "Kubernetes HPA (Kubernetes_HPA)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "orange",
+                "legend": "Scaling active",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "HPAscalingActive",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+            {
+              "dataPointName": "HPAscalingLimited",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Kubernetes_HPA"
+              },
+              "dataSourceFullName": "Kubernetes HPA (Kubernetes_HPA)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "yellow",
+                "legend": "Scaling limited",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "HPAscalingLimited",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             }
-          }],
-          "verticalLabel": "bytes",
-          "aggregate": false,
+          ],
+          "verticalLabel": "0=false, 1=true",
+          "aggregate": true,
           "desc": true,
-          "scaleUnit": 1024,
+          "scaleUnit": 1000,
           "globalConsolidateFunction": "default"
         },
         "type": "cgraph",
         "timescale": "1day",
         "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 6,
+        "sizex": 4,
+        "row": 40,
+        "sizey": 5
+      },
+      "config": {
+        "displaySettings": {},
+        "timezone": "Asia/Jerusalem",
+        "description": "",
+        "type": "deviceSLA",
+        "version": 2,
+        "calculationMethod": 1,
+        "daysInWeek": "1,2,3,4,5,6,7",
+        "displayType": 2,
+        "topX": 25,
+        "bottomLabel": "Time Available",
+        "name": "HPA Health",
+        "displayPercentageBar": false,
+        "periodInOneDay": "*",
+        "theme": "newBorderDarkBlue",
+        "interval": 5,
+        "metrics": [{
+          "groupName": "##defaultResourceGroup##/*",
+          "instances": "*",
+          "metric": "HPAhealth",
+          "dataSourceFullName": "Kubernetes HPA (Kubernetes_HPA)",
+          "bottomLabel": "##RESOURCENAME##",
+          "threshold": "= 1",
+          "deviceName": "*",
+          "exclusionSDTType": "ResourceGroupSDT"
+        }],
+        "timescale": "Last 12 hours",
+        "unmonitoredTimeType": 0,
+        "colorThresholds": [
+          {
+            "level": 2,
+            "threshold": 98,
+            "relation": "<="
+          },
+          {
+            "level": 3,
+            "threshold": 96,
+            "relation": "<="
+          },
+          {
+            "level": 4,
+            "threshold": 94,
+            "relation": "<="
+          }
+        ]
       }
     }
   ],
