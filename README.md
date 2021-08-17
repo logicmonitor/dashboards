@@ -14,8 +14,9 @@ Format: Dashboard Name | Required Dynamic Group Name | Dynamic Group Definition
 
 **Alerting**
 - Alert List | * | (No specific group requirement)
+- Alert Map | * | (No specific group requirement)
+- Alert Map - Dynamic Weather | * | (No specific group requirement)
 - Alert Overview | * | (No specific group requirement)
-- Geo_Alert_Map | * | (No specific group requirement)
 - SLA_Overview | * | (No specific group requirement)
 
 **Applications**
@@ -23,11 +24,8 @@ Format: Dashboard Name | Required Dynamic Group Name | Dynamic Group Definition
 - Citrix XenApp / XenDesktop | * | (No specific group requirement)
 - Docker | Devices by Type/ Linux Servers | isLinux()
 - Nginx | Devices by Type/ Linux Servers | isLinux()
-- Office 365 | * | (No specific group requirement)
-- Slack | * | (No specific group requirement)
 - Tomcat Server | * | (No specific group requirement)
 - Veeam Backup & Replication | * | (No specific group requirement)
-- Zoom | * | (No specific group requirement)
 
 **Capacity Management**
 - Resource Utilization | * | (No specific group requirement)
@@ -69,6 +67,7 @@ Format: Dashboard Name | Required Dynamic Group Name | Dynamic Group Definition
 - Active Directory | Devices by Type/ Windows Servers | isWindows()
 - DHCP Servers | Devices by Type/ Windows Servers | isWindows()
 - DNS Servers | Devices by Type/ Windows Servers | isWindows()
+- Exchange Servers | Devices by Type/ Windows Servers | isWindows()
 - Failover Clustering | Devices by Type/ Windows Servers | isWindows()
 - File Servers | Devices by Type/ Windows Servers | isWindows()
 - IIS | Devices by Type/ Windows Servers | isWindows()
