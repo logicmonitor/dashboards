@@ -29,28 +29,40 @@ Format: Dashboard Name | Required Dynamic Group Name | Dynamic Group Definition
 - Veeam Backup & Replication | * | (No specific group requirement)
 - Zoom | * | (No specific group requirement)
 
+**Capacity Management**
+- Resource Utilization | * | (No specific group requirement)
+
 **Databases**
 - MySQL | * | (No specific group requirement)
+- Oracle | * | (No specific group requirement)
 - SQL Server | Devices by Type/ SQL Servers | hasCategory("MSSQL")
 
-**Hardware**
+**Environmental**
 - APC | * | (No specific group requirement)
+
+**Hardware**
+- Cisco UCS | * | (No specific group requirement)
 - Dell iDRAC | * | (No specific group requirement)
 - HP iLO | * | (No specific group requirement)
 
 **Kubernetes**
 - Kubernetes Cluster Overview | * | (No specific group requirement)
+- Kubernetes Containers | * | (No specific group requirement)
+- Kubernetes Deployments | * | (No specific group requirement)
 - Kubernetes Inventory | * | (No specific group requirement)
+- Kubernetes Nodes | * | (No specific group requirement)
 - Kubernetes Pods | * | (No specific group requirement)
+- Kubernetes Services | * | (No specific group requirement)
 
 **Linux**
 - Linux | Devices by Type/ Linux Servers | isLinux()
-- Linux (SSH) | Devices by Type/ Linux Servers | isLinux()
+- Linux - Monitored Processes | Devices by Type/ Linux Servers | isLinux()
+- Linux - SSH | Devices by Type/ Linux Servers | isLinux()
 
 **LogicMonitor**
 - Collectors | Devices by Type/ Collectors | hasCategory("Collectors")
 - LogicMonitor Portal Metrics | * | (Requires the LogicMonitor Portal Metrics datasource)
-- Resource Utilization | * | (No specific group requirement)
+- Minimal Monitoring | \*Minimal Monitoring\* | *
 - Welcome to LogicMonitor | * | (No specific group requirement)
 
 **Microsoft**
@@ -69,7 +81,10 @@ Format: Dashboard Name | Required Dynamic Group Name | Dynamic Group Definition
 - Arista | * | (No specific group requirement)
 - Aruba Wireless | * | (No specific group requirement)
 - BGP | * | (No specific group requirement)
+- Cisco APIC | * | (No specific group requirement)
 - Cisco ASA | * | (No specific group requirement)
+- Cisco DNA Center | * | (No specific group requirement)
+- Cisco Meraki | * | (No specific group requirement)
 - Cisco Viptela | * | (No specific group requirement)
 - Cisco Wireless | * | (No specific group requirement)
 - EIGRP | * | (No specific group requirement)
@@ -79,10 +94,17 @@ Format: Dashboard Name | Required Dynamic Group Name | Dynamic Group Definition
 - Local Network Latency | Devices by Type/* | (No specific group requirement)
 - Network Performance | Devices by Type/ Network | isNetwork()
 - OSPF | * | (No specific group requirement)
-- Palo Alto | Devices by Type/ Palo Alto | hasCategory("PaloAlto")
+- Palo Alto Networks | Devices by Type/ Palo Alto | hasCategory("PaloAlto")
+- Palo Alto Networks - BGP | Devices by Type/ Palo Alto | hasCategory("PaloAlto")
 - Pulse Secure | * | (No specific group requirement)
 - SSL Certificates | * | (No specific group requirement)
 - Ubiquiti Unifi | Devices by Type/ Network | isNetwork()
+
+**SaaS**
+- Office 365 | * | (No specific group requirement)
+- SaaS Lite Overview | * | (No specific group requirement)
+- Slack | * | (No specific group requirement)
+- Zoom | * | (No specific group requirement)
 
 **Storage**
 - Dell EMC Isilon | * | (No specific group requirement)
