@@ -1,0 +1,696 @@
+{
+  "santabaRelease": 156,
+  "widgetTokens": [{
+    "name": "defaultResourceGroup",
+    "value": "*"
+  }],
+  "name": "Netflow",
+  "description": "",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 5,
+        "name": "Netflow Resource Health",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##RESOURCENAME##",
+          "dataSourceDisplayName": "Netflow Device Heartbeat",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 6
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 201,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Last Received\n            \n        ",
+              "columnSize": 139,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Agent ID\n            \n        ",
+              "columnSize": 99,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Time Last Received\n            \n        ",
+              "columnSize": 156,
+              "columnKey": "2"
+            }
+          ],
+          "pageSize": "10"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "idleInterval",
+            "displayType": "colorBar",
+            "minValue": 0,
+            "unitLabel": " seconds",
+            "maxValue": 600,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 180,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 300,
+                "relation": ">"
+              },
+              {
+                "level": 4,
+                "threshold": 480,
+                "relation": ">"
+              }
+            ],
+            "columnName": "Last Received",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "netflowAgentId",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Agent ID",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "netflowHeartbeat",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Time Last Received",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": -1,
+        "dataSourceFullName": "Netflow Device Heartbeat (Netflow_Device_Heartbeat)",
+        "sortOrder": "descending",
+        "name": "Netflow Resource Health Statistics",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 5,
+        "name": "Netflow Collector Health",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##RESOURCENAME##",
+          "dataSourceDisplayName": "Collector Netflow Metrics",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 8,
+        "row": 3,
+        "sizey": 6
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 353,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Total Flows\n            \n        ",
+              "columnSize": 142,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Flow Success\n            \n        ",
+              "columnSize": 120,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Flow Failure\n            \n        ",
+              "columnSize": 120,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Processing Time Success\n            \n        ",
+              "columnSize": 157,
+              "columnKey": "3"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Processing Time Failure\n            \n        ",
+              "columnSize": 312,
+              "columnKey": "4"
+            }
+          ],
+          "pageSize": "10"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "totalFlow",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " flows/ sec.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Total Flows",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "FlowPackets_Successful",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " pkts./ sec.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Flow Success",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "FlowPackets_Failed",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " pkts./ sec.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Flow Failure",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "ProcessingTime_Successful",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ms./pkt. avg.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Processing Time Success",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "ProcessingTime_Failed",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ms./pkt. avg.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Processing Time Failure",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": -1,
+        "dataSourceFullName": "Collector Netflow Metrics (LogicMonitor_Collector_NetflowMetrics)",
+        "sortOrder": "descending",
+        "name": "Netflow Collector Statistics",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 13,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "name": "Netflow Alert Detail",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
+          "keyword": "",
+          "dataSource": "Collector%20Netflow%20Metrics,Netflow%20Device%20Heartbeat",
+          "cleared": "no",
+          "group": "%23%23defaultResourceGroup%23%23*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 9,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Collectors by Flows per Second",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "totalFlow",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Collector Netflow Metrics (LogicMonitor_Collector_NetflowMetrics)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME##",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "totalFlow",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "flows per second",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 9,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Flow Success vs. Failure (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "FlowPackets_Failed",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Collector Netflow Metrics (LogicMonitor_Collector_NetflowMetrics)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "red",
+                "legend": "Flow Failure",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "FlowPackets_Failed",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "FlowPackets_Successful",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Collector Netflow Metrics (LogicMonitor_Collector_NetflowMetrics)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "olive",
+                "legend": "Flow Success",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "FlowPackets_Successful",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "flows per second",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 9,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Netflow Failure vs. Success",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "type": "pieChart",
+        "timescale": "day",
+        "pieChartInfo": {
+          "maxSlicesCanBeShown": 10,
+          "virtualDataPoints": [],
+          "showLabelsAndLinesOnPC": true,
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "FlowPackets_Failed",
+              "top10": false,
+              "instanceName": "*",
+              "dataSourceFullName": "Collector Netflow Metrics (LogicMonitor_Collector_NetflowMetrics)",
+              "name": "FlowPackets_Failed",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*",
+              "aggregate": true
+            },
+            {
+              "dataPointName": "FlowPackets_Successful",
+              "top10": false,
+              "instanceName": "*",
+              "dataSourceFullName": "Collector Netflow Metrics (LogicMonitor_Collector_NetflowMetrics)",
+              "name": "FlowPackets_Successful",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*",
+              "aggregate": true
+            }
+          ],
+          "hideZeroPercentSlices": false,
+          "groupRemainingAsOthers": false,
+          "pieChartItems": [
+            {
+              "dataPointName": "FlowPackets_Successful",
+              "color": "olive",
+              "legend": "Flow Packet Success"
+            },
+            {
+              "dataPointName": "FlowPackets_Failed",
+              "color": "red",
+              "legend": "Flow Packet Failure"
+            }
+          ],
+          "title": "Netflow Failure vs. Success"
+        },
+        "version": 2
+      }
+    }
+  ],
+  "version": 2,
+  "group": {
+    "name": "Common",
+    "fullPath": "LogicMonitor Dashboards/Network/Common",
+    "description": ""
+  }
+}

@@ -1,0 +1,235 @@
+{
+  "santabaRelease": 156,
+  "widgetTokens": [{
+    "name": "OpenWeatherAPIKey",
+    "value": "*"
+  }],
+  "name": "Alert Map - Dynamic Weather",
+  "description": "",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 9,
+        "sizey": 6
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {"mapStyle": "dark"},
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "gmap",
+        "version": 2,
+        "displayErrorAlert": true,
+        "name": "Cloud Cover",
+        "displayCriticalAlert": true,
+        "theme": "newBorderGray",
+        "interval": 3,
+        "timescale": "day",
+        "sdtChecked": true,
+        "mapPoints": [{
+          "type": "group",
+          "deviceGroupFullPath": "*",
+          "deviceDisplayName": ""
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 15,
+        "sizey": 6
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {"mapStyle": "silver"},
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "gmap",
+        "version": 2,
+        "displayErrorAlert": true,
+        "name": "MRMS Hybrid-Scan Reflectivity Composite",
+        "displayCriticalAlert": true,
+        "theme": "newBorderGray",
+        "interval": 3,
+        "timescale": "day",
+        "sdtChecked": true,
+        "mapPoints": [{
+          "type": "group",
+          "deviceGroupFullPath": "*",
+          "deviceDisplayName": ""
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 15,
+        "sizey": 6
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {"mapStyle": "silver"},
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "gmap",
+        "version": 2,
+        "displayErrorAlert": true,
+        "name": "NEXRAD Base",
+        "displayCriticalAlert": true,
+        "theme": "newBorderGray",
+        "interval": 3,
+        "timescale": "day",
+        "sdtChecked": true,
+        "mapPoints": [{
+          "type": "group",
+          "deviceGroupFullPath": "*",
+          "deviceDisplayName": ""
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 15,
+        "sizey": 6
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {"mapStyle": "silver"},
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "gmap",
+        "version": 2,
+        "displayErrorAlert": true,
+        "name": "NEXRAD Echo Tops EET",
+        "displayCriticalAlert": true,
+        "theme": "newBorderGray",
+        "interval": 3,
+        "timescale": "day",
+        "sdtChecked": true,
+        "mapPoints": [{
+          "type": "group",
+          "deviceGroupFullPath": "*",
+          "deviceDisplayName": ""
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 9,
+        "row": 1,
+        "sizey": 8
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {"mapStyle": "silver"},
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "gmap",
+        "version": 2,
+        "displayErrorAlert": true,
+        "name": "Precipitation",
+        "displayCriticalAlert": true,
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "timescale": "day",
+        "sdtChecked": true,
+        "mapPoints": [{
+          "type": "group",
+          "deviceGroupFullPath": "*",
+          "deviceDisplayName": ""
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 9,
+        "sizey": 6
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {"mapStyle": "silver"},
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "gmap",
+        "version": 2,
+        "displayErrorAlert": true,
+        "name": "Temperature",
+        "displayCriticalAlert": true,
+        "theme": "newBorderGray",
+        "interval": 3,
+        "timescale": "day",
+        "sdtChecked": true,
+        "mapPoints": [{
+          "type": "group",
+          "deviceGroupFullPath": "*",
+          "deviceDisplayName": ""
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 1,
+        "sizey": 8
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Weather Enabler",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 5,
+        "type": "text",
+        "timescale": "day",
+        "version": 2,
+        "content": "<!-- \n\tDYNAMIC WEATHER MAP OVERLAY 1.3.1\n\n\tThis script was created in response to users wanting a way to show weather on top of our Maps widgets.\n\tNOTE: while this script leverages standard LogicMonitor APIs and features, this script itself is not officially supported by LogicMonitor.\n\n\tTo use this, just add a Text widget to your dashboard and in the widget's configuration screen click the \"source\" view then paste in this code. You can also just clone this widget to another dashboard on the same portal.\n\n\t---\n\n\tPREREQUISITES:\n\n\tIf you just want to display radar data then no API key or additional setup is required - you're good to go! There is only a prerequisite IF you want to use one of the following weather layers: Temperature, Wind Speed, or Cloud Cover.\n\n\tThe script is written to use weather information from different sources depending on the type of weather data to be displayed. One of those weather sources - https://openweathermap.org - requires an API key but only applies if you want to show any of the following map types: Temperature, Wind Speed, or Cloud Cover. Other map types use free, open APIs that don't require a key.\n\t\n\tIf you will be using OpenWeather data, the only prerequisite is setting an an OpenWeather API key in a dashboard token titled 'OpenWeatherAPIKey'. Alternatively, you can also hard-code it in the 'openWeatherMapsAPIKey' variable near the top of the script. A free API account was used for the creation of the script, however OpenWeather does provide additional features & options for paid accounts. More info: https://openweathermap.org/price\n\n\n\tSO HOW DOES THIS WORK?\n\n\tLogicMonitor uses a JavaScript variable called 'LM' to track things on a dashboard. (There are other variables as well but 'LM' is the one of interest here.) When you add a Map widget to a dashboard, LogicMonitor adds an entry to 'LM.cachedData.googleMapView', which is an array of objects containing information about the widget. In particular, there's an a 'gMap' object in each member of that array that is a reference to the Google Maps object embedded inside the Maps widget. With that Google Maps object reference, we're able to do some nifty things like add layers to the map.\n\t\n\tWhen this Text widget is first loaded, Javascript embedded in the HTML fetches the value of 'LM.cachedData.googleMapView' and cycles through it's entries looking for any Map widgets with specific text in the widget title (note: case doesn't matter.) If found, the script will add the appropriate map overlay to that Map widget.\n\n\tThe map should auto-update when the Map widget performs its regular timed refresh.\n\n\tNote: It may be possible that the Map widgets haven't fully initialized before the script. If that happens, just click the \"Add weather\" button or edit/save this text widget without making changes.\n\n\tWeather sources currently defined within this script:\n\t* RainViewer.com (https://www.rainviewer.com/api.html) - provides global weather imaging data. Updates approx. every 10 minutes.\n\t* OpenWeatherMap.org (https://openweathermap.org/api/weathermaps) - good source for some weather data, though not as accurate as RainViewer's sources.\n\t* Open Geospatial Consortium (http://mesonet.agron.iastate.edu/ogc/) - Hosted by Iowa State University, an excellent free source of weather data. Since it sources data from the US National Weather Service, its data is local just US and Canada.\n-->\n<link href=\"https://static-prod.logicmonitor.com/sbui133-1/commons/stylesheets2/startup.css?v=220429\" rel=\"stylesheet\" />\n<style type=\"text/css\">#weatherLayerDescription {padding: 0 5px;}\n\t#weatherLayerDescription h1, h2 {color: white; padding-bottom: 7px;}\n\t#weatherLayerDescription p {color: #ddd; padding: 10px 0;}\n\t#weatherLayerDescription ul {color: #ddd; list-style: circle; list-style-position: inside;}\n\t#mapTimestampArea {display: none;}\n<\/style>\n<div id=\"weatherLayerDescription\">\n<h2>Dynamic Weather Map Overlay<\/h2>\n\n<p>This text box contains an embedded script that adds a weather layer to the Map widget.<\/p>\n\n<p>The script looks for the following text (regardless of case) in the Map widget&#39;s title and adds the appropriate weather layer:<\/p>\n\n<ul>\n\t<li>&quot;Precip&quot; or &quot;Radar&quot;<\/li>\n\t<li>&quot;NEXRAD Base&quot;<\/li>\n\t<li>&quot;NEXRAD Echo Tops&quot;<\/li>\n\t<li>&quot;MRMS&quot; (<a href=\"https://www.nssl.noaa.gov/projects/mrms/\" target=\"_blank\">info<\/a>)<\/li>\n\t<li>&quot;Temperature&quot; <a href=\"https://openweathermap.org/price\" target=\"_blank\">(API key required)<\/a><\/li>\n\t<li>&quot;Wind Speed&quot; <a href=\"https://openweathermap.org/price\" target=\"_blank\">(API key required)<\/a><\/li>\n\t<li>&quot;Satellite&quot; or &quot;Cloud Cover&quot; <a href=\"https://openweathermap.org/price\" target=\"_blank\">(API key required)<\/a><\/li>\n<\/ul>\n\n<p>Depending on the map type, weather data comes from <a href=\"https://www.rainviewer.com/api.html\" target=\"_blank\">RainViewer.com<\/a>, <a href=\"https://openweathermap.org/\" target=\"_blank\">OpenWeatherMap.org<\/a>, or the <a href=\"http://mesonet.agron.iastate.edu/ogc/\" target=\"_blank\">Open Geospatial Consortium (OGC)<\/a>.<\/p>\n\n<p>If you want to use one of the map types listed above noted as needing an API key (other map types use free, open APIs that don&#39;t require a key), you&#39;ll need to register for a free account on <a href=\"https://openweathermap.org/price\" target=\"_blank\">OpenWeatherMap.org<\/a>. Once you&#39;ve obtained an API key, add a new dashboard token named &#39;OpenWeatherAPIKey&#39; and paste your key into its value field.<\/p>\n\n<p id=\"mapTimestampArea\">Timestamp of radar image: <span id=\"mapTimestamp\">&nbsp;<\/span><\/p>\n\n<p>You can use the button below if you don&#39;t see weather on appropriate map(s) or want to force a refresh.<\/p>\n<button class=\"lm-button small blue animate\" onclick=\"initWeather();\">Update Weather<\/button><\/div>\n<script>\n\t// Set the value of following to your OpenWeatherMaps API key (see https://openweathermap.org/api/weathermaps)...\n\tvar openWeatherMapsAPIKey = \"\";\n\n\t// Capture the value of specific dashboard tokens...\n\t// Like any token inserted into the Text widget, LogicMonitor automatically inserts these token values as the page is being rendered so Javascript is able to pick them as if the values were there originally. If a token isn't set then the variable's value will be literally what's shown below, including the double-hashtags.\n\tvar openWeatherKeyToken = \"##OpenWeatherAPIKey##\";\n\n\t// If we were passed an OpenWeatherMaps API key in a token...\n\tif (openWeatherKeyToken != \"\\#\\#OpenWeatherAPIKey\\#\\#\") {\n\t\topenWeatherMapsAPIKey = openWeatherKeyToken;\n\t}\n\n\t// RainViewer map options (feel free to change these to suit your taste)...\n    var rvOptionKind = 'radar'; // can be 'radar' or 'satellite'\n    var rvOptionColorScheme = 8; // from 0 to 8. Check the https://rainviewer.com/api/color-schemes.html for additional inforvation\n    var rvOptionSmoothData = 0; // 0 - not smooth, 1 - smooth\n    var rvOptionSnowColors = 1; // 0 - do not show snow colors, 1 - show snow colors\n\n\t// Variables for holding RainViewer API data...\n\tvar rvAPIData = {};\n    var rvMapFrames = [];\n    var rvLastPastFramePosition = -1;\n\n\n\t// Sometimes this widget/script initializes before the Map widgets have completely loaded initially, so wait 2 seconds when the page first loads...\n\tif (typeof parent.weatherInitialized !== \"boolean\") {\n\t\tweatherTimeout = setTimeout(function() {\n\t\t\t// Initialize the RainViewer API and add weather layers...\n\t\t\tinitWeather();\n\t\t\t// Set a global variable so we don't keep reinitializing...\n\t\t\tparent.weatherInitialized = true;\n\t\t\t// Clear our timeout...\n\t\t\tclearTimeout(weatherTimeout);\n\t\t\tconsole.log(\"Weather maps initialized.\")\n\t\t}, 2000);\n\t} else {\n\t\t// Add the weather layers...\n\t\tinitWeather();\n\t}\n\n\n\t// Initialize the RainViewer API...\n\tfunction initWeather() {\n\t\tvar rvAPIRequest = new XMLHttpRequest();\n\t\trvAPIRequest.open(\"GET\", \"https://api.rainviewer.com/public/weather-maps.json\", true);\n\t\trvAPIRequest.onload = function(e) {\n\t\t\t// Store the API response for re-use purposes in memory...\n\t\t\trvAPIData = JSON.parse(rvAPIRequest.response);\n\t\t\taddWeatherLayer();\n\t\t};\n\t\trvAPIRequest.send();\n\t}\n\n\n\t// Get the latest radar frame from RainViewer...\n\tfunction initRainViewerData() {\n\t\trvMapFrames = rvAPIData.radar.past;\n\t\tif (rvAPIData.radar.nowcast) {\n\t\t\trvMapFrames = rvMapFrames.concat(rvAPIData.radar.nowcast);\n\t\t\trvLastPastFramePosition = rvAPIData.radar.past.length - 1;\n\t\t}\n\t}\n\n\tfunction addWeatherLayer() {\n\t\t// Get info about Map widgets on the dashboard...\n\t\tlm_maps = parent.LM.cachedData.googleMapViews;\n\n\t\t// Loop through the Map widgets...\n\t\tlm_maps.forEach(mapObject => {\n\t\t\t// The map cache may contain references to old maps, so only process this one if it's in use...\n\t\t\tif (mapObject.isUsing) {\n\t\t\t\t// Default opacity for weather layers...\n\t\t\t\tvar mapOpacity = 0.4;\n\n\t\t\t\t// Get reference to the Map widget's Google Map object...\n\t\t\t\tvar lm_map = mapObject.gMap;\n\n\t\t\t\t// Get the title of the Map widget...\n\t\t\t\tvar mapTitle = mapObject.el.parentElement.parentElement.parentElement.innerText.split(\"\\n\")[0];\n\n\t\t\t\t// Look to see if the widget title contains specific text and, if so, set the appropriate map type...\n\t\t\t\tvar mapType = \"\";\n\t\t\t\tif (mapTitle.match(/(precip|radar)/gi)) {\n\t\t\t\t\tmapType = \"radar\";\n\t\t\t\t\tmapOpacity = 0.5;\n\t\t\t\t// } else if (mapTitle.match(/satellite/gi)) {\n\t\t\t\t// \tmapType = \"satellite\";\n\t\t\t\t} else if (mapTitle.match(/temperature/gi)) {\n\t\t\t\t\tmapType = \"temp\";\n\t\t\t\t} else if (mapTitle.match(/wind speed/gi)) {\n\t\t\t\t\tmapType = \"wind\";\n\t\t\t\t} else if (mapTitle.match(/(cloud cover|satellite)/gi)) {\n\t\t\t\t\tmapType = \"clouds\";\n\t\t\t\t\tmapOpacity = 0.5;\n\t\t\t\t} else if (mapTitle.match(/nexrad base/gi)) {\n\t\t\t\t\tmapType = \"nexrad-n0q-900913\";\n\t\t\t\t\tmapOpacity = 0.3;\n\t\t\t\t} else if (mapTitle.match(/nexrad echo tops/gi)) {\n\t\t\t\t\tmapType = \"nexrad-eet-900913\";\n\t\t\t\t\tmapOpacity = 0.3;\n\t\t\t\t} else if (mapTitle.match(/mrms/gi)) {\n\t\t\t\t\tmapType = \"q2-hsr-900913\";\n\t\t\t\t\tmapOpacity = 0.3;\n\t\t\t\t}\n\n\t\t\t\t// Add RainViewer layer if appropriate...\n\t\t\t\tif (mapType == \"radar\") {\n\t\t\t\t\t// Get the latest radar frame from RainViewer...\n\t\t\t\t\tinitRainViewerData();\n\n\t\t\t\t\t// The following three lines really only apply if we use RainViewer's satellite imagery, which I'm not currently but left it in here if needed...\n\t\t\t\t\tvar colorScheme = rvOptionKind == 'satellite' ? 0 : rvOptionColorScheme;\n\t\t\t\t\tvar smooth = rvOptionKind == 'satellite' ? 0 : rvOptionSmoothData;\n\t\t\t\t\tvar snow = rvOptionKind == 'satellite' ? 0 : rvOptionSnowColors;\n\n\t\t\t\t\t// Remove any previous overlay to ensure we don't keep stacking layers...\n\t\t\t\t\tlm_map.overlayMapTypes.clear();\n\n\t\t\t\t\t// Create the Google Maps layer...\n\t\t\t\t\tvar myMapType = new parent.google.maps.ImageMapType({\n\t\t\t\t\t\tgetTileUrl: function(tile, zoom) {\n\t\t\t\t\t\t\treturn [rvAPIData.host + rvMapFrames[rvLastPastFramePosition].path, 256, zoom, tile.x, tile.y, colorScheme, smooth + '_' + snow + '.png'].join('/');\n\t\t\t\t\t\t},\n\t\t\t\t\t\ttileSize: new parent.google.maps.Size(256, 256),\n\t\t\t\t\t\topacity: mapOpacity,\n\t\t\t\t\t\tname : mapType,\n\t\t\t\t\t\tisPng: true\n\t\t\t\t\t});\n\n\t\t\t\t\t// Attach the weather layer to our maps widget...\n\t\t\t\t\tlm_map.overlayMapTypes.insertAt(0, myMapType);\n\n\t\t\t\t\t// Update the timestamp...\n\t\t\t\t\tdocument.querySelector(\"#mapTimestampArea\").style.display = \"block\"; // Unhides the timestamp area.\n\t\t\t\t\tdocument.getElementById(\"mapTimestamp\").innerHTML = (new Date(rvMapFrames[rvLastPastFramePosition].time * 1000)).toString();\n\n\t\t\t\t// Show NEXRAD layers if appropriate...\n\t\t\t\t} else if (mapType.match(/(nexrad|q2)/g)) {\n\t\t\t\t\t// Remove any previous overlay to ensure we don't keep stacking layers...\n\t\t\t\t\tlm_map.overlayMapTypes.clear();\n\n\t\t\t\t\t// Create the Google Maps layer...\n\t\t\t\t\tvar myMapType = new parent.google.maps.ImageMapType({\n\t\t\t\t\t\tgetTileUrl: function(tile, zoom) {\n\t\t\t\t\t\t\treturn \"http://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/\" + mapType + \"/\" + zoom + \"/\" + tile.x + \"/\" + tile.y +\".png?\"+ (new Date()).getTime();\n\t\t\t\t\t\t},\n\t\t\t\t\t\ttileSize: new parent.google.maps.Size(256, 256),\n\t\t\t\t\t\topacity: mapOpacity,\n\t\t\t\t\t\tname: mapType,\n\t\t\t\t\t\tisPng: true\n\t\t\t\t\t});\n\n\t\t\t\t\t// Attach the weather layer to our maps widget...\n\t\t\t\t\tlm_map.overlayMapTypes.insertAt(0, myMapType);\n\n\t\t\t\t// Show OpenWeather layers if appropriate...\n\t\t\t\t} else if (mapType != \"\" && openWeatherMapsAPIKey.length >= 32) {\n\t\t\t\t\t// Remove any previous overlay to ensure we don't keep stacking layers...\n\t\t\t\t\tlm_map.overlayMapTypes.clear();\n\n\t\t\t\t\t// Create the Google Maps layer...\n\t\t\t\t\tvar myMapType = new parent.google.maps.ImageMapType({\n\t\t\t\t\t\tgetTileUrl: function(coord, zoom) {\n\t\t\t\t\t\t\treturn \"https://tile.openweathermap.org/map/\" + mapType + \"/\" + zoom + \"/\" + coord.x + \"/\" + coord.y + \".png?appid=\" + openWeatherMapsAPIKey;\n\t\t\t\t\t\t},\n\t\t\t\t\t\ttileSize: new parent.google.maps.Size(256, 256),\n\t\t\t\t\t\tmaxZoom: 9,\n\t\t\t\t\t\tminZoom: 0,\n\t\t\t\t\t\topacity: mapOpacity,\n\t\t\t\t\t\tname: mapType\n\t\t\t\t\t});\n\n\t\t\t\t\t// Attach the weather layer to our maps widget...\n\t\t\t\t\tlm_map.overlayMapTypes.insertAt(0, myMapType);\n\t\t\t\t}\n\t\t\t}\n\t\t})\n\t}\n<\/script>"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 9,
+        "sizey": 6
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {"mapStyle": "silver"},
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "gmap",
+        "version": 2,
+        "displayErrorAlert": true,
+        "name": "Wind Speed",
+        "displayCriticalAlert": true,
+        "theme": "newBorderGray",
+        "interval": 3,
+        "timescale": "day",
+        "sdtChecked": true,
+        "mapPoints": [{
+          "type": "group",
+          "deviceGroupFullPath": "*",
+          "deviceDisplayName": ""
+        }]
+      }
+    }
+  ],
+  "version": 2,
+  "group": {
+    "name": "Alerting",
+    "fullPath": "LogicMonitor Dashboards/Alerting",
+    "description": ""
+  }
+}

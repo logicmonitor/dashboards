@@ -1,0 +1,1223 @@
+{
+  "santabaRelease": 156,
+  "widgetTokens": [
+    {
+      "name": "defaultResourceGroup",
+      "value": "*"
+    },
+    {
+      "name": "defaultResourceName",
+      "value": "*"
+    }
+  ],
+  "name": "LM Logs Collection",
+  "description": "",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 6,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "LM Logs Message Summary (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "NoOfMessagesAddedToInternalMemory",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Collector LM Logs (LogicMonitor_Collector_LMLogs)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "aqua",
+                "legend": "Added To Internal Memory",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "NoOfMessagesAddedToInternalMemory",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "NoOfMessagesRemovedWithoutSendingToIngest",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Collector LM Logs (LogicMonitor_Collector_LMLogs)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "gray",
+                "legend": "Removed Without Sending To Ingest",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "NoOfMessagesRemovedWithoutSendingToIngest",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "SyslogMessagesIgnored",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Collector LM Logs (LogicMonitor_Collector_LMLogs)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "orange2",
+                "legend": "Ignored",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "SyslogMessagesIgnored",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "SyslogMessagesIgnoredDueToFilters",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Collector LM Logs (LogicMonitor_Collector_LMLogs)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "red1",
+                "legend": "Ignored Due To Filters",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "SyslogMessagesIgnoredDueToFilters",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "SyslogMessagesReceived",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Collector LM Logs (LogicMonitor_Collector_LMLogs)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "lime",
+                "legend": "Received",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "SyslogMessagesReceived",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "count",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 8,
+        "row": 3,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "LM Logs Size of Big Queue",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "SizeOfBigQueue",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Collector LM Logs (LogicMonitor_Collector_LMLogs)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME## Big Queue Size",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "sizeOfBigQueue",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "##defaultResourceName##"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "messages",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 10,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "LM Logs Ingest API Requests",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "TotalNoOfIngestAPIRequestsMade",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Collector LM Logs (LogicMonitor_Collector_LMLogs)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "Total Requests",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "TotalNoOfIngestAPIRequestsMade",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "##defaultResourceName##"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "requests",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 7,
+        "name": "LM Logs Collection Health",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##RESOURCENAME##",
+          "dataSourceDisplayName": "Collector LM Logs",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "##defaultResourceName##"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 19,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            }
+          ],
+          "playSound": {
+            "criticalAlertAudioFileName": "",
+            "errorAlertAudioFileName": "",
+            "warningAlertAudioFileName": "",
+            "shouldPlay": false
+          },
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "name": "LM Logs Collection Alert Detail",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
+          "keyword": "",
+          "dataSource": "Collector%20LM%20Logs",
+          "cleared": "no",
+          "group": "%23%23defaultResourceGroup%23%23*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 8,
+        "row": 6,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 229,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Received\n            \n        ",
+              "columnSize": 108,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Added to Queue\n            \n        ",
+              "columnSize": 122,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Added to Memory\n            \n        ",
+              "columnSize": 126,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Sent to Ingest\n            \n        ",
+              "columnSize": 117,
+              "columnKey": "3"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Removed without Sending\n            \n        ",
+              "columnSize": 160,
+              "columnKey": "4"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Ignored (Total)\n            \n        ",
+              "columnSize": 105,
+              "columnKey": "5"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Ignored (Filters)\n            \n        ",
+              "columnSize": 108,
+              "columnKey": "6"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Ignored (Host Mismatch)\n            \n        ",
+              "columnSize": 121,
+              "columnKey": "7"
+            }
+          ],
+          "pageSize": "5"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "SyslogMessagesReceived",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " messages",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Received",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "lmLogMessagesAddedToQueue",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " messages",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Added to Queue",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "NoOfMessagesAddedToInternalMemory",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " messages",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Added to Memory",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "lmlogMessagesSentToIngest",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " messages",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Sent to Ingest",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "NoOfMessagesRemovedWithoutSendingToIngest",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " messages",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Removed without Sending",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "SyslogMessagesIgnored",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " messages",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Ignored (Total)",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "SyslogMessagesIgnoredDueToFilters",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " messages",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Ignored (Filters)",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "SyslogMessagesIgnoredDueToHostNameRetreival",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " messages",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Ignored (Host Mismatch)",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME##",
+          "deviceDisplayName": "##defaultResourceName##",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 10,
+        "dataSourceFullName": "Collector LM Logs (LogicMonitor_Collector_LMLogs)",
+        "sortOrder": "descending",
+        "name": "LM Logs Syslog Message Statistics",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 8,
+        "row": 10,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 319,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Successful\n            \n        ",
+              "columnSize": 108,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Requests Per Second\n            \n        ",
+              "columnSize": 148,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Failed (Auth)\n            \n        ",
+              "columnSize": 126,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Failed (Mapping)\n            \n        ",
+              "columnSize": 117,
+              "columnKey": "3"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Failed (Server)\n            \n        ",
+              "columnSize": 378,
+              "columnKey": "4"
+            }
+          ],
+          "pageSize": "5"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "NumberOfSuccessfulRequests",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " requests",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Successful",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "RequestsMadePerSecond",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " requests",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Requests Per Second",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "NumberOfRequestsFailedWithAuthErrors",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " requests",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Failed (Auth)",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "NumberOfRequestsFailedDeviceMapping",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " requests",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Failed (Mapping)",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "NumberOfRequestsFailedWithServerErrors",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " requests",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Failed (Server)",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME##",
+          "deviceDisplayName": "##defaultResourceName##",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 10,
+        "dataSourceFullName": "Collector LM Logs (LogicMonitor_Collector_LMLogs)",
+        "sortOrder": "descending",
+        "name": "LM Logs API Request Statistics",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 16,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "LM Logs Disk Usage (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "BytesOfDataAddedToQueue",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Collector LM Logs (LogicMonitor_Collector_LMLogs)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "lime",
+                "legend": "Added",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "BytesOfDataAddedToQueue",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "BytesOfDataRemovedFromQueue",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Collector LM Logs (LogicMonitor_Collector_LMLogs)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "red",
+                "legend": "Removed",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "BytesOfDataRemovedFromQueue",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bytes",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 16,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "LM Logs Memory Usage",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "BytesOfDataAddedToInternalMemory",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Collector LM Logs (LogicMonitor_Collector_LMLogs)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "lime",
+                "legend": "Added",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "BytesOfDataAddedToInternalMemory",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "BytesOfDataRemovedFromInternalMemory",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Collector LM Logs (LogicMonitor_Collector_LMLogs)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "red",
+                "legend": "Removed",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "BytesOfDataRemovedFromInternalMemory",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bytes",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "LM Logs Processing Rate",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "ReceivedSyslogMessageProcessedPerSec",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Collector LM Logs (LogicMonitor_Collector_LMLogs)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "silver",
+              "legend": "Inbound Messages",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "ReceivedSyslogMessageProcessedPerSec",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "##defaultResourceName##"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "#/sec",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 8,
+        "row": 13,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 394,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Added to Disk Queue\n            \n        ",
+              "columnSize": 159,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Removed from Disk Queue\n            \n        ",
+              "columnSize": 192,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Added to Memory Queue\n            \n        ",
+              "columnSize": 199,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Removed from Memory Queue\n            \n        ",
+              "columnSize": 252,
+              "columnKey": "3"
+            }
+          ],
+          "pageSize": "5"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "BytesOfDataAddedToQueue",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " bytes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Added to Disk Queue",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "BytesOfDataRemovedFromQueue",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " bytes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Removed from Disk Queue",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "NoOfMessagesAddedToInternalMemory",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " bytes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Added to Memory Queue",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "BytesOfDataRemovedFromInternalMemory",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " bytes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Removed from Memory Queue",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME##",
+          "deviceDisplayName": "##defaultResourceName##",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 10,
+        "dataSourceFullName": "Collector LM Logs (LogicMonitor_Collector_LMLogs)",
+        "sortOrder": "descending",
+        "name": "LM Logs Resource Statistics",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 13,
+        "sizey": 6
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "LM Logs Windows Events Processing",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "WindowsEventsReceived",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Collector LM Logs (LogicMonitor_Collector_LMLogs)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "olive",
+                "legend": "Received",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "WindowsEventsReceived",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "WindowsEventsIgnoredFilters",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Collector LM Logs (LogicMonitor_Collector_LMLogs)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "orange2",
+                "legend": "Ignored",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "WindowsEventsIgnoredFilters",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "events",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2,
+  "group": {
+    "name": "Logs",
+    "fullPath": "LogicMonitor Dashboards/Logs",
+    "description": ""
+  }
+}

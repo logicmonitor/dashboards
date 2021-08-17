@@ -1,0 +1,352 @@
+{
+  "santabaRelease": 156,
+  "widgetTokens": [],
+  "name": "GCP Overview",
+  "description": "This dashboard is focused on all GCP accounts added to LogicMonitor and is not scoped for a particular GCP account. To see statistics scoped to a particular account, view the GCP dashboards that were provisioned at the time the account was added.",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 8,
+        "row": 1,
+        "sizey": 6
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 7,
+        "name": "AWS Accounts Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 5,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##RESOURCENAME##",
+          "dataSourceDisplayName": "GCP Service Health",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "*",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 1,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "GCP Resources by Region",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "pieChart",
+        "timescale": "day",
+        "pieChartInfo": {
+          "maxSlicesCanBeShown": 25,
+          "virtualDataPoints": [],
+          "showLabelsAndLinesOnPC": true,
+          "counters": [
+            {
+              "name": "Europe",
+              "appliesTo": "system.gcp.region =~ \"europe\" && system.devicetype == \"7\""
+            },
+            {
+              "name": "Asia",
+              "appliesTo": "system.gcp.region =~ \"asia\" && system.devicetype == \"7\""
+            },
+            {
+              "name": "North America",
+              "appliesTo": "system.gcp.region =~ \"us|northamerica\" && system.devicetype == \"7\""
+            },
+            {
+              "name": "South America",
+              "appliesTo": "system.gcp.region =~ \"southamerica\" && system.devicetype == \"7\""
+            }
+          ],
+          "dataPoints": [],
+          "hideZeroPercentSlices": false,
+          "groupRemainingAsOthers": true,
+          "pieChartItems": [
+            {
+              "dataPointName": "South America",
+              "color": "Auto",
+              "legend": "South America"
+            },
+            {
+              "dataPointName": "North America",
+              "color": "Auto",
+              "legend": "North America"
+            },
+            {
+              "dataPointName": "Asia",
+              "color": "Auto",
+              "legend": "Asia"
+            },
+            {
+              "dataPointName": "Europe",
+              "color": "Auto",
+              "legend": "Europe"
+            }
+          ],
+          "title": "GCP Resources by Region"
+        },
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 4,
+        "sizey": 3
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [
+            {
+              "name": "Europe",
+              "appliesTo": "system.gcp.region =~ \"europe\" && system.devicetype == \"7\""
+            },
+            {
+              "name": "Asia",
+              "appliesTo": "system.gcp.region =~ \"asia\" && system.devicetype == \"7\""
+            },
+            {
+              "name": "North America",
+              "appliesTo": "system.gcp.region =~ \"us|northamerica\" && system.devicetype == \"7\""
+            },
+            {
+              "name": "South America",
+              "appliesTo": "system.gcp.region =~ \"southamerica\" && system.devicetype == \"7\""
+            }
+          ],
+          "dataPoints": [],
+          "bigNumberItems": [
+            {
+              "dataPointName": "Asia",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Asia",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "Europe",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 2,
+              "rightLabel": "Europe",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "North America",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 3,
+              "rightLabel": "North America",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "South America",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 4,
+              "rightLabel": "South America",
+              "colorThresholds": null
+            }
+          ]
+        },
+        "displaySettings": {},
+        "name": "GCP Resources by Region",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 7,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": true,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": true,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "name": "GCP Service Health Alert Detail",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
+          "keyword": "",
+          "dataSource": "GCP%20Service%20Health",
+          "cleared": "no",
+          "group": ""
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2,
+  "group": {
+    "name": "Cloud",
+    "fullPath": "LogicMonitor Dashboards/Cloud",
+    "description": ""
+  }
+}
