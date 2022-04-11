@@ -1,5 +1,5 @@
 {
-  "santabaRelease": 131,
+  "santabaRelease": 167,
   "widgetTokens": [
     {
       "name": "defaultResourceGroup",
@@ -12,6 +12,7 @@
   ],
   "name": "Windows Servers",
   "description": "",
+  "overwriteGroupFields": false,
   "widgetsConfigVersion": 2,
   "type": "dashboard",
   "widgets": [
@@ -19,7 +20,7 @@
       "position": {
         "col": 1,
         "sizex": 4,
-        "row": 15,
+        "row": 14,
         "sizey": 4
       },
       "config": {
@@ -30,7 +31,7 @@
           "rpn": "",
           "dataPointName": "CPUBusyPercent",
           "instanceName": "*",
-          "dataSourceFullName": "CPU (WinCPU)",
+          "dataSourceFullName": "CPU (Microsoft_Windows_CPU)",
           "dataSeries": "average",
           "aggregateFunction": "AVERAGE",
           "deviceGroupFullPath": "##defaultResourceGroup##",
@@ -66,7 +67,7 @@
       "position": {
         "col": 1,
         "sizex": 6,
-        "row": 13,
+        "row": 12,
         "sizey": 2
       },
       "config": {
@@ -112,7 +113,7 @@
           "globalConsolidateFunction": "default"
         },
         "type": "cgraph",
-        "timescale": "12hour",
+        "timescale": "1day",
         "version": 2
       }
     },
@@ -120,7 +121,7 @@
       "position": {
         "col": 5,
         "sizex": 8,
-        "row": 10,
+        "row": 9,
         "sizey": 3
       },
       "config": {
@@ -195,7 +196,7 @@
               }
             }
           ],
-          "verticalLabel": "ReadOperations",
+          "verticalLabel": "total operations",
           "aggregate": false,
           "desc": true,
           "scaleUnit": 1000,
@@ -210,7 +211,7 @@
       "position": {
         "col": 7,
         "sizex": 6,
-        "row": 13,
+        "row": 12,
         "sizey": 2
       },
       "config": {
@@ -256,7 +257,7 @@
           "globalConsolidateFunction": "VaST"
         },
         "type": "cgraph",
-        "timescale": "2days",
+        "timescale": "1day",
         "version": 2
       }
     },
@@ -264,7 +265,7 @@
       "position": {
         "col": 1,
         "sizex": 6,
-        "row": 19,
+        "row": 18,
         "sizey": 3
       },
       "config": {
@@ -327,7 +328,7 @@
       "position": {
         "col": 7,
         "sizex": 6,
-        "row": 19,
+        "row": 18,
         "sizey": 3
       },
       "config": {
@@ -390,7 +391,7 @@
       "position": {
         "col": 1,
         "sizex": 3,
-        "row": 7,
+        "row": 6,
         "sizey": 3
       },
       "config": {
@@ -408,9 +409,9 @@
             "dataPointName": "CPUBusyPercent",
             "instanceName": {
               "isGlob": false,
-              "value": "WinCPU"
+              "value": "Microsoft_Windows_CPU"
             },
-            "dataSourceFullName": "CPU (WinCPU)",
+            "dataSourceFullName": "CPU (Microsoft_Windows_CPU)",
             "consolidateFunction": "average",
             "display": {
               "color": "Auto",
@@ -445,7 +446,7 @@
         "col": 1,
         "sizex": 3,
         "row": 3,
-        "sizey": 4
+        "sizey": 3
       },
       "config": {
         "displaySettings": {
@@ -453,17 +454,17 @@
             {
               "visible": true,
               "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 235,
+              "columnSize": 259,
               "columnKey": "device-name-1452842526600"
             },
             {
               "visible": true,
-              "columnLabel": "\n            CPUBusyPercent\n            \n        ",
-              "columnSize": 133,
+              "columnLabel": "\n            CPU Utilization\n            \n        ",
+              "columnSize": 109,
               "columnKey": "0"
             }
           ],
-          "pageSize": "5"
+          "pageSize": "10"
         },
         "columns": [{
           "rpn": "",
@@ -509,7 +510,7 @@
         }],
         "version": 2,
         "topX": 25,
-        "dataSourceFullName": "CPU (WinCPU)",
+        "dataSourceFullName": "CPU (Microsoft_Windows_CPU)",
         "sortOrder": "descending",
         "name": "Top Windows Resources by CPU Utilization (Real-time)",
         "theme": "newSolidDarkBlue",
@@ -521,7 +522,7 @@
       "position": {
         "col": 4,
         "sizex": 4,
-        "row": 7,
+        "row": 6,
         "sizey": 3
       },
       "config": {
@@ -576,7 +577,7 @@
         "col": 4,
         "sizex": 4,
         "row": 3,
-        "sizey": 4
+        "sizey": 3
       },
       "config": {
         "displaySettings": {
@@ -584,7 +585,7 @@
             {
               "visible": true,
               "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 281,
+              "columnSize": 290,
               "columnKey": "device-name-1452842526600"
             },
             {
@@ -596,11 +597,11 @@
             {
               "visible": true,
               "columnLabel": "\n                    Days Until Alert\n                ",
-              "columnSize": 98,
+              "columnSize": 77,
               "columnKey": "0-forecast"
             }
           ],
-          "pageSize": "5"
+          "pageSize": "10"
         },
         "columns": [{
           "rpn": "",
@@ -634,14 +635,14 @@
         "forecast": {
           "severity": "warn",
           "confidence": 70,
-          "timeRange": "Last 30 days",
+          "timeRange": "Last 7 days",
           "algorithm": "Linear"
         },
         "type": "dynamicTable",
         "rows": [{
-          "instanceName": "##defaultResourceName##",
+          "instanceName": "*",
           "label": "##RESOURCENAME##",
-          "deviceDisplayName": "*",
+          "deviceDisplayName": "!*collector*",
           "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
@@ -659,7 +660,7 @@
         "col": 8,
         "sizex": 5,
         "row": 3,
-        "sizey": 4
+        "sizey": 3
       },
       "config": {
         "displaySettings": {
@@ -667,23 +668,23 @@
             {
               "visible": true,
               "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 379,
+              "columnSize": 389,
               "columnKey": "device-name-1452842526600"
             },
             {
               "visible": true,
               "columnLabel": "\n            Volume Utilization\n            \n        ",
-              "columnSize": 134,
+              "columnSize": 152,
               "columnKey": "0"
             },
             {
               "visible": true,
               "columnLabel": "\n                    Days Until Alert\n                ",
-              "columnSize": 130,
+              "columnSize": 89,
               "columnKey": "0-forecast"
             }
           ],
-          "pageSize": "5"
+          "pageSize": "10"
         },
         "columns": [{
           "rpn": "",
@@ -717,7 +718,7 @@
         "forecast": {
           "severity": "warn",
           "confidence": 70,
-          "timeRange": "Last 30 days",
+          "timeRange": "Last 7 days",
           "algorithm": "Linear"
         },
         "type": "dynamicTable",
@@ -741,7 +742,7 @@
       "position": {
         "col": 8,
         "sizex": 5,
-        "row": 7,
+        "row": 6,
         "sizey": 3
       },
       "config": {
@@ -795,7 +796,7 @@
       "position": {
         "col": 1,
         "sizex": 4,
-        "row": 10,
+        "row": 9,
         "sizey": 3
       },
       "config": {
@@ -834,7 +835,7 @@
           "bigNumberItems": [
             {
               "dataPointName": "FreeSpaceGB",
-              "useCommaSeparators": false,
+              "useCommaSeparators": true,
               "bottomLabel": "",
               "rounding": 0,
               "position": 1,
@@ -843,7 +844,7 @@
             },
             {
               "dataPointName": "CapacityGB",
-              "useCommaSeparators": false,
+              "useCommaSeparators": true,
               "bottomLabel": "",
               "rounding": 0,
               "position": 2,
@@ -904,7 +905,7 @@
       "position": {
         "col": 1,
         "sizex": 12,
-        "row": 22,
+        "row": 21,
         "sizey": 5
       },
       "config": {
@@ -920,37 +921,38 @@
             {
               "visible": true,
               "columnLabel": "Began",
+              "columnSize": 220,
               "columnKey": "alert-began"
             },
             {
               "visible": true,
               "columnLabel": "Resource/Website",
+              "columnSize": 120,
               "columnKey": "alert-device"
             },
             {
               "visible": true,
               "columnLabel": "LogicModule",
+              "columnSize": 86,
               "columnKey": "alert-datasource"
             },
             {
               "visible": true,
               "columnLabel": "Instance",
+              "columnSize": 311,
               "columnKey": "alert-datasource-instance"
             },
             {
               "visible": true,
               "columnLabel": "Datapoint",
+              "columnSize": 70,
               "columnKey": "alert-datapoint"
             },
             {
               "visible": true,
               "columnLabel": "Value",
+              "columnSize": 120,
               "columnKey": "alert-value"
-            },
-            {
-              "visible": true,
-              "columnLabel": "Effective Thresholds",
-              "columnKey": "alert-thresholds"
             },
             {
               "visible": false,
@@ -960,11 +962,13 @@
             {
               "visible": true,
               "columnLabel": "Notes",
+              "columnSize": 49,
               "columnKey": "alert-notes"
             },
             {
               "visible": true,
               "columnLabel": "Acknowledged By",
+              "columnSize": 120,
               "columnKey": "alert-acked-by"
             },
             {
@@ -1001,6 +1005,33 @@
               "visible": false,
               "columnLabel": "Full Path",
               "columnKey": "alert-full-path"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnSize": 103,
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnSize": 508,
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
             }
           ],
           "playSound": {
@@ -1041,7 +1072,7 @@
       "position": {
         "col": 5,
         "sizex": 4,
-        "row": 15,
+        "row": 14,
         "sizey": 4
       },
       "config": {
@@ -1059,31 +1090,31 @@
           "counters": [
             {
               "name": "windows2003",
-              "appliesTo": "isWindows() && system.sysinfo =~ \"2003\""
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"2003\""
             },
             {
               "name": "windows2008",
-              "appliesTo": "isWindows() && system.sysinfo =~ \"2008\""
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"2008\""
             },
             {
               "name": "windows2012",
-              "appliesTo": "isWindows() && system.sysinfo =~ \"2012\""
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"2012\""
             },
             {
               "name": "windows2016",
-              "appliesTo": "isWindows() && system.sysinfo =~ \"2016\""
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"2016\""
             },
             {
               "name": "windows2019",
-              "appliesTo": "isWindows() && system.sysinfo =~ \"2019\""
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"2019\""
             },
             {
               "name": "windows10",
-              "appliesTo": "isWindows() && system.sysinfo =~ \"Windows 10\""
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"Windows 10\""
             },
             {
               "name": "windows7",
-              "appliesTo": "isWindows() && system.sysinfo =~ \"Windows 7\""
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"Windows 7\""
             }
           ],
           "dataPoints": [],
@@ -1135,7 +1166,7 @@
       "position": {
         "col": 9,
         "sizex": 4,
-        "row": 15,
+        "row": 14,
         "sizey": 4
       },
       "config": {
@@ -1144,15 +1175,15 @@
           "counters": [
             {
               "name": "Devices",
-              "appliesTo": "isWindows()"
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows()"
             },
             {
               "name": "Servers",
-              "appliesTo": "isWindows() && system.sysinfo =~ \"Server\""
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"Server\""
             },
             {
               "name": "Desktops",
-              "appliesTo": "isWindows() && system.sysinfo !~ \"Server\""
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo !~ \"Server\""
             }
           ],
           "dataPoints": [],
