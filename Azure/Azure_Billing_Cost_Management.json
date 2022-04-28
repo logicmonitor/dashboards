@@ -1,0 +1,468 @@
+{
+  "santabaRelease": 167,
+  "widgetTokens": [{
+    "name": "defaultResourceName",
+    "value": "*"
+  }],
+  "name": "Azure Billing Cost Management",
+  "description": "Dashboard to see the Azure Cost Management data for given Cloud Account",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 11,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Cost By Account / Subscription",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "pieChart",
+        "timescale": "day",
+        "pieChartInfo": {
+          "maxSlicesCanBeShown": 10,
+          "virtualDataPoints": [],
+          "showLabelsAndLinesOnPC": true,
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "totalCost",
+            "top10": false,
+            "instanceName": "*",
+            "dataSourceFullName": "Azure Cost Management by Subscription (Microsoft_Azure_CostManagementBySubscription)",
+            "name": "totalCost",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##*",
+            "deviceDisplayName": "*",
+            "aggregate": false
+          }],
+          "hideZeroPercentSlices": false,
+          "groupRemainingAsOthers": true,
+          "pieChartItems": [{
+            "dataPointName": "totalCost",
+            "color": "Auto",
+            "legend": "##RESOURCENAME## - ##INSTANCE##"
+          }],
+          "title": "Cost By Account / Subscription"
+        },
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 1,
+        "sizey": 6
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 346,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Cost (Current Month)\n            \n        ",
+              "columnSize": 202,
+              "columnKey": "0"
+            }
+          ],
+          "pageSize": "15"
+        },
+        "columns": [{
+          "rpn": "",
+          "dataPointName": "totalCost",
+          "displayType": "colorBar",
+          "minValue": 0,
+          "unitLabel": "",
+          "maxValue": 1000,
+          "colorThresholds": [],
+          "columnName": "totalCost",
+          "enableForecast": false,
+          "roundingDecimal": 2
+        }],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##INSTANCE## - ##RESOURCENAME##",
+          "deviceDisplayName": "##defaultResourceName##",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 25,
+        "dataSourceFullName": "Azure Cost Management by Region (Microsoft_Azure_CostManagementByRegion)",
+        "sortOrder": "descending",
+        "name": "Cost by Region",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Cost By Region (Trend)",
+        "description": "",
+        "theme": "newSolidGray",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "totalCost",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Azure Cost Management by Region (Microsoft_Azure_CostManagementByRegion)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE##",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "totalCost",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "##defaultResourceName##"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "$",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 1,
+        "sizey": 6
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 366,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Cost (Current Month)\n            \n        ",
+              "columnSize": 182,
+              "columnKey": "0"
+            }
+          ],
+          "pageSize": "15"
+        },
+        "columns": [{
+          "rpn": "",
+          "dataPointName": "totalCost",
+          "displayType": "colorBar",
+          "minValue": 0,
+          "unitLabel": "",
+          "maxValue": 1000,
+          "colorThresholds": [],
+          "columnName": "totalCost",
+          "enableForecast": false,
+          "roundingDecimal": 2
+        }],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##INSTANCE## - ##RESOURCENAME##",
+          "deviceDisplayName": "##defaultResourceName##",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 25,
+        "dataSourceFullName": "Azure Cost Management by Service (Microsoft_Azure_CostManagementByService)",
+        "sortOrder": "descending",
+        "name": "Cost by Service",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Cost By Service (Trend)",
+        "description": "",
+        "theme": "newSolidGray",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "totalCost",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Azure Cost Management by Service (Microsoft_Azure_CostManagementByService)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE##",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "totalCost",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##*"
+            }
+          }],
+          "verticalLabel": "$",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 11,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Relative Cost By Region",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "pieChart",
+        "timescale": "day",
+        "pieChartInfo": {
+          "maxSlicesCanBeShown": 10,
+          "virtualDataPoints": [],
+          "showLabelsAndLinesOnPC": true,
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "totalCost",
+            "top10": true,
+            "instanceName": "*",
+            "dataSourceFullName": "Azure Cost Management by Region (Microsoft_Azure_CostManagementByRegion)",
+            "name": "totalCost",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##*",
+            "deviceDisplayName": "*",
+            "aggregate": false
+          }],
+          "hideZeroPercentSlices": false,
+          "groupRemainingAsOthers": true,
+          "pieChartItems": [{
+            "dataPointName": "totalCost",
+            "color": "Auto",
+            "legend": "##INSTANCE##"
+          }],
+          "title": "Relative Cost By Region"
+        },
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 11,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Relative Cost By Service",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "pieChart",
+        "timescale": "day",
+        "pieChartInfo": {
+          "maxSlicesCanBeShown": 10,
+          "virtualDataPoints": [],
+          "showLabelsAndLinesOnPC": true,
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "totalCost",
+            "top10": true,
+            "instanceName": "*",
+            "dataSourceFullName": "Azure Cost Management by Service (Microsoft_Azure_CostManagementByService)",
+            "name": "totalCost",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##*",
+            "deviceDisplayName": "*",
+            "aggregate": false
+          }],
+          "hideZeroPercentSlices": false,
+          "groupRemainingAsOthers": true,
+          "pieChartItems": [{
+            "dataPointName": "totalCost",
+            "color": "Auto",
+            "legend": "##INSTANCE##"
+          }],
+          "title": "Relative Cost By Service"
+        },
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 1,
+        "sizey": 6
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "totalCost",
+            "instanceName": "*",
+            "dataSourceFullName": "Azure Cost Management by Subscription (Microsoft_Azure_CostManagementBySubscription)",
+            "name": "totalCost",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##*",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "totalCost",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Dollars ($)",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Total Resource Group Azure Cost (This Month)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Cost By Subscription (Trend)",
+        "description": "",
+        "theme": "newSolidGray",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "totalCost",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Azure Cost Management by Subscription (Microsoft_Azure_CostManagementBySubscription)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE##",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "totalCost",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##*"
+            }
+          }],
+          "verticalLabel": "$",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2
+}
