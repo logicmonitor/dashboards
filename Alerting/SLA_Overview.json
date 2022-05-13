@@ -1,16 +1,16 @@
 {
-  "santabaRelease": 138,
+  "santabaRelease": 167,
   "widgetTokens": [
     {
       "name": "defaultResourceGroup",
       "value": "*"
     },
     {
-      "name": "defaultWebsiteGroup",
+      "name": "defaultResourceName",
       "value": "*"
     },
     {
-      "name": "defaultResourceName",
+      "name": "defaultWebsiteGroup",
       "value": "*"
     }
   ],
@@ -22,9 +22,9 @@
   "widgets": [
     {
       "position": {
-        "col": 1,
+        "col": 4,
         "sizex": 3,
-        "row": 7,
+        "row": 4,
         "sizey": 3
       },
       "config": {
@@ -34,7 +34,7 @@
         "type": "websiteSLA",
         "version": 2,
         "daysInWeek": "1,2,3,4,5,6,7",
-        "name": "Websites: HTTP Availability",
+        "name": "Website Checks: HTTP Server Availability",
         "periodInOneDay": "*",
         "theme": "newBorderDarkBlue",
         "interval": 5,
@@ -135,7 +135,7 @@
         "displayType": 0,
         "topX": 10,
         "bottomLabel": "Time Available",
-        "name": "Windows Servers: Host Status Availability",
+        "name": "Windows Servers: Host Availability",
         "displayPercentageBar": false,
         "periodInOneDay": "*",
         "theme": "newBorderDarkBlue",
@@ -173,7 +173,7 @@
     },
     {
       "position": {
-        "col": 4,
+        "col": 1,
         "sizex": 3,
         "row": 4,
         "sizey": 3
@@ -189,7 +189,7 @@
         "displayType": 0,
         "topX": 10,
         "bottomLabel": "Time Available",
-        "name": "VMware Hosts: Host Status Availability",
+        "name": "VMware Hosts: Host Availability",
         "displayPercentageBar": false,
         "periodInOneDay": "*",
         "theme": "newBorderDarkBlue",
@@ -243,7 +243,7 @@
         "displayType": 0,
         "topX": 10,
         "bottomLabel": "Time Available",
-        "name": "Linux Servers: Host Status Availability",
+        "name": "Linux Servers: Host Availability",
         "displayPercentageBar": false,
         "periodInOneDay": "*",
         "theme": "newBorderDarkBlue",
@@ -308,7 +308,7 @@
             "instances": "*",
             "metric": "idleInterval",
             "dataSourceFullName": "Host Status (HostStatus)",
-            "bottomLabel": "Host Status Availability",
+            "bottomLabel": "Host Availability",
             "threshold": "< 300",
             "deviceName": "*",
             "exclusionSDTType": "ResourceSDT"
@@ -359,7 +359,7 @@
       "position": {
         "col": 1,
         "sizex": 3,
-        "row": 4,
+        "row": 7,
         "sizey": 3
       },
       "config": {
@@ -372,19 +372,19 @@
         "daysInWeek": "1,2,3,4,5,6,7",
         "displayType": 0,
         "topX": 10,
-        "bottomLabel": "Time Available",
-        "name": "Storage Devices: Host Status Availability",
+        "bottomLabel": "HTTP Page Availability",
+        "name": "Web Servers: HTTP Page Availability",
         "displayPercentageBar": false,
         "periodInOneDay": "*",
         "theme": "newBorderDarkBlue",
         "interval": 5,
         "metrics": [{
-          "groupName": "Devices by Type/Storage",
+          "groupName": "Devices by Type/Windows Servers",
           "instances": "*",
-          "metric": "idleInterval",
-          "dataSourceFullName": "Host Status (HostStatus)",
+          "metric": "404Percent",
+          "dataSourceFullName": "IIS (Microsoft_IIS_Server)",
           "bottomLabel": "Time Available",
-          "threshold": "< 300",
+          "threshold": "< 1",
           "deviceName": "*",
           "exclusionSDTType": "ResourceGroupSDT"
         }],
@@ -418,40 +418,40 @@
       },
       "config": {
         "displaySettings": {},
-        "name": "Device Uptime Overview",
+        "name": "Device Availability by Least Uptime (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "graphInfo": {
           "virtualDataPoints": [{
-            "rpn": "WinUptimeSeconds / 60 / 60 / 24",
+            "rpn": "SNMP_UptimeSeconds/60/60/24",
             "display": {
               "color": "Auto",
               "legend": "##RESOURCENAME##",
-              "type": "stack",
+              "type": "line",
               "option": "custom"
             },
-            "name": "WinUptimeDays"
+            "name": "SNMP_UptimeDays"
           }],
-          "minValue": 0,
+          "minValue": "NaN",
           "topX": 10,
           "maxValue": "NaN",
           "dataPoints": [
             {
-              "dataPointName": "UptimeDays",
+              "dataPointName": "Uptime",
               "instanceName": {
                 "isGlob": true,
                 "value": "*"
               },
-              "dataSourceFullName": "Uptime- (SNMPUptime-)",
+              "dataSourceFullName": "Uptime (SNMP_Host_Uptime)",
               "consolidateFunction": "average",
               "display": {
-                "color": "Auto",
-                "legend": "##RESOURCENAME##",
-                "type": "column",
-                "option": "custom"
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
               },
-              "name": "UptimeDays",
+              "name": "SNMP_UptimeSeconds",
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
@@ -463,7 +463,7 @@
               }
             },
             {
-              "dataPointName": "UptimeSeconds",
+              "dataPointName": "UptimeDays",
               "instanceName": {
                 "isGlob": true,
                 "value": "*"
@@ -471,12 +471,12 @@
               "dataSourceFullName": "System Uptime (WinSystemUptime)",
               "consolidateFunction": "average",
               "display": {
-                "color": null,
-                "legend": null,
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
                 "type": "line",
-                "option": "none"
+                "option": "custom"
               },
-              "name": "WinUptimeSeconds",
+              "name": "Windows_UptimeDays",
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
@@ -490,7 +490,7 @@
           ],
           "verticalLabel": "days",
           "aggregate": false,
-          "desc": true,
+          "desc": false,
           "scaleUnit": 1000,
           "globalConsolidateFunction": "default"
         },

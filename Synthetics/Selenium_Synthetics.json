@@ -1,0 +1,450 @@
+{
+  "santabaRelease": 169,
+  "widgetTokens": [{
+    "name": "defaultResourceGroup",
+    "value": "*"
+  }],
+  "name": "Selenium Synthetics",
+  "description": "",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 10,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": false,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 7,
+        "name": "Selenium Synthetics Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##RESOURCENAME##",
+          "dataSourceDisplayName": "SyntheticsSelenium",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 6
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 348,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Status\n            \n        ",
+              "columnSize": 99,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Latency\n            \n        ",
+              "columnSize": 145,
+              "columnKey": "1"
+            }
+          ],
+          "pageSize": "15"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "Status",
+            "displayType": "colorBar",
+            "minValue": -1,
+            "unitLabel": "",
+            "maxValue": 1000,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 0,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 0,
+                "relation": ">"
+              },
+              {
+                "level": 4,
+                "threshold": 0,
+                "relation": ">"
+              }
+            ],
+            "columnName": "Status",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "Latency",
+            "displayType": "colorBar",
+            "minValue": 0,
+            "unitLabel": "ms.",
+            "maxValue": 10000,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 5000,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 7000,
+                "relation": ">"
+              },
+              {
+                "level": 4,
+                "threshold": 9000,
+                "relation": ">"
+              }
+            ],
+            "columnName": "Latency",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##INSTANCE## - ##RESOURCENAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 10,
+        "dataSourceFullName": "SyntheticsSelenium",
+        "sortOrder": "descending",
+        "name": "Selenium Synthetics Statistics",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 6,
+        "row": 3,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Selenium Synthetics Status (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "Status",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "SyntheticsSelenium",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "Status",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "status",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 6,
+        "row": 6,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Selenium Synthetics Execution Time (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": -1,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "Latency",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "SyntheticsSelenium",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "Latency",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "milliseconds",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 10,
+        "row": 9,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "name": "Selenium Synthetics Alert Detail",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
+          "keyword": "",
+          "dataSource": "SyntheticsSelenium",
+          "cleared": "no",
+          "group": "%23%23defaultResourceGroup%23%23*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 11
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Status codes:",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 15,
+        "type": "text",
+        "timescale": "day",
+        "version": 2,
+        "content": "<ul>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>0: Success,<\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>10: Test Skipped, <\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>11: Suite Skipped, <\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>21: Failed Assertion Command,<\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>22: WebElement not found, <\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>23: Command timeout,<\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>24: Dialog missing,<\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>25: Wrong WebElement Attribute,<\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>26: Wrong WebElement Tag, <\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>27: WebElement Exception, <\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>28: Javascript Exception,<\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>29: Javascript Timeout, <\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>30: Browser Window Error, <\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>31: Invalid Target, <\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>32: Invalid Value, <\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>33: Preprocessing Failed, <\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>34: Failed Command, <\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>100: Test Timed Out, <\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>200: Failed Test,<\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>300: Invalid Config,<\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>310: Credential Lock Not Available,<\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>320: Invalid Credential Lock Handle, <\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>390: Credential Provider Failure,<\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>400: Session Request Timeout,<\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>410: No Capabilities, <\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>420: Hub Connection Error,<\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>430: Session Not Created,<\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>440: Invalid Hub Address,<\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>450: WebDriver Failure,<\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>460: Viewport Out of Bounds,<\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>500: Test Parsing Error, <\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>510: Duplicate ID, <\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>520: Invalid Test Reference ID,<\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>530: Duplicate Name,<\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>600: System Failure, <\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>1000: Command Parsing Error, <\/strong><\/span><\/span><\/li>\n\t<li><span style=\"color:#ffffff;\"><span style=\"font-size:11.667px;\"><strong>1010: Result Conversion Failure<\/strong><\/span><\/span><\/li>\n<\/ul>"
+      }
+    }
+  ],
+  "version": 2,
+  "group": {
+    "name": "Synthetics",
+    "fullPath": "LogicMonitor Dashboards/Synthetics",
+    "description": ""
+  }
+}
