@@ -1,5 +1,5 @@
 {
-  "santabaRelease": 132,
+  "santabaRelease": 169,
   "widgetTokens": [
     {
       "name": "defaultResourceGroup",
@@ -12,6 +12,7 @@
   ],
   "name": "Hyper-V",
   "description": "Essential metrics for Microsoft's Hyper-V Hypervisor.",
+  "overwriteGroupFields": false,
   "widgetsConfigVersion": 2,
   "type": "dashboard",
   "widgets": [
@@ -232,60 +233,6 @@
       "position": {
         "col": 1,
         "sizex": 3,
-        "row": 4,
-        "sizey": 2
-      },
-      "config": {
-        "displaySettings": {},
-        "name": "Top Hyper-V Resources by CPU Utilization (Trend)",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "graphInfo": {
-          "virtualDataPoints": [],
-          "minValue": 0,
-          "topX": 10,
-          "maxValue": 100,
-          "dataPoints": [{
-            "dataPointName": "CPUBusyPercent",
-            "instanceName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "dataSourceFullName": "CPU (WinCPU)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "Auto",
-              "legend": "##HOSTNAME##",
-              "type": "area",
-              "option": "custom"
-            },
-            "name": "CPUBusyPercent",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
-            }
-          }],
-          "verticalLabel": "%",
-          "aggregate": false,
-          "desc": true,
-          "scaleUnit": 1000,
-          "globalConsolidateFunction": "VaST"
-        },
-        "type": "cgraph",
-        "timescale": "12hour",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 1,
-        "sizex": 3,
         "row": 1,
         "sizey": 3
       },
@@ -326,7 +273,7 @@
               "relation": ">="
             }
           ],
-          "columnName": "CPU Utilization",
+          "columnName": "CPUBusyPercent",
           "enableForecast": false,
           "roundingDecimal": 2
         }],
@@ -346,9 +293,128 @@
         }],
         "version": 2,
         "topX": 25,
-        "dataSourceFullName": "CPU (WinCPU)",
+        "dataSourceFullName": "CPU (Microsoft_Windows_CPU)",
         "sortOrder": "descending",
         "name": "Top Hyper-V Resources by CPU Utilization",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 4,
+        "sizey": 2
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Hyper-V Resources by CPU Utilization (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "CPUBusyPercent",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "CPU (Microsoft_Windows_CPU)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "CPUBusyPercent",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "12hour",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 3,
+        "row": 1,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 266,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Memory Utilization\n            \n        ",
+              "columnSize": 139,
+              "columnKey": "0"
+            }
+          ],
+          "pageSize": "10"
+        },
+        "columns": [{
+          "rpn": "",
+          "dataPointName": "MemoryUtilizationPercent",
+          "displayType": "percent",
+          "minValue": 0,
+          "unitLabel": "",
+          "maxValue": 100,
+          "colorThresholds": [{
+            "level": 2,
+            "threshold": 98,
+            "relation": ">"
+          }],
+          "columnName": "Memory Utilization",
+          "enableForecast": false,
+          "roundingDecimal": 2
+        }],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##HOSTNAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 25,
+        "dataSourceFullName": "Memory and Processes (WinOS)",
+        "sortOrder": "descending",
+        "name": "Top Hyper-V Resources by Memory Utilization",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -406,71 +472,6 @@
         "type": "cgraph",
         "timescale": "12hour",
         "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 4,
-        "sizex": 3,
-        "row": 1,
-        "sizey": 3
-      },
-      "config": {
-        "displaySettings": {
-          "columns": [
-            {
-              "visible": true,
-              "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 299,
-              "columnKey": "device-name-1452842526600"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            Memory Utilization\n            \n        ",
-              "columnSize": 142,
-              "columnKey": "0"
-            }
-          ],
-          "pageSize": "10"
-        },
-        "columns": [{
-          "rpn": "",
-          "dataPointName": "MemoryUtilizationPercent",
-          "displayType": "percent",
-          "minValue": 0,
-          "unitLabel": "",
-          "maxValue": 100,
-          "colorThresholds": [{
-            "level": 2,
-            "threshold": 98,
-            "relation": ">"
-          }],
-          "columnName": "Memory Utilization",
-          "enableForecast": false,
-          "roundingDecimal": 2
-        }],
-        "description": "",
-        "forecast": {
-          "severity": "warn",
-          "confidence": 70,
-          "timeRange": "Last 30 days",
-          "algorithm": "Linear"
-        },
-        "type": "dynamicTable",
-        "rows": [{
-          "instanceName": "*",
-          "label": "##HOSTNAME##",
-          "deviceDisplayName": "*",
-          "groupFullPath": "##defaultResourceGroup##"
-        }],
-        "version": 2,
-        "topX": 25,
-        "dataSourceFullName": "Memory and Processes (WinOS)",
-        "sortOrder": "descending",
-        "name": "Top Hyper-V Resources by Memory Utilization",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "timescale": "day"
       }
     },
     {
@@ -567,60 +568,6 @@
       "position": {
         "col": 5,
         "sizex": 4,
-        "row": 9,
-        "sizey": 2
-      },
-      "config": {
-        "displaySettings": {},
-        "name": "Top Hyper-V Virtual Machines by CPU Utilization (Trend)",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "graphInfo": {
-          "virtualDataPoints": [],
-          "minValue": 0,
-          "topX": 10,
-          "maxValue": 100,
-          "dataPoints": [{
-            "dataPointName": "PercentGuestRunTime",
-            "instanceName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "dataSourceFullName": "HyperV Virtual Machines (Win_HyperV_VirtualMachines)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "Auto",
-              "legend": "##HOSTNAME## - ##INSTANCE##",
-              "type": "area",
-              "option": "custom"
-            },
-            "name": "PercentGuestRunTime",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
-            }
-          }],
-          "verticalLabel": "%",
-          "aggregate": false,
-          "desc": true,
-          "scaleUnit": 1000,
-          "globalConsolidateFunction": "default"
-        },
-        "type": "cgraph",
-        "timescale": "2days",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 5,
-        "sizex": 4,
         "row": 6,
         "sizey": 3
       },
@@ -691,14 +638,14 @@
     },
     {
       "position": {
-        "col": 9,
+        "col": 5,
         "sizex": 4,
         "row": 9,
         "sizey": 2
       },
       "config": {
         "displaySettings": {},
-        "name": "Top Hyper-V Virtual Machines by Memory Pressure (Trend)",
+        "name": "Top Hyper-V Virtual Machines by CPU Utilization (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -708,7 +655,7 @@
           "topX": 10,
           "maxValue": 100,
           "dataPoints": [{
-            "dataPointName": "AveragePressure",
+            "dataPointName": "PercentGuestRunTime",
             "instanceName": {
               "isGlob": true,
               "value": "*"
@@ -721,7 +668,7 @@
               "type": "area",
               "option": "custom"
             },
-            "name": "AveragePressure",
+            "name": "PercentGuestRunTime",
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
@@ -736,7 +683,7 @@
           "aggregate": false,
           "desc": true,
           "scaleUnit": 1000,
-          "globalConsolidateFunction": "VaST"
+          "globalConsolidateFunction": "default"
         },
         "type": "cgraph",
         "timescale": "2days",
@@ -813,6 +760,60 @@
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 9,
+        "sizey": 2
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Hyper-V Virtual Machines by Memory Pressure (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "AveragePressure",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "HyperV Virtual Machines (Win_HyperV_VirtualMachines)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME## - ##INSTANCE##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "AveragePressure",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
       }
     },
     {
@@ -981,7 +982,7 @@
             {
               "visible": true,
               "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 231,
+              "columnSize": 203,
               "columnKey": "device-name-1452842526600"
             },
             {
@@ -993,7 +994,7 @@
             {
               "visible": true,
               "columnLabel": "\n                    Days Until Alert\n                ",
-              "columnSize": 89,
+              "columnSize": 85,
               "columnKey": "0-forecast"
             }
           ],

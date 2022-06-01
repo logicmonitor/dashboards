@@ -1,9 +1,15 @@
 {
-  "santabaRelease": 142,
-  "widgetTokens": [{
-    "name": "defaultResourceGroup",
-    "value": "*"
-  }],
+  "santabaRelease": 169,
+  "widgetTokens": [
+    {
+      "name": "defaultResourceGroup",
+      "value": "*"
+    },
+    {
+      "name": "defaultResourceName",
+      "value": "*"
+    }
+  ],
   "name": "Cisco Meraki",
   "description": "",
   "overwriteGroupFields": false,
@@ -20,7 +26,7 @@
       "config": {
         "ackChecked": true,
         "displaySettings": {
-          "showTypeIcon": true,
+          "showTypeIcon": false,
           "displayAs": "table"
         },
         "displayWarnAlert": true,
@@ -40,11 +46,11 @@
           "dataPointName": "*",
           "instanceName": "*",
           "name": "##RESOURCENAME##",
-          "dataSourceDisplayName": "*",
+          "dataSourceDisplayName": "*Meraki*",
           "groupBy": "device",
           "type": "device",
           "deviceGroupFullPath": "##defaultResourceGroup##",
-          "deviceDisplayName": "*"
+          "deviceDisplayName": "##defaultResourceName##"
         }]
       }
     },
@@ -296,7 +302,7 @@
             {
               "visible": true,
               "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 299,
+              "columnSize": 344,
               "columnKey": "device-name-1452842526600"
             },
             {
@@ -308,7 +314,7 @@
             {
               "visible": true,
               "columnLabel": "\n            Connection\n            \n        ",
-              "columnSize": 141,
+              "columnSize": 105,
               "columnKey": "1"
             }
           ],
@@ -321,7 +327,7 @@
             "displayType": "colorBar",
             "minValue": 0,
             "unitLabel": " clients",
-            "maxValue": 50,
+            "maxValue": 60,
             "colorThresholds": [
               {
                 "level": 2,
@@ -330,12 +336,12 @@
               },
               {
                 "level": 3,
-                "threshold": 35,
+                "threshold": 40,
                 "relation": ">"
               },
               {
                 "level": 4,
-                "threshold": 45,
+                "threshold": 55,
                 "relation": ">"
               }
             ],
@@ -383,7 +389,7 @@
         "rows": [{
           "instanceName": "*",
           "label": "##INSTANCE## - ##RESOURCENAME##",
-          "deviceDisplayName": "*Network*",
+          "deviceDisplayName": "##defaultResourceName##",
           "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
@@ -409,19 +415,19 @@
             {
               "visible": true,
               "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 307,
+              "columnSize": 364,
               "columnKey": "device-name-1452842526600"
             },
             {
               "visible": true,
-              "columnLabel": "\n            ClientCount\n            \n        ",
-              "columnSize": 131,
+              "columnLabel": "\n            Clients\n            \n        ",
+              "columnSize": 115,
               "columnKey": "0"
             },
             {
               "visible": true,
-              "columnLabel": "\n            Connection Status\n            \n        ",
-              "columnSize": 145,
+              "columnLabel": "\n            Connection\n            \n        ",
+              "columnSize": 113,
               "columnKey": "1"
             }
           ],
@@ -434,7 +440,7 @@
             "displayType": "colorBar",
             "minValue": 0,
             "unitLabel": " clients",
-            "maxValue": 50,
+            "maxValue": 100,
             "colorThresholds": [
               {
                 "level": 2,
@@ -443,16 +449,16 @@
               },
               {
                 "level": 3,
-                "threshold": 35,
+                "threshold": 50,
                 "relation": ">"
               },
               {
                 "level": 4,
-                "threshold": 45,
+                "threshold": 75,
                 "relation": ">"
               }
             ],
-            "columnName": "ClientCount",
+            "columnName": "Clients",
             "enableForecast": false,
             "roundingDecimal": 2
           },
@@ -480,7 +486,7 @@
                 "relation": "="
               }
             ],
-            "columnName": "Connection Status",
+            "columnName": "Connection",
             "enableForecast": false,
             "roundingDecimal": 2
           }
@@ -496,7 +502,7 @@
         "rows": [{
           "instanceName": "*",
           "label": "##INSTANCE## - ##RESOURCENAME##",
-          "deviceDisplayName": "*Network*",
+          "deviceDisplayName": "##defaultResourceName##",
           "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
@@ -529,41 +535,49 @@
             {
               "visible": true,
               "columnLabel": "Began",
+              "columnSize": 220,
               "columnKey": "alert-began"
             },
             {
               "visible": true,
               "columnLabel": "Resource/Website",
+              "columnSize": 194,
               "columnKey": "alert-device"
             },
             {
               "visible": true,
               "columnLabel": "LogicModule",
+              "columnSize": 261,
               "columnKey": "alert-datasource"
             },
             {
               "visible": true,
               "columnLabel": "Instance",
+              "columnSize": 389,
               "columnKey": "alert-datasource-instance"
             },
             {
               "visible": true,
               "columnLabel": "Datapoint",
+              "columnSize": 110,
               "columnKey": "alert-datapoint"
             },
             {
               "visible": true,
               "columnLabel": "Value",
+              "columnSize": 120,
               "columnKey": "alert-value"
             },
             {
               "visible": true,
               "columnLabel": "Static Threshold",
+              "columnSize": 103,
               "columnKey": "alert-static-threshold"
             },
             {
               "visible": true,
               "columnLabel": "Dynamic Threshold",
+              "columnSize": 346,
               "columnKey": "alert-dynamic-threshold"
             },
             {
@@ -650,11 +664,11 @@
           "acked": "all",
           "dependencyRoutingState": "",
           "dependencyRole": "",
-          "host": "",
+          "host": "%23%23defaultResourceName%23%23",
           "keyword": "",
-          "dataSource": "",
+          "dataSource": "*Meraki*",
           "cleared": "no",
-          "group": "%23%23defaultResourceGroup%23%23*"
+          "group": "%23%23defaultResourceGroup%23%23"
         },
         "type": "alert",
         "timescale": "day",
@@ -697,7 +711,7 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceName##"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
@@ -751,7 +765,7 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceName##"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
@@ -780,19 +794,19 @@
             {
               "visible": true,
               "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 307,
+              "columnSize": 354,
               "columnKey": "device-name-1452842526600"
             },
             {
               "visible": true,
-              "columnLabel": "\n            ClientCount\n            \n        ",
+              "columnLabel": "\n            Clients\n            \n        ",
               "columnSize": 131,
               "columnKey": "0"
             },
             {
               "visible": true,
-              "columnLabel": "\n            Connection Status\n            \n        ",
-              "columnSize": 145,
+              "columnLabel": "\n            Connection\n            \n        ",
+              "columnSize": 107,
               "columnKey": "1"
             }
           ],
@@ -805,7 +819,7 @@
             "displayType": "colorBar",
             "minValue": 0,
             "unitLabel": " clients",
-            "maxValue": 50,
+            "maxValue": 100,
             "colorThresholds": [
               {
                 "level": 2,
@@ -814,16 +828,16 @@
               },
               {
                 "level": 3,
-                "threshold": 35,
+                "threshold": 50,
                 "relation": ">"
               },
               {
                 "level": 4,
-                "threshold": 45,
+                "threshold": 75,
                 "relation": ">"
               }
             ],
-            "columnName": "ClientCount",
+            "columnName": "Clients",
             "enableForecast": false,
             "roundingDecimal": 2
           },
@@ -851,7 +865,7 @@
                 "relation": "="
               }
             ],
-            "columnName": "Connection Status",
+            "columnName": "Connection",
             "enableForecast": false,
             "roundingDecimal": 2
           }
@@ -867,7 +881,7 @@
         "rows": [{
           "instanceName": "*",
           "label": "##INSTANCE## - ##RESOURCENAME##",
-          "deviceDisplayName": "*Network*",
+          "deviceDisplayName": "##defaultResourceName##",
           "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
@@ -914,7 +928,7 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceName##"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
