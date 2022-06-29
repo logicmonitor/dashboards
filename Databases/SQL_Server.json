@@ -1,5 +1,5 @@
 {
-  "santabaRelease": 134,
+  "santabaRelease": 171,
   "widgetTokens": [
     {
       "name": "defaultResourceGroup",
@@ -12,20 +12,21 @@
   ],
   "name": "SQL Server",
   "description": "",
+  "overwriteGroupFields": false,
   "widgetsConfigVersion": 2,
   "type": "dashboard",
   "widgets": [
     {
       "position": {
-        "col": 10,
-        "sizex": 3,
+        "col": 1,
+        "sizex": 4,
         "row": 1,
-        "sizey": 3
+        "sizey": 2
       },
       "config": {
         "ackChecked": true,
         "displaySettings": {
-          "showTypeIcon": true,
+          "showTypeIcon": false,
           "displayAs": "table"
         },
         "displayWarnAlert": true,
@@ -33,8 +34,8 @@
         "type": "noc",
         "version": 2,
         "displayErrorAlert": true,
-        "displayColumn": 2,
-        "name": "SQL Server Alert Status",
+        "displayColumn": 3,
+        "name": "SQL Server Health",
         "displayCriticalAlert": true,
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -57,7 +58,7 @@
       "position": {
         "col": 1,
         "sizex": 12,
-        "row": 16,
+        "row": 28,
         "sizey": 4
       },
       "config": {
@@ -73,37 +74,38 @@
             {
               "visible": true,
               "columnLabel": "Began",
+              "columnSize": 220,
               "columnKey": "alert-began"
             },
             {
               "visible": true,
               "columnLabel": "Resource/Website",
+              "columnSize": 120,
               "columnKey": "alert-device"
             },
             {
               "visible": true,
               "columnLabel": "LogicModule",
+              "columnSize": 210,
               "columnKey": "alert-datasource"
             },
             {
               "visible": true,
               "columnLabel": "Instance",
+              "columnSize": 390,
               "columnKey": "alert-datasource-instance"
             },
             {
               "visible": true,
               "columnLabel": "Datapoint",
+              "columnSize": 152,
               "columnKey": "alert-datapoint"
             },
             {
               "visible": true,
               "columnLabel": "Value",
+              "columnSize": 120,
               "columnKey": "alert-value"
-            },
-            {
-              "visible": true,
-              "columnLabel": "Effective Thresholds",
-              "columnKey": "alert-thresholds"
             },
             {
               "visible": false,
@@ -154,6 +156,33 @@
               "visible": false,
               "columnLabel": "Full Path",
               "columnKey": "alert-full-path"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnSize": 103,
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnSize": 443,
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
             }
           ],
           "playSound": {},
@@ -189,13 +218,13 @@
       "position": {
         "col": 10,
         "sizex": 3,
-        "row": 4,
-        "sizey": 9
+        "row": 13,
+        "sizey": 15
       },
       "config": {
         "ackChecked": true,
         "displaySettings": {
-          "showTypeIcon": true,
+          "showTypeIcon": false,
           "displayAs": "list"
         },
         "displayWarnAlert": true,
@@ -203,7 +232,7 @@
         "type": "noc",
         "version": 2,
         "displayErrorAlert": true,
-        "displayColumn": 1,
+        "displayColumn": 7,
         "name": "SQL Services Alert Status",
         "displayCriticalAlert": true,
         "theme": "newSolidDarkBlue",
@@ -214,7 +243,7 @@
         "items": [{
           "dataPointName": "*",
           "instanceName": "*",
-          "name": "##HOSTNAME##: ##INSTANCE##",
+          "name": "##INSTANCE## - ##RESOURCENAME##",
           "dataSourceDisplayName": "SQL Server Services",
           "groupBy": "instance",
           "type": "device",
@@ -227,7 +256,7 @@
       "position": {
         "col": 1,
         "sizex": 3,
-        "row": 1,
+        "row": 13,
         "sizey": 3
       },
       "config": {
@@ -236,13 +265,13 @@
             {
               "visible": true,
               "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 275,
+              "columnSize": 259,
               "columnKey": "device-name-1452842526600"
             },
             {
               "visible": true,
               "columnLabel": "\n            CPU Utilization\n            \n        ",
-              "columnSize": 166,
+              "columnSize": 182,
               "columnKey": "0"
             }
           ],
@@ -258,23 +287,23 @@
           "colorThresholds": [
             {
               "level": 2,
-              "threshold": 85,
-              "relation": ">="
-            },
-            {
-              "level": 3,
               "threshold": 90,
               "relation": ">="
             },
             {
-              "level": 4,
+              "level": 3,
               "threshold": 95,
+              "relation": ">="
+            },
+            {
+              "level": 4,
+              "threshold": 98,
               "relation": ">="
             }
           ],
           "columnName": "CPU Utilization",
           "enableForecast": false,
-          "roundingDecimal": 2
+          "roundingDecimal": 0
         }],
         "description": "",
         "forecast": {
@@ -291,10 +320,10 @@
           "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
-        "topX": 25,
-        "dataSourceFullName": "CPU (WinCPU)",
+        "topX": 10,
+        "dataSourceFullName": "CPU (Microsoft_Windows_CPU)",
         "sortOrder": "descending",
-        "name": "Top SQL Servers by CPU Utilization %",
+        "name": "Top SQL Servers by CPU Utilization",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -302,14 +331,14 @@
     },
     {
       "position": {
-        "col": 1,
-        "sizex": 3,
-        "row": 4,
-        "sizey": 2
+        "col": 4,
+        "sizex": 6,
+        "row": 13,
+        "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Top SQL Servers by CPU Utilization %",
+        "name": "Top SQL Servers by CPU Utilization (Trend)",
         "description": "",
         "theme": "newBorderDarkBlue",
         "interval": 3,
@@ -324,12 +353,12 @@
               "isGlob": true,
               "value": "*"
             },
-            "dataSourceFullName": "CPU (WinCPU)",
+            "dataSourceFullName": "CPU (Microsoft_Windows_CPU)",
             "consolidateFunction": "average",
             "display": {
               "color": "Auto",
               "legend": "##RESOURCENAME##",
-              "type": "area",
+              "type": "line",
               "option": "custom"
             },
             "name": "CPUBusyPercent",
@@ -350,7 +379,7 @@
           "globalConsolidateFunction": "VaST"
         },
         "type": "cgraph",
-        "timescale": "1hour",
+        "timescale": "1day",
         "version": 2
       }
     },
@@ -358,7 +387,7 @@
       "position": {
         "col": 1,
         "sizex": 3,
-        "row": 6,
+        "row": 16,
         "sizey": 3
       },
       "config": {
@@ -367,13 +396,13 @@
             {
               "visible": true,
               "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 286,
+              "columnSize": 258,
               "columnKey": "device-name-1452842526600"
             },
             {
               "visible": true,
               "columnLabel": "\n            Memory Utilization\n            \n        ",
-              "columnSize": 155,
+              "columnSize": 183,
               "columnKey": "0"
             }
           ],
@@ -425,7 +454,7 @@
         "topX": 25,
         "dataSourceFullName": "Memory and Processes (WinOS)",
         "sortOrder": "descending",
-        "name": "Top SQL Servers by Memory Utilization %",
+        "name": "Top SQL Servers by Memory Utilization",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -433,14 +462,14 @@
     },
     {
       "position": {
-        "col": 1,
-        "sizex": 3,
-        "row": 9,
-        "sizey": 2
+        "col": 4,
+        "sizex": 6,
+        "row": 16,
+        "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Top SQL Servers by Memory Utilization %",
+        "name": "Top SQL Servers by Memory Utilization (Trend)",
         "description": "",
         "theme": "newBorderDarkBlue",
         "interval": 3,
@@ -460,7 +489,7 @@
             "display": {
               "color": "Auto",
               "legend": "##RESOURCENAME##",
-              "type": "area",
+              "type": "line",
               "option": "custom"
             },
             "name": "MemoryUtilizationPercent",
@@ -481,20 +510,20 @@
           "globalConsolidateFunction": "VaST"
         },
         "type": "cgraph",
-        "timescale": "1hour",
+        "timescale": "1day",
         "version": 2
       }
     },
     {
       "position": {
-        "col": 1,
-        "sizex": 3,
-        "row": 14,
-        "sizey": 2
+        "col": 5,
+        "sizex": 5,
+        "row": 25,
+        "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Top SQL Servers by Network Throughput",
+        "name": "Top SQL Servers by Network Throughput (Trend)",
         "description": "",
         "theme": "newBorderDarkBlue",
         "interval": 3,
@@ -504,7 +533,7 @@
             "display": {
               "color": "Auto",
               "legend": "##RESOURCENAME## - ##INSTANCE##",
-              "type": "area",
+              "type": "line",
               "option": "custom"
             },
             "name": "totalbps"
@@ -571,20 +600,20 @@
           "globalConsolidateFunction": "VaST"
         },
         "type": "cgraph",
-        "timescale": "1hour",
+        "timescale": "1day",
         "version": 2
       }
     },
     {
       "position": {
-        "col": 4,
-        "sizex": 3,
-        "row": 4,
+        "col": 5,
+        "sizex": 4,
+        "row": 7,
         "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Top SQL Servers by SQL Buffer Cache Hit Ratio",
+        "name": "Top SQL Servers by SQL Buffer Cache Hit Ratio (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -632,67 +661,13 @@
     {
       "position": {
         "col": 4,
-        "sizex": 6,
-        "row": 7,
-        "sizey": 3
-      },
-      "config": {
-        "displaySettings": {},
-        "name": "Top SQL Servers by SQL Latch Wait Time",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "graphInfo": {
-          "virtualDataPoints": [],
-          "minValue": 0,
-          "topX": 10,
-          "maxValue": "NaN",
-          "dataPoints": [{
-            "dataPointName": "LatchWaitTime",
-            "instanceName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "dataSourceFullName": "SQL Server Global Performance (Microsoft_SQLServer_GlobalPerformance)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "Auto",
-              "legend": "##RESOURCENAME##_##INSTANCE##",
-              "type": "area",
-              "option": "custom"
-            },
-            "name": "LatchWaitTime",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
-            }
-          }],
-          "verticalLabel": "ms",
-          "aggregate": false,
-          "desc": true,
-          "scaleUnit": 1000,
-          "globalConsolidateFunction": "default"
-        },
-        "type": "cgraph",
-        "timescale": "1day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 4,
         "sizex": 3,
-        "row": 13,
+        "row": 10,
         "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Top SQL Servers by SQL Deadlocks",
+        "name": "Top SQL Servers by SQL Deadlocks (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -739,14 +714,14 @@
     },
     {
       "position": {
-        "col": 10,
-        "sizex": 3,
-        "row": 13,
+        "col": 9,
+        "sizex": 4,
+        "row": 7,
         "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Top SQL Servers by SQL Full Table Scans",
+        "name": "Top SQL Servers by SQL Full Table Scans (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -793,14 +768,14 @@
     },
     {
       "position": {
-        "col": 7,
-        "sizex": 3,
-        "row": 4,
+        "col": 1,
+        "sizex": 4,
+        "row": 7,
         "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Top SQL Servers by SQL Index Searches",
+        "name": "Top SQL Servers by SQL Index Searches (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -847,14 +822,68 @@
     },
     {
       "position": {
-        "col": 4,
+        "col": 1,
         "sizex": 3,
         "row": 10,
         "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Top SQL Servers by SQL Lock Timeouts",
+        "name": "Top SQL Servers by SQL Latch Wait Time (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "LatchWaitTime",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "SQL Server Global Performance (Microsoft_SQLServer_GlobalPerformance)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME##_##INSTANCE##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "LatchWaitTime",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "ms",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 10,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top SQL Servers by SQL Lock Timeouts (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -908,7 +937,7 @@
       },
       "config": {
         "displaySettings": {},
-        "name": "Top SQL Servers by SQL Lock Wait Time",
+        "name": "Top SQL Servers by SQL Lock Wait Time (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -955,14 +984,14 @@
     },
     {
       "position": {
-        "col": 4,
-        "sizex": 6,
-        "row": 1,
-        "sizey": 3
+        "col": 9,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 4
       },
       "config": {
         "displaySettings": {},
-        "name": "Top SQL Servers by SQL Transactions",
+        "name": "Top SQL Servers by SQL Transactions (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -1010,9 +1039,9 @@
     {
       "position": {
         "col": 1,
-        "sizex": 3,
-        "row": 11,
-        "sizey": 3
+        "sizex": 4,
+        "row": 19,
+        "sizey": 6
       },
       "config": {
         "displaySettings": {
@@ -1020,23 +1049,23 @@
             {
               "visible": true,
               "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 224,
+              "columnSize": 362,
               "columnKey": "device-name-1452842526600"
             },
             {
               "visible": true,
-              "columnLabel": "\n            PercentUsed\n            \n        ",
-              "columnSize": 148,
+              "columnLabel": "\n            Disk Utilization\n            \n        ",
+              "columnSize": 120,
               "columnKey": "0"
             },
             {
               "visible": true,
               "columnLabel": "\n                    Days Until Alert\n                ",
-              "columnSize": 90,
+              "columnSize": 110,
               "columnKey": "0-forecast"
             }
           ],
-          "pageSize": "10"
+          "pageSize": "15"
         },
         "columns": [{
           "rpn": "",
@@ -1048,7 +1077,7 @@
           "colorThresholds": [
             {
               "level": 2,
-              "threshold": 90,
+              "threshold": 80,
               "relation": ">"
             },
             {
@@ -1062,7 +1091,7 @@
               "relation": ">"
             }
           ],
-          "columnName": "PercentUsed",
+          "columnName": "Disk Utilization",
           "enableForecast": true,
           "roundingDecimal": 2
         }],
@@ -1081,10 +1110,10 @@
           "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
-        "topX": 25,
+        "topX": -1,
         "dataSourceFullName": "Volume Capacity (WinVolumeUsage-)",
         "sortOrder": "descending",
-        "name": "Top SQL Servers by Storage Utilization %",
+        "name": "Top SQL Servers by Disk Utilization",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -1092,16 +1121,16 @@
     },
     {
       "position": {
-        "col": 7,
-        "sizex": 3,
-        "row": 13,
+        "col": 5,
+        "sizex": 5,
+        "row": 19,
         "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Top SQL Servers by Total Disk IO Operations",
+        "name": "Top SQL Servers by Total Disk IO Operations (Trend)",
         "description": "",
-        "theme": "newSolidDarkBlue",
+        "theme": "newBorderDarkBlue",
         "interval": 3,
         "graphInfo": {
           "virtualDataPoints": [{
@@ -1173,11 +1202,389 @@
           "aggregate": false,
           "desc": true,
           "scaleUnit": 1000,
-          "globalConsolidateFunction": "VaST"
+          "globalConsolidateFunction": "default"
         },
         "type": "cgraph",
-        "timescale": "1hour",
+        "timescale": "1day",
         "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 8,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": false,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 5,
+        "name": "SQL Database Health",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##INSTANCE## - ##RESOURCENAME##",
+          "dataSourceDisplayName": "SQL Server Databases",
+          "groupBy": "instance",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 8,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 232,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Connections\n            \n        ",
+              "columnSize": 115,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Batch Requests\n            \n        ",
+              "columnSize": 117,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Deadlocks\n            \n        ",
+              "columnSize": 100,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Full Scans\n            \n        ",
+              "columnSize": 91,
+              "columnKey": "3"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Index Searches\n            \n        ",
+              "columnSize": 102,
+              "columnKey": "4"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Page Life Expectancy\n            \n        ",
+              "columnSize": 150,
+              "columnKey": "5"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Work Files\n            \n        ",
+              "columnSize": 83,
+              "columnKey": "6"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Work Tables\n            \n        ",
+              "columnSize": 132,
+              "columnKey": "7"
+            }
+          ],
+          "pageSize": "10"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "Connections",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " connections",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Connections",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "BatchReq",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " requests",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Batch Requests",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "Deadlocks",
+            "displayType": "colorBar",
+            "minValue": -2,
+            "unitLabel": " deadlocks",
+            "maxValue": -1,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 0,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 0,
+                "relation": ">"
+              },
+              {
+                "level": 4,
+                "threshold": 0,
+                "relation": ">"
+              }
+            ],
+            "columnName": "Deadlocks",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "FullScans",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " scans",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Full Scans",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "IndexSearches",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " searches",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Index Searches",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "PageLifeExpectancy",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " seconds",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Page Life Expectancy",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "WorkFiles",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " files",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Work Files",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "WorkTables",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " tables",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Work Tables",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 10,
+        "dataSourceFullName": "SQL Server Global Performance (Microsoft_SQLServer_GlobalPerformance)",
+        "sortOrder": "descending",
+        "name": "SQL Server Global Statistics",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 5,
+        "row": 22,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top SQL Servers by Disk Utilization (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "PercentUsed",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Volume Capacity (WinVolumeUsage-)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "PercentUsed",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "IOPS",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 25,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 410,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Inbound\n            \n        ",
+              "columnSize": 93,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Outbound\n            \n        ",
+              "columnSize": 89,
+              "columnKey": "1"
+            }
+          ],
+          "pageSize": "10"
+        },
+        "columns": [
+          {
+            "rpn": "Inbound/1000/1000",
+            "dataPointName": "BytesReceivedPerSec",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " MB/sec.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Inbound",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "Outbound/1000/1000",
+            "dataPointName": "BytesSentPerSec",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " MB/sec.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Outbound",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME## - ##INSTANCE##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": -1,
+        "dataSourceFullName": "Interfaces- (WinIf-)",
+        "sortOrder": "descending",
+        "name": "Top SQL Servers by Network Throughput",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
       }
     }
   ],

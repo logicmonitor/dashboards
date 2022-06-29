@@ -1,0 +1,1083 @@
+{
+  "santabaRelease": 170,
+  "widgetTokens": [{
+    "name": "defaultResourceGroup",
+    "value": "Devices by Type/Palo Alto"
+  }],
+  "name": "Palo Alto Networks - IPSEC Tunnels",
+  "description": "",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 11
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": false,
+          "displayAs": "list"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 8,
+        "name": "Palo Alto IPSEC Tunnel Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##INSTANCE## - ##RESOURCENAME##",
+          "dataSourceDisplayName": "Tunnel Stats",
+          "groupBy": "instance",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 8,
+        "row": 6,
+        "sizey": 8
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 539,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Inbound\n            \n        ",
+              "columnSize": 131,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Outbound\n            \n        ",
+              "columnSize": 136,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Inbound Packets\n            \n        ",
+              "columnSize": 122,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Outbound Packets\n            \n        ",
+              "columnSize": 127,
+              "columnKey": "3"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Tunnel State\n            \n        ",
+              "columnSize": 141,
+              "columnKey": "4"
+            }
+          ],
+          "pageSize": "20"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "InBytes",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " bytes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Inbound",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "OutBytes",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " bytes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Outbound",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "InPackets",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " packets",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Inbound Packets",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "OutPackets",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " packets",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Outbound Packets",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "TunnelState",
+            "displayType": "colorBar",
+            "minValue": -2,
+            "unitLabel": "",
+            "maxValue": -1,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 2,
+                "relation": "="
+              },
+              {
+                "level": 3,
+                "threshold": 0,
+                "relation": "="
+              },
+              {
+                "level": 4,
+                "threshold": 0,
+                "relation": "="
+              }
+            ],
+            "columnName": "Tunnel State",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##INSTANCE## - ##RESOURCENAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": -1,
+        "dataSourceFullName": "Tunnel Stats (PaloAlto_FW_IPSecTunnelStats)",
+        "sortOrder": "descending",
+        "name": "Palo Alto IPSEC Tunnel Statistics",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "activeTunnels",
+              "instanceName": "*",
+              "dataSourceFullName": "Tunnel Overview (PaloAlto_FW_IPSecTunnelOverview)",
+              "name": "activeTunnels",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "inactiveTunnels",
+              "instanceName": "*",
+              "dataSourceFullName": "Tunnel Overview (PaloAlto_FW_IPSecTunnelOverview)",
+              "name": "inactiveTunnels",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "initTunnels",
+              "instanceName": "*",
+              "dataSourceFullName": "Tunnel Overview (PaloAlto_FW_IPSecTunnelOverview)",
+              "name": "initTunnels",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "totalGateways",
+              "instanceName": "*",
+              "dataSourceFullName": "Tunnel Overview (PaloAlto_FW_IPSecTunnelOverview)",
+              "name": "totalGateways",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "totalTunnels",
+              "instanceName": "*",
+              "dataSourceFullName": "Tunnel Overview (PaloAlto_FW_IPSecTunnelOverview)",
+              "name": "totalTunnels",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [{
+            "dataPointName": "totalTunnels",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Total Tunnels",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "IPSEC Tunnel Stats",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 3,
+        "sizex": 3,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "activeTunnels",
+              "instanceName": "*",
+              "dataSourceFullName": "Tunnel Overview (PaloAlto_FW_IPSecTunnelOverview)",
+              "name": "activeTunnels",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "inactiveTunnels",
+              "instanceName": "*",
+              "dataSourceFullName": "Tunnel Overview (PaloAlto_FW_IPSecTunnelOverview)",
+              "name": "inactiveTunnels",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "initTunnels",
+              "instanceName": "*",
+              "dataSourceFullName": "Tunnel Overview (PaloAlto_FW_IPSecTunnelOverview)",
+              "name": "initTunnels",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "totalGateways",
+              "instanceName": "*",
+              "dataSourceFullName": "Tunnel Overview (PaloAlto_FW_IPSecTunnelOverview)",
+              "name": "totalGateways",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "totalTunnels",
+              "instanceName": "*",
+              "dataSourceFullName": "Tunnel Overview (PaloAlto_FW_IPSecTunnelOverview)",
+              "name": "totalTunnels",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [{
+            "dataPointName": "activeTunnels",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Active Tunnels",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "IPSEC Tunnel Stats",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 6,
+        "sizex": 3,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "activeTunnels",
+              "instanceName": "*",
+              "dataSourceFullName": "Tunnel Overview (PaloAlto_FW_IPSecTunnelOverview)",
+              "name": "activeTunnels",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "inactiveTunnels",
+              "instanceName": "*",
+              "dataSourceFullName": "Tunnel Overview (PaloAlto_FW_IPSecTunnelOverview)",
+              "name": "inactiveTunnels",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "initTunnels",
+              "instanceName": "*",
+              "dataSourceFullName": "Tunnel Overview (PaloAlto_FW_IPSecTunnelOverview)",
+              "name": "initTunnels",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "totalGateways",
+              "instanceName": "*",
+              "dataSourceFullName": "Tunnel Overview (PaloAlto_FW_IPSecTunnelOverview)",
+              "name": "totalGateways",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "totalTunnels",
+              "instanceName": "*",
+              "dataSourceFullName": "Tunnel Overview (PaloAlto_FW_IPSecTunnelOverview)",
+              "name": "totalTunnels",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [{
+            "dataPointName": "inactiveTunnels",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Inactive Tunnels",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "IPSEC Tunnel Stats",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "activeTunnels",
+              "instanceName": "*",
+              "dataSourceFullName": "Tunnel Overview (PaloAlto_FW_IPSecTunnelOverview)",
+              "name": "activeTunnels",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "inactiveTunnels",
+              "instanceName": "*",
+              "dataSourceFullName": "Tunnel Overview (PaloAlto_FW_IPSecTunnelOverview)",
+              "name": "inactiveTunnels",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "initTunnels",
+              "instanceName": "*",
+              "dataSourceFullName": "Tunnel Overview (PaloAlto_FW_IPSecTunnelOverview)",
+              "name": "initTunnels",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "totalGateways",
+              "instanceName": "*",
+              "dataSourceFullName": "Tunnel Overview (PaloAlto_FW_IPSecTunnelOverview)",
+              "name": "totalGateways",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "totalTunnels",
+              "instanceName": "*",
+              "dataSourceFullName": "Tunnel Overview (PaloAlto_FW_IPSecTunnelOverview)",
+              "name": "totalTunnels",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [{
+            "dataPointName": "initTunnels",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Init Tunnels",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "IPSEC Tunnel Stats",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "activeTunnels",
+              "instanceName": "*",
+              "dataSourceFullName": "Tunnel Overview (PaloAlto_FW_IPSecTunnelOverview)",
+              "name": "activeTunnels",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "inactiveTunnels",
+              "instanceName": "*",
+              "dataSourceFullName": "Tunnel Overview (PaloAlto_FW_IPSecTunnelOverview)",
+              "name": "inactiveTunnels",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "initTunnels",
+              "instanceName": "*",
+              "dataSourceFullName": "Tunnel Overview (PaloAlto_FW_IPSecTunnelOverview)",
+              "name": "initTunnels",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "totalGateways",
+              "instanceName": "*",
+              "dataSourceFullName": "Tunnel Overview (PaloAlto_FW_IPSecTunnelOverview)",
+              "name": "totalGateways",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "totalTunnels",
+              "instanceName": "*",
+              "dataSourceFullName": "Tunnel Overview (PaloAlto_FW_IPSecTunnelOverview)",
+              "name": "totalTunnels",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [{
+            "dataPointName": "totalGateways",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Total Gateways",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "IPSEC Gateway Stats",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 14,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Palo Alto IPSEC Tunnel State (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": -1,
+          "topX": 25,
+          "maxValue": 2,
+          "dataPoints": [{
+            "dataPointName": "TunnelState",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Tunnel Stats (PaloAlto_FW_IPSecTunnelStats)",
+            "consolidateFunction": "min",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "TunnelState",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "0 = inactive, 1 = active",
+          "aggregate": false,
+          "desc": false,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "7days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 14,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Tunnels by Total Throughput (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "InBytes + OutBytes",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "totalBytes"
+          }],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "InBytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Tunnel Stats (PaloAlto_FW_IPSecTunnelStats)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "InBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "OutBytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Tunnel Stats (PaloAlto_FW_IPSecTunnelStats)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "OutBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bytes/sec",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 18,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnSize": 220,
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnSize": 180,
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnSize": 127,
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnSize": 494,
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnSize": 140,
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnSize": 120,
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnSize": 103,
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnSize": 359,
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "name": "Palo Alto IPSEC Tunnel Alert Detail",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
+          "keyword": "",
+          "dataSource": "Tunnel%20Overview%7CTunnel%20Stats",
+          "cleared": "no",
+          "group": "%23%23defaultResourceGroup%23%23*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Tunnels by Inbound Throughput (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "InBytes + OutBytes",
+            "display": {
+              "color": null,
+              "legend": null,
+              "type": "line",
+              "option": "none"
+            },
+            "name": "totalBytes"
+          }],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "InBytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Tunnel Stats (PaloAlto_FW_IPSecTunnelStats)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## - ##RESOURCENAME## In",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "InBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "OutBytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Tunnel Stats (PaloAlto_FW_IPSecTunnelStats)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "OutBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bytes/sec",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "8hour",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Tunnels by Outbound Throughput (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "InBytes + OutBytes",
+            "display": {
+              "color": null,
+              "legend": null,
+              "type": "line",
+              "option": "none"
+            },
+            "name": "totalBytes"
+          }],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "InBytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Tunnel Stats (PaloAlto_FW_IPSecTunnelStats)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "InBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "OutBytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Tunnel Stats (PaloAlto_FW_IPSecTunnelStats)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## - ##RESOURCENAME## Out",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "OutBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bytes/sec",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "8hour",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2,
+  "group": {
+    "name": "Palo Alto",
+    "fullPath": "LogicMonitor Dashboards/Network/Palo Alto",
+    "description": ""
+  }
+}
