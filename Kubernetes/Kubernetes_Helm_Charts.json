@@ -1,0 +1,392 @@
+{
+  "santabaRelease": 182,
+  "widgetTokens": [],
+  "name": "Kubernetes Helm Charts",
+  "description": "",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 1,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 311,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Status\n            \n        ",
+              "columnSize": 153,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Revision\n            \n        ",
+              "columnSize": 132,
+              "columnKey": "1"
+            }
+          ],
+          "pageSize": "10"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "status",
+            "displayType": "colorBar",
+            "minValue": -1,
+            "unitLabel": "",
+            "maxValue": 0,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 2,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 2,
+                "relation": "="
+              },
+              {
+                "level": 4,
+                "threshold": 1,
+                "relation": "="
+              }
+            ],
+            "columnName": "Status",
+            "enableForecast": false,
+            "roundingDecimal": 0
+          },
+          {
+            "rpn": "",
+            "dataPointName": "helmRevision",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Revision",
+            "enableForecast": false,
+            "roundingDecimal": 0
+          }
+        ],
+        "description": "This widget shows status of a Helm release along with the current revision being used by the release. Please refer following mapping for determining the status of release,\n                \n        deployed:0\n        failed:1\n        pending-install:2\n        pending-rollback:3\n        pending-upgrade:4\n        superseded:5\n        uninstalling:6\n        uninstalled:7\n        unknown:8",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": -1,
+        "dataSourceFullName": "Kubernetes Helm Status (Kubernetes_Helm_Status)",
+        "sortOrder": "descending",
+        "name": "Helm releases",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 1,
+        "sizey": 4
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 1,
+        "name": "NOC widget",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "status",
+          "instanceName": "*",
+          "name": "##RESOURCENAME##",
+          "dataSourceDisplayName": "Kubernetes Helm Status",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 1,
+        "sizey": 4
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Helm Releases Count",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" &&\nhasCategory(\"HelmCharts\") && !exists(\"kubernetes.resourceDeletedOn\")"
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Helm Releases Count",
+            "useCommaSeparators": false,
+            "bottomLabel": "Helm Releases",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Total Helm Releases",
+        "description": "This widget shows total number of Helm Charts installed in a cluster.",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 2,
+        "row": 5,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Successful Releases",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" &&\nhasCategory(\"HelmCharts\") && kubernetes.label.status == \"deployed\" && !exists(\"kubernetes.resourceDeletedOn\")"
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Successful Releases",
+            "useCommaSeparators": false,
+            "bottomLabel": "Successful",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Successful releases",
+        "description": "This widget shows total number of successful Helm Releases installed in a cluster.",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 3,
+        "sizex": 2,
+        "row": 5,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Failed Releases",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" &&\nhasCategory(\"HelmCharts\") && kubernetes.label.status == \"failed\" && !exists(\"kubernetes.resourceDeletedOn\")"
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Failed Releases",
+            "useCommaSeparators": false,
+            "bottomLabel": "Failed",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Failed releases",
+        "description": "This widget shows total number of failed Helm Releases installed in a cluster.",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 2,
+        "row": 5,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Pending install",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" &&\nhasCategory(\"HelmCharts\") && kubernetes.label.status == \"pending-install\"\n&& !exists(\"kubernetes.resourceDeletedOn\")"
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Pending install",
+            "useCommaSeparators": false,
+            "bottomLabel": "Pending Install",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Pending Installation releases",
+        "description": "This widget shows total number of Helm Releases with pending-install status in a cluster.",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 2,
+        "row": 5,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Pending rollback",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" &&\nhasCategory(\"HelmCharts\") && kubernetes.label.status == \"pending-rollback\" && !exists(\"kubernetes.resourceDeletedOn\")"
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Pending rollback",
+            "useCommaSeparators": false,
+            "bottomLabel": "Pending Rollback",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Pending Rollback releases",
+        "description": "This widget shows total number of Helm Releases with pending-rollback status in a cluster.",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 2,
+        "row": 5,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Pending upgrade",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" &&\nhasCategory(\"HelmCharts\") && kubernetes.label.status == \"pending-upgrade\" && !exists(\"kubernetes.resourceDeletedOn\")"
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Pending upgrade",
+            "useCommaSeparators": false,
+            "bottomLabel": "Pending Upgrade",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Pending Upgrade releases",
+        "description": "This widget shows total number of Helm Releases with pending-upgrade status in a cluster.",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 5,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Unknown",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" &&\nhasCategory(\"HelmCharts\") && kubernetes.label.status == \"unknown\" && !exists(\"kubernetes.resourceDeletedOn\")"
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Unknown",
+            "useCommaSeparators": false,
+            "bottomLabel": "Unknown Status",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Releases with unknown status",
+        "description": "This widget shows total number of Helm Releases with unknown status in a cluster.",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2
+}

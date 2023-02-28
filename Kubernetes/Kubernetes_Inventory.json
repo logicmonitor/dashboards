@@ -1,5 +1,5 @@
 {
-  "santabaRelease": 174,
+  "santabaRelease": 181,
   "widgetTokens": [],
   "name": "Kubernetes Inventory",
   "description": "",
@@ -2481,7 +2481,7 @@
           "dataPoints": [{
             "dataPointName": "currentHealthyPods",
             "instanceName": "*",
-            "dataSourceFullName": "Kubernetes_KSM_PodDisruptionBudget",
+            "dataSourceFullName": "Kubernetes Pod Disruption Budget (Kubernetes_KSM_PodDisruptionBudget)",
             "name": "currentHealthyPods",
             "aggregateFunction": "SUM",
             "deviceGroupFullPath": "##defaultResourceGroup##",
@@ -2521,7 +2521,7 @@
           "dataPoints": [{
             "dataPointName": "desiredHealthyPods",
             "instanceName": "*",
-            "dataSourceFullName": "Kubernetes_KSM_PodDisruptionBudget",
+            "dataSourceFullName": "Kubernetes Pod Disruption Budget (Kubernetes_KSM_PodDisruptionBudget)",
             "name": "desiredHealthyPods",
             "aggregateFunction": "SUM",
             "deviceGroupFullPath": "##defaultResourceGroup##",
@@ -2561,7 +2561,7 @@
           "dataPoints": [{
             "dataPointName": "disruptionsAllowed",
             "instanceName": "*",
-            "dataSourceFullName": "Kubernetes_KSM_PodDisruptionBudget",
+            "dataSourceFullName": "Kubernetes Pod Disruption Budget (Kubernetes_KSM_PodDisruptionBudget)",
             "name": "disruptionsAllowed",
             "aggregateFunction": "SUM",
             "deviceGroupFullPath": "##defaultResourceGroup##",
@@ -2702,6 +2702,391 @@
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 1,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 31,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "quotaCount",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && hasCategory(\"KubernetesResourceQuota\")"
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "quotaCount",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Cluster ResourceQuotas",
+        "description": "",
+        "theme": "newSolidBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 3,
+        "row": 31,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "limitsCount",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && hasCategory(\"KubernetesLimitRange\")"
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "limitsCount",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Cluster LimitRanges",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 29,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "netpolCount",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && hasCategory(\"KubernetesNetworkPolicy\")"
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "netpolCount",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Cluster NetworkPolicies",
+        "description": "",
+        "theme": "newSolidBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 3,
+        "row": 31,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Resource Count",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" &&\nhasCategory(\"KubernetesStorageClass\")"
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Resource Count",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "StorageClass Resource Count",
+        "description": "This widget shows total number of storageclasses in a cluster.",
+        "theme": "newSolidBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 31,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Resource Count",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" &&\nhasCategory(\"KubernetesPriorityClass\")"
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Resource Count",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "PriorityClass Resource Count",
+        "description": "This widget shows total number of priorityclasses in a cluster.",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 33,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "serviceAccountsCount",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && hasCategory(\"KubernetesServiceAccount\")"
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "serviceAccountsCount",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Cluster ServiceAccounts",
+        "description": "This widget shows total number of ServiceAccounts in a cluster.",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 3,
+        "row": 33,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Resource Count",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" &&\nhasCategory(\"KubernetesClusterRole\")"
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Resource Count",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "ClusterRole Resource Count",
+        "description": "This widget shows total number of clusterroles in a cluster.",
+        "theme": "newSolidBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 3,
+        "row": 33,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Resource Count",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" &&\nhasCategory(\"KubernetesClusterRoleBinding\")"
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Resource Count",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "ClusterRoleBinding Resource Count",
+        "description": "This widget shows total number of clusterrolebindings in a cluster.",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 33,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Resource Count",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" &&\nhasCategory(\"KubernetesRole\")"
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Resource Count",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Role Resource Count",
+        "description": "This widget shows total number of roles in a cluster.",
+        "theme": "newSolidBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 35,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Resource Count",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" &&\nhasCategory(\"KubernetesRoleBinding\")"
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Resource Count",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "RoleBinding Resource Count",
+        "description": "This widget shows total number of rolebindings in a cluster.",
+        "theme": "newSolidBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 3,
+        "row": 35,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Resource Count",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" &&\nhasCategory(\"KubernetesCustomResourceDefinition\")"
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Resource Count",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "CustomResourceDefination Resource Count",
+        "description": "This widget shows total number of CustomResourceDefination in a cluster.",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
         "type": "bigNumber",
         "timescale": "day",
         "version": 2
