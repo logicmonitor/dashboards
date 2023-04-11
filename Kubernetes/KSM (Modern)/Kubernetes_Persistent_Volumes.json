@@ -1,0 +1,686 @@
+{
+  "santabaRelease": 185,
+  "widgetTokens": [],
+  "name": "Kubernetes Persistent Volumes",
+  "description": "",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": false,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 7,
+        "name": "Kubernetes Persistent Volume Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##RESOURCENAME##",
+          "dataSourceDisplayName": "Kubernetes Persistent Volumes \\(KSM\\)",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 11,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "name": "Kubernetes Persistent Volume Alert Detail",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "anomaly": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
+          "keyword": "",
+          "dataSource": "Kubernetes%20Persistent%20Volumes%20%5C(KSM%5C)",
+          "cleared": "no",
+          "group": "%23%23defaultResourceGroup%23%23*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 4
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "kubePersistentvolumeCapacityGb",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Persistent Volumes (KSM) (Kubernetes_KSM_PersistentVolumes)",
+            "name": "kubePersistentvolumeCapacityGb",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "kubePersistentvolumeCapacityGb",
+            "useCommaSeparators": false,
+            "bottomLabel": "Total Capacity (GB)",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Persistent Volume Capacity",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 386,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Available\n            \n        ",
+              "columnSize": 115,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Bound\n            \n        ",
+              "columnSize": 113,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Failed\n            \n        ",
+              "columnSize": 111,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Pending\n            \n        ",
+              "columnSize": 100,
+              "columnKey": "3"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Released\n            \n        ",
+              "columnSize": 103,
+              "columnKey": "4"
+            }
+          ],
+          "pageSize": "10"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "kubePersistentvolumeStatusPhaseAvailable",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Available",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "kubePersistentvolumeStatusPhaseBound",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Bound",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "kubePersistentvolumeStatusPhaseFailed",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Failed",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "kubePersistentvolumeStatusPhasePending",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Pending",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "kubePersistentvolumeStatusPhaseReleased",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Released",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 10,
+        "dataSourceFullName": "Kubernetes Persistent Volumes (KSM) (Kubernetes_KSM_PersistentVolumes)",
+        "sortOrder": "descending",
+        "name": "Persistent Volume Status Phase",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 2,
+        "row": 3,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "kubePersistentvolumeStatusPhaseAvailable",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Persistent Volumes (KSM) (Kubernetes_KSM_PersistentVolumes)",
+            "name": "kubePersistentvolumeStatusPhaseAvailable",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "kubePersistentvolumeStatusPhaseAvailable",
+            "useCommaSeparators": false,
+            "bottomLabel": "Volume Available",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Persistent Volume Stats",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 3,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "kubePersistentvolumeStatusPhaseBound",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Persistent Volumes (KSM) (Kubernetes_KSM_PersistentVolumes)",
+            "name": "kubePersistentvolumeStatusPhaseBound",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "kubePersistentvolumeStatusPhaseBound",
+            "useCommaSeparators": false,
+            "bottomLabel": "Volume Bound",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Persistent Volume Stats",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 2,
+        "row": 3,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "kubePersistentvolumeStatusPhaseFailed",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Persistent Volumes (KSM) (Kubernetes_KSM_PersistentVolumes)",
+            "name": "kubePersistentvolumeStatusPhaseFailed",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "kubePersistentvolumeStatusPhaseFailed",
+            "useCommaSeparators": false,
+            "bottomLabel": "Volume Failed",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Persistent Volume Stats",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 3,
+        "row": 5,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "kubePersistentvolumeStatusPhasePending",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Persistent Volumes (KSM) (Kubernetes_KSM_PersistentVolumes)",
+            "name": "kubePersistentvolumeStatusPhasePending",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "kubePersistentvolumeStatusPhasePending",
+            "useCommaSeparators": false,
+            "bottomLabel": "Volume Pending",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Persistent Volume Stats",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 5,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "kubePersistentvolumeStatusPhaseReleased",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Persistent Volumes (KSM) (Kubernetes_KSM_PersistentVolumes)",
+            "name": "kubePersistentvolumeStatusPhaseReleased",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "kubePersistentvolumeStatusPhaseReleased",
+            "useCommaSeparators": false,
+            "bottomLabel": "Volume Released",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Persistent Volume Stats",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Kubernetes Volumes by Status Available (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "kubePersistentvolumeStatusPhaseAvailable",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Kubernetes Persistent Volumes (KSM) (Kubernetes_KSM_PersistentVolumes)",
+            "consolidateFunction": "max",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME## available",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "kubePersistentvolumeStatusPhaseAvailable",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "volume",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Kubernetes Volume by Status Bound (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "kubePersistentvolumeStatusPhaseBound",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Kubernetes Persistent Volumes (KSM) (Kubernetes_KSM_PersistentVolumes)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME## bound",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "kubePersistentvolumeStatusPhaseBound",
+            "aggregateFunction": "MAX",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "volume",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2
+}

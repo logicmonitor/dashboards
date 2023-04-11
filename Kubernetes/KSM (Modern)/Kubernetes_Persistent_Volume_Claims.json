@@ -1,0 +1,645 @@
+{
+  "santabaRelease": 185,
+  "widgetTokens": [],
+  "name": "Kubernetes Persistent Volume Claims",
+  "description": "",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 1,
+        "sizey": 3
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": false,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 7,
+        "name": "Kubernetes Persistent Volume Claim Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##RESOURCENAME##",
+          "dataSourceDisplayName": "Kubernetes PersistentVolumeClaim \\(KSM\\)",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 4,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "kubePersistentVolumeClaimStatusPhaseBound",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes PersistentVolumeClaim (KSM) (Kubernetes_KSM_PersistentVolumeClaims)",
+            "name": "kubePersistentVolumeClaimStatusPhaseBound",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "kubePersistentVolumeClaimStatusPhaseBound",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Status Bound",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Persistent Volume Claim Stats",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 6,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "kubePersistentVolumeClaimStatusPhaseLost",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes PersistentVolumeClaim (KSM) (Kubernetes_KSM_PersistentVolumeClaims)",
+            "name": "kubePersistentVolumeClaimStatusPhaseLost",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "kubePersistentVolumeClaimStatusPhaseLost",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Status Lost",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Persistent Volume Claim Stats",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 3,
+        "row": 6,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "kubePersistentVolumeClaimStatusPhasePending",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes PersistentVolumeClaim (KSM) (Kubernetes_KSM_PersistentVolumeClaims)",
+            "name": "kubePersistentVolumeClaimStatusPhasePending",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "kubePersistentVolumeClaimStatusPhasePending",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Status Pending",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Persistent Volume Claim Stats",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 8,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Kubernetes Persistent Volume Claims With Phase Bound (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": 1,
+          "dataPoints": [{
+            "dataPointName": "kubePersistentVolumeClaimStatusPhaseBound",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Kubernetes PersistentVolumeClaim (KSM) (Kubernetes_KSM_PersistentVolumeClaims)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##DATASOURCENAME##_Bound",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "kubePersistentVolumeClaimStatusPhaseBound",
+            "aggregateFunction": "AVERAGE",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "volume bound",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 8,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Kubernetes Persistent Volume Claims With Phase Lost (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": 1,
+          "dataPoints": [{
+            "dataPointName": "kubePersistentVolumeClaimStatusPhaseLost",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Kubernetes PersistentVolumeClaim (KSM) (Kubernetes_KSM_PersistentVolumeClaims)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##DATASOURCENAME##_Lost",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "kubePersistentVolumeClaimStatusPhaseLost",
+            "aggregateFunction": "AVERAGE",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "volume lost",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 8,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Kubernetes Persistent Volume Claims With Phase Pending (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": 1,
+          "dataPoints": [{
+            "dataPointName": "kubePersistentVolumeClaimStatusPhasePending",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Kubernetes PersistentVolumeClaim (KSM) (Kubernetes_KSM_PersistentVolumeClaims)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##DATASOURCENAME##_Pending",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "kubePersistentVolumeClaimStatusPhasePending",
+            "aggregateFunction": "AVERAGE",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "volume pending",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 11,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "name": "Kubernetes Persistent Volume Claims Alert Details",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "*",
+          "anomaly": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
+          "keyword": "",
+          "dataSource": "Kubernetes%20PersistentVolumeClaim%20%5C(KSM%5C)",
+          "cleared": "no",
+          "group": "%23%23defaultDeviceGroup%23%23*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 3,
+        "row": 4,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [{
+            "rpn": "(kubePersistentVolumeClaimResourceRequestsStorageBytes/pow(1024,3))",
+            "name": "kubePersistentVolumeClaimResourceRequestsStorageGb"
+          }],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "kubePersistentVolumeClaimResourceRequestsStorageBytes",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes PersistentVolumeClaim (KSM) (Kubernetes_KSM_PersistentVolumeClaims)",
+            "name": "kubePersistentVolumeClaimResourceRequestsStorageBytes",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "kubePersistentVolumeClaimResourceRequestsStorageGb",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Requested Storage (GB)",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Persistent Volume Claim Stats",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 4,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 377,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Requests_Storage\n            \n        ",
+              "columnSize": 121,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Status Phase Bound\n            \n        ",
+              "columnSize": 126,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Status Phase Lost\n            \n        ",
+              "columnSize": 120,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Status Phase Pending\n            \n        ",
+              "columnSize": 150,
+              "columnKey": "3"
+            }
+          ],
+          "pageSize": "25"
+        },
+        "columns": [
+          {
+            "rpn": "(Requests_Storage/pow(1024,3))",
+            "dataPointName": "kubePersistentVolumeClaimResourceRequestsStorageBytes",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "gb",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Requests_Storage",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "kubePersistentVolumeClaimStatusPhaseBound",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Status Phase Bound",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "kubePersistentVolumeClaimStatusPhaseLost",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Status Phase Lost",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "kubePersistentVolumeClaimStatusPhasePending",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Status Phase Pending",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 10,
+        "dataSourceFullName": "Kubernetes PersistentVolumeClaim (KSM) (Kubernetes_KSM_PersistentVolumeClaims)",
+        "sortOrder": "descending",
+        "name": "Persistent Volume Claim Statistics",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    }
+  ],
+  "version": 2
+}

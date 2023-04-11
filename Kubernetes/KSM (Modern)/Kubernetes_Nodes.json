@@ -1,0 +1,1771 @@
+{
+  "santabaRelease": 185,
+  "widgetTokens": [],
+  "name": "Kubernetes Nodes",
+  "description": "",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "nodes",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && hasCategory(\"KubernetesNode\")"
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "nodes",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Kubernetes Nodes - Total",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Total Nodes",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 3,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "kubeNodeStatusConditionReady",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Node (KSM) (Kubernetes_KSM_Nodes)",
+            "name": "kubeNodeStatusConditionReady",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "kubeNodeStatusConditionReady",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Kubernetes Nodes - Ready",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Kubernetes Node Ready",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "kubeNodeStatusCapacityPods",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Node (KSM) (Kubernetes_KSM_Nodes)",
+            "name": "nodes",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "nodes",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Pod Capacity",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Pod Capacity",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "kubeNodeStatusCapacityCpu",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Node (KSM) (Kubernetes_KSM_Nodes)",
+            "name": "kubeNodeStatusCapacityCpu",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "kubeNodeStatusCapacityCpu",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "CPU Capacity Cores",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "CPU Capacity Cores",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "kubeNodeStatusAllocatableCpu",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Node (KSM) (Kubernetes_KSM_Nodes)",
+            "name": "kubeNodeStatusAllocatableCpu",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "kubeNodeStatusAllocatableCpu",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Allocatable CPU",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Allocatable CPU",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "kubePodContainerStatusRunning",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Pod (KSM) (Kubernetes_KSM_Pods)",
+            "name": "RunningPods",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "RunningPods",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Pods Running",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Pods Running",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 5,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 438,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Ready\n            \n        ",
+              "columnSize": 88,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            CPU Usage %\n            \n        ",
+              "columnSize": 95,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Available Memory\n            \n        ",
+              "columnSize": 122,
+              "columnKey": "2"
+            }
+          ],
+          "pageSize": "10"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "kubeNodeStatusConditionReady",
+            "displayType": "colorBar",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 1,
+            "colorThresholds": [{
+              "level": 2,
+              "threshold": 1,
+              "relation": "!="
+            }],
+            "columnName": "Ready",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "cpuUsagePercentage",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "CPU Usage %",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "memoryAvailableBytes",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "Bytes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Available Memory",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME##_##INSTANCE##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 10,
+        "dataSourceFullName": "Kubernetes Node (KSM) (Kubernetes_KSM_Nodes)",
+        "sortOrder": "descending",
+        "name": "Kubernetes Node Statistics",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 6,
+        "sizex": 7,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Running Pod Load",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "pieChart",
+        "timescale": "day",
+        "pieChartInfo": {
+          "maxSlicesCanBeShown": 25,
+          "virtualDataPoints": [],
+          "showLabelsAndLinesOnPC": true,
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "kubePodContainerStatusRunning",
+            "top10": false,
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Pod (KSM) (Kubernetes_KSM_Pods)",
+            "name": "kubePodContainerStatusRunning",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*",
+            "aggregate": false
+          }],
+          "hideZeroPercentSlices": false,
+          "groupRemainingAsOthers": false,
+          "pieChartItems": [{
+            "dataPointName": "kubePodContainerStatusRunning",
+            "color": "Auto",
+            "legend": "##RESOURCENAME##_##DATASOURCENAME##_##INSTANCE##"
+          }],
+          "title": "Running Pod Load"
+        },
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 22,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 322,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Disk Pressure\n            \n        ",
+              "columnSize": 152,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Memory Pressure\n            \n        ",
+              "columnSize": 100,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            PID Pressure\n            \n        ",
+              "columnSize": 107,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Condition Ready\n            \n        ",
+              "columnSize": 68,
+              "columnKey": "3"
+            }
+          ],
+          "pageSize": "10"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "kubeNodeStatusConditionDiskPressure",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Disk Pressure",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "kubeNodeStatusConditionMemoryPressure",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Memory Pressure",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "kubeNodeStatusConditionPIDPressure",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "PID Pressure",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "kubeNodeStatusConditionReady",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Condition Ready",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 10,
+        "dataSourceFullName": "Kubernetes Node (KSM) (Kubernetes_KSM_Nodes)",
+        "sortOrder": "descending",
+        "name": "Kubernetes Node Health Indicators",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 10,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Kubernetes Node Memory Requests and Limits (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "kubeNodeStatusCapacityMemory",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Node (KSM) (Kubernetes_KSM_Nodes)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "",
+                "type": "line",
+                "option": "default"
+              },
+              "name": "kubeNodeStatusCapacityMemory",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "memoryLimits",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Pod (KSM) (Kubernetes_KSM_Pods)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "",
+                "type": "line",
+                "option": "default"
+              },
+              "name": "memoryLimits",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "memoryRequests",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Pod (KSM) (Kubernetes_KSM_Pods)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "",
+                "type": "line",
+                "option": "default"
+              },
+              "name": "memoryRequests",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bytes",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 10,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Kubernetes Node CPU Requests and Limits (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "kubeNodeStatusCapacityCpu",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Node (KSM) (Kubernetes_KSM_Nodes)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "",
+                "type": "line",
+                "option": "default"
+              },
+              "name": "kubeNodeStatusCapacityCpu",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "cpuLimits",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Pod (KSM) (Kubernetes_KSM_Pods)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "",
+                "type": "line",
+                "option": "default"
+              },
+              "name": "cpuLimits",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "cpuRequests",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Pod (KSM) (Kubernetes_KSM_Pods)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "",
+                "type": "line",
+                "option": "default"
+              },
+              "name": "cpuRequests",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "cores",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 2,
+        "row": 13,
+        "sizey": 3
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [{
+            "rpn": "AllocatableMemory/pow(2,30)",
+            "name": "MemoryinGb"
+          }],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "kubeNodeStatusAllocatableMemory",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Node (KSM) (Kubernetes_KSM_Nodes)",
+            "name": "AllocatableMemory",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "MemoryinGb",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 2,
+            "position": 1,
+            "rightLabel": "Allocatable Memory (GB)",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Allocatable Memory",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 2,
+        "row": 13,
+        "sizey": 3
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [{
+            "rpn": "memoryRequests/pow(2,30)",
+            "name": "MeminGB"
+          }],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "memoryRequests",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Pod (KSM) (Kubernetes_KSM_Pods)",
+            "name": "memoryRequests",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "MeminGB",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 2,
+            "position": 1,
+            "rightLabel": "Memory Request (GB)",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Memory Request",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 2,
+        "row": 13,
+        "sizey": 3
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [{
+            "rpn": "memoryLimits/pow(2,30)",
+            "name": "MeminGB"
+          }],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "memoryLimits",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Pod (KSM) (Kubernetes_KSM_Pods)",
+            "name": "memoryLimits",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "MeminGB",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 2,
+            "position": 1,
+            "rightLabel": "Memory Limit (GB)",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Memory Limit",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 2,
+        "row": 13,
+        "sizey": 3
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "cpuLimits",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Pod (KSM) (Kubernetes_KSM_Pods)",
+            "name": "cpuLimits",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "cpuLimits",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 2,
+            "position": 1,
+            "rightLabel": "CPU Limit Cores",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "CPU Limit Cores",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 13,
+        "sizey": 3
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "cpuRequests",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Pod (KSM) (Kubernetes_KSM_Pods)",
+            "name": "cpuRequests",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "cpuRequests",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 2,
+            "position": 1,
+            "rightLabel": "CPU Request Cores",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "CPU Request Cores",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 16,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "KSM Metrics Availability (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": -1,
+          "topX": 0,
+          "maxValue": 2,
+          "dataPoints": [
+            {
+              "dataPointName": "ksmMetricsAvailable",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Node (KSM) (Kubernetes_KSM_Nodes)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "",
+                "type": "line",
+                "option": "default"
+              },
+              "name": "ksmMetricsAvailable",
+              "aggregateFunction": "MAX",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "summaryMetricsAvailable",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Node (KSM) (Kubernetes_KSM_Nodes)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "",
+                "type": "line",
+                "option": "default"
+              },
+              "name": "summaryMetricsAvailable",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "count",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 16,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "iNodes (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 5,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "fsInodes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Node (KSM) (Kubernetes_KSM_Nodes)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "",
+                "type": "line",
+                "option": "default"
+              },
+              "name": "fsInodes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "fsInodesFree",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Node (KSM) (Kubernetes_KSM_Nodes)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "",
+                "type": "line",
+                "option": "default"
+              },
+              "name": "fsInodesFree",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "fsInodesUsed",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Node (KSM) (Kubernetes_KSM_Nodes)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "",
+                "type": "line",
+                "option": "default"
+              },
+              "name": "fsInodesUsed",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "count",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 16,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Ephemeral Storage Capacity (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "kubeNodeStatusAllocatableEphemeralStorage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Node (KSM) (Kubernetes_KSM_Nodes)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "",
+                "type": "line",
+                "option": "default"
+              },
+              "name": "kubeNodeStatusAllocatableEphemeralStorage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "kubeNodeStatusCapacityEphemeralStorage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Node (KSM) (Kubernetes_KSM_Nodes)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "",
+                "type": "line",
+                "option": "default"
+              },
+              "name": "kubeNodeStatusCapacityEphemeralStorage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bytes",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 19,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "fs Memory Status (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "fsAvailableBytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Node (KSM) (Kubernetes_KSM_Nodes)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "",
+                "type": "line",
+                "option": "default"
+              },
+              "name": "fsAvailableBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "fsCapacityBytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Node (KSM) (Kubernetes_KSM_Nodes)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "",
+                "type": "line",
+                "option": "default"
+              },
+              "name": "fsCapacityBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "fsUsedBytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Node (KSM) (Kubernetes_KSM_Nodes)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "",
+                "type": "line",
+                "option": "default"
+              },
+              "name": "fsUsedBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bytes",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 19,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Network Throughput (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 5,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "networkRxBytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Node (KSM) (Kubernetes_KSM_Nodes)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "",
+                "type": "line",
+                "option": "default"
+              },
+              "name": "networkRxBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "networkTxBytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Node (KSM) (Kubernetes_KSM_Nodes)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "",
+                "type": "line",
+                "option": "default"
+              },
+              "name": "networkTxBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bps",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 19,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Network Errors (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 5,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "networkRxErrors",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Node (KSM) (Kubernetes_KSM_Nodes)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "",
+                "type": "line",
+                "option": "default"
+              },
+              "name": "networkRxErrors",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "networkTxErrors",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Node (KSM) (Kubernetes_KSM_Nodes)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "",
+                "type": "line",
+                "option": "default"
+              },
+              "name": "networkTxErrors",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "count",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 7,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Kubernetes Node CPU Usage (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "cpuUsageNanoCores",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Kubernetes Node (KSM) (Kubernetes_KSM_Nodes)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "",
+              "type": "line",
+              "option": "default"
+            },
+            "name": "cpuUsageNanoCores",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "nanocores",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 7,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Kubernetes Node Memory Usage (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "memoryUsageBytes",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Kubernetes Node (KSM) (Kubernetes_KSM_Nodes)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "",
+              "type": "line",
+              "option": "default"
+            },
+            "name": "memoryUsageBytes",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "bytes",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 3,
+        "sizex": 2,
+        "row": 13,
+        "sizey": 3
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [{
+            "rpn": "CapacityMemory /pow(2,30)",
+            "name": "MemoryinGb"
+          }],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "kubeNodeStatusCapacityMemory",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Node (KSM) (Kubernetes_KSM_Nodes)",
+            "name": "CapacityMemory",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "MemoryinGb",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 2,
+            "position": 1,
+            "rightLabel": "Capacity Memory (GB)",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Capacity Memory",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 26,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "name": "Kubernetes Node Alert Detail",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "anomaly": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
+          "keyword": "",
+          "dataSource": "Kubernetes%20Node%20%5C(KSM%5C)",
+          "cleared": "no",
+          "group": "%23%23defaultResourceGroup%23%23*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2
+}

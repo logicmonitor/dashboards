@@ -1,0 +1,1211 @@
+{
+  "santabaRelease": 185,
+  "widgetTokens": [],
+  "name": "Kubernetes Containers",
+  "description": "",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": false,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 7,
+        "name": "Kubernetes Container Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##INSTANCE## - ##RESOURCENAME##",
+          "dataSourceDisplayName": "Kubernetes Container \\(KSM\\)",
+          "groupBy": "instance",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 7,
+        "row": 15,
+        "sizey": 6
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 384,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Memory Utilization\n            \n        ",
+              "columnSize": 145,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Usage\n            \n        ",
+              "columnSize": 127,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Working Set\n            \n        ",
+              "columnSize": 123,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Resident Set\n            \n        ",
+              "columnSize": 123,
+              "columnKey": "3"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Page Faults\n            \n        ",
+              "columnSize": 143,
+              "columnKey": "4"
+            }
+          ],
+          "pageSize": "15"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "memoryUsagePercentage",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 85,
+                "relation": ">="
+              },
+              {
+                "level": 3,
+                "threshold": 95,
+                "relation": ">="
+              }
+            ],
+            "columnName": "Memory Utilization",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "memoryUsageBytes",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " bytes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Usage",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "memoryWorkingSetBytes",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " bytes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Working Set",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "memoryRssBytes",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " bytes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Resident Set",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "memoryPageFaults",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Page Faults",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##INSTANCE## - ##RESOURCENAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 25,
+        "dataSourceFullName": "Kubernetes Container (KSM) (Kubernetes_KSM_Container)",
+        "sortOrder": "descending",
+        "name": "Kubernetes Container Memory Statistics",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 12,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Kubernetes Containers by Memory Utilization (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "memoryUsagePercentage",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Kubernetes Container (KSM) (Kubernetes_KSM_Container)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "memoryUsagePercentage",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 8,
+        "sizex": 5,
+        "row": 15,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Kubernetes Containers by Page Faults (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "memoryPageFaults",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Kubernetes Container (KSM) (Kubernetes_KSM_Container)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##RESOURCENAME## page faults",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "memoryPageFaults",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "faults",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 8,
+        "sizex": 5,
+        "row": 18,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Kubernetes Containers by Major Page Faults (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "memoryMajorPageFaults",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Kubernetes Container (KSM) (Kubernetes_KSM_Container)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##RESOURCENAME## major page faults",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "memoryMajorPageFaults",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "faults",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 27,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "name": "Kubernetes Container Alerts",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "anomaly": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
+          "keyword": "",
+          "dataSource": "Kubernetes%20Container%20%5C(KSM%5C)",
+          "cleared": "no",
+          "group": "%23%23defaultResourceGroup%23%23*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 3,
+        "sizey": 6
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 631,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Restart Count\n            \n        ",
+              "columnSize": 109,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Running\n            \n        ",
+              "columnSize": 60,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Waiting\n            \n        ",
+              "columnSize": 94,
+              "columnKey": "2"
+            }
+          ],
+          "pageSize": "15"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "statusRestartCount",
+            "displayType": "colorBar",
+            "minValue": 0,
+            "unitLabel": " restarts",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Restart Count",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "healthRunning",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Running",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "healthWaiting",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Waiting",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##INSTANCE## - ##RESOURCENAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 25,
+        "dataSourceFullName": "Kubernetes Container (KSM) (Kubernetes_KSM_Container)",
+        "sortOrder": "descending",
+        "name": "Kubernetes Container Health Statistics",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 5,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Kubernetes Containers by Restarts (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "statusRestartCount",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Kubernetes Container (KSM) (Kubernetes_KSM_Container)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##RESOURCENAME##",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "statusRestartCount",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "restarts",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 9,
+        "sizey": 6
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 390,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Request Percent\n            \n        ",
+              "columnSize": 132,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Requests\n            \n        ",
+              "columnSize": 75,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Limits\n            \n        ",
+              "columnSize": 61,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Core Usage\n            \n        ",
+              "columnSize": 165,
+              "columnKey": "3"
+            }
+          ],
+          "pageSize": "15"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "cpuRequestPercent",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Request Percent",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "cpuRequests",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Requests",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "cpuLimits",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Limits",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "cpuUsageCoreNanoSeconds",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Core Usage",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##INSTANCE## - ##RESOURCENAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 25,
+        "dataSourceFullName": "Kubernetes Container (KSM) (Kubernetes_KSM_Container)",
+        "sortOrder": "descending",
+        "name": "Kubernetes Container CPU Statistics",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 2,
+        "row": 3,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "pods",
+            "appliesTo": "hasCategory(\"KubernetesPod\")"
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "pods",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Total Pods",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Pod Stats",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 2,
+        "row": 3,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "healthRunning",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Container (KSM) (Kubernetes_KSM_Container)",
+            "name": "running_containers",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "running_containers",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Running Containers",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Container Stats",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 3,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "healthWaiting",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Container (KSM) (Kubernetes_KSM_Container)",
+            "name": "health_waiting",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "health_waiting",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Waiting Containers",
+            "colorThresholds": [{
+              "level": 2,
+              "threshold": 0,
+              "relation": ">"
+            }]
+          }]
+        },
+        "displaySettings": {},
+        "name": "Container Stats",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 9,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Kubernetes Containers by CPU Usage (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "cpuUsageCoreNanoSeconds",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Kubernetes Container (KSM) (Kubernetes_KSM_Container)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "cpuUsageCoreNanoSeconds",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "nanoseconds",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 6,
+        "sizex": 7,
+        "row": 21,
+        "sizey": 6
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 347,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Used\n            \n        ",
+              "columnSize": 85,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Available\n            \n        ",
+              "columnSize": 100,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Capacity\n            \n        ",
+              "columnSize": 101,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Inodes Used\n            \n        ",
+              "columnSize": 110,
+              "columnKey": "3"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Inodes Free\n            \n        ",
+              "columnSize": 132,
+              "columnKey": "4"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Inodes Total\n            \n        ",
+              "columnSize": 170,
+              "columnKey": "5"
+            }
+          ],
+          "pageSize": "15"
+        },
+        "columns": [
+          {
+            "rpn": "Used/1000/1000/1000",
+            "dataPointName": "rootfsUsedBytes",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " GB",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Used",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "Available/1000/1000/1000",
+            "dataPointName": "rootfsAvailableBytes",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "GB",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Available",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "Capacity/1000/1000/1000",
+            "dataPointName": "rootfsCapacityBytes",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " GB",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Capacity",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "rootfsInodesUsed",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " inodes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Inodes Used",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "logsInodesFree",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " inodes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Inodes Free",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "rootfsInodes",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " inodes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Inodes Total",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##INSTANCE## - ##RESOURCENAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 25,
+        "dataSourceFullName": "Kubernetes Container (KSM) (Kubernetes_KSM_Container)",
+        "sortOrder": "descending",
+        "name": "Kubernetes Container Root Filesystem Statistics",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "sizex": 5,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Kubernetes Containers by Filesystem Usage (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "rootfsUsedBytes",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Kubernetes Container (KSM) (Kubernetes_KSM_Container)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "rootfsUsedBytes",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "bytes",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "sizex": 5,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Kubernetes Containers by Inode Usage (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "logsInodesUsed",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Kubernetes Container (KSM) (Kubernetes_KSM_Container)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "logsInodesUsed",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "inodes",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2
+}
