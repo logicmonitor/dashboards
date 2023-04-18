@@ -1,0 +1,591 @@
+{
+  "santabaRelease": 185,
+  "widgetTokens": [{
+    "name": "defaultResourceGroup",
+    "value": "*"
+  }],
+  "name": "LM Config Collection",
+  "description": "Reports config metrics for those resources with applied Common ConfigSource modules.",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 8,
+        "sizex": 5,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Resources by Largest Config Size (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "Size",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Config Metrics (LogicMonitor_ConfigSource_Metrics)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "Size",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "bytes",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 7,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Resources by Longest Config Collection Time (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "Duration / 1000",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "Seconds"
+          }],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "Duration",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Config Metrics (LogicMonitor_ConfigSource_Metrics)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": null,
+              "legend": null,
+              "type": "line",
+              "option": "none"
+            },
+            "name": "Duration",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "seconds",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 7,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Resources by Oldest Reported Statistics (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "StatAge",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Config Metrics (LogicMonitor_ConfigSource_Metrics)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "StatAge",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "minutes",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 10,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 9,
+        "name": "Resources with Common ConfigSources",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##RESOURCENAME##",
+          "dataSourceDisplayName": "Config Metrics",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 7,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 439,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Result\n            \n        ",
+              "columnSize": 134,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Duration\n            \n        ",
+              "columnSize": 186,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Age\n            \n        ",
+              "columnSize": 110,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Size\n            \n        ",
+              "columnSize": 104,
+              "columnKey": "3"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Type\n            \n        ",
+              "columnSize": 79,
+              "columnKey": "4"
+            }
+          ],
+          "pageSize": "10"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "Result",
+            "displayType": "colorBar",
+            "minValue": -1,
+            "unitLabel": " (0=Success)",
+            "maxValue": 0,
+            "colorThresholds": [{
+              "level": 2,
+              "threshold": 0,
+              "relation": ">"
+            }],
+            "columnName": "Result",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "Duration",
+            "displayType": "colorBar",
+            "minValue": 0,
+            "unitLabel": " ms.",
+            "maxValue": 5000,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 5000,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 7000,
+                "relation": ">"
+              },
+              {
+                "level": 4,
+                "threshold": 9000,
+                "relation": ">"
+              }
+            ],
+            "columnName": "Duration",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "StatAge",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " minutes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Age",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "Size",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " bytes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Size",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "Type",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Type",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##INSTANCE## - ##RESOURCENAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": -1,
+        "dataSourceFullName": "Config Metrics (LogicMonitor_ConfigSource_Metrics)",
+        "sortOrder": "descending",
+        "name": "LM Config Collection Statistics",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [{
+            "rpn": "size_sum/ size_avg",
+            "name": "resourceCount"
+          }],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "Size",
+              "instanceName": "*",
+              "dataSourceFullName": "Config Metrics (LogicMonitor_ConfigSource_Metrics)",
+              "name": "size_sum",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "Size",
+              "instanceName": "*",
+              "dataSourceFullName": "Config Metrics (LogicMonitor_ConfigSource_Metrics)",
+              "name": "size_avg",
+              "aggregateFunction": "AVERAGE",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [{
+            "dataPointName": "resourceCount",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Common Configs Collected",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Common Config Instances",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 11,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "name": "Common Config Collection Alert Detail",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "anomaly": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
+          "keyword": "",
+          "dataSource": "Config%20Metrics",
+          "cleared": "no",
+          "group": "%23%23defaultResourceGroup%23%23*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2,
+  "group": {
+    "name": "LogicMonitor",
+    "fullPath": "LogicMonitor Dashboards/LogicMonitor",
+    "description": ""
+  }
+}

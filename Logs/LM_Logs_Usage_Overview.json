@@ -1,0 +1,400 @@
+{
+  "santabaRelease": 185,
+  "widgetTokens": [{
+    "name": "defaultResourceGroup",
+    "value": "*"
+  }],
+  "name": "LM Logs Usage Overview",
+  "description": "",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 6,
+        "sizex": 7,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Resources by Log Events Received (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "event_received",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Log Usage (LogUsage)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME## events received",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "Events_Received",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "events",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 6,
+        "sizex": 7,
+        "row": 7,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Resources by Log Data Volume (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "size_in_bytes",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Log Usage (LogUsage)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME## bytes received",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "size_in_bytes",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "bytes",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 5,
+        "row": 3,
+        "sizey": 8
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 473,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Events Received\n            \n        ",
+              "columnSize": 131,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Bytes Received\n            \n        ",
+              "columnSize": 131,
+              "columnKey": "1"
+            }
+          ],
+          "pageSize": "20"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "event_received",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " events",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Events Received",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "size_in_bytes",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " bytes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Bytes Received",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 25,
+        "dataSourceFullName": "Log Usage (LogUsage)",
+        "sortOrder": "descending",
+        "name": "Log Usage Statistics",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 11,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "name": "Log Usage Alerts",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "anomaly": "all",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
+          "keyword": "",
+          "dataSource": "Log%20Usage",
+          "cleared": "no",
+          "group": "%23%23defaultResourceGroup%23%23*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": false,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "Will need to set a threshold for log usage to light these up appropriately",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 9,
+        "name": "Log Usage Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##RESOURCENAME##",
+          "dataSourceDisplayName": "Log Usage",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    }
+  ],
+  "version": 2,
+  "group": {
+    "name": "Logs",
+    "fullPath": "LogicMonitor Dashboards/Logs",
+    "description": ""
+  }
+}
