@@ -1,0 +1,249 @@
+{
+  "santabaRelease": 190,
+  "widgetTokens": [{
+    "name": "dashboardName",
+    "value": "GCP Billing"
+  }],
+  "name": "GCP Billing",
+  "description": "",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 1,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##dashboardName## Cost by Project (Relative)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "pieChart",
+        "timescale": "day",
+        "pieChartInfo": {
+          "maxSlicesCanBeShown": 10,
+          "virtualDataPoints": [],
+          "showLabelsAndLinesOnPC": true,
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "totalCost",
+            "top10": true,
+            "instanceName": "*",
+            "dataSourceFullName": "GCP Billing By Project BigQuery (GCP_Billing_CostByProject_BigQuery)",
+            "name": "totalCost",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*",
+            "aggregate": false
+          }],
+          "hideZeroPercentSlices": true,
+          "groupRemainingAsOthers": false,
+          "pieChartItems": [{
+            "dataPointName": "totalCost",
+            "color": "Auto",
+            "legend": "##INSTANCE## - ##RESOURCENAME##"
+          }],
+          "title": "##dashboardName## Cost by Project (Relative)"
+        },
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 1,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##dashboardName## Cost by Service (Relative)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "pieChart",
+        "timescale": "day",
+        "pieChartInfo": {
+          "maxSlicesCanBeShown": 10,
+          "virtualDataPoints": [],
+          "showLabelsAndLinesOnPC": true,
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "totalCost",
+            "top10": true,
+            "instanceName": "*",
+            "dataSourceFullName": "GCP Billing Cost By Service BigQuery (GCP_Billing_CostByService_BigQuery)",
+            "name": "totalCost",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*",
+            "aggregate": false
+          }],
+          "hideZeroPercentSlices": true,
+          "groupRemainingAsOthers": false,
+          "pieChartItems": [{
+            "dataPointName": "totalCost",
+            "color": "Auto",
+            "legend": "##INSTANCE## - ##RESOURCENAME##"
+          }],
+          "title": "##dashboardName## Cost by Service (Relative)"
+        },
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 5,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top ##dashboardName## Operations by Cost (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "totalCost",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "GCP Billing Cost By Operation BigQuery (GCP_Billing_CostByOperation_BigQuery)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME##_##INSTANCE##",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "totalCost",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "$",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 5,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top ##dashboardName## Services by Cost (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "totalCost",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "GCP Billing Cost By Service BigQuery (GCP_Billing_CostByService_BigQuery)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME##_##INSTANCE##",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "totalCost",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "$",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 1,
+        "sizey": 4
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "totalCost",
+            "instanceName": "*",
+            "dataSourceFullName": "GCP Billing Cost By Service BigQuery (GCP_Billing_CostByService_BigQuery)",
+            "name": "totalCost",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "totalCost",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "($USD)",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##dashboardName## Current Month Total Cost",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2
+}
