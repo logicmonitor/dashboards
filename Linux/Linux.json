@@ -1,6 +1,10 @@
 {
-  "santabaRelease": 134,
+  "santabaRelease": 190,
   "widgetTokens": [
+    {
+      "name": "defaultInstanceName",
+      "value": "*"
+    },
     {
       "name": "defaultResourceGroup",
       "value": "Devices by Type/Linux Servers"
@@ -12,14 +16,11 @@
     {
       "name": "defaultResourceType",
       "value": "Linux"
-    },
-    {
-      "name": "defaultInstanceName",
-      "value": "*"
     }
   ],
   "name": "Linux",
   "description": "",
+  "overwriteGroupFields": false,
   "widgetsConfigVersion": 2,
   "type": "dashboard",
   "widgets": [
@@ -27,7 +28,7 @@
       "position": {
         "col": 1,
         "sizex": 12,
-        "row": 32,
+        "row": 31,
         "sizey": 5
       },
       "config": {
@@ -49,7 +50,7 @@
             {
               "visible": true,
               "columnLabel": "Resource/Website",
-              "columnSize": 181,
+              "columnSize": 213,
               "columnKey": "alert-device"
             },
             {
@@ -75,12 +76,6 @@
               "columnLabel": "Value",
               "columnSize": 75,
               "columnKey": "alert-value"
-            },
-            {
-              "visible": true,
-              "columnLabel": "Effective Thresholds",
-              "columnSize": 127,
-              "columnKey": "alert-thresholds"
             },
             {
               "visible": false,
@@ -147,6 +142,18 @@
               "columnKey": "alert-dependency-role"
             },
             {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnSize": 104,
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnSize": 231,
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
               "visible": false,
               "columnLabel": "Dependent Alerts",
               "columnKey": "alert-dependent-alerts"
@@ -170,6 +177,7 @@
           "sdted": "all",
           "chain": "",
           "instance": "",
+          "anomaly": "all",
           "dataPoint": "",
           "rule": "",
           "acked": "all",
@@ -228,7 +236,7 @@
       "position": {
         "col": 1,
         "sizex": 5,
-        "row": 28,
+        "row": 27,
         "sizey": 2
       },
       "config": {
@@ -282,7 +290,7 @@
       "position": {
         "col": 8,
         "sizex": 5,
-        "row": 22,
+        "row": 21,
         "sizey": 3
       },
       "config": {
@@ -363,7 +371,7 @@
       "position": {
         "col": 8,
         "sizex": 5,
-        "row": 25,
+        "row": 24,
         "sizey": 3
       },
       "config": {
@@ -444,7 +452,7 @@
       "position": {
         "col": 1,
         "sizex": 5,
-        "row": 30,
+        "row": 29,
         "sizey": 2
       },
       "config": {
@@ -498,7 +506,7 @@
       "position": {
         "col": 1,
         "sizex": 6,
-        "row": 14,
+        "row": 13,
         "sizey": 3
       },
       "config": {
@@ -552,7 +560,7 @@
       "position": {
         "col": 7,
         "sizex": 6,
-        "row": 14,
+        "row": 13,
         "sizey": 3
       },
       "config": {
@@ -607,7 +615,7 @@
         "col": 8,
         "sizex": 5,
         "row": 3,
-        "sizey": 4
+        "sizey": 3
       },
       "config": {
         "displaySettings": {
@@ -615,19 +623,19 @@
             {
               "visible": true,
               "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 367,
+              "columnSize": 335,
               "columnKey": "device-name-1452842526600"
             },
             {
               "visible": true,
               "columnLabel": "\n            Storage Utilization\n            \n        ",
-              "columnSize": 181,
+              "columnSize": 138,
               "columnKey": "0"
             },
             {
               "visible": true,
               "columnLabel": "\n                    Days Until Alert\n                ",
-              "columnSize": 95,
+              "columnSize": 170,
               "columnKey": "0-forecast"
             }
           ],
@@ -643,12 +651,12 @@
           "colorThresholds": [
             {
               "level": 2,
-              "threshold": 90,
+              "threshold": 85,
               "relation": ">="
             },
             {
               "level": 3,
-              "threshold": 92,
+              "threshold": 95,
               "relation": ">="
             },
             {
@@ -665,21 +673,21 @@
         "forecast": {
           "severity": "warn",
           "confidence": 70,
-          "timeRange": "Last 7 days",
+          "timeRange": "Last 30 days",
           "algorithm": "Linear"
         },
         "type": "dynamicTable",
         "rows": [{
-          "instanceName": "*",
+          "instanceName": "##defaultInstanceName##",
           "label": "##RESOURCENAME## - ##INSTANCE##",
           "deviceDisplayName": "##defaultResourceName##",
           "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
-        "topX": 10,
-        "dataSourceFullName": "Filesystem Capacity (snmpHRDisk-)",
+        "topX": 25,
+        "dataSourceFullName": "Filesystem Usage (SNMP_Filesystem_Usage)",
         "sortOrder": "descending",
-        "name": "Top ##defaultResourceType## Filesystems by Storage Utilization (Real-time)",
+        "name": "Top ##defaultResourceType## Filesystems by Storage Utilization",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -689,7 +697,7 @@
       "position": {
         "col": 8,
         "sizex": 5,
-        "row": 7,
+        "row": 6,
         "sizey": 3
       },
       "config": {
@@ -709,12 +717,12 @@
               "isGlob": true,
               "value": "*"
             },
-            "dataSourceFullName": "Filesystem Capacity (snmpHRDisk-)",
+            "dataSourceFullName": "Filesystem Usage (SNMP_Filesystem_Usage)",
             "consolidateFunction": "average",
             "display": {
               "color": "Auto",
-              "legend": "##RESOURCENAME## ##INSTANCE##",
-              "type": "area",
+              "legend": "##INSTANCE## - ##RESOURCENAME##",
+              "type": "line",
               "option": "custom"
             },
             "name": "PercentUsed",
@@ -743,7 +751,7 @@
       "position": {
         "col": 3,
         "sizex": 5,
-        "row": 22,
+        "row": 21,
         "sizey": 3
       },
       "config": {
@@ -797,7 +805,7 @@
       "position": {
         "col": 3,
         "sizex": 5,
-        "row": 25,
+        "row": 24,
         "sizey": 3
       },
       "config": {
@@ -851,7 +859,7 @@
       "position": {
         "col": 1,
         "sizex": 3,
-        "row": 7,
+        "row": 6,
         "sizey": 3
       },
       "config": {
@@ -872,11 +880,11 @@
               "value": "*"
             },
             "dataSourceFullName": "CPU Overview (NetSNMPCPUwithCores)",
-            "consolidateFunction": "average",
+            "consolidateFunction": "max",
             "display": {
               "color": "Auto",
               "legend": "##RESOURCENAME##",
-              "type": "area",
+              "type": "line",
               "option": "custom"
             },
             "name": "CPUBusyPercent",
@@ -906,7 +914,7 @@
         "col": 1,
         "sizex": 3,
         "row": 3,
-        "sizey": 4
+        "sizey": 3
       },
       "config": {
         "displaySettings": {
@@ -972,7 +980,7 @@
         "topX": 25,
         "dataSourceFullName": "CPU Overview (NetSNMPCPUwithCores)",
         "sortOrder": "descending",
-        "name": "Top ##defaultResourceType## Resources by CPU Utilization (Real-time)",
+        "name": "Top ##defaultResourceType## Resources by CPU Utilization",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -982,7 +990,7 @@
       "position": {
         "col": 4,
         "sizex": 4,
-        "row": 7,
+        "row": 6,
         "sizey": 3
       },
       "config": {
@@ -1037,7 +1045,7 @@
         "col": 4,
         "sizex": 4,
         "row": 3,
-        "sizey": 4
+        "sizey": 3
       },
       "config": {
         "displaySettings": {
@@ -1045,19 +1053,19 @@
             {
               "visible": true,
               "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 274,
+              "columnSize": 233,
               "columnKey": "device-name-1452842526600"
             },
             {
               "visible": true,
               "columnLabel": "\n            Memory Utilization\n            \n        ",
-              "columnSize": 135,
+              "columnSize": 163,
               "columnKey": "0"
             },
             {
               "visible": true,
               "columnLabel": "\n                    Days Until Alert\n                ",
-              "columnSize": 103,
+              "columnSize": 116,
               "columnKey": "0-forecast"
             }
           ],
@@ -1095,7 +1103,7 @@
         "forecast": {
           "severity": "warn",
           "confidence": 70,
-          "timeRange": "Last 7 days",
+          "timeRange": "Last 30 days",
           "algorithm": "Linear"
         },
         "type": "dynamicTable",
@@ -1109,7 +1117,7 @@
         "topX": 25,
         "dataSourceFullName": "Memory Usage (NetSNMP_Memory_Usage)",
         "sortOrder": "descending",
-        "name": "Top ##defaultResourceType## Resources by Memory Utilization (Real-time)",
+        "name": "Top ##defaultResourceType## Resources by Memory Utilization",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -1119,7 +1127,7 @@
       "position": {
         "col": 6,
         "sizex": 4,
-        "row": 10,
+        "row": 9,
         "sizey": 4
       },
       "config": {
@@ -1134,7 +1142,7 @@
             "display": {
               "color": "Auto",
               "legend": "##RESOURCENAME## - ##INSTANCE##",
-              "type": "area",
+              "type": "line",
               "option": "custom"
             },
             "name": "TotalOperations"
@@ -1209,7 +1217,7 @@
       "position": {
         "col": 10,
         "sizex": 3,
-        "row": 10,
+        "row": 9,
         "sizey": 2
       },
       "config": {
@@ -1223,7 +1231,7 @@
             {
               "dataPointName": "GBSize",
               "instanceName": "*",
-              "dataSourceFullName": "Filesystem Capacity (snmpHRDisk-)",
+              "dataSourceFullName": "Filesystem Usage (SNMP_Filesystem_Usage)",
               "name": "GBSize",
               "aggregateFunction": "SUM",
               "deviceGroupFullPath": "##defaultResourceGroup##",
@@ -1232,7 +1240,7 @@
             {
               "dataPointName": "GBUsed",
               "instanceName": "*",
-              "dataSourceFullName": "Filesystem Capacity (snmpHRDisk-)",
+              "dataSourceFullName": "Filesystem Usage (SNMP_Filesystem_Usage)",
               "name": "GBUsed",
               "aggregateFunction": "SUM",
               "deviceGroupFullPath": "##defaultResourceGroup##",
@@ -1263,7 +1271,7 @@
       "position": {
         "col": 1,
         "sizex": 5,
-        "row": 10,
+        "row": 9,
         "sizey": 4
       },
       "config": {
@@ -1283,7 +1291,7 @@
             "dataPointName": "PercentUsed",
             "top10": true,
             "instanceName": "*",
-            "dataSourceFullName": "Filesystem Capacity (snmpHRDisk-)",
+            "dataSourceFullName": "Filesystem Usage (SNMP_Filesystem_Usage)",
             "name": "PercentUsed",
             "aggregateFunction": "SUM",
             "deviceGroupFullPath": "##defaultResourceGroup##",
@@ -1306,7 +1314,7 @@
       "position": {
         "col": 10,
         "sizex": 3,
-        "row": 12,
+        "row": 11,
         "sizey": 2
       },
       "config": {
@@ -1320,7 +1328,7 @@
             {
               "dataPointName": "GBSize",
               "instanceName": "*",
-              "dataSourceFullName": "Filesystem Capacity (snmpHRDisk-)",
+              "dataSourceFullName": "Filesystem Usage (SNMP_Filesystem_Usage)",
               "name": "GBSize",
               "aggregateFunction": "SUM",
               "deviceGroupFullPath": "##defaultResourceGroup##",
@@ -1329,7 +1337,7 @@
             {
               "dataPointName": "GBUsed",
               "instanceName": "*",
-              "dataSourceFullName": "Filesystem Capacity (snmpHRDisk-)",
+              "dataSourceFullName": "Filesystem Usage (SNMP_Filesystem_Usage)",
               "name": "GBUsed",
               "aggregateFunction": "SUM",
               "deviceGroupFullPath": "##defaultResourceGroup##",
@@ -1360,7 +1368,7 @@
       "position": {
         "col": 1,
         "sizex": 12,
-        "row": 17,
+        "row": 16,
         "sizey": 5
       },
       "config": {
@@ -1487,11 +1495,27 @@
           {
             "rpn": "",
             "dataPointName": "InMbps",
-            "displayType": "raw",
+            "displayType": "colorBar",
             "minValue": 0,
             "unitLabel": " Mbps",
-            "maxValue": 100,
-            "colorThresholds": [],
+            "maxValue": 1000,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 50,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 250,
+                "relation": ">"
+              },
+              {
+                "level": 4,
+                "threshold": 750,
+                "relation": ">"
+              }
+            ],
             "columnName": "Inbound Network",
             "enableForecast": false,
             "roundingDecimal": 2
@@ -1547,11 +1571,27 @@
           {
             "rpn": "",
             "dataPointName": "OutMbps",
-            "displayType": "raw",
+            "displayType": "colorBar",
             "minValue": 0,
             "unitLabel": " Mbps",
-            "maxValue": 100,
-            "colorThresholds": [],
+            "maxValue": 1000,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 50,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 250,
+                "relation": ">"
+              },
+              {
+                "level": 4,
+                "threshold": 750,
+                "relation": ">"
+              }
+            ],
             "columnName": "Outbound Network",
             "enableForecast": false,
             "roundingDecimal": 2
@@ -1585,7 +1625,7 @@
       "position": {
         "col": 6,
         "sizex": 7,
-        "row": 28,
+        "row": 27,
         "sizey": 4
       },
       "config": {
@@ -1746,7 +1786,7 @@
       "position": {
         "col": 1,
         "sizex": 2,
-        "row": 22,
+        "row": 21,
         "sizey": 2
       },
       "config": {
@@ -1754,7 +1794,7 @@
           "virtualDataPoints": [],
           "counters": [{
             "name": "resources",
-            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isLinux() && system.devicetype != \"8\""
+            "appliesTo": "isLinux() && system.devicetype != \"8\""
           }],
           "dataPoints": [],
           "bigNumberItems": [{
@@ -1779,7 +1819,9 @@
     },
     {
       "position": {
+        "col": 1,
         "sizex": 2,
+        "row": 23,
         "sizey": 2
       },
       "config": {
@@ -1821,7 +1863,9 @@
     },
     {
       "position": {
+        "col": 1,
         "sizex": 2,
+        "row": 25,
         "sizey": 2
       },
       "config": {
@@ -1874,10 +1918,5 @@
       }
     }
   ],
-  "version": 2,
-  "group": {
-    "name": "Linux",
-    "fullPath": "LogicMonitor Dashboards/Linux",
-    "description": ""
-  }
+  "version": 2
 }
