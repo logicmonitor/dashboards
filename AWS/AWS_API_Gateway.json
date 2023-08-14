@@ -1,0 +1,1453 @@
+{
+  "santabaRelease": 188,
+  "widgetTokens": [{
+    "name": "cloudServiceName",
+    "value": "AWS API Gateway"
+  }],
+  "name": "AWS API Gateway",
+  "description": "",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 9,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [{
+            "rpn": "if(un(count),0,count)",
+            "name": "countNormalized"
+          }],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "Count",
+            "instanceName": "*",
+            "dataSourceFullName": "API Gateway (AWS_API_Gateway)",
+            "name": "Count",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "countNormalized",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "API Gateway Requests",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##cloudServiceName## Requests",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 10,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [
+            {
+              "rpn": "if(un(4XXError),0,4XXError)",
+              "name": "4XXNormalized"
+            },
+            {
+              "rpn": "if(un(5XXError),0,5XXError)",
+              "name": "5XXNormalized"
+            }
+          ],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "4XXError",
+              "instanceName": "*",
+              "dataSourceFullName": "API Gateway (AWS_API_Gateway)",
+              "name": "4XXError",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "5XXError",
+              "instanceName": "*",
+              "dataSourceFullName": "API Gateway (AWS_API_Gateway)",
+              "name": "5XXError",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [
+            {
+              "dataPointName": "4XXNormalized",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "4XX API Gateway Errors",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "5XXNormalized",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 2,
+              "rightLabel": "5XX API Gateway Errors",
+              "colorThresholds": null
+            }
+          ]
+        },
+        "displaySettings": {},
+        "name": "##cloudServiceName## Errors",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [{
+            "rpn": "if(un(count),0,count)",
+            "name": "countNormalized"
+          }],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "requestsCount",
+            "instanceName": "*",
+            "dataSourceFullName": "AWS API Gateway Stages (AWS_APIGateway_Stages)",
+            "name": "Count",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "countNormalized",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "API Gateway Stage Requests",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##cloudServiceName## Stage Requests",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 12,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [
+            {
+              "rpn": "if(un(4XXError),0,4XXError)",
+              "name": "4XXNormalized"
+            },
+            {
+              "rpn": "if(un(5XXError),0,5XXError)",
+              "name": "5XXNormalized"
+            }
+          ],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "4XXError",
+              "instanceName": "*",
+              "dataSourceFullName": "AWS API Gateway Stages (AWS_APIGateway_Stages)",
+              "name": "4XXError",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "5XXError",
+              "instanceName": "*",
+              "dataSourceFullName": "AWS API Gateway Stages (AWS_APIGateway_Stages)",
+              "name": "5XXError",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [
+            {
+              "dataPointName": "4XXNormalized",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "4XX API Gateway Stage Errors",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "5XXNormalized",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 2,
+              "rightLabel": "5XX API Gateway Stage Errors",
+              "colorThresholds": null
+            }
+          ]
+        },
+        "displaySettings": {},
+        "name": "##cloudServiceName## Stage Errors",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 3,
+        "name": "##cloudServiceName## Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##RESOURCENAME##",
+          "dataSourceDisplayName": "API Gateway*",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 3,
+        "name": "##cloudServiceName## Stage Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##INSTANCE## - ##RESOURCENAME##",
+          "dataSourceDisplayName": "AWS API Gateway Stages",
+          "groupBy": "instance",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 7,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##cloudServiceName## Front End Latency (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "Latency",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "API Gateway (AWS_API_Gateway)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "Latency",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "ms",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 7,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##cloudServiceName## Back End Latency (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "IntegrationLatency",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "API Gateway (AWS_API_Gateway)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "IntegrationLatency",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "ms",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 20,
+        "sizey": 5
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "name": "##cloudServiceName## Alerts",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "anomaly": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
+          "keyword": "",
+          "dataSource": "API%20Gateway,AWS%20API%20Gateway%20Stages",
+          "cleared": "no",
+          "group": "%23%23defaultResourceGroup%23%23*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 14,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "AWS REST API Gateway Cache Hit Count (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "CacheHitCount",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "API Gateway (AWS_API_Gateway)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "CacheHitCount",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "Count",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 17,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "AWS REST API Gateway Cache Miss Count (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "CacheMissCount",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "API Gateway (AWS_API_Gateway)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "CacheMissCount",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "Count",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 14,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "AWS REST API Stages Cache Hit Count (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "cacheHitCount",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "AWS API Gateway Stages (AWS_APIGateway_Stages)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME##_##INSTANCE##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "cacheHitCount",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "Count",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 17,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "AWS REST API Stages Cache Miss Count (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "cacheMissCount",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "AWS API Gateway Stages (AWS_APIGateway_Stages)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME##_##INSTANCE##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "cacheMissCount",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "Count",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##cloudServiceName## API Call Breakdown (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [
+            {
+              "rpn": "if(un(CacheHitCount),0,CacheHitCount)",
+              "display": {
+                "color": "green",
+                "legend": "Cache Hits",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "NormalizedCacheHitCount"
+            },
+            {
+              "rpn": "if(un(CacheMissCount),0,CacheMissCount)",
+              "display": {
+                "color": "yellow",
+                "legend": "Cache Misses",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "NormalizedCacheMissCount"
+            },
+            {
+              "rpn": "if(un(4XXError),0,4XXError)",
+              "display": {
+                "color": "orange",
+                "legend": "4XX Errors",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "Normalized4XXError"
+            },
+            {
+              "rpn": "if(un(5XXError),0,5XXError)",
+              "display": {
+                "color": "red",
+                "legend": "5XX Errors",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "Normalized5XXError"
+            },
+            {
+              "rpn": "if(un(Count),0,Count)",
+              "display": {
+                "color": "black",
+                "legend": "Request Count",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "NormalizedCount"
+            }
+          ],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "CacheHitCount",
+              "instanceName": {
+                "isGlob": false,
+                "value": "AWS_API_Gateway"
+              },
+              "dataSourceFullName": "API Gateway (AWS_API_Gateway)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "CacheHitCount",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": false,
+                "value": "US-E1:onlinestore-Bookstore-c3rvbr12t3"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            },
+            {
+              "dataPointName": "CacheMissCount",
+              "instanceName": {
+                "isGlob": false,
+                "value": "AWS_API_Gateway"
+              },
+              "dataSourceFullName": "API Gateway (AWS_API_Gateway)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "CacheMissCount",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": false,
+                "value": "US-E1:onlinestore-Bookstore-c3rvbr12t3"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            },
+            {
+              "dataPointName": "4XXError",
+              "instanceName": {
+                "isGlob": false,
+                "value": "AWS_API_Gateway"
+              },
+              "dataSourceFullName": "API Gateway (AWS_API_Gateway)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "4XXError",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": false,
+                "value": "US-E1:onlinestore-Bookstore-c3rvbr12t3"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            },
+            {
+              "dataPointName": "5XXError",
+              "instanceName": {
+                "isGlob": false,
+                "value": "AWS_API_Gateway"
+              },
+              "dataSourceFullName": "API Gateway (AWS_API_Gateway)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "5XXError",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": false,
+                "value": "US-E1:onlinestore-Bookstore-c3rvbr12t3"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            },
+            {
+              "dataPointName": "Count",
+              "instanceName": {
+                "isGlob": false,
+                "value": "AWS_API_Gateway"
+              },
+              "dataSourceFullName": "API Gateway (AWS_API_Gateway)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "Count",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": false,
+                "value": "US-E1:onlinestore-Bookstore-c3rvbr12t3"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            }
+          ],
+          "verticalLabel": "count",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 8,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 298,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Requests\n            \n        ",
+              "columnSize": 107,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Cache Hit Rate\n            \n        ",
+              "columnSize": 137,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Cache Hits\n            \n        ",
+              "columnSize": 88,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Cache Misses\n            \n        ",
+              "columnSize": 101,
+              "columnKey": "3"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            4XX Errors\n            \n        ",
+              "columnSize": 103,
+              "columnKey": "4"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            5XX Errors\n            \n        ",
+              "columnSize": 108,
+              "columnKey": "5"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Backend Latency\n            \n        ",
+              "columnSize": 131,
+              "columnKey": "6"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Frontend Latency\n            \n        ",
+              "columnSize": 123,
+              "columnKey": "7"
+            }
+          ],
+          "pageSize": "5"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "Count",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " requests",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Requests",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "CacheHitRate",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Cache Hit Rate",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "CacheHitCount",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " hits",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Cache Hits",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "CacheMissCount",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " misses",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Cache Misses",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "4XXError",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " errors",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "4XX Errors",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "5XXError",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " errors",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "5XX Errors",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "IntegrationLatency",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ms.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Backend Latency",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "Latency",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ms.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Frontend Latency",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": -1,
+        "dataSourceFullName": "API Gateway (AWS_API_Gateway)",
+        "sortOrder": "descending",
+        "name": "##cloudServiceName## Statistics (Realtime)",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 8,
+        "row": 10,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 298,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Requests\n            \n        ",
+              "columnSize": 107,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Cache Hit Rate\n            \n        ",
+              "columnSize": 137,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Cache Hits\n            \n        ",
+              "columnSize": 88,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Cache Misses\n            \n        ",
+              "columnSize": 101,
+              "columnKey": "3"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            4XX Errors\n            \n        ",
+              "columnSize": 103,
+              "columnKey": "4"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            5XX Errors\n            \n        ",
+              "columnSize": 108,
+              "columnKey": "5"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Backend Latency\n            \n        ",
+              "columnSize": 131,
+              "columnKey": "6"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Frontend Latency\n            \n        ",
+              "columnSize": 123,
+              "columnKey": "7"
+            }
+          ],
+          "pageSize": "5"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "requestsCount",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " requests",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Requests",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "cacheHitRatio",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Cache Hit Rate",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "cacheHitCount",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " hits",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Cache Hits",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "cacheMissCount",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " misses",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Cache Misses",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "4XXError",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " errors",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "4XX Errors",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "5XXError",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " errors",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "5XX Errors",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "integrationLatency",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ms.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Backend Latency",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "latency",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ms.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Frontend Latency",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##INSTANCE## - ##RESOURCENAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": -1,
+        "dataSourceFullName": "AWS API Gateway Stages (AWS_APIGateway_Stages)",
+        "sortOrder": "descending",
+        "name": "##cloudServiceName## Stage Statistics (Realtime)",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 14,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "legend": "##cloudServiceName## Cache Hit Rate",
+        "maxValue": 100,
+        "dataPoint": {
+          "rpn": "",
+          "dataPointName": "CacheHitRate",
+          "instanceName": "*",
+          "dataSourceFullName": "API Gateway (AWS_API_Gateway)",
+          "dataSeries": "average",
+          "aggregateFunction": "AVERAGE",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        },
+        "description": "",
+        "displayUnit": "",
+        "type": "gauge",
+        "version": 2,
+        "minValue": 0,
+        "displayType": 0,
+        "peakTimeRange": "7days",
+        "showPeak": true,
+        "name": "##cloudServiceName## Cache Hit Rate (Peak)",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "timescale": "day",
+        "colorThresholds": null
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 17,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "legend": "##cloudServiceName## Stages Average Cache Hit Rate",
+        "maxValue": 100,
+        "dataPoint": {
+          "rpn": "",
+          "dataPointName": "cacheHitRatio",
+          "instanceName": "*",
+          "dataSourceFullName": "AWS API Gateway Stages (AWS_APIGateway_Stages)",
+          "dataSeries": "max",
+          "aggregateFunction": "AVERAGE",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        },
+        "description": "",
+        "displayUnit": "",
+        "type": "gauge",
+        "version": 2,
+        "minValue": 0,
+        "displayType": 0,
+        "peakTimeRange": "7days",
+        "showPeak": true,
+        "name": "##cloudServiceName## Stages Average Cache Hit Rate (Peak)",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "timescale": "day",
+        "colorThresholds": null
+      }
+    }
+  ],
+  "version": 2
+}

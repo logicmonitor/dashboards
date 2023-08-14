@@ -1,0 +1,1825 @@
+{
+  "santabaRelease": 187,
+  "widgetTokens": [{
+    "name": "defaultResourceGroup",
+    "value": "*"
+  }],
+  "name": "Cisco UCS Fabric Interconnects",
+  "description": "",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 8,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 7,
+        "name": "Cisco UCS Fabric Interconnect Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##RESOURCENAME##",
+          "dataSourceDisplayName": "(UCS Fabric Inter|UCS Ports)",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [{
+            "rpn": "rxTotalPackets_sum/ rxTotalPackets_avg",
+            "name": "instanceCount"
+          }],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "rxTotalPackets",
+              "instanceName": "*",
+              "dataSourceFullName": "UCS Ports (Cisco_UCS_Ports)",
+              "name": "rxTotalPackets_sum",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "rxTotalPackets",
+              "instanceName": "*",
+              "dataSourceFullName": "UCS Ports (Cisco_UCS_Ports)",
+              "name": "rxTotalPackets_avg",
+              "aggregateFunction": "AVERAGE",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [{
+            "dataPointName": "instanceCount",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Active FI Ports",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Cisco UCS Fabric Interconnects",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 30,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": true,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "name": "Cisco UCS Fabric Interconnect Alert Detail",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "anomaly": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
+          "keyword": "",
+          "dataSource": "UCS%20Fabric*%7CUCS%20Ports*",
+          "cleared": "no",
+          "group": "%23%23defaultResourceGroup%23%23*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 5,
+        "row": 18,
+        "sizey": 6
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 355,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            CPU Load\n            \n        ",
+              "columnSize": 121,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Memory Available\n            \n        ",
+              "columnSize": 129,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Memory Cached\n            \n        ",
+              "columnSize": 138,
+              "columnKey": "2"
+            }
+          ],
+          "pageSize": "15"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "CPULoad",
+            "displayType": "colorBar",
+            "minValue": 0,
+            "unitLabel": "%",
+            "maxValue": 100,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 95,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 98,
+                "relation": ">"
+              },
+              {
+                "level": 4,
+                "threshold": 99,
+                "relation": ">"
+              }
+            ],
+            "columnName": "CPU Load",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "memAvailable",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "MB",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Memory Available",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "memCached",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "MB",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Memory Cached",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": -1,
+        "dataSourceFullName": "UCS Fabric Interconnect (Cisco_UCS_FabricInterconnect)",
+        "sortOrder": "descending",
+        "name": "Cisco UCS Fabric Interconnect Statistics (Realtime)",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 6,
+        "sizex": 7,
+        "row": 21,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Cisco UCS Fabric Interconnects by Memory Available (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "memAvailable",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "UCS Fabric Interconnect (Cisco_UCS_FabricInterconnect)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "MemoryAvailable",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "MB",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 6,
+        "sizex": 7,
+        "row": 18,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Cisco UCS Fabric Interconnects by CPU Load (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "CPULoad",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "UCS Fabric Interconnect (Cisco_UCS_FabricInterconnect)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "CPULoad",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "percent used",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 8,
+        "row": 15,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 217,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Access Ports\n            \n        ",
+              "columnSize": 94,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            E Ports\n            \n        ",
+              "columnSize": 66,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Fabric Ports\n            \n        ",
+              "columnSize": 88,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            F Ports\n            \n        ",
+              "columnSize": 68,
+              "columnKey": "3"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            N Proxy Ports\n            \n        ",
+              "columnSize": 103,
+              "columnKey": "4"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Promiscuous Access Ports\n            \n        ",
+              "columnSize": 163,
+              "columnKey": "5"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Promiscuous Trunk Ports\n            \n        ",
+              "columnSize": 161,
+              "columnKey": "6"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            SD Ports\n            \n        ",
+              "columnSize": 75,
+              "columnKey": "7"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Trunk Ports\n            \n        ",
+              "columnSize": 85,
+              "columnKey": "8"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Unknown Ports\n            \n        ",
+              "columnSize": 116,
+              "columnKey": "9"
+            }
+          ],
+          "pageSize": "5"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "modeAccessPorts",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ports",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Access Ports",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "modeEPorts",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ports",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "E Ports",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "modeFabricPorts",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ports",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Fabric Ports",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "modeFPorts",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ports",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "F Ports",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "modeNProxyPorts",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ports",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "N Proxy Ports",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "modePromiscuousAccessPorts",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "  ports",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Promiscuous Access Ports",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "modePromiscuousTrunkPorts",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ports",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Promiscuous Trunk Ports",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "modeSDPorts",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ports",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "SD Ports",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "modetTrunkPorts",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ports",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Trunk Ports",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "modeUnknownPorts",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ports",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Unknown Ports",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": -1,
+        "dataSourceFullName": "UCS Fabric Interconnect (Cisco_UCS_FabricInterconnect)",
+        "sortOrder": "descending",
+        "name": "Cisco UCS Fabric Interconnect Port Mode Inventory (Realtime)",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 8,
+        "sizex": 5,
+        "row": 24,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Cisco UCS Fabric Interconnect Storage Partitions by Status (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "operatingState",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "UCS Fabric Interconnect Storage Partitions (Cisco_UCS_FIStoragePartitions)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME##_##INSTANCE##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "operatingState",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "Operating State",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 8,
+        "sizex": 5,
+        "row": 27,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Cisco UCS Fabric Interconnect Storage Partitions by Usage (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "storageUsed",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "UCS Fabric Interconnect Storage Partitions (Cisco_UCS_FIStoragePartitions)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME##_##INSTANCE##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "storageUsed",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "percent used",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 7,
+        "row": 24,
+        "sizey": 6
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 495,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            State\n            \n        ",
+              "columnSize": 103,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Storage Size\n            \n        ",
+              "columnSize": 121,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Storage Used\n            \n        ",
+              "columnSize": 135,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Percent Storage Used\n            \n        ",
+              "columnSize": 226,
+              "columnKey": "3"
+            }
+          ],
+          "pageSize": "15"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "operatingState",
+            "displayType": "colorBar",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 5,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 2,
+                "relation": "="
+              },
+              {
+                "level": 3,
+                "threshold": 3,
+                "relation": "="
+              },
+              {
+                "level": 4,
+                "threshold": 5,
+                "relation": "="
+              }
+            ],
+            "columnName": "State",
+            "enableForecast": false,
+            "roundingDecimal": 0
+          },
+          {
+            "rpn": "",
+            "dataPointName": "storageSize",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " MB",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Storage Size",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "storageUsedMB",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " MB",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Storage Used",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "storageUsed",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 90,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 95,
+                "relation": ">"
+              },
+              {
+                "level": 4,
+                "threshold": 98,
+                "relation": ">"
+              }
+            ],
+            "columnName": "Percent Storage Used",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME##_##INSTANCE##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": -1,
+        "dataSourceFullName": "UCS Fabric Interconnect Storage Partitions (Cisco_UCS_FIStoragePartitions)",
+        "sortOrder": "descending",
+        "name": "Cisco UCS Fabric Interconnect Storage Partition Statistics (Realtime)",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [{
+            "rpn": "rxSuspect_sum/ rxSuspect_avg",
+            "name": "instanceCount"
+          }],
+          "counters": [{
+            "name": "availability",
+            "appliesTo": "hasCategory(\"CiscoUCSFabricInterconnect\")"
+          }],
+          "dataPoints": [
+            {
+              "dataPointName": "rxSuspect",
+              "instanceName": "*",
+              "dataSourceFullName": "UCS Ports (Cisco_UCS_Ports)",
+              "name": "rxSuspect_sum",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "rxSuspect",
+              "instanceName": "*",
+              "dataSourceFullName": "UCS Ports (Cisco_UCS_Ports)",
+              "name": "rxSuspect_avg",
+              "aggregateFunction": "AVERAGE",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [{
+            "dataPointName": "availability",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Fabric Interconnects",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Cisco UCS Fabric Interconnects_clone",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top UCS Fabric Interconnect Interfaces by Total Network Throughput (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "(txTotalBytes + rxTotalBytes)",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##RESOURCENAME##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "TotalBps"
+          }],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "txTotalBytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "UCS Ports (Cisco_UCS_Ports)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "txTotalBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "rxTotalBytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "UCS Ports (Cisco_UCS_Ports)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "rxTotalBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bytes/sec.",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 8,
+        "row": 9,
+        "sizey": 6
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 261,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Admin State\n            \n        ",
+              "columnSize": 196,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Operational State\n            \n        ",
+              "columnSize": 238,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Port Mode\n            \n        ",
+              "columnSize": 110,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Licensing State\n            \n        ",
+              "columnSize": 134,
+              "columnKey": "3"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Transport Admin State\n            \n        ",
+              "columnSize": 176,
+              "columnKey": "4"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Transport State\n            \n        ",
+              "columnSize": 121,
+              "columnKey": "5"
+            }
+          ],
+          "pageSize": "15"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "adminState",
+            "displayType": "colorBar",
+            "minValue": -1,
+            "unitLabel": " (0=enabled, 1=disabled)",
+            "maxValue": 0,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 1,
+                "relation": "="
+              },
+              {
+                "level": 3,
+                "threshold": 1,
+                "relation": "="
+              }
+            ],
+            "columnName": "Admin State",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "operationalState",
+            "displayType": "colorBar",
+            "minValue": -1,
+            "unitLabel": " (1=up, 6=link-up)",
+            "maxValue": 0,
+            "colorThresholds": [{
+              "level": 2,
+              "threshold": 1,
+              "relation": "!="
+            }],
+            "columnName": "Operational State",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "portMode",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " (0=unknown)",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Port Mode",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "licensingState",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " (1=license-OK)",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Licensing State",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "transportAdminState",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " (0=unknown)",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Transport Admin State",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "transportState",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " (0=unknown)",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Transport State",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##INSTANCE## - ##RESOURCENAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": -1,
+        "dataSourceFullName": "UCS Ports (Cisco_UCS_Ports)",
+        "sortOrder": "descending",
+        "name": "Cisco UCS Fabric Interconnect Port State (Realtime)",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 8,
+        "row": 3,
+        "sizey": 6
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 255,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            rx Total\n            \n        ",
+              "columnSize": 102,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            rx Broadcast\n            \n        ",
+              "columnSize": 102,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            rx Jumbo\n            \n        ",
+              "columnSize": 90,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            rx Multicast\n            \n        ",
+              "columnSize": 104,
+              "columnKey": "3"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            rx Unicast\n            \n        ",
+              "columnSize": 100,
+              "columnKey": "4"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            tx Total\n            \n        ",
+              "columnSize": 101,
+              "columnKey": "5"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            tx Broadcast\n            \n        ",
+              "columnSize": 103,
+              "columnKey": "6"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            tx Jumbo\n            \n        ",
+              "columnSize": 90,
+              "columnKey": "7"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            tx Multicast\n            \n        ",
+              "columnSize": 96,
+              "columnKey": "8"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            tx Unicast\n            \n        ",
+              "columnSize": 93,
+              "columnKey": "9"
+            }
+          ],
+          "pageSize": "15"
+        },
+        "columns": [
+          {
+            "rpn": "rxTotal/1000/1000",
+            "dataPointName": "rxTotalBytes",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " MB/sec.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "rxTotal",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "rxBroadcastPackets",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " pkts/sec.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "rxBroadcast",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "rxJumboPackets",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " pkts/sec.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "rxJumbo",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "rxMulticastPackets",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " pkts/sec.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "rxMulticast",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "rxUnicastPackets",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " pkts/sec.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "rxUnicast",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "txTotal/1000/1000",
+            "dataPointName": "txTotalBytes",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " MB/sec.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "txTotal",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "txBroadcastPackets",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " pkts/sec.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "txBroadcast",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "txJumboPackets",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " pkts/sec.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "txJumbo",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "txMulticastPackets",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " pkts/sec.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "txMulticast",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "txUnicastPackets",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " pkts/sec.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "txUnicast",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##INSTANCE## - ##RESOURCENAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": -1,
+        "dataSourceFullName": "UCS Ports (Cisco_UCS_Ports)",
+        "sortOrder": "descending",
+        "name": "Cisco UCS Fabric Interconnect Interface Statistics (Realtime)",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 6,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "UCS Port Aggregate Interface Errors (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [
+            {
+              "rpn": "alignmentErrors+deferredTxErrors+fcsErrors+intMacRxErrors+intMacTxErrors+outDiscardsErrors+receiveErrors+txBufferFullErrors+underSizedFrameErrors",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "TotalErrors"
+            },
+            {
+              "rpn": "if(un(totalErrors),0,totalErrors)",
+              "display": {
+                "color": "black",
+                "legend": "Total Errors",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "totalErrorsNormalized"
+            }
+          ],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "alignmentErrors",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "UCS Ports (Cisco_UCS_Ports)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "yellow",
+                "legend": "Alignment",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "alignmentErrors",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "deferredTxErrors",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "UCS Ports (Cisco_UCS_Ports)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "fuchsia",
+                "legend": "Deferred Tx",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "deferredTxErrors",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "fcsErrors",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "UCS Ports (Cisco_UCS_Ports)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "orange2",
+                "legend": "FCS",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "fcsErrors",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "intMacRxErrors",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "UCS Ports (Cisco_UCS_Ports)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "aqua",
+                "legend": "Internal MAC Rx",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "intMacRxErrors",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "intMacTxErrors",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "UCS Ports (Cisco_UCS_Ports)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "olive",
+                "legend": "Internal MAC Tx",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "intMacTxErrors",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "outDiscardsErrors",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "UCS Ports (Cisco_UCS_Ports)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "red",
+                "legend": "Out Discards",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "outDiscardsErrors",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "receiveErrors",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "UCS Ports (Cisco_UCS_Ports)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "red2",
+                "legend": "Receive",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "receiveErrors",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "txBufferFullErrors",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "UCS Ports (Cisco_UCS_Ports)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "green",
+                "legend": "Tx Buffer Full",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "txBufferFullErrors",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "underSizedFrameErrors",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "UCS Ports (Cisco_UCS_Ports)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "gray",
+                "legend": "Undersized Frame",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "underSizedFrameErrors",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "errors/sec.",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 9,
+        "sizey": 9
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": false,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 3,
+        "name": "Cisco UCS Fabric Interconnect Port Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##INSTANCE## - ##RESOURCENAME##",
+          "dataSourceDisplayName": "UCS Ports",
+          "groupBy": "instance",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    }
+  ],
+  "version": 2,
+  "group": {
+    "name": "Hardware",
+    "fullPath": "LogicMonitor Dashboards/Hardware",
+    "description": ""
+  }
+}
