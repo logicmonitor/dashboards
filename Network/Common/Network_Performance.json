@@ -1,5 +1,5 @@
 {
-  "santabaRelease": 148,
+  "santabaRelease": 190,
   "widgetTokens": [
     {
       "name": "defaultInstanceName",
@@ -186,7 +186,7 @@
       "position": {
         "col": 9,
         "sizex": 4,
-        "row": 1,
+        "row": 3,
         "sizey": 2
       },
       "config": {
@@ -256,37 +256,38 @@
             {
               "visible": true,
               "columnLabel": "Began",
+              "columnSize": 220,
               "columnKey": "alert-began"
             },
             {
               "visible": true,
               "columnLabel": "Resource/Website",
+              "columnSize": 218,
               "columnKey": "alert-device"
             },
             {
               "visible": true,
               "columnLabel": "LogicModule",
+              "columnSize": 163,
               "columnKey": "alert-datasource"
             },
             {
               "visible": true,
               "columnLabel": "Instance",
+              "columnSize": 321,
               "columnKey": "alert-datasource-instance"
             },
             {
               "visible": true,
               "columnLabel": "Datapoint",
+              "columnSize": 193,
               "columnKey": "alert-datapoint"
             },
             {
               "visible": true,
               "columnLabel": "Value",
+              "columnSize": 278,
               "columnKey": "alert-value"
-            },
-            {
-              "visible": true,
-              "columnLabel": "Effective Thresholds",
-              "columnKey": "alert-thresholds"
             },
             {
               "visible": false,
@@ -296,11 +297,13 @@
             {
               "visible": true,
               "columnLabel": "Notes",
+              "columnSize": 49,
               "columnKey": "alert-notes"
             },
             {
               "visible": true,
               "columnLabel": "Acknowledged By",
+              "columnSize": 120,
               "columnKey": "alert-acked-by"
             },
             {
@@ -349,6 +352,18 @@
               "columnKey": "alert-dependency-role"
             },
             {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnSize": 103,
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnSize": 119,
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
               "visible": false,
               "columnLabel": "Dependent Alerts",
               "columnKey": "alert-dependent-alerts"
@@ -372,6 +387,7 @@
           "sdted": "all",
           "chain": "",
           "instance": "",
+          "anomaly": "all",
           "dataPoint": "",
           "rule": "",
           "acked": "all",
@@ -415,10 +431,10 @@
         "timescale": "day",
         "sdtChecked": true,
         "items": [{
-          "dataPointName": "*",
+          "dataPointName": "Status",
           "instanceName": "*",
           "name": "##INSTANCE## - ##RESOURCENAME##",
-          "dataSourceDisplayName": "Interfaces \\(64 bit\\)-",
+          "dataSourceDisplayName": "Network Interfaces",
           "groupBy": "instance",
           "type": "device",
           "deviceGroupFullPath": "##defaultResourceGroup##",
@@ -439,7 +455,7 @@
         "description": "What percentage of time in the last 30 days did the monitored resource(s) stay within the defined thresholds of the SLA?",
         "type": "deviceSLA",
         "version": 2,
-        "calculationMethod": 0,
+        "calculationMethod": 1,
         "daysInWeek": "1,2,3,4,5,6,7",
         "displayType": 0,
         "topX": 1,
@@ -459,7 +475,7 @@
           "deviceName": "##defaultResourceName##",
           "exclusionSDTType": "ResourceSDT"
         }],
-        "timescale": "Last 7 days",
+        "timescale": "Last 30 days",
         "unmonitoredTimeType": 0,
         "colorThresholds": [
           {
@@ -484,7 +500,7 @@
       "position": {
         "col": 1,
         "sizex": 12,
-        "row": 3,
+        "row": 1,
         "sizey": 2
       },
       "config": {
@@ -531,7 +547,7 @@
         "description": "What percentage of time in the last 30 days did the monitored resource stay within the defined thresholds of the SLA?",
         "type": "deviceSLA",
         "version": 2,
-        "calculationMethod": 0,
+        "calculationMethod": 1,
         "daysInWeek": "1,2,3,4,5,6,7",
         "displayType": 2,
         "topX": 25,
@@ -551,7 +567,7 @@
           "deviceName": "##defaultResourceName##",
           "exclusionSDTType": "ResourceSDT"
         }],
-        "timescale": "Last 7 days",
+        "timescale": "Last 30 days",
         "unmonitoredTimeType": 0,
         "colorThresholds": [
           {
@@ -585,7 +601,7 @@
             {
               "visible": true,
               "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 308,
+              "columnSize": 416,
               "columnKey": "device-name-1452842526600"
             },
             {
@@ -614,14 +630,14 @@
             },
             {
               "visible": true,
-              "columnLabel": "\n            Discard Percent (Out)\n            \n        ",
+              "columnLabel": "\n            OutDiscardPercent\n            \n        ",
               "columnSize": 137,
               "columnKey": "4"
             },
             {
               "visible": true,
               "columnLabel": "\n            Errors (Out)\n            \n        ",
-              "columnSize": 79,
+              "columnSize": 111,
               "columnKey": "5"
             }
           ],
@@ -970,9 +986,21 @@
             },
             {
               "visible": true,
+              "columnLabel": "\n                    Days Until Alert\n                ",
+              "columnSize": 85,
+              "columnKey": "0-forecast"
+            },
+            {
+              "visible": true,
               "columnLabel": "\n            Multicast (In)\n            \n        ",
-              "columnSize": 90,
+              "columnSize": 131,
               "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n                    Days Until Alert\n                ",
+              "columnSize": 85,
+              "columnKey": "1-forecast"
             },
             {
               "visible": true,
@@ -982,9 +1010,21 @@
             },
             {
               "visible": true,
+              "columnLabel": "\n                    Days Until Alert\n                ",
+              "columnSize": 85,
+              "columnKey": "2-forecast"
+            },
+            {
+              "visible": true,
               "columnLabel": "\n            Octets (In)\n            \n        ",
               "columnSize": 109,
               "columnKey": "3"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n                    Days Until Alert\n                ",
+              "columnSize": 85,
+              "columnKey": "3-forecast"
             },
             {
               "visible": true,
@@ -994,9 +1034,21 @@
             },
             {
               "visible": true,
+              "columnLabel": "\n                    Days Until Alert\n                ",
+              "columnSize": 85,
+              "columnKey": "4-forecast"
+            },
+            {
+              "visible": true,
               "columnLabel": "\n            Broadcast (Out)\n            \n        ",
               "columnSize": 104,
               "columnKey": "5"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n                    Days Until Alert\n                ",
+              "columnSize": 85,
+              "columnKey": "5-forecast"
             },
             {
               "visible": true,
@@ -1006,9 +1058,21 @@
             },
             {
               "visible": true,
+              "columnLabel": "\n                    Days Until Alert\n                ",
+              "columnSize": 85,
+              "columnKey": "6-forecast"
+            },
+            {
+              "visible": true,
               "columnLabel": "\n            Unicast (Out)\n            \n        ",
               "columnSize": 91,
               "columnKey": "7"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n                    Days Until Alert\n                ",
+              "columnSize": 85,
+              "columnKey": "7-forecast"
             },
             {
               "visible": true,
@@ -1018,9 +1082,21 @@
             },
             {
               "visible": true,
+              "columnLabel": "\n                    Days Until Alert\n                ",
+              "columnSize": 85,
+              "columnKey": "8-forecast"
+            },
+            {
+              "visible": true,
               "columnLabel": "\n            Outbound Mbps\n            \n        ",
               "columnSize": 145,
               "columnKey": "9"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n                    Days Until Alert\n                ",
+              "columnSize": 84,
+              "columnKey": "9-forecast"
             }
           ],
           "pageSize": "15"
@@ -1151,7 +1227,7 @@
         "forecast": {
           "severity": "warn",
           "confidence": 70,
-          "timeRange": "Last 30 days",
+          "timeRange": "Last 7 days",
           "algorithm": "Linear"
         },
         "type": "dynamicTable",
@@ -1187,7 +1263,7 @@
         "graphInfo": {
           "virtualDataPoints": [],
           "minValue": 0,
-          "topX": 25,
+          "topX": 5,
           "maxValue": "NaN",
           "dataPoints": [{
             "dataPointName": "InMbps",
@@ -1304,7 +1380,7 @@
             "name": "totalMbps"
           }],
           "minValue": 0,
-          "topX": 25,
+          "topX": 10,
           "maxValue": "NaN",
           "dataPoints": [
             {
@@ -1643,7 +1719,7 @@
       "position": {
         "col": 1,
         "sizex": 2,
-        "row": 1,
+        "row": 3,
         "sizey": 2
       },
       "config": {
@@ -1661,7 +1737,7 @@
           }],
           "bigNumberItems": [{
             "dataPointName": "InMbps",
-            "useCommaSeparators": false,
+            "useCommaSeparators": true,
             "bottomLabel": "",
             "rounding": 0,
             "position": 1,
@@ -1683,7 +1759,7 @@
       "position": {
         "col": 3,
         "sizex": 2,
-        "row": 1,
+        "row": 3,
         "sizey": 2
       },
       "config": {
@@ -1701,7 +1777,7 @@
           }],
           "bigNumberItems": [{
             "dataPointName": "OutMbps",
-            "useCommaSeparators": false,
+            "useCommaSeparators": true,
             "bottomLabel": "",
             "rounding": 0,
             "position": 1,
@@ -1723,7 +1799,7 @@
       "position": {
         "col": 5,
         "sizex": 2,
-        "row": 1,
+        "row": 3,
         "sizey": 2
       },
       "config": {
@@ -1779,7 +1855,7 @@
       "position": {
         "col": 7,
         "sizex": 2,
-        "row": 1,
+        "row": 3,
         "sizey": 2
       },
       "config": {
@@ -1816,10 +1892,5 @@
       }
     }
   ],
-  "version": 2,
-  "group": {
-    "name": "Network",
-    "fullPath": "LogicMonitor Dashboards/Network",
-    "description": ""
-  }
+  "version": 2
 }
