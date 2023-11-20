@@ -1,0 +1,769 @@
+{
+  "santabaRelease": 196,
+  "widgetTokens": [{
+    "name": "dashboardName",
+    "value": "Kubernetes Schedulers"
+  }],
+  "name": "Kubernetes Schedulers",
+  "description": "",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 1,
+        "sizey": 3
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "healthy",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Schedulers (Kubernetes_Schedulers)",
+            "name": "healthy",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "healthy",
+            "useCommaSeparators": false,
+            "bottomLabel": "Healthy Kubernetes Schedulers",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##dashboardName## Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 1,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 9,
+        "row": 1,
+        "sizey": 3
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 2,
+        "name": "##dashboardName## Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "healthy",
+          "instanceName": "Kubernetes_Schedulers-kube-scheduler-minikube",
+          "name": "##INSTANCE##",
+          "dataSourceDisplayName": "Kubernetes Schedulers",
+          "groupBy": "instance",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 10,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "name": "##dashboardName## Alert Details",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "anomaly": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
+          "keyword": "",
+          "dataSource": "Kubernetes%20Scheduler",
+          "cleared": "no",
+          "group": "%23%23defaultResourceGroup%23%23*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##dashboardName## Go Threads (Trend)",
+        "description": "Number of OS threads created.",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "goThreads",
+            "instanceId": null,
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Kubernetes Schedulers (Kubernetes_Schedulers)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "olive",
+              "legend": "##DATASOURCENAME##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "goThreads",
+            "aggregateFunction": "AVERAGE",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "threads",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##dashboardName## Process Virtual Memory (Trend)",
+        "description": "Virtual memory size in bytes.",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "processVirtualMemoryBytes",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Schedulers (Kubernetes_Schedulers)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "yellow",
+                "legend": "Virtual Memory",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "processVirtualMemoryBytes",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "processResidentMemoryBytes",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Schedulers (Kubernetes_Schedulers)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "silver",
+                "legend": "Resident Memory",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "processResidentMemoryBytes",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bytes",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##dashboardName## HTTP Requests (Trend)",
+        "description": "Number of HTTP requests, partitioned by status code, method, and host.",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "restClientTotalGETRequests",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Schedulers (Kubernetes_Schedulers)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "lime",
+                "legend": "REST Client GET Requests",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "restClientTotalGETRequests",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "restClientTotalPOSTRequests",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Schedulers (Kubernetes_Schedulers)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "teal",
+                "legend": "REST Client POST Requests",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "restClientTotalPOSTRequests",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "requests",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 4,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##dashboardName## Pod Preemptions (Trend)",
+        "description": "Number of pod preemption attempts and pod preemption victims.",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "schedulerPreemptionAttemptsTotal",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Schedulers (Kubernetes_Schedulers)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "green",
+                "legend": "Preemption Attempts",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "schedulerPreemptionAttemptsTotal",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "schedulerPreemptionVictims",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Schedulers (Kubernetes_Schedulers)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "orange2",
+                "legend": "Preemption Victims",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "schedulerPreemptionVictims",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "attempts",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 3,
+        "row": 4,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##dashboardName## Pod Queue (Trend)",
+        "description": "Number of pending pods, by the queue type.",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "schedulerPendingPodsBackoff",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Schedulers (Kubernetes_Schedulers)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "teal",
+                "legend": "Pending Pods Backoff",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "schedulerPendingPodsBackoff",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "schedulerPendingPodsActive",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Schedulers (Kubernetes_Schedulers)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "orange2",
+                "legend": "Pending Pods Active",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "schedulerPendingPodsActive",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "schedulerPendingPodsUnschedulable",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Schedulers (Kubernetes_Schedulers)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "olive",
+                "legend": "Pending Pods Unschedulable",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "schedulerPendingPodsUnschedulable",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 4,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##dashboardName## Scheduling Algorithm Latency (Trend)",
+        "description": "Scheduling algorithm latency",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "schedulerSchedulingAlgorithmDurationSeconds",
+            "instanceId": null,
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Kubernetes Schedulers (Kubernetes_Schedulers)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "yellow",
+              "legend": "Scheduling Algorithm Duration",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "schedulerSchedulingAlgorithmDurationSeconds",
+            "aggregateFunction": "AVERAGE",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "seconds",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 3,
+        "row": 4,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##dashboardName## Pod Scheduling Attempts (Trend)",
+        "description": "Number of attempts to successfully schedule a pod.",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "schedulerPodSchedulingAttempts",
+            "instanceId": null,
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Kubernetes Schedulers (Kubernetes_Schedulers)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "blue",
+              "legend": "Pod Scheduling Attempts",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "schedulerPodSchedulingAttempts",
+            "aggregateFunction": "AVERAGE",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "attempts",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2
+}

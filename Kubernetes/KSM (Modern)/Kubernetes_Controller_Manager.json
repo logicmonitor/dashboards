@@ -1,0 +1,1250 @@
+{
+  "santabaRelease": 196,
+  "widgetTokens": [{
+    "name": "dashboardName",
+    "value": "k8s Controller Manager"
+  }],
+  "name": "Kubernetes Controller Manager",
+  "description": "",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 9,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##dashboardName## Aggregate Go Threads (Trend)",
+        "description": "Number of OS threads created.",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "goThreads",
+            "instanceId": null,
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Kubernetes Controller Manager (Kubernetes_Controller_Manager)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "olive",
+              "legend": "##DATASOURCENAME##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "goThreads",
+            "aggregateFunction": "AVERAGE",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "threads",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 9,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##dashboardName## HTTP Requests (Trend)",
+        "description": "Number of HTTP requests, partitioned by status code, method, and host.",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "restClientTotalGETRequests",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Controller Manager (Kubernetes_Controller_Manager)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "lime",
+                "legend": "REST Client GET Requests",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "restClientTotalGETRequests",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "restClientTotalPOSTRequests",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Controller Manager (Kubernetes_Controller_Manager)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "teal",
+                "legend": "REST Client POST Requests",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "restClientTotalPOSTRequests",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "requests",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "healthy",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Controller Manager (Kubernetes_Controller_Manager)",
+            "name": "healthy",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "healthy",
+            "useCommaSeparators": false,
+            "bottomLabel": "Healthy Kubernetes Controller Managers",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##dashboardName##",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 1,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 3,
+        "sizey": 3
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 2,
+        "name": "##dashboardName## Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "healthy",
+          "instanceName": "*",
+          "name": "##INSTANCE##",
+          "dataSourceDisplayName": "Kubernetes Controller Manager",
+          "groupBy": "instance",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 12,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "name": "##dashboardName## Alert Detail",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "anomaly": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
+          "keyword": "",
+          "dataSource": "Kubernetes%20Controller%20Manager",
+          "cleared": "no",
+          "group": "%23%23defaultResourceGroup%23%23*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 3,
+        "row": 6,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##dashboardName## Work Queue Adds Total (Trend)",
+        "description": "Total number of cronJobs, endpoints, serviceAcounts, replicasets added by workqueue",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "cronJobWorkqueueAddsTotal",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Controller Manager (Kubernetes_Controller_Manager)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "aqua",
+                "legend": "Cron Jobs",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "cronJobWorkqueueAddsTotal",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "endpointWorkqueueAddsTotal",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Controller Manager (Kubernetes_Controller_Manager)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "olive",
+                "legend": "Endpoints",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "endpointWorkqueueAddsTotal",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "replicasetWorkqueueAddsTotal",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Controller Manager (Kubernetes_Controller_Manager)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "orange2",
+                "legend": "ReplicaSets",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "replicasetWorkqueueAddsTotal",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "serviceAccountWorkqueueAddsTotal",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Controller Manager (Kubernetes_Controller_Manager)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "orange",
+                "legend": "Service Accounts",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "serviceAccountWorkqueueAddsTotal",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "adds",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 3,
+        "row": 3,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##dashboardName## Work Queue Retries (Trend)",
+        "description": "Total number of cronJobs, endpoints, serviceAcounts, replicasets retried by workqueue",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "cronjobWorkqueueRetriesTotal",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Controller Manager (Kubernetes_Controller_Manager)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "aqua",
+                "legend": "Cron Jobs",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "cronjobWorkqueueRetriesTotal",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "endpointWorkqueueRetriesTotal",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Controller Manager (Kubernetes_Controller_Manager)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "olive",
+                "legend": "Endpoints",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "endpointWorkqueueRetriesTotal",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "replicasetWorkqueueRetriesTotal",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Controller Manager (Kubernetes_Controller_Manager)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "orange2",
+                "legend": "ReplicaSets",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "replicasetWorkqueueRetriesTotal",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "serviceAccountWorkqueueRetriesTotal",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Controller Manager (Kubernetes_Controller_Manager)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "orange",
+                "legend": "Service Accounts",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "serviceAccountWorkqueueRetriesTotal",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "retries",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 6,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top ##dashboardName## Resources by Memory (Trend)",
+        "description": "Virtual memory size in bytes.",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "processVirtualMemoryBytes",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Controller Manager (Kubernetes_Controller_Manager)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## - ##RESOURCENAME## virtual memory",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "processVirtualMemoryBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "processResidentMemoryBytes",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Controller Manager (Kubernetes_Controller_Manager)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## - ##RESOURCENAME## resident memory",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "processResidentMemoryBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bytes",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 3,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##dashboardName## Work Queue Unfinished Work (Trend)",
+        "description": "In-progress cronJobs, endpoints, serviceAcounts, replicasets work by queue.",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "cronjobWorkqueueUnfinishedWorkSeconds",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Controller Manager (Kubernetes_Controller_Manager)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "aqua",
+                "legend": "Cron Jobs",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "cronjobWorkqueueUnfinishedWorkSeconds",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "endpointWorkqueueUnfinishedWorkSeconds",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Controller Manager (Kubernetes_Controller_Manager)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "olive",
+                "legend": "Endpoints",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "endpointWorkqueueUnfinishedWorkSeconds",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "replicasetWorkqueueUnfinishedWorkSeconds",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Controller Manager (Kubernetes_Controller_Manager)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "orange2",
+                "legend": "ReplicaSets",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "replicasetWorkqueueUnfinishedWorkSeconds",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "serviceaccountWorkqueueUnfinishedWorkSeconds",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Controller Manager (Kubernetes_Controller_Manager)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "orange",
+                "legend": "Service Accounts",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "serviceaccountWorkqueueUnfinishedWorkSeconds",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "seconds",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 6,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##dashboardName## Work Queue Longest Running Processors (Trend)",
+        "description": "The longest running processor for cronJobs, endpoints, serviceAcounts, replicasets by work queue.",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "cronjobWorkqueueLongestRunningProcessorSeconds",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Controller Manager (Kubernetes_Controller_Manager)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "aqua",
+                "legend": "Cron Jobs",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "cronjobWorkqueueLongestRunningProcessorSeconds",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "endpointWorkqueueLongestRunningProcessorSeconds",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Controller Manager (Kubernetes_Controller_Manager)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "olive",
+                "legend": "Endpoints",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "endpointWorkqueueLongestRunningProcessorSeconds",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "replicasetWorkqueueLongestRunningProcessorSeconds",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Controller Manager (Kubernetes_Controller_Manager)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "orange2",
+                "legend": "ReplicaSets",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "replicasetWorkqueueLongestRunningProcessorSeconds",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "serviceaccountWorkqueueLongestRunningProcessorSeconds",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Controller Manager (Kubernetes_Controller_Manager)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "orange",
+                "legend": "Service Accounts",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "serviceaccountWorkqueueLongestRunningProcessorSeconds",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "seconds",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "nodeCollectorUnhealthyNodesInZone",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Controller Manager (Kubernetes_Controller_Manager)",
+            "name": "nodeCollectorUnhealthyNodesInZone",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "nodeCollectorUnhealthyNodesInZone",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Unhealthy Nodes",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##dashboardName##",
+        "description": "Number of not Ready Nodes per zones.",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 9,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##dashboardName## Persistent Volume Claims Requests (Trend)",
+        "description": "Number of Persistent Volume Claims creation requests, total, and failures",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "ephemeralVolumeControllerCreateFailuresTotal",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Controller Manager (Kubernetes_Controller_Manager)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "Ephemeral Volume Creation Failures",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "ephemeralVolumeControllerCreateFailuresTotal",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "ephemeralVolumeControllerCreateTotal",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Controller Manager (Kubernetes_Controller_Manager)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "Ephemeral Volume Creation Success",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "ephemeralVolumeControllerCreateTotal",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "requests",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "endpointSliceControllerDesiredEndpointSlices",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Controller Manager (Kubernetes_Controller_Manager)",
+            "name": "endpointSliceControllerDesiredEndpointSlices",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "endpointSliceControllerDesiredEndpointSlices",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Desired Slices",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##dashboardName##",
+        "description": "Number of EndpointSlices that would exist with perfect endpoint allocation",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "endpointSliceControllerEndpointsDesired",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Controller Manager (Kubernetes_Controller_Manager)",
+            "name": "endpointSliceControllerEndpointsDesired",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "endpointSliceControllerEndpointsDesired",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Desired Endpoints",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##dashboardName##",
+        "description": "Number of Endpoints that would exist with perfect endpoint allocation",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "endpointSliceControllerNumEndpointSlices",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Controller Manager (Kubernetes_Controller_Manager)",
+            "name": "endpointSliceControllerNumEndpointSlices",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "endpointSliceControllerNumEndpointSlices",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Endpoint Slices",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##dashboardName##",
+        "description": "Total number of EndpointSlices",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2
+}

@@ -1,0 +1,891 @@
+{
+  "santabaRelease": 196,
+  "widgetTokens": [{
+    "name": "dashboardName",
+    "value": "Nginx Ingress Controller"
+  }],
+  "name": "Kubernetes Nginx Ingress Controller",
+  "description": "Dashboard for Nginx Ingress Controller",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##dashboardName## Client Connections (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "nginxIngressNginxConnectionsHandled",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Nginx Ingress Controller (Kubernetes_Nginx_IngressController)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "olive",
+                "legend": "Connections Handled",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "ConnectionsHandled",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "nginxIngressNginxConnectionsReading",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Nginx Ingress Controller (Kubernetes_Nginx_IngressController)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "orange2",
+                "legend": "Connections Reading",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "ConnectionsReading",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "nginxIngressNginxConnectionsWaiting",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Nginx Ingress Controller (Kubernetes_Nginx_IngressController)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "yellow",
+                "legend": "Connections Waiting",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "ConnectionsWaiting",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "nginxIngressNginxConnectionsWriting",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Nginx Ingress Controller (Kubernetes_Nginx_IngressController)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "red1",
+                "legend": "Connections Writing",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "ConnectionsWriting",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "connections",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "nginxIngressNginxConnectionsActive",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Nginx Ingress Controller (Kubernetes_Nginx_IngressController)",
+            "name": "connectionsActive",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "connectionsActive",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Connections Active",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##dashboardName##",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 15,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "name": "##dashboardName## Alert Detail",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "anomaly": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
+          "keyword": "",
+          "dataSource": "Kubernetes%20Nginx%20Ingress%20Controller",
+          "cleared": "no",
+          "group": "%23%23defaultResourceGroup%23%23*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 3,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "nginxIngressNginxConnectionsReading",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Nginx Ingress Controller (Kubernetes_Nginx_IngressController)",
+            "name": "connectionsReading",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "connectionsReading",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Connections Reading",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##dashboardName##",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "nginxIngressNginxConnectionsWaiting",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Nginx Ingress Controller (Kubernetes_Nginx_IngressController)",
+            "name": "connectionsWaiting",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "connectionsWaiting",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Connections Waiting",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##dashboardName##",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "nginxIngressNginxConnectionsWriting",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes Nginx Ingress Controller (Kubernetes_Nginx_IngressController)",
+            "name": "connectionsWriting",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "connectionsWriting",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Connections Writing",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##dashboardName##",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##dashboardName## Metric Handler Requests (Trend)",
+        "description": "Prom Metric Handler Requests",
+        "theme": "newSolidDarkBlue",
+        "interval": 1,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "nginxIngressNginxHttpRequestsTotal",
+            "instanceId": null,
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Kubernetes Nginx Ingress Controller (Kubernetes_Nginx_IngressController)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##DATASOURCENAME##_nginxIngressNginxHttpRequestsTotal",
+              "type": "column",
+              "option": "custom"
+            },
+            "name": "nginxIngressNginxHttpRequestsTotal",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "requests",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##dashboardName## Resources (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "nginxIngressControllerIngressResourcesTotalMaster",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Nginx Ingress Controller (Kubernetes_Nginx_IngressController)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "maroon",
+                "legend": "Total Master Resources",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "ResourcesTotalMaster",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "nginxIngressControllerIngressResourcesTotalMinion",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Nginx Ingress Controller (Kubernetes_Nginx_IngressController)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "aqua",
+                "legend": "Total Minion Resources",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "ResourcesTotalMinion",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "nginxIngressControllerIngressResourcesTotalRegular",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Nginx Ingress Controller (Kubernetes_Nginx_IngressController)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "lime",
+                "legend": "Total Regular Resources",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "ResourcesTotalRegular",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "resources",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##dashboardName## Reloads (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "nginxIngressControllerNginxReloadErrorsTotal",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Nginx Ingress Controller (Kubernetes_Nginx_IngressController)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "red",
+                "legend": "ReloadErrors",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "ReloadErrorsTotal",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "nginxIngressControllerNginxReloadsTotalEndpoints",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Nginx Ingress Controller (Kubernetes_Nginx_IngressController)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "green",
+                "legend": "ReloadEndpoints",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "ReloadsTotalEndpoints",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "nginxIngressControllerNginxReloadsTotalOther",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes Nginx Ingress Controller (Kubernetes_Nginx_IngressController)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "black",
+                "legend": "ReloadOthers",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "ReloadsTotalOther",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "reloads",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 8,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 601,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            nginx Status\n            \n        ",
+              "columnSize": 120,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Work Queue Depth\n            \n        ",
+              "columnSize": 146,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            LastReload\n            \n        ",
+              "columnSize": 132,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Last Reload Status\n            \n        ",
+              "columnSize": 197,
+              "columnKey": "3"
+            }
+          ],
+          "pageSize": "25"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "nginxIngressNginxUp",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " (1=Up)",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "nginx Status",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "nginxIngressControllerWorkqueueDepth",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " items",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Work Queue Depth",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "LastReload/1000/60/60",
+            "dataPointName": "nginxIngressControllerNginxLastReloadMilliseconds",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " hours",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "LastReload",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "nginxIngressControllerNginxLastReloadStatus",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " (1=Up)",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Last Reload Status",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 10,
+        "dataSourceFullName": "Kubernetes Nginx Ingress Controller (Kubernetes_Nginx_IngressController)",
+        "sortOrder": "descending",
+        "name": "##dashboardName##",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": false,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 3,
+        "name": "##dashboardName## Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##RESOURCENAME##",
+          "dataSourceDisplayName": "Kubernetes Nginx Ingress Controller",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    }
+  ],
+  "version": 2
+}

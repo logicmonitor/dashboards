@@ -1,0 +1,796 @@
+{
+  "santabaRelease": 196,
+  "widgetTokens": [{
+    "name": "dashboardName",
+    "value": "Kubernetes etcd"
+  }],
+  "name": "Kubernetes etcd",
+  "description": "This dashboard is used to monitor internal etcd static pods metrics",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 7,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##dashboardName## Go Threads (Trend)",
+        "description": "Number of OS threads created.",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "goThreads",
+            "instanceId": null,
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Kubernetes etcd (Kubernetes_etcd)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "olive",
+              "legend": "##DATASOURCENAME##_goThreads",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "goThreads",
+            "aggregateFunction": "AVERAGE",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "threads",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 3,
+        "row": 7,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##dashboardName## Storage Quota (Trend)",
+        "description": "Current backend storage quota size in bytes.",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "etcdServerQuotaBackendBytes",
+            "instanceId": null,
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Kubernetes etcd (Kubernetes_etcd)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "orange2",
+              "legend": "etc Server Backend Quota",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "etcdServerQuotaBackendBytes",
+            "aggregateFunction": "AVERAGE",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "requests",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 1,
+        "sizey": 3
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "healthy",
+            "instanceName": "*",
+            "dataSourceFullName": "Kubernetes etcd (Kubernetes_etcd)",
+            "name": "healthy",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "healthy",
+            "useCommaSeparators": false,
+            "bottomLabel": "Healthy Kubernetes etcd Pods",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": [{
+              "level": 2,
+              "threshold": 1,
+              "relation": ">"
+            }]
+          }]
+        },
+        "displaySettings": {},
+        "name": "##dashboardName## Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 1,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 9,
+        "row": 1,
+        "sizey": 3
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 2,
+        "name": "##dashboardName## Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##INSTANCE## - ##RESOURCENAME##",
+          "dataSourceDisplayName": "Kubernetes etcd",
+          "groupBy": "instance",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 10,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "name": "Kubernetes etcd Alert Detail",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "anomaly": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
+          "keyword": "",
+          "dataSource": "Kubernetes%20etcd",
+          "cleared": "no",
+          "group": "%23%23defaultResourceGroup%23%23*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 7,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##dashboardName## Disk Latency (Trend)",
+        "description": "The latency distributions of commit called by backend and the latency distribution of backend defragmentation.",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "etcdDiskBackendCommitDurationSeconds",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes etcd (Kubernetes_etcd)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "green",
+                "legend": "etcd Disk Backend Commit Duration",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "etcdDiskBackendCommitDurationSeconds",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "etcdDiskBackendDefragDurationSeconds",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes etcd (Kubernetes_etcd)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "orange2",
+                "legend": "etcd Disk Backend Defrag Duration",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "etcdDiskBackendDefragDurationSeconds",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "seconds",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 3,
+        "row": 7,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##dashboardName## Process Virtual Memory (Trend)",
+        "description": "Virtual memory size in bytes.",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "processVirtualMemoryBytes",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes etcd (Kubernetes_etcd)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "yellow",
+                "legend": "Virtual Memory",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "processVirtualMemoryBytes",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "processResidentMemoryBytes",
+              "instanceId": null,
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Kubernetes etcd (Kubernetes_etcd)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "silver",
+                "legend": "Resident Memory",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "processResidentMemoryBytes",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bytes",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 8,
+        "row": 4,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 113,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Health Failures\n            \n        ",
+              "columnSize": 106,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Health Success\n            \n        ",
+              "columnSize": 123,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            mvcc Deletes\n            \n        ",
+              "columnSize": 111,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            mvcc Puts\n            \n        ",
+              "columnSize": 106,
+              "columnKey": "3"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Disk Defrags Inflight\n            \n        ",
+              "columnSize": 139,
+              "columnKey": "4"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Slow Read Indexes\n            \n        ",
+              "columnSize": 124,
+              "columnKey": "5"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Snapshot Applies In Progress\n            \n        ",
+              "columnSize": 180,
+              "columnKey": "6"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Slow Applies\n            \n        ",
+              "columnSize": 88,
+              "columnKey": "7"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Heartbeat Send Failures\n            \n        ",
+              "columnSize": 114,
+              "columnKey": "8"
+            }
+          ],
+          "pageSize": "5"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "etcdServerHealthFailures",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " failures",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Health Failures",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "etcdServerHealthSuccess",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " successes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Health Success",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "mvccDeleteTotal",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " deletes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "mvcc Deletes",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "mvccPutTotal",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " puts",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "mvcc Puts",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "etcdDiskDefragInflight",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " defrags",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Disk Defrags Inflight",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "etcdServerSlowReadIndexesTotal",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " indexes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Slow Read Indexes",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "etcdServerSnapshotApplyInProgressTotal",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " snapshots",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Snapshot Applies In Progress",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "etcdServerSlowApplyTotal",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " applies",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Slow Applies",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "etcdServerHeartbeatSendFailuresTotal",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " failures",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Heartbeat Send Failures",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##INSTANCE## - ##RESOURCENAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": -1,
+        "dataSourceFullName": "Kubernetes etcd (Kubernetes_etcd)",
+        "sortOrder": "descending",
+        "name": "##dashboardName## Statistics (Realtime)",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 4,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##dashboardName## mvcc DB Utilization",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "pieChart",
+        "timescale": "day",
+        "pieChartInfo": {
+          "maxSlicesCanBeShown": 10,
+          "virtualDataPoints": [],
+          "showLabelsAndLinesOnPC": true,
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "mvccDBTotalSizeInUseInBytes",
+              "top10": true,
+              "instanceName": "*",
+              "dataSourceFullName": "Kubernetes etcd (Kubernetes_etcd)",
+              "name": "mvccDBTotalSizeInUseInBytes",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*",
+              "aggregate": false
+            },
+            {
+              "dataPointName": "mvccDBFreeSizeInBytes",
+              "top10": true,
+              "instanceName": "*",
+              "dataSourceFullName": "Kubernetes etcd (Kubernetes_etcd)",
+              "name": "mvccDBFreeSizeInBytes",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*",
+              "aggregate": false
+            }
+          ],
+          "hideZeroPercentSlices": false,
+          "groupRemainingAsOthers": false,
+          "pieChartItems": [
+            {
+              "dataPointName": "mvccDBTotalSizeInUseInBytes",
+              "color": "Auto",
+              "legend": "##INSTANCE## mvcc db used bytes"
+            },
+            {
+              "dataPointName": "mvccDBFreeSizeInBytes",
+              "color": "Auto",
+              "legend": "##INSTANCE## mvcc db free bytes"
+            }
+          ],
+          "title": "##dashboardName## mvcc DB Utilization"
+        },
+        "version": 2
+      }
+    }
+  ],
+  "version": 2
+}
