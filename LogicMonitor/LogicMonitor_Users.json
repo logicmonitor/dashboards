@@ -1,0 +1,1052 @@
+{
+  "santabaRelease": 204,
+  "widgetTokens": [{
+    "name": "defaultResourceGroup",
+    "value": "*"
+  }],
+  "name": "LogicMonitor Users",
+  "description": "",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 8,
+        "sizex": 5,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "LogicMonitor Users - Aggregate Active Users",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "totalUsers - activeUsers",
+            "display": {
+              "color": "red",
+              "legend": "Inactive users",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "inactiveUsers"
+          }],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "activeUsers",
+              "instanceName": {
+                "isGlob": false,
+                "value": "LogicMonitor_Portal_Users"
+              },
+              "dataSourceFullName": "LogicMonitor Users (LogicMonitor_Portal_Users)",
+              "consolidateFunction": "max",
+              "display": {
+                "color": "olive",
+                "legend": "Active users",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "activeUsers",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "recentUsers",
+              "instanceName": {
+                "isGlob": false,
+                "value": "LogicMonitor_Portal_Users"
+              },
+              "dataSourceFullName": "LogicMonitor Users (LogicMonitor_Portal_Users)",
+              "consolidateFunction": "max",
+              "display": {
+                "color": "navy",
+                "legend": "Recent users",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "recentUsers",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "sessionUsers",
+              "instanceName": {
+                "isGlob": false,
+                "value": "LogicMonitor_Portal_Users"
+              },
+              "dataSourceFullName": "LogicMonitor Users (LogicMonitor_Portal_Users)",
+              "consolidateFunction": "max",
+              "display": {
+                "color": "yellow",
+                "legend": "Session users",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "sessionUsers",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "totalUsers",
+              "instanceName": {
+                "isGlob": false,
+                "value": "LogicMonitor_Portal_Users"
+              },
+              "dataSourceFullName": "LogicMonitor Users (LogicMonitor_Portal_Users)",
+              "consolidateFunction": "max",
+              "display": {
+                "color": "black",
+                "legend": "Total users",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "totalUsers",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "users",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1month",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "totalUsers",
+            "instanceName": "*",
+            "dataSourceFullName": "LogicMonitor Users (LogicMonitor_Portal_Users)",
+            "name": "users",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "users",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Total Users",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "User Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 3,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "activeUsers",
+            "instanceName": "*",
+            "dataSourceFullName": "LogicMonitor Users (LogicMonitor_Portal_Users)",
+            "name": "users",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "users",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Active Users",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "User Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 8,
+        "sizex": 5,
+        "row": 10,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "LogicMonitor Aggregate Users - 2FA Enabled Users (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "totalUsers - twoFAEnabled",
+            "display": {
+              "color": "red",
+              "legend": "Users without two-factor authentication",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "no2FA"
+          }],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "totalUsers",
+              "instanceName": {
+                "isGlob": false,
+                "value": "LogicMonitor_Portal_Users"
+              },
+              "dataSourceFullName": "LogicMonitor Users (LogicMonitor_Portal_Users)",
+              "consolidateFunction": "max",
+              "display": {
+                "color": "black",
+                "legend": "Total users",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "totalUsers",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "twoFAEnabled",
+              "instanceName": {
+                "isGlob": false,
+                "value": "LogicMonitor_Portal_Users"
+              },
+              "dataSourceFullName": "LogicMonitor Users (LogicMonitor_Portal_Users)",
+              "consolidateFunction": "max",
+              "display": {
+                "color": "olive",
+                "legend": "Users with two-factor authentication enabled",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "twoFAEnabled",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "users",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1month",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 3,
+        "sizex": 5,
+        "row": 10,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "LogicMonitor Aggregate Users - API Users (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "totalUsers - apiAccessUsers",
+            "display": {
+              "color": "yellow",
+              "legend": "Users without API access",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "noAPI"
+          }],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "apiOnly",
+              "instanceName": {
+                "isGlob": false,
+                "value": "LogicMonitor_Portal_Users"
+              },
+              "dataSourceFullName": "LogicMonitor Users (LogicMonitor_Portal_Users)",
+              "consolidateFunction": "max",
+              "display": {
+                "color": "navy",
+                "legend": "API only accounts",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "apiOnly",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "apiAccessUsers",
+              "instanceName": {
+                "isGlob": false,
+                "value": "LogicMonitor_Portal_Users"
+              },
+              "dataSourceFullName": "LogicMonitor Users (LogicMonitor_Portal_Users)",
+              "consolidateFunction": "max",
+              "display": {
+                "color": "olive",
+                "legend": "Users with API access",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "apiAccessUsers",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "totalUsers",
+              "instanceName": {
+                "isGlob": false,
+                "value": "LogicMonitor_Portal_Users"
+              },
+              "dataSourceFullName": "LogicMonitor Users (LogicMonitor_Portal_Users)",
+              "consolidateFunction": "max",
+              "display": {
+                "color": "black",
+                "legend": "Total users",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "totalUsers",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "users",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "7days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "recentUsers",
+            "instanceName": "*",
+            "dataSourceFullName": "LogicMonitor Users (LogicMonitor_Portal_Users)",
+            "name": "users",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "users",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Recent Users (Last 7 Days)",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "User Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "sessionUsers",
+            "instanceName": "*",
+            "dataSourceFullName": "LogicMonitor Users (LogicMonitor_Portal_Users)",
+            "name": "users",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "users",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Session Users",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "User Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "twoFAEnabled",
+            "instanceName": "*",
+            "dataSourceFullName": "LogicMonitor Users (LogicMonitor_Portal_Users)",
+            "name": "users",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "users",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "2FA Enabled Users",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "User Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 2,
+        "row": 12,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "apiOnly",
+            "instanceName": "*",
+            "dataSourceFullName": "LogicMonitor Users (LogicMonitor_Portal_Users)",
+            "name": "users",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "users",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "API Only Users",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "User Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "userRoles",
+            "instanceName": "*",
+            "dataSourceFullName": "LogicMonitor Users (LogicMonitor_Portal_Users)",
+            "name": "users",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "users",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "User Roles",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "User Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 2,
+        "row": 10,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "apiAccessUsers",
+            "instanceName": "*",
+            "dataSourceFullName": "LogicMonitor Users (LogicMonitor_Portal_Users)",
+            "name": "users",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "users",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "API Access Users",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "User Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 7,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 257,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Total\n            \n        ",
+              "columnSize": 86,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Active\n            \n        ",
+              "columnSize": 93,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            2FA Enabled\n            \n        ",
+              "columnSize": 111,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Recent (< 7 Days)\n            \n        ",
+              "columnSize": 136,
+              "columnKey": "3"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Session\n            \n        ",
+              "columnSize": 77,
+              "columnKey": "4"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            API Enabled\n            \n        ",
+              "columnSize": 95,
+              "columnKey": "5"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            API Only\n            \n        ",
+              "columnSize": 88,
+              "columnKey": "6"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            User Roles\n            \n        ",
+              "columnSize": 102,
+              "columnKey": "7"
+            }
+          ],
+          "pageSize": "10"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "totalUsers",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " users",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Total",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "activeUsers",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " users",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Active",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "twoFAEnabled",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " users",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "2FA Enabled",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "recentUsers",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " users",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Recent (Last 7 Days)",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "sessionUsers",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " users",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Session",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "apiAccessUsers",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " users",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "API Enabled",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "apiOnly",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " users",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "API Only",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "userRoles",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " roles",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "User Roles",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": -1,
+        "dataSourceFullName": "LogicMonitor Users (LogicMonitor_Portal_Users)",
+        "sortOrder": "descending",
+        "name": "LogicMonitor User Statistics (Realtime)",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 7,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "LogicMonitor User Distribution",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "pieChart",
+        "timescale": "day",
+        "pieChartInfo": {
+          "maxSlicesCanBeShown": 25,
+          "virtualDataPoints": [],
+          "showLabelsAndLinesOnPC": true,
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "totalUsers",
+            "top10": false,
+            "instanceName": "*",
+            "dataSourceFullName": "LogicMonitor Users (LogicMonitor_Portal_Users)",
+            "name": "totalUsers",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*",
+            "aggregate": false
+          }],
+          "hideZeroPercentSlices": true,
+          "groupRemainingAsOthers": false,
+          "pieChartItems": [{
+            "dataPointName": "totalUsers",
+            "color": "Auto",
+            "legend": "##RESOURCENAME##"
+          }],
+          "title": "LogicMonitor User Distribution"
+        },
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 7,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top LogicMonitor Portals by Active Users (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "totalUsers - activeUsers",
+            "display": {
+              "color": null,
+              "legend": null,
+              "type": "line",
+              "option": "none"
+            },
+            "name": "inactiveUsers"
+          }],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "activeUsers",
+              "instanceName": {
+                "isGlob": false,
+                "value": "LogicMonitor_Portal_Users"
+              },
+              "dataSourceFullName": "LogicMonitor Users (LogicMonitor_Portal_Users)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "activeUsers",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "recentUsers",
+              "instanceName": {
+                "isGlob": false,
+                "value": "LogicMonitor_Portal_Users"
+              },
+              "dataSourceFullName": "LogicMonitor Users (LogicMonitor_Portal_Users)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "recentUsers",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "sessionUsers",
+              "instanceName": {
+                "isGlob": false,
+                "value": "LogicMonitor_Portal_Users"
+              },
+              "dataSourceFullName": "LogicMonitor Users (LogicMonitor_Portal_Users)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "sessionUsers",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "totalUsers",
+              "instanceName": {
+                "isGlob": false,
+                "value": "LogicMonitor_Portal_Users"
+              },
+              "dataSourceFullName": "LogicMonitor Users (LogicMonitor_Portal_Users)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## total users",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "totalUsers",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "users",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1month",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2
+}

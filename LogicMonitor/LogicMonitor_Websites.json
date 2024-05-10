@@ -1,0 +1,813 @@
+{
+  "santabaRelease": 204,
+  "widgetTokens": [{
+    "name": "defaultResourceGroup",
+    "value": "*"
+  }],
+  "name": "LogicMonitor Websites",
+  "description": "",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "totalWebsites",
+            "instanceName": "*",
+            "dataSourceFullName": "LogicMonitor Websites (LogicMonitor_Portal_Websites)",
+            "name": "websites",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "websites",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Websites - Total",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Website Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 3,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "aliveWebsites",
+            "instanceName": "*",
+            "dataSourceFullName": "LogicMonitor Websites (LogicMonitor_Portal_Websites)",
+            "name": "websites",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "websites",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Websites - Alive",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Website Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 3,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "deadWebsites",
+            "instanceName": "*",
+            "dataSourceFullName": "LogicMonitor Websites (LogicMonitor_Portal_Websites)",
+            "name": "websites",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "websites",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Websites - Dead",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Website Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "sdtWebsites",
+            "instanceName": "*",
+            "dataSourceFullName": "LogicMonitor Websites (LogicMonitor_Portal_Websites)",
+            "name": "websites",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "websites",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Websites - In SDT",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Website Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "LogicMonitor Websites Aggregate Alert Status (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "totalWebsites - inAlertCritical - inAlertError - inAlertWarn",
+            "display": {
+              "color": "olive",
+              "legend": "No alerts",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "noAlert"
+          }],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "inAlertCritical",
+              "instanceName": {
+                "isGlob": false,
+                "value": "LogicMonitor_Portal_Websites"
+              },
+              "dataSourceFullName": "LogicMonitor Websites (LogicMonitor_Portal_Websites)",
+              "consolidateFunction": "max",
+              "display": {
+                "color": "red",
+                "legend": "Critical",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "inAlertCritical",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "inAlertError",
+              "instanceName": {
+                "isGlob": false,
+                "value": "LogicMonitor_Portal_Websites"
+              },
+              "dataSourceFullName": "LogicMonitor Websites (LogicMonitor_Portal_Websites)",
+              "consolidateFunction": "max",
+              "display": {
+                "color": "orange2",
+                "legend": "Error",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "inAlertError",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "inAlertWarn",
+              "instanceName": {
+                "isGlob": false,
+                "value": "LogicMonitor_Portal_Websites"
+              },
+              "dataSourceFullName": "LogicMonitor Websites (LogicMonitor_Portal_Websites)",
+              "consolidateFunction": "max",
+              "display": {
+                "color": "yellow",
+                "legend": "Warn",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "inAlertWarn",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "totalWebsites",
+              "instanceName": {
+                "isGlob": false,
+                "value": "LogicMonitor_Portal_Websites"
+              },
+              "dataSourceFullName": "LogicMonitor Websites (LogicMonitor_Portal_Websites)",
+              "consolidateFunction": "max",
+              "display": {
+                "color": "black",
+                "legend": "Total websites",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "totalWebsites",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "websites",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1month",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "LogicMonitor Websites - Website States (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "alertsDisabled",
+              "instanceName": {
+                "isGlob": false,
+                "value": "LogicMonitor_Portal_Websites"
+              },
+              "dataSourceFullName": "LogicMonitor Websites (LogicMonitor_Portal_Websites)",
+              "consolidateFunction": "max",
+              "display": {
+                "color": "red",
+                "legend": "Alerts disabled",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "alertsDisabled",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "monitoringDisabled",
+              "instanceName": {
+                "isGlob": false,
+                "value": "LogicMonitor_Portal_Websites"
+              },
+              "dataSourceFullName": "LogicMonitor Websites (LogicMonitor_Portal_Websites)",
+              "consolidateFunction": "max",
+              "display": {
+                "color": "yellow",
+                "legend": "Monitoring disabled",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "monitoringDisabled",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "sdtWebsites",
+              "instanceName": {
+                "isGlob": false,
+                "value": "LogicMonitor_Portal_Websites"
+              },
+              "dataSourceFullName": "LogicMonitor Websites (LogicMonitor_Portal_Websites)",
+              "consolidateFunction": "max",
+              "display": {
+                "color": "blue",
+                "legend": "In SDT",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "sdtWebsites",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "totalWebsites",
+              "instanceName": {
+                "isGlob": false,
+                "value": "LogicMonitor_Portal_Websites"
+              },
+              "dataSourceFullName": "LogicMonitor Websites (LogicMonitor_Portal_Websites)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "totalWebsites",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "websites",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1month",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 8,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 243,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Total\n            \n        ",
+              "columnSize": 90,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Alive\n            \n        ",
+              "columnSize": 94,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Dead\n            \n        ",
+              "columnSize": 96,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            SDT\n            \n        ",
+              "columnSize": 83,
+              "columnKey": "3"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Critical\n            \n        ",
+              "columnSize": 82,
+              "columnKey": "4"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Error\n            \n        ",
+              "columnSize": 84,
+              "columnKey": "5"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Warn\n            \n        ",
+              "columnSize": 88,
+              "columnKey": "6"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Alerts Disabled\n            \n        ",
+              "columnSize": 116,
+              "columnKey": "7"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Monitoring Disabled\n            \n        ",
+              "columnSize": 220,
+              "columnKey": "8"
+            }
+          ],
+          "pageSize": "10"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "totalWebsites",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " websites",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Total",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "aliveWebsites",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " websites",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Alive",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "deadWebsites",
+            "displayType": "colorBar",
+            "minValue": -1,
+            "unitLabel": " websites",
+            "maxValue": 0,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 0,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 0,
+                "relation": ">"
+              }
+            ],
+            "columnName": "Dead",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "sdtWebsites",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " websites",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "SDT",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "inAlertCritical",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " websites",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Critical",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "inAlertError",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " websites",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Error",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "inAlertWarn",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " websites",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Warn",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "alertsDisabled",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " websites",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Alerts Disabled",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "monitoringDisabled",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " websites",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Monitoring Disabled",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 25,
+        "dataSourceFullName": "LogicMonitor Websites (LogicMonitor_Portal_Websites)",
+        "sortOrder": "descending",
+        "name": "Website Statistics - Realtime",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "LogicMonitor Websites - Total Websites (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "aliveWebsites",
+              "instanceName": {
+                "isGlob": false,
+                "value": "LogicMonitor_Portal_Websites"
+              },
+              "dataSourceFullName": "LogicMonitor Websites (LogicMonitor_Portal_Websites)",
+              "consolidateFunction": "max",
+              "display": {
+                "color": "olive",
+                "legend": "Alive websites",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "aliveWebsites",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "deadWebsites",
+              "instanceName": {
+                "isGlob": false,
+                "value": "LogicMonitor_Portal_Websites"
+              },
+              "dataSourceFullName": "LogicMonitor Websites (LogicMonitor_Portal_Websites)",
+              "consolidateFunction": "max",
+              "display": {
+                "color": "red",
+                "legend": "Dead websites",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "deadWebsites",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "totalWebsites",
+              "instanceName": {
+                "isGlob": false,
+                "value": "LogicMonitor_Portal_Websites"
+              },
+              "dataSourceFullName": "LogicMonitor Websites (LogicMonitor_Portal_Websites)",
+              "consolidateFunction": "max",
+              "display": {
+                "color": "black",
+                "legend": "Total websites",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "totalWebsites",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "websites",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1month",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Website Distribution",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "pieChart",
+        "timescale": "day",
+        "pieChartInfo": {
+          "maxSlicesCanBeShown": 25,
+          "virtualDataPoints": [],
+          "showLabelsAndLinesOnPC": true,
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "totalWebsites",
+            "top10": false,
+            "instanceName": "*",
+            "dataSourceFullName": "LogicMonitor Websites (LogicMonitor_Portal_Websites)",
+            "name": "totalWebsites",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*",
+            "aggregate": false
+          }],
+          "hideZeroPercentSlices": true,
+          "groupRemainingAsOthers": false,
+          "pieChartItems": [{
+            "dataPointName": "totalWebsites",
+            "color": "Auto",
+            "legend": "##RESOURCENAME##"
+          }],
+          "title": "Website Distribution"
+        },
+        "version": 2
+      }
+    }
+  ],
+  "version": 2
+}
