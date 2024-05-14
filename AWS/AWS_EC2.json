@@ -1,5 +1,5 @@
 {
-  "santabaRelease": 141,
+  "santabaRelease": 204,
   "widgetTokens": [{
     "name": "defaultResourceName",
     "value": "*"
@@ -12,9 +12,289 @@
   "widgets": [
     {
       "position": {
+        "col": 9,
+        "sizex": 2,
+        "row": 20,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Stopped_Instances",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && system.aws.stateName == \"stopped\" && system.aws.ebsOptimized == \"true\""
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Stopped_Instances",
+            "useCommaSeparators": false,
+            "bottomLabel": "Stopped EBS-optimized Instances",
+            "rounding": 0,
+            "position": 2,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## EBS-optimized EC2 Instance Inventory",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 18,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Running_Instances",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && system.aws.stateName == \"running\" && system.aws.ebsOptimized == \"true\""
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Running_Instances",
+            "useCommaSeparators": false,
+            "bottomLabel": "Running EBS-optimized Instances",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## EBS-optimized EC2 Instance Inventory",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 20,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Terminated_Instances",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && system.aws.stateName == \"terminated\" && system.aws.ebsOptimized == \"true\""
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Terminated_Instances",
+            "useCommaSeparators": false,
+            "bottomLabel": "Terminated EBS-optimized Instances",
+            "rounding": 0,
+            "position": 3,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## EBS-optimized EC2 Instance Inventory",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 8,
+        "row": 18,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 417,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            CPU Utilization\n            \n        ",
+              "columnSize": 104,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Disk Read\n            \n        ",
+              "columnSize": 91,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Disk Write\n            \n        ",
+              "columnSize": 93,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Network Ingress\n            \n        ",
+              "columnSize": 112,
+              "columnKey": "3"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Network Egress\n            \n        ",
+              "columnSize": 104,
+              "columnKey": "4"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Instance Status\n            \n        ",
+              "columnSize": 103,
+              "columnKey": "5"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            System Status\n            \n        ",
+              "columnSize": 172,
+              "columnKey": "6"
+            }
+          ],
+          "pageSize": "15"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "CPUUtilization",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [{
+              "level": 2,
+              "threshold": 95,
+              "relation": ">"
+            }],
+            "columnName": "CPU Utilization",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "EBSReadIOPS",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " IOPS",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Disk Read",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "EBSWriteIOPS",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " IOPS",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Disk Write",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "NetworkIn",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " Mbps",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Network Ingress",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "NetworkOut",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " Mbps",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Network Egress",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "StatusCheckFailed_Instance",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Instance Status",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "StatusCheckFailed_System",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "System Status",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME##",
+          "deviceDisplayName": "##defaultResourceName##",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 25,
+        "dataSourceFullName": "EC2 (AWS_EC2_EBS)",
+        "sortOrder": "descending",
+        "name": "##defaultResourceGroup## EBS-optimized EC2 Instances (Real-time)",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
         "col": 1,
         "sizex": 12,
-        "row": 18,
+        "row": 30,
         "sizey": 4
       },
       "config": {
@@ -30,37 +310,38 @@
             {
               "visible": true,
               "columnLabel": "Began",
+              "columnSize": 220,
               "columnKey": "alert-began"
             },
             {
               "visible": true,
               "columnLabel": "Resource/Website",
+              "columnSize": 317,
               "columnKey": "alert-device"
             },
             {
               "visible": true,
               "columnLabel": "LogicModule",
+              "columnSize": 202,
               "columnKey": "alert-datasource"
             },
             {
               "visible": true,
               "columnLabel": "Instance",
+              "columnSize": 392,
               "columnKey": "alert-datasource-instance"
             },
             {
               "visible": true,
               "columnLabel": "Datapoint",
+              "columnSize": 246,
               "columnKey": "alert-datapoint"
             },
             {
               "visible": true,
               "columnLabel": "Value",
+              "columnSize": 120,
               "columnKey": "alert-value"
-            },
-            {
-              "visible": true,
-              "columnLabel": "Effective Thresholds",
-              "columnKey": "alert-thresholds"
             },
             {
               "visible": false,
@@ -123,6 +404,18 @@
               "columnKey": "alert-dependency-role"
             },
             {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnSize": 103,
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnSize": 143,
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
               "visible": false,
               "columnLabel": "Dependent Alerts",
               "columnKey": "alert-dependent-alerts"
@@ -141,6 +434,7 @@
           "sdted": "all",
           "chain": "",
           "instance": "",
+          "anomaly": "all",
           "dataPoint": "",
           "rule": "",
           "acked": "all",
@@ -175,7 +469,7 @@
         "type": "noc",
         "version": 2,
         "displayErrorAlert": true,
-        "displayColumn": 7,
+        "displayColumn": 8,
         "name": "##defaultResourceGroup## EC2 Instance Alert Status",
         "displayCriticalAlert": true,
         "theme": "newSolidDarkBlue",
@@ -198,234 +492,105 @@
     {
       "position": {
         "col": 9,
-        "sizex": 4,
-        "row": 7,
-        "sizey": 3
+        "sizex": 2,
+        "row": 5,
+        "sizey": 2
       },
       "config": {
-        "displaySettings": {},
-        "name": "##defaultResourceGroup## EC2 Service Limit Utilization",
-        "description": "",
-        "theme": "newBorderDarkBlue",
-        "interval": 3,
-        "graphInfo": {
+        "bigNumberInfo": {
           "virtualDataPoints": [],
-          "minValue": 0,
-          "topX": 10,
-          "maxValue": 100,
-          "dataPoints": [{
-            "dataPointName": "InstanceUtilization",
-            "instanceName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "dataSourceFullName": "EC2 Service Limits (AWS_EC2_ServiceLimits)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "Auto",
-              "legend": "##INSTANCE## - ##RESOURCENAME##",
-              "type": "area",
-              "option": "custom"
-            },
-            "name": "EC2ServiceLimitUtilization",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "##defaultResourceName##"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##*"
-            }
+          "counters": [{
+            "name": "Stopped_Instances",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && system.aws.stateName == \"stopped\""
           }],
-          "verticalLabel": "percent used",
-          "aggregate": false,
-          "desc": true,
-          "scaleUnit": 1000,
-          "globalConsolidateFunction": "VaST"
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Stopped_Instances",
+            "useCommaSeparators": false,
+            "bottomLabel": "Stopped Instances",
+            "rounding": 0,
+            "position": 2,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
         },
-        "type": "cgraph",
-        "timescale": "1month",
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## EC2 Instance Inventory",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
         "version": 2
       }
     },
     {
       "position": {
-        "col": 5,
-        "sizex": 4,
-        "row": 14,
-        "sizey": 4
+        "col": 11,
+        "sizex": 2,
+        "row": 5,
+        "sizey": 2
       },
       "config": {
-        "displaySettings": {},
-        "name": "Top ##defaultResourceGroup## EC2 Instances by Total IOPS (Trend)",
-        "description": "",
-        "theme": "newBorderDarkBlue",
-        "interval": 3,
-        "graphInfo": {
-          "virtualDataPoints": [{
-            "rpn": "DiskWriteIOPS + DiskReadIOPS",
-            "display": {
-              "color": "Auto",
-              "legend": "##RESOURCENAME##",
-              "type": "line",
-              "option": "custom"
-            },
-            "name": "total_IOPS"
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Terminated_Instances",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && system.aws.stateName == \"terminated\""
           }],
-          "minValue": 0,
-          "topX": 10,
-          "maxValue": "NaN",
-          "dataPoints": [
-            {
-              "dataPointName": "DiskWriteIOPS",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "EC2 (AWS_EC2)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": null,
-                "legend": null,
-                "type": "line",
-                "option": "none"
-              },
-              "name": "DiskWriteIOPS",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "##defaultResourceName##"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "##defaultResourceGroup##*"
-              }
-            },
-            {
-              "dataPointName": "DiskReadIOPS",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "EC2 (AWS_EC2)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": null,
-                "legend": null,
-                "type": "line",
-                "option": "none"
-              },
-              "name": "DiskReadIOPS",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "##defaultResourceName##"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "##defaultResourceGroup##*"
-              }
-            }
-          ],
-          "verticalLabel": "operations per second",
-          "aggregate": false,
-          "desc": true,
-          "scaleUnit": 1000,
-          "globalConsolidateFunction": "VaST"
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Terminated_Instances",
+            "useCommaSeparators": false,
+            "bottomLabel": "Terminated Instances",
+            "rounding": 0,
+            "position": 3,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
         },
-        "type": "cgraph",
-        "timescale": "2days",
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## EC2 Instance Inventory",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
         "version": 2
       }
     },
     {
       "position": {
-        "col": 1,
+        "col": 9,
         "sizex": 4,
-        "row": 14,
-        "sizey": 4
+        "row": 3,
+        "sizey": 2
       },
       "config": {
-        "displaySettings": {},
-        "name": "Top ##defaultResourceGroup## EC2 Instances by Total Network Throughput (Trend)",
-        "description": "",
-        "theme": "newBorderDarkBlue",
-        "interval": 3,
-        "graphInfo": {
-          "virtualDataPoints": [{
-            "rpn": "NetworkInMbps + NetworkOutMbps",
-            "display": {
-              "color": "Auto",
-              "legend": "##RESOURCENAME##",
-              "type": "line",
-              "option": "custom"
-            },
-            "name": "total_throughput"
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Running_Instances",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && system.aws.stateName == \"running\""
           }],
-          "minValue": "NaN",
-          "topX": 10,
-          "maxValue": "NaN",
-          "dataPoints": [
-            {
-              "dataPointName": "NetworkInMbps",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "EC2 (AWS_EC2)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": null,
-                "legend": null,
-                "type": "line",
-                "option": "none"
-              },
-              "name": "NetworkInMbps",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "##defaultResourceName##"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "##defaultResourceGroup##*"
-              }
-            },
-            {
-              "dataPointName": "NetworkOutMbps",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "EC2 (AWS_EC2)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": null,
-                "legend": null,
-                "type": "line",
-                "option": "none"
-              },
-              "name": "NetworkOutMbps",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "##defaultResourceName##"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "##defaultResourceGroup##*"
-              }
-            }
-          ],
-          "verticalLabel": "Mbps",
-          "aggregate": false,
-          "desc": true,
-          "scaleUnit": 1000,
-          "globalConsolidateFunction": "VaST"
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Running_Instances",
+            "useCommaSeparators": false,
+            "bottomLabel": "Running Instances",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
         },
-        "type": "cgraph",
-        "timescale": "2days",
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## EC2 Instance Inventory",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
         "version": 2
       }
     },
@@ -620,82 +785,12 @@
       "position": {
         "col": 9,
         "sizex": 4,
-        "row": 3,
-        "sizey": 2
-      },
-      "config": {
-        "bigNumberInfo": {
-          "virtualDataPoints": [],
-          "counters": [{
-            "name": "Running_Instances",
-            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && system.aws.stateName == \"running\""
-          }],
-          "dataPoints": [],
-          "bigNumberItems": [{
-            "dataPointName": "Running_Instances",
-            "useCommaSeparators": false,
-            "bottomLabel": "Running Instances",
-            "rounding": 0,
-            "position": 1,
-            "rightLabel": "",
-            "colorThresholds": null
-          }]
-        },
-        "displaySettings": {},
-        "name": "##defaultResourceGroup## EC2 Instance Inventory",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "type": "bigNumber",
-        "timescale": "day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 11,
-        "sizex": 2,
-        "row": 5,
-        "sizey": 2
-      },
-      "config": {
-        "bigNumberInfo": {
-          "virtualDataPoints": [],
-          "counters": [{
-            "name": "Terminated_Instances",
-            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && system.aws.stateName == \"terminated\""
-          }],
-          "dataPoints": [],
-          "bigNumberItems": [{
-            "dataPointName": "Terminated_Instances",
-            "useCommaSeparators": false,
-            "bottomLabel": "Terminated Instances",
-            "rounding": 0,
-            "position": 3,
-            "rightLabel": "",
-            "colorThresholds": null
-          }]
-        },
-        "displaySettings": {},
-        "name": "##defaultResourceGroup## EC2 Instance Inventory",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "type": "bigNumber",
-        "timescale": "day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 9,
-        "sizex": 4,
-        "row": 10,
-        "sizey": 4
+        "row": 7,
+        "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Top ##defaultResourceGroup## EC2 T2 Instances by CPU Credit Balance",
+        "name": "##defaultResourceGroup## EC2 Service Limit Utilization (Trend)",
         "description": "",
         "theme": "newBorderDarkBlue",
         "interval": 3,
@@ -703,53 +798,780 @@
           "virtualDataPoints": [],
           "minValue": 0,
           "topX": 10,
-          "maxValue": "NaN",
-          "dataPoints": [{
-            "dataPointName": "CPUCreditBalance",
-            "instanceName": {
-              "isGlob": true,
-              "value": "*"
+          "maxValue": 100,
+          "dataPoints": [
+            {
+              "dataPointName": "c3_2xlarge_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## c3_2xlarge",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "c3_2xlarge_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             },
-            "dataSourceFullName": "EC2 T2 Instance Credits (AWS_EC2_T2InstanceCredits)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "Auto",
-              "legend": "##RESOURCENAME##",
-              "type": "area",
-              "option": "custom"
+            {
+              "dataPointName": "c3_4xlarge_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## c3_4xlarge",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "c3_4xlarge_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             },
-            "name": "CPUCreditBalance",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "##defaultResourceName##"
+            {
+              "dataPointName": "c3_large_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## c3_large",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "c3_large_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
+            {
+              "dataPointName": "c3_xlarge_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## c3_xlarge_",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "c3_xlarge_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "c4_2xlarge_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## c4_2xlarge",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "c4_2xlarge_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "c4_4xlarge_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## c4_4xlarge",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "c4_4xlarge_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "c4_large_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## c4_large",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "c4_large_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "c4_xlarge_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## c4_xlarge_",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "c4_xlarge_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "m1_medium_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## m1_medium",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "m1_medium_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "m3_2xlarge_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## m3_2xlarge",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "m3_2xlarge_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "m3_4xlarge_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## m3_4xlarge",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "m3_4xlarge_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "m3_large_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## m3_large",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "m3_large_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "m3_xlarge_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## m3_xlarge",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "m3_xlarge_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "m4_2xlarge_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## m4_2xlarge",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "m4_2xlarge_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "m4_4xlarge_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## m4_4xlarge",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "m4_4xlarge_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "m4_large_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## m4_large",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "m4_large_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "m4_xlarge_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## m4_xlarge",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "m4_xlarge_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "r3_2xlarge_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## r3_2xlarge",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "r3_2xlarge_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "r3_4xlarge_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## r3_4xlarge",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "r3_4xlarge_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "r3_large_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## r3_large",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "r3_large_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "r3_xlarge_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## r3_xlarge",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "r3_xlarge_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "r4_large_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## r4_large",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "r4_large_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "t1_micro_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## t1_micro",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "t1_micro_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "t2_2xlarge_OnDemandInstanceUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## t2_2xlarge",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "t2_2xlarge_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "t2_large_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## t2_large",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "t2_large_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "t2_medium_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## t2_medium",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "t2_medium_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "t2_micro_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## t2_micro",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "t2_micro_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "t2_nano_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## t2_nano",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "t2_nano_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "t2_small_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## t2_small",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "t2_small_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "t2_xlarge_OnDemandPercentUsage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 Service Limits (Trusted Advisor) (AWS_EC2_TrustedAdvisorServiceLimits)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## t2_xlarge",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "t2_xlarge_OnDemandPercentUsage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             }
-          }],
-          "verticalLabel": "credits available",
+          ],
+          "verticalLabel": "%",
           "aggregate": false,
           "desc": true,
           "scaleUnit": 1000,
           "globalConsolidateFunction": "default"
         },
         "type": "cgraph",
-        "timescale": "1month",
+        "timescale": "1day",
         "version": 2
       }
     },
     {
       "position": {
-        "col": 9,
-        "sizex": 4,
-        "row": 14,
+        "col": 1,
+        "sizex": 8,
+        "row": 22,
         "sizey": 4
       },
       "config": {
         "displaySettings": {},
-        "name": "Top ##defaultResourceGroup## EC2 Instances by Credit Usage Rate (Trend)",
+        "name": "Top ##defaultResourceGroup## EBS-optimized EC2 Instances by CPU Utilization (Trend)",
         "description": "",
         "theme": "newBorderDarkBlue",
         "interval": 3,
@@ -757,22 +1579,22 @@
           "virtualDataPoints": [],
           "minValue": 0,
           "topX": 10,
-          "maxValue": "NaN",
+          "maxValue": 100,
           "dataPoints": [{
-            "dataPointName": "CPUCreditUsageRate",
+            "dataPointName": "CPUUtilization",
             "instanceName": {
               "isGlob": true,
               "value": "*"
             },
-            "dataSourceFullName": "EC2 T2 Instance Credits (AWS_EC2_T2InstanceCredits)",
+            "dataSourceFullName": "EC2 (AWS_EC2_EBS)",
             "consolidateFunction": "average",
             "display": {
               "color": "Auto",
-              "legend": "##RESOURCENAME## CPU Credit Usage Rate",
+              "legend": "##RESOURCENAME## CPU utilization",
               "type": "line",
               "option": "custom"
             },
-            "name": "CPUCreditUsageRate",
+            "name": "CPUUtilization",
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
@@ -783,11 +1605,299 @@
               "value": "##defaultResourceGroup##"
             }
           }],
-          "verticalLabel": "credits/minute",
+          "verticalLabel": "%",
           "aggregate": false,
           "desc": true,
           "scaleUnit": 1000,
-          "globalConsolidateFunction": "default"
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 22,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top ##defaultResourceGroup## EBS-optimized EC2 Instances by EBS Burst I/O Credits Remaining (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "EBSIOBalancePercent",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "EC2 EBS Burst Balance (AWS_EC2_EBSBurstBalance)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME## I/O balance",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "EBSIOBalancePercent",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "##defaultResourceName##"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "percentage remaining",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 26,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top ##defaultResourceGroup## EBS-optimized EC2 Instances by EBS Burst Throughput Credits Remaining (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "EBSByteBalancePercent",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "EC2 EBS Burst Balance (AWS_EC2_EBSBurstBalance)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME## Throughput balance",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "EBSByteBalancePercent",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "##defaultResourceName##"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "percentage remaining",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 26,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top ##defaultResourceGroup## EBS-optimized EC2 Instances by Total IOPS (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "DiskWriteIOPS + DiskReadIOPS",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "total_IOPS"
+          }],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "EBSWriteIOPS",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 (AWS_EC2_EBS)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "DiskWriteIOPS",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "EBSReadIOPS",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 (AWS_EC2_EBS)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "DiskReadIOPS",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "operations per second",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 26,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top ##defaultResourceGroup## EBS-optimized EC2 Instances by Total Network Throughput (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "NetworkInMbps + NetworkOutMbps",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "total_throughput"
+          }],
+          "minValue": "NaN",
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "NetworkIn",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 (AWS_EC2_EBS)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "NetworkInMbps",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "NetworkOut",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 (AWS_EC2_EBS)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "NetworkOutMbps",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "Mbps",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
         },
         "type": "cgraph",
         "timescale": "2days",
@@ -851,35 +1961,288 @@
     {
       "position": {
         "col": 9,
-        "sizex": 2,
-        "row": 5,
-        "sizey": 2
+        "sizex": 4,
+        "row": 14,
+        "sizey": 4
       },
       "config": {
-        "bigNumberInfo": {
-          "virtualDataPoints": [],
-          "counters": [{
-            "name": "Stopped_Instances",
-            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && system.aws.stateName == \"stopped\""
-          }],
-          "dataPoints": [],
-          "bigNumberItems": [{
-            "dataPointName": "Stopped_Instances",
-            "useCommaSeparators": false,
-            "bottomLabel": "Stopped Instances",
-            "rounding": 0,
-            "position": 2,
-            "rightLabel": "",
-            "colorThresholds": null
-          }]
-        },
         "displaySettings": {},
-        "name": "##defaultResourceGroup## EC2 Instance Inventory",
+        "name": "Top ##defaultResourceGroup## EC2 Instances by Credit Usage Rate (Trend)",
         "description": "",
-        "theme": "newSolidDarkBlue",
+        "theme": "newBorderDarkBlue",
         "interval": 3,
-        "type": "bigNumber",
-        "timescale": "day",
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "CPUCreditUsageRate",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "EC2 T2 Instance Credits (AWS_EC2_T2InstanceCredits)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME## CPU Credit Usage Rate",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "CPUCreditUsageRate",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "##defaultResourceName##"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "credits/minute",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 14,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top ##defaultResourceGroup## EC2 Instances by Total IOPS (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "DiskWriteIOPS + DiskReadIOPS",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "total_IOPS"
+          }],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "DiskWriteIOPS",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 (AWS_EC2)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "DiskWriteIOPS",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##*"
+              }
+            },
+            {
+              "dataPointName": "DiskReadIOPS",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 (AWS_EC2)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "DiskReadIOPS",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##*"
+              }
+            }
+          ],
+          "verticalLabel": "operations per second",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 14,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top ##defaultResourceGroup## EC2 Instances by Total Network Throughput (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "NetworkInMbps + NetworkOutMbps",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "total_throughput"
+          }],
+          "minValue": "NaN",
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "NetworkInMbps",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 (AWS_EC2)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "NetworkInMbps",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##*"
+              }
+            },
+            {
+              "dataPointName": "NetworkOutMbps",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "EC2 (AWS_EC2)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "NetworkOutMbps",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##*"
+              }
+            }
+          ],
+          "verticalLabel": "Mbps",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 10,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top ##defaultResourceGroup## EC2 T2 Instances by CPU Credit Balance (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "CPUCreditBalance",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "EC2 T2 Instance Credits (AWS_EC2_T2InstanceCredits)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "CPUCreditBalance",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "##defaultResourceName##"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "credits available",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1month",
         "version": 2
       }
     }
