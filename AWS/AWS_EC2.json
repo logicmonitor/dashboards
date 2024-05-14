@@ -12,6 +12,41 @@
   "widgets": [
     {
       "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 20,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Terminated_Instances",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##/\" && system.aws.stateName == \"terminated\" && system.aws.ebsOptimized == \"true\""
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Terminated_Instances",
+            "useCommaSeparators": false,
+            "bottomLabel": "Terminated EBS-optimized Instances",
+            "rounding": 0,
+            "position": 3,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## EBS-optimized EC2 Instance Inventory",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
         "col": 9,
         "sizex": 2,
         "row": 20,
@@ -22,7 +57,7 @@
           "virtualDataPoints": [],
           "counters": [{
             "name": "Stopped_Instances",
-            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && system.aws.stateName == \"stopped\" && system.aws.ebsOptimized == \"true\""
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##/\" && system.aws.stateName == \"stopped\" && system.aws.ebsOptimized == \"true\""
           }],
           "dataPoints": [],
           "bigNumberItems": [{
@@ -57,7 +92,7 @@
           "virtualDataPoints": [],
           "counters": [{
             "name": "Running_Instances",
-            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && system.aws.stateName == \"running\" && system.aws.ebsOptimized == \"true\""
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##/\" && system.aws.stateName == \"running\" && system.aws.ebsOptimized == \"true\""
           }],
           "dataPoints": [],
           "bigNumberItems": [{
@@ -66,41 +101,6 @@
             "bottomLabel": "Running EBS-optimized Instances",
             "rounding": 0,
             "position": 1,
-            "rightLabel": "",
-            "colorThresholds": null
-          }]
-        },
-        "displaySettings": {},
-        "name": "##defaultResourceGroup## EBS-optimized EC2 Instance Inventory",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "type": "bigNumber",
-        "timescale": "day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 11,
-        "sizex": 2,
-        "row": 20,
-        "sizey": 2
-      },
-      "config": {
-        "bigNumberInfo": {
-          "virtualDataPoints": [],
-          "counters": [{
-            "name": "Terminated_Instances",
-            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && system.aws.stateName == \"terminated\" && system.aws.ebsOptimized == \"true\""
-          }],
-          "dataPoints": [],
-          "bigNumberItems": [{
-            "dataPointName": "Terminated_Instances",
-            "useCommaSeparators": false,
-            "bottomLabel": "Terminated EBS-optimized Instances",
-            "rounding": 0,
-            "position": 3,
             "rightLabel": "",
             "colorThresholds": null
           }]
