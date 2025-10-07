@@ -1,0 +1,1898 @@
+{
+    "santabaRelease": 210,
+    "widgetTokens":
+    [
+        {
+            "name": "defaultResourceGroup",
+            "value": "Devices by Type/Cato"
+        },
+        {
+            "name": "defaultResourceName",
+            "value": "*"
+        }
+    ],
+    "name": "Cato SD-WAN",
+    "description": "",
+    "overwriteGroupFields": false,
+    "widgetsConfigVersion": 2,
+    "type": "dashboard",
+    "widgets":
+    [
+        {
+            "position":
+            {
+                "col": 1,
+                "sizex": 12,
+                "row": 23,
+                "sizey": 4
+            },
+            "config":
+            {
+                "displaySettings":
+                {
+                    "isShowAll": true,
+                    "showFilter": false,
+                    "columns":
+                    [
+                        {
+                            "visible": true,
+                            "columnLabel": "Severity",
+                            "columnSize": 107,
+                            "isSortable": true,
+                            "isVisibleByDefault": true,
+                            "componentName": "SeverityCell",
+                            "columnKey": "alert-severity"
+                        },
+                        {
+                            "visible": true,
+                            "columnLabel": "Reported At",
+                            "passthroughProps":
+                            {
+                                "hasRelativeTime": true
+                            },
+                            "columnSize": 206,
+                            "isSortable": true,
+                            "componentName": "SpaceDateTime",
+                            "columnKey": "alert-began",
+                            "dataPath":
+                            [
+                                "reportedAtMS"
+                            ]
+                        },
+                        {
+                            "visible": true,
+                            "columnLabel": "Resource/Website",
+                            "passthroughProps":
+                            {
+                                "hasDisplayName": true,
+                                "hasIcon": false
+                            },
+                            "columnSize": 105,
+                            "isSortable": true,
+                            "componentName": "ForeignKeyCell",
+                            "columnKey": "alert-device",
+                            "dataPath":
+                            [
+                                "monitoredObjectId"
+                            ]
+                        },
+                        {
+                            "visible": false,
+                            "columnLabel": "LogicModule",
+                            "passthroughProps":
+                            {
+                                "hasDisplayName": true,
+                                "hasIcon": false
+                            },
+                            "columnSize": 120,
+                            "isSortable": true,
+                            "componentName": "ForeignKeyCell",
+                            "columnKey": "alert-datasource",
+                            "dataPath":
+                            [
+                                "moduleId"
+                            ]
+                        },
+                        {
+                            "visible": true,
+                            "columnLabel": "Instance",
+                            "passthroughProps":
+                            {
+                                "hasIcon": false
+                            },
+                            "columnSize": 346,
+                            "isSortable": true,
+                            "componentName": "ForeignKeyCell",
+                            "columnKey": "alert-datasource-instance",
+                            "dataPath":
+                            [
+                                "instanceId"
+                            ]
+                        },
+                        {
+                            "visible": true,
+                            "columnLabel": "Datapoint",
+                            "columnSize": 120,
+                            "isSortable": true,
+                            "componentName": "SpaceId",
+                            "columnKey": "alert-datapoint",
+                            "dataPath":
+                            [
+                                "datapointId"
+                            ]
+                        },
+                        {
+                            "visible": true,
+                            "columnLabel": "Alert Value",
+                            "columnSize": 83,
+                            "componentName": "AlertValue",
+                            "columnKey": "alert-value",
+                            "dataPath":
+                            [
+                                "alertValue"
+                            ]
+                        },
+                        {
+                            "visible": true,
+                            "columnLabel": "Static Threshold",
+                            "columnSize": 120,
+                            "componentName": "ThresholdCell",
+                            "columnKey": "alert-static-threshold",
+                            "dataPath":
+                            [
+                                "threshold"
+                            ]
+                        },
+                        {
+                            "visible": false,
+                            "columnLabel": "Dynamic Threshold",
+                            "columnSize": 120,
+                            "componentName": "ThresholdCell",
+                            "columnKey": "alert-dynamic-threshold",
+                            "dataPath":
+                            [
+                                "threshold"
+                            ]
+                        },
+                        {
+                            "visible": false,
+                            "columnLabel": "Group",
+                            "passthroughProps":
+                            {
+                                "hasIcon": false,
+                                "type": "dg"
+                            },
+                            "columnSize": 120,
+                            "componentName": "ForeignKeyList",
+                            "columnKey": "alert-group",
+                            "dataPath":
+                            [
+                                "monitoredObjectGroups"
+                            ]
+                        },
+                        {
+                            "visible": false,
+                            "columnLabel": "Notes",
+                            "columnSize": 120,
+                            "componentName": "Body1",
+                            "columnKey": "alert-notes",
+                            "dataPath":
+                            [
+                                "notes"
+                            ]
+                        },
+                        {
+                            "visible": false,
+                            "columnLabel": "ACK By",
+                            "columnSize": 120,
+                            "componentName": "Body1",
+                            "columnKey": "alert-acked-by",
+                            "dataPath":
+                            [
+                                "ACKBy"
+                            ]
+                        },
+                        {
+                            "visible": false,
+                            "columnLabel": "ACK At",
+                            "passthroughProps":
+                            {
+                                "hasRelativeTime": false
+                            },
+                            "columnSize": 120,
+                            "componentName": "SpaceDateTime",
+                            "columnKey": "alert-acked-on",
+                            "dataPath":
+                            [
+                                "ACKAtMS"
+                            ]
+                        },
+                        {
+                            "visible": false,
+                            "columnLabel": "Cleared At",
+                            "passthroughProps":
+                            {
+                                "hasRelativeTime": true
+                            },
+                            "columnSize": 120,
+                            "componentName": "SpaceDateTime",
+                            "columnKey": "alert-cleared-on",
+                            "dataPath":
+                            [
+                                "clearedAtMS"
+                            ]
+                        },
+                        {
+                            "visible": false,
+                            "columnLabel": "Is In SDT",
+                            "columnSize": 120,
+                            "componentName": "Body1",
+                            "columnKey": "alert-in-sdt",
+                            "dataPath":
+                            [
+                                "isSDT"
+                            ]
+                        },
+                        {
+                            "visible": false,
+                            "columnLabel": "Alert Rule",
+                            "columnSize": 120,
+                            "componentName": "SpaceId",
+                            "columnKey": "alert-rule-name",
+                            "dataPath":
+                            [
+                                "ruleId"
+                            ]
+                        },
+                        {
+                            "visible": false,
+                            "columnLabel": "Escalation Chain",
+                            "columnSize": 120,
+                            "componentName": "SpaceId",
+                            "columnKey": "alert-escalation-chain",
+                            "dataPath":
+                            [
+                                "escalationChainId"
+                            ]
+                        },
+                        {
+                            "visible": false,
+                            "columnLabel": "Instance Description",
+                            "columnSize": 120,
+                            "componentName": "Body1",
+                            "columnKey": "alert-datasource-instance-description",
+                            "dataPath":
+                            [
+                                "detailMessage",
+                                "body"
+                            ]
+                        },
+                        {
+                            "visible": false,
+                            "columnLabel": "Full Path",
+                            "columnSize": 120,
+                            "componentName": "Body1",
+                            "columnKey": "alert-full-path",
+                            "dataPath":
+                            [
+                                "fullPath"
+                            ]
+                        },
+                        {
+                            "visible": false,
+                            "columnLabel": "Notification State",
+                            "columnSize": 120,
+                            "columnKey": "alert-routing-state",
+                            "dataPath":
+                            [
+                                "routingState"
+                            ]
+                        },
+                        {
+                            "visible": false,
+                            "columnLabel": "Dependency Role",
+                            "columnSize": 120,
+                            "componentName": "Body1",
+                            "columnKey": "alert-dependency-role",
+                            "dataPath":
+                            [
+                                "dependencyRole"
+                            ]
+                        },
+                        {
+                            "visible": false,
+                            "columnLabel": "Dependent Alerts Count",
+                            "columnSize": 120,
+                            "componentName": "Body1",
+                            "columnKey": "alert-dependent-alerts",
+                            "dataPath":
+                            [
+                                "dependentAlertsCount"
+                            ]
+                        },
+                        {
+                            "visible": false,
+                            "columnLabel": "Alert Grouping Criteria",
+                            "columnSize": 120,
+                            "componentName": "Body1",
+                            "columnKey": "alert-grouping-criteria",
+                            "dataPath":
+                            [
+                                "alertGroupEntityValue"
+                            ]
+                        },
+                        {
+                            "visible": false,
+                            "columnLabel": "Log Metadata",
+                            "columnSize": 120,
+                            "componentName": "Body1",
+                            "columnKey": "alert-log-metadata",
+                            "dataPath":
+                            [
+                                "logMetaData"
+                            ]
+                        }
+                    ],
+                    "playSound":
+                    {},
+                    "fontsize": "small-font",
+                    "sort": "-severity,-startEpoch"
+                },
+                "name": "Cato SD-WAN Alert Detail",
+                "description": "",
+                "theme": "newBorderDarkBlue",
+                "interval": 3,
+                "filters":
+                {
+                    "severity": "",
+                    "sdted": "all",
+                    "chain": "",
+                    "instance": "*",
+                    "anomaly": "",
+                    "dataPoint": "",
+                    "rule": "",
+                    "acked": "all",
+                    "dependencyRoutingState": "",
+                    "dependencyRole": "",
+                    "host": "",
+                    "keyword": "",
+                    "dataSource": "*",
+                    "cleared": "no",
+                    "group": "##defaultResourceGroup##"
+                },
+                "type": "alert",
+                "timescale": "day",
+                "version": 2
+            }
+        },
+        {
+            "position":
+            {
+                "col": 1,
+                "sizex": 12,
+                "row": 1,
+                "sizey": 2
+            },
+            "config":
+            {
+                "ackChecked": true,
+                "displaySettings":
+                {
+                    "showTypeIcon": true,
+                    "displayAs": "table"
+                },
+                "displayWarnAlert": true,
+                "description": "",
+                "type": "noc",
+                "version": 2,
+                "displayErrorAlert": true,
+                "displayColumn": 7,
+                "name": "Cato SD-WAN Alert Status",
+                "displayCriticalAlert": true,
+                "theme": "newSolidDarkBlue",
+                "interval": 3,
+                "sortBy": "alertSeverity",
+                "timescale": "day",
+                "sdtChecked": true,
+                "items":
+                [
+                    {
+                        "dataPointName": "*",
+                        "instanceName": "*",
+                        "name": "##RESOURCENAME##",
+                        "dataSourceDisplayName": "*",
+                        "groupBy": "device",
+                        "type": "device",
+                        "deviceGroupFullPath": "##defaultResourceGroup##",
+                        "deviceDisplayName": "##defaultResourceName##"
+                    }
+                ]
+            }
+        },
+        {
+            "position":
+            {
+                "col": 7,
+                "sizex": 6,
+                "row": 3,
+                "sizey": 2
+            },
+            "config":
+            {
+                "bigNumberInfo":
+                {
+                    "virtualDataPoints":
+                    [
+                        {
+                            "rpn": "bytesUpstream/1024000000",
+                            "name": "GB_Upstream"
+                        },
+                        {
+                            "rpn": "bytesDownstream/1024000000",
+                            "name": "GB_Downstream"
+                        },
+                        {
+                            "rpn": "bytesTotal/1024000000",
+                            "name": "GB_Total"
+                        }
+                    ],
+                    "counters":
+                    [],
+                    "dataPoints":
+                    [
+                        {
+                            "dataPointName": "bytesUpstream",
+                            "instanceName": "*",
+                            "dataSourceFullName": "Cato SDWAN Tunnels (Cato_SDWAN_Tunnels)",
+                            "name": "bytesUpstream",
+                            "aggregateFunction": "SUM",
+                            "deviceGroupFullPath": "##defaultResourceGroup##",
+                            "deviceDisplayName": "##defaultResourceName##"
+                        },
+                        {
+                            "dataPointName": "bytesDownstream",
+                            "instanceName": "*",
+                            "dataSourceFullName": "Cato SDWAN Tunnels (Cato_SDWAN_Tunnels)",
+                            "name": "bytesDownstream",
+                            "aggregateFunction": "SUM",
+                            "deviceGroupFullPath": "##defaultResourceGroup##",
+                            "deviceDisplayName": "##defaultResourceName##"
+                        },
+                        {
+                            "dataPointName": "bytesTotal",
+                            "instanceName": "*",
+                            "dataSourceFullName": "Cato SDWAN Tunnels (Cato_SDWAN_Tunnels)",
+                            "name": "bytesTotal",
+                            "aggregateFunction": "SUM",
+                            "deviceGroupFullPath": "##defaultResourceGroup##",
+                            "deviceDisplayName": "##defaultResourceName##"
+                        }
+                    ],
+                    "bigNumberItems":
+                    [
+                        {
+                            "dataPointName": "GB_Upstream",
+                            "useCommaSeparators": false,
+                            "bottomLabel": "Upstream",
+                            "rounding": 0,
+                            "position": 1,
+                            "rightLabel": "GB",
+                            "colorThresholds": null
+                        },
+                        {
+                            "dataPointName": "GB_Downstream",
+                            "useCommaSeparators": false,
+                            "bottomLabel": "Downstream",
+                            "rounding": 0,
+                            "position": 2,
+                            "rightLabel": "GB",
+                            "colorThresholds": null
+                        }
+                    ]
+                },
+                "displaySettings":
+                {},
+                "name": "Cato SD-WAN Aggregate Throughput",
+                "description": "",
+                "theme": "newSolidDarkBlue",
+                "interval": 3,
+                "type": "bigNumber",
+                "timescale": "day",
+                "version": 2
+            }
+        },
+        {
+            "position":
+            {
+                "col": 1,
+                "sizex": 12,
+                "row": 9,
+                "sizey": 5
+            },
+            "config":
+            {
+                "displaySettings":
+                {
+                    "propertyColumns":
+                    [],
+                    "columns":
+                    [
+                        {
+                            "visible": true,
+                            "columnLabel": "Name",
+                            "columnSize": 521,
+                            "columnKey": "name"
+                        },
+                        {
+                            "visible": true,
+                            "columnLabel": "Jitter Downstream",
+                            "columnSize": 150,
+                            "columnKey": "Jitter Downstream"
+                        },
+                        {
+                            "visible": true,
+                            "columnLabel": "Discarded Downstream",
+                            "columnSize": 150,
+                            "columnKey": "Discarded Downstream"
+                        },
+                        {
+                            "visible": true,
+                            "columnLabel": "Lost Downstream",
+                            "columnSize": 150,
+                            "columnKey": "Lost Downstream"
+                        },
+                        {
+                            "visible": true,
+                            "columnLabel": "Jitter Upstream",
+                            "columnSize": 150,
+                            "columnKey": "Jitter Upstream"
+                        },
+                        {
+                            "visible": true,
+                            "columnLabel": "Discarded Upstream",
+                            "columnSize": 150,
+                            "columnKey": "Discarded Upstream"
+                        },
+                        {
+                            "visible": true,
+                            "columnLabel": "Lost Upstream",
+                            "columnSize": 150,
+                            "columnKey": "Lost Upstream"
+                        },
+                        {
+                            "visible": true,
+                            "columnLabel": "TunnelUptime",
+                            "columnSize": 150,
+                            "columnKey": "TunnelUptime"
+                        }
+                    ],
+                    "pageSize": "25",
+                    "columnsV4":
+                    [
+                        {
+                            "maxValue": 100,
+                            "index": 0,
+                            "enableForecast": false,
+                            "roundingDecimal": 0,
+                            "propertiesOptions": "1",
+                            "rpn": "",
+                            "dataPointName": "lostDownstreamPcnt",
+                            "displayType": "percent",
+                            "minValue": 0,
+                            "unitLabel": "%",
+                            "position": 0,
+                            "id": "undefined_0",
+                            "colorThresholds":
+                            [
+                                {
+                                    "level": 4,
+                                    "threshold": 5,
+                                    "relation": ">="
+                                },
+                                {
+                                    "level": 3,
+                                    "threshold": 3,
+                                    "relation": ">="
+                                },
+                                {
+                                    "level": 2,
+                                    "threshold": 3,
+                                    "relation": ">="
+                                }
+                            ],
+                            "columnName": "Lost Downstream"
+                        },
+                        {
+                            "maxValue": 100,
+                            "index": 1,
+                            "enableForecast": false,
+                            "roundingDecimal": 2,
+                            "propertiesOptions": "1",
+                            "rpn": "",
+                            "dataPointName": "lostUpstreamPcnt",
+                            "displayType": "percent",
+                            "minValue": 0,
+                            "unitLabel": "",
+                            "position": 1,
+                            "id": "undefined_1",
+                            "colorThresholds":
+                            [
+                                {
+                                    "level": 4,
+                                    "threshold": 5,
+                                    "relation": ">="
+                                },
+                                {
+                                    "level": 3,
+                                    "threshold": 3,
+                                    "relation": ">="
+                                },
+                                {
+                                    "level": 2,
+                                    "threshold": 3,
+                                    "relation": ">="
+                                }
+                            ],
+                            "columnName": "Lost Upstream"
+                        },
+                        {
+                            "maxValue": 100,
+                            "index": 2,
+                            "enableForecast": false,
+                            "roundingDecimal": 0,
+                            "propertiesOptions": "1",
+                            "rpn": "",
+                            "dataPointName": "jitterDownstream",
+                            "displayType": "raw",
+                            "minValue": 0,
+                            "unitLabel": " ms",
+                            "position": 2,
+                            "id": "undefined_2",
+                            "colorThresholds":
+                            [],
+                            "columnName": "Jitter Downstream"
+                        },
+                        {
+                            "maxValue": 100,
+                            "index": 3,
+                            "enableForecast": false,
+                            "roundingDecimal": 0,
+                            "propertiesOptions": "1",
+                            "rpn": "",
+                            "dataPointName": "jitterUpstream",
+                            "displayType": "raw",
+                            "minValue": 0,
+                            "unitLabel": " ms",
+                            "position": 3,
+                            "id": "undefined_3",
+                            "colorThresholds":
+                            [],
+                            "columnName": "Jitter Upstream"
+                        },
+                        {
+                            "maxValue": 100,
+                            "index": 4,
+                            "enableForecast": false,
+                            "roundingDecimal": 0,
+                            "propertiesOptions": "1",
+                            "rpn": "",
+                            "dataPointName": "packetsDiscardedDownstream",
+                            "displayType": "raw",
+                            "minValue": 0,
+                            "unitLabel": " packets",
+                            "position": 4,
+                            "id": "undefined_4",
+                            "colorThresholds":
+                            [],
+                            "columnName": "Discarded Downstream"
+                        },
+                        {
+                            "maxValue": 100,
+                            "index": 5,
+                            "enableForecast": false,
+                            "roundingDecimal": 0,
+                            "propertiesOptions": "1",
+                            "rpn": "",
+                            "dataPointName": "packetsDiscardedUpstream",
+                            "displayType": "raw",
+                            "minValue": 0,
+                            "unitLabel": " packets",
+                            "position": 5,
+                            "id": "undefined_5",
+                            "colorThresholds":
+                            [],
+                            "columnName": "Discarded Upstream"
+                        },
+                        {
+                            "rpn": "TunnelUptime/60/60",
+                            "dataPointName": "tunnelUptime",
+                            "displayType": "raw",
+                            "unitLabel": " hours",
+                            "index": 6,
+                            "id": "undefined_6",
+                            "position": 6,
+                            "colorThresholds":
+                            [],
+                            "propertiesOptions": "1",
+                            "columnName": "TunnelUptime",
+                            "enableForecast": false,
+                            "roundingDecimal": 2
+                        }
+                    ]
+                },
+                "columns":
+                [
+                    {
+                        "rpn": "",
+                        "dataPointName": "lostDownstreamPcnt",
+                        "displayType": "percent",
+                        "minValue": 0,
+                        "unitLabel": "%",
+                        "maxValue": 100,
+                        "colorThresholds":
+                        [
+                            {
+                                "level": 4,
+                                "threshold": 5,
+                                "relation": ">="
+                            },
+                            {
+                                "level": 3,
+                                "threshold": 3,
+                                "relation": ">="
+                            },
+                            {
+                                "level": 2,
+                                "threshold": 3,
+                                "relation": ">="
+                            }
+                        ],
+                        "columnName": "Lost Downstream",
+                        "enableForecast": false,
+                        "roundingDecimal": 0
+                    },
+                    {
+                        "rpn": "",
+                        "dataPointName": "lostUpstreamPcnt",
+                        "displayType": "percent",
+                        "minValue": 0,
+                        "unitLabel": "",
+                        "maxValue": 100,
+                        "colorThresholds":
+                        [
+                            {
+                                "level": 4,
+                                "threshold": 5,
+                                "relation": ">="
+                            },
+                            {
+                                "level": 3,
+                                "threshold": 3,
+                                "relation": ">="
+                            },
+                            {
+                                "level": 2,
+                                "threshold": 3,
+                                "relation": ">="
+                            }
+                        ],
+                        "columnName": "Lost Upstream",
+                        "enableForecast": false,
+                        "roundingDecimal": 2
+                    },
+                    {
+                        "rpn": "",
+                        "dataPointName": "jitterDownstream",
+                        "displayType": "raw",
+                        "minValue": 0,
+                        "unitLabel": " ms",
+                        "maxValue": 100,
+                        "colorThresholds":
+                        [],
+                        "columnName": "Jitter Downstream",
+                        "enableForecast": false,
+                        "roundingDecimal": 0
+                    },
+                    {
+                        "rpn": "",
+                        "dataPointName": "jitterUpstream",
+                        "displayType": "raw",
+                        "minValue": 0,
+                        "unitLabel": " ms",
+                        "maxValue": 100,
+                        "colorThresholds":
+                        [],
+                        "columnName": "Jitter Upstream",
+                        "enableForecast": false,
+                        "roundingDecimal": 0
+                    },
+                    {
+                        "rpn": "",
+                        "dataPointName": "packetsDiscardedDownstream",
+                        "displayType": "raw",
+                        "minValue": 0,
+                        "unitLabel": " packets",
+                        "maxValue": 100,
+                        "colorThresholds":
+                        [],
+                        "columnName": "Discarded Downstream",
+                        "enableForecast": false,
+                        "roundingDecimal": 0
+                    },
+                    {
+                        "rpn": "",
+                        "dataPointName": "packetsDiscardedUpstream",
+                        "displayType": "raw",
+                        "minValue": 0,
+                        "unitLabel": " packets",
+                        "maxValue": 100,
+                        "colorThresholds":
+                        [],
+                        "columnName": "Discarded Upstream",
+                        "enableForecast": false,
+                        "roundingDecimal": 0
+                    },
+                    {
+                        "rpn": "TunnelUptime/60/60",
+                        "dataPointName": "tunnelUptime",
+                        "displayType": "raw",
+                        "minValue": 0,
+                        "unitLabel": " hours",
+                        "maxValue": 100,
+                        "colorThresholds":
+                        [],
+                        "columnName": "TunnelUptime",
+                        "enableForecast": false,
+                        "roundingDecimal": 2
+                    }
+                ],
+                "description": "",
+                "forecast":
+                {
+                    "severity": "warn",
+                    "confidence": 70,
+                    "timeRange": "Last 30 days",
+                    "algorithm": "ARIMA"
+                },
+                "type": "dynamicTable",
+                "rows":
+                [
+                    {
+                        "instanceName": "*",
+                        "label": "##INSTANCE## - ##RESOURCENAME##",
+                        "deviceDisplayName": "*",
+                        "groupFullPath": "##defaultResourceGroup##"
+                    }
+                ],
+                "version": 2,
+                "topX": 10,
+                "dataSourceFullName": "Cato SDWAN Tunnels (Cato_SDWAN_Tunnels)",
+                "sortOrder": "descending",
+                "name": "CATO SDWAN Tunnel Metrics (Realtime)",
+                "theme": "newSolidDarkBlue",
+                "interval": 3,
+                "timescale": "day"
+            }
+        },
+        {
+            "position":
+            {
+                "col": 1,
+                "sizex": 3,
+                "row": 14,
+                "sizey": 3
+            },
+            "config":
+            {
+                "displaySettings":
+                {},
+                "name": "Top Cato Tunnels by Downstream Jitter (Trend)",
+                "description": "",
+                "theme": "newSolidDarkBlue",
+                "interval": 3,
+                "graphInfo":
+                {
+                    "virtualDataPoints":
+                    [],
+                    "minValue": 0,
+                    "topX": 25,
+                    "maxValue": "NaN",
+                    "dataPoints":
+                    [
+                        {
+                            "dataPointName": "jitterUpstream",
+                            "instanceName":
+                            {
+                                "isGlob": true,
+                                "value": "*"
+                            },
+                            "dataSourceFullName": "Cato SDWAN Tunnels (Cato_SDWAN_Tunnels)",
+                            "consolidateFunction": "average",
+                            "display":
+                            {
+                                "color": null,
+                                "legend": null,
+                                "type": "line",
+                                "option": "none"
+                            },
+                            "name": "JitterUpstream",
+                            "aggregateFunction": "SUM",
+                            "deviceDisplayName":
+                            {
+                                "isGlob": true,
+                                "value": "*"
+                            },
+                            "deviceGroupFullPath":
+                            {
+                                "isGlob": true,
+                                "value": "##defaultResourceGroup##"
+                            }
+                        },
+                        {
+                            "dataPointName": "jitterDownstream",
+                            "instanceName":
+                            {
+                                "isGlob": true,
+                                "value": "*"
+                            },
+                            "dataSourceFullName": "Cato SDWAN Tunnels (Cato_SDWAN_Tunnels)",
+                            "consolidateFunction": "average",
+                            "display":
+                            {
+                                "color": "Auto",
+                                "legend": "##INSTANCE##_JitterDownstream",
+                                "type": "line",
+                                "option": "custom"
+                            },
+                            "name": "JitterDownstream",
+                            "aggregateFunction": "SUM",
+                            "deviceDisplayName":
+                            {
+                                "isGlob": true,
+                                "value": "*"
+                            },
+                            "deviceGroupFullPath":
+                            {
+                                "isGlob": true,
+                                "value": "##defaultResourceGroup##"
+                            }
+                        }
+                    ],
+                    "verticalLabel": "ms",
+                    "aggregate": false,
+                    "desc": true,
+                    "scaleUnit": 1000,
+                    "globalConsolidateFunction": "VaST"
+                },
+                "type": "cgraph",
+                "timescale": "1day",
+                "version": 2
+            }
+        },
+        {
+            "position":
+            {
+                "col": 7,
+                "sizex": 3,
+                "row": 14,
+                "sizey": 3
+            },
+            "config":
+            {
+                "displaySettings":
+                {},
+                "name": "Top Cato Tunnels by Downstream Packet Loss (Trend)",
+                "description": "Upstream and Downstream Loss Percentages",
+                "theme": "newSolidDarkBlue",
+                "interval": 3,
+                "graphInfo":
+                {
+                    "virtualDataPoints":
+                    [],
+                    "minValue": 0,
+                    "topX": 25,
+                    "maxValue": 100,
+                    "dataPoints":
+                    [
+                        {
+                            "dataPointName": "lostDownstreamPcnt",
+                            "instanceName":
+                            {
+                                "isGlob": true,
+                                "value": "*"
+                            },
+                            "dataSourceFullName": "Cato SDWAN Tunnels (Cato_SDWAN_Tunnels)",
+                            "consolidateFunction": "average",
+                            "display":
+                            {
+                                "color": "Auto",
+                                "legend": "##INSTANCE## - ##RESOURCENAME##",
+                                "type": "stack",
+                                "option": "custom"
+                            },
+                            "name": "lostDownstreamPcnt",
+                            "aggregateFunction": "SUM",
+                            "deviceDisplayName":
+                            {
+                                "isGlob": true,
+                                "value": "*"
+                            },
+                            "deviceGroupFullPath":
+                            {
+                                "isGlob": false,
+                                "value": "##defaultResourceGroup##"
+                            }
+                        }
+                    ],
+                    "verticalLabel": "%",
+                    "aggregate": false,
+                    "desc": true,
+                    "scaleUnit": 1000,
+                    "globalConsolidateFunction": "VaST"
+                },
+                "type": "cgraph",
+                "timescale": "1day",
+                "version": 2
+            }
+        },
+        {
+            "position":
+            {
+                "col": 7,
+                "sizex": 6,
+                "row": 5,
+                "sizey": 4
+            },
+            "config":
+            {
+                "displaySettings":
+                {},
+                "name": "Cato Tunnels Downstream Traffic (Trend)",
+                "description": "Bytes Downstream for each Cato Tunnel",
+                "theme": "newSolidDarkBlue",
+                "interval": 3,
+                "graphInfo":
+                {
+                    "virtualDataPoints":
+                    [
+                        {
+                            "rpn": "bytesUpstream/1024000000",
+                            "display":
+                            {
+                                "color": null,
+                                "legend": null,
+                                "type": "line",
+                                "option": "none"
+                            },
+                            "name": "GbUpstream"
+                        },
+                        {
+                            "rpn": "bytesDownstream/1024000000",
+                            "display":
+                            {
+                                "color": "Auto",
+                                "legend": "##INSTANCE##  - ##RESOURCENAME##",
+                                "type": "stack",
+                                "option": "custom"
+                            },
+                            "name": "GbDownstream"
+                        }
+                    ],
+                    "minValue": "NaN",
+                    "topX": 25,
+                    "maxValue": "NaN",
+                    "dataPoints":
+                    [
+                        {
+                            "dataPointName": "bytesUpstream",
+                            "instanceName":
+                            {
+                                "isGlob": true,
+                                "value": "*"
+                            },
+                            "dataSourceFullName": "Cato SDWAN Tunnels (Cato_SDWAN_Tunnels)",
+                            "consolidateFunction": "average",
+                            "display":
+                            {
+                                "color": null,
+                                "legend": null,
+                                "type": "line",
+                                "option": "none"
+                            },
+                            "name": "bytesUpstream",
+                            "aggregateFunction": "SUM",
+                            "deviceDisplayName":
+                            {
+                                "isGlob": true,
+                                "value": "*"
+                            },
+                            "deviceGroupFullPath":
+                            {
+                                "isGlob": true,
+                                "value": "##defaultResourceGroup##"
+                            }
+                        },
+                        {
+                            "dataPointName": "bytesDownstream",
+                            "instanceName":
+                            {
+                                "isGlob": true,
+                                "value": "*"
+                            },
+                            "dataSourceFullName": "Cato SDWAN Tunnels (Cato_SDWAN_Tunnels)",
+                            "consolidateFunction": "average",
+                            "display":
+                            {
+                                "color": null,
+                                "legend": null,
+                                "type": "line",
+                                "option": "none"
+                            },
+                            "name": "bytesDownstream",
+                            "aggregateFunction": "SUM",
+                            "deviceDisplayName":
+                            {
+                                "isGlob": true,
+                                "value": "*"
+                            },
+                            "deviceGroupFullPath":
+                            {
+                                "isGlob": true,
+                                "value": "##defaultResourceGroup##"
+                            }
+                        }
+                    ],
+                    "verticalLabel": "Gb",
+                    "aggregate": false,
+                    "desc": true,
+                    "scaleUnit": 1000,
+                    "globalConsolidateFunction": "VaST"
+                },
+                "type": "cgraph",
+                "timescale": "2days",
+                "version": 2
+            }
+        },
+        {
+            "position":
+            {
+                "col": 7,
+                "sizex": 6,
+                "row": 17,
+                "sizey": 3
+            },
+            "config":
+            {
+                "displaySettings":
+                {},
+                "name": "Top Cato SD-WAN Tunnels by Packet Discards (Trend)",
+                "description": "",
+                "theme": "newSolidDarkBlue",
+                "interval": 3,
+                "graphInfo":
+                {
+                    "virtualDataPoints":
+                    [],
+                    "minValue": 0,
+                    "topX": 25,
+                    "maxValue": "NaN",
+                    "dataPoints":
+                    [
+                        {
+                            "dataPointName": "packetsDiscardedDownstream",
+                            "instanceName":
+                            {
+                                "isGlob": true,
+                                "value": "*"
+                            },
+                            "dataSourceFullName": "Cato SDWAN Tunnels (Cato_SDWAN_Tunnels)",
+                            "consolidateFunction": "average",
+                            "display":
+                            {
+                                "color": "Auto",
+                                "legend": "##INSTANCE##",
+                                "type": "stack",
+                                "option": "custom"
+                            },
+                            "name": "packetsDiscardedDownstream",
+                            "aggregateFunction": "average",
+                            "deviceDisplayName":
+                            {
+                                "isGlob": false,
+                                "value": "Munich Primary"
+                            },
+                            "deviceGroupFullPath":
+                            {
+                                "isGlob": false,
+                                "value": "##defaultResourceGroup##"
+                            }
+                        },
+                        {
+                            "dataPointName": "packetsDiscardedUpstream",
+                            "instanceName":
+                            {
+                                "isGlob": true,
+                                "value": "*"
+                            },
+                            "dataSourceFullName": "Cato SDWAN Tunnels (Cato_SDWAN_Tunnels)",
+                            "consolidateFunction": "average",
+                            "display":
+                            {
+                                "color": "Auto",
+                                "legend": "##INSTANCE##",
+                                "type": "stack",
+                                "option": "custom"
+                            },
+                            "name": "packetsDiscardedUpstream",
+                            "aggregateFunction": "average",
+                            "deviceDisplayName":
+                            {
+                                "isGlob": false,
+                                "value": "Munich Primary"
+                            },
+                            "deviceGroupFullPath":
+                            {
+                                "isGlob": false,
+                                "value": "##defaultResourceGroup##"
+                            }
+                        }
+                    ],
+                    "verticalLabel": "packets",
+                    "aggregate": false,
+                    "desc": true,
+                    "scaleUnit": 1000,
+                    "globalConsolidateFunction": "VaST"
+                },
+                "type": "cgraph",
+                "timescale": "2days",
+                "version": 2
+            }
+        },
+        {
+            "position":
+            {
+                "col": 7,
+                "sizex": 6,
+                "row": 20,
+                "sizey": 3
+            },
+            "config":
+            {
+                "displaySettings":
+                {},
+                "name": "Top Cato SD-WAN Tunnels by Round Trip Time (Trend)",
+                "description": "",
+                "theme": "newSolidDarkBlue",
+                "interval": 3,
+                "graphInfo":
+                {
+                    "virtualDataPoints":
+                    [],
+                    "minValue": 0,
+                    "topX": 25,
+                    "maxValue": "NaN",
+                    "dataPoints":
+                    [
+                        {
+                            "dataPointName": "rtt",
+                            "instanceName":
+                            {
+                                "isGlob": true,
+                                "value": "*"
+                            },
+                            "dataSourceFullName": "Cato SDWAN Tunnels (Cato_SDWAN_Tunnels)",
+                            "consolidateFunction": "average",
+                            "display":
+                            {
+                                "color": "Auto",
+                                "legend": "##INSTANCE##",
+                                "type": "line",
+                                "option": "custom"
+                            },
+                            "name": "rtt",
+                            "aggregateFunction": "average",
+                            "deviceDisplayName":
+                            {
+                                "isGlob": false,
+                                "value": "Munich Primary"
+                            },
+                            "deviceGroupFullPath":
+                            {
+                                "isGlob": true,
+                                "value": "##defaultResourceGroup##"
+                            }
+                        }
+                    ],
+                    "verticalLabel": "milliseconds",
+                    "aggregate": false,
+                    "desc": true,
+                    "scaleUnit": 1024,
+                    "globalConsolidateFunction": "default"
+                },
+                "type": "cgraph",
+                "timescale": "2days",
+                "version": 2
+            }
+        },
+        {
+            "position":
+            {
+                "col": 1,
+                "sizex": 6,
+                "row": 17,
+                "sizey": 6
+            },
+            "config":
+            {
+                "displaySettings":
+                {
+                    "propertyColumns":
+                    [],
+                    "columns":
+                    [
+                        {
+                            "visible": true,
+                            "columnLabel": "Name",
+                            "columnSize": 477,
+                            "columnKey": "name"
+                        },
+                        {
+                            "visible": true,
+                            "columnLabel": "tunnelUptime",
+                            "columnSize": 89,
+                            "columnKey": "tunnelUptime"
+                        },
+                        {
+                            "visible": true,
+                            "columnLabel": "Tunnel Uptime Reset",
+                            "columnSize": 94,
+                            "columnKey": "Tunnel Uptime Reset"
+                        }
+                    ],
+                    "pageSize": "15",
+                    "columnsV4":
+                    [
+                        {
+                            "maxValue": 100,
+                            "index": 0,
+                            "enableForecast": false,
+                            "roundingDecimal": 0,
+                            "propertiesOptions": "1",
+                            "rpn": "TunnelUptime/60/60",
+                            "dataPointName": "tunnelUptime",
+                            "displayType": "colorBar",
+                            "minValue": 0,
+                            "unitLabel": " hours",
+                            "position": 0,
+                            "id": "undefined_0",
+                            "colorThresholds":
+                            [
+                                {
+                                    "level": 4,
+                                    "relation": ">"
+                                },
+                                {
+                                    "level": 3,
+                                    "threshold": 1,
+                                    "relation": "<"
+                                },
+                                {
+                                    "level": 2,
+                                    "threshold": 2,
+                                    "relation": "<"
+                                }
+                            ],
+                            "columnName": "TunnelUptime"
+                        },
+                        {
+                            "maxValue": 100,
+                            "index": 1,
+                            "enableForecast": false,
+                            "roundingDecimal": 0,
+                            "propertiesOptions": "1",
+                            "rpn": "",
+                            "dataPointName": "tunnelUptimeReset",
+                            "displayType": "raw",
+                            "minValue": 0,
+                            "unitLabel": "",
+                            "position": 1,
+                            "id": "undefined_1",
+                            "colorThresholds":
+                            [],
+                            "columnName": "Tunnel Uptime Reset"
+                        }
+                    ]
+                },
+                "columns":
+                [
+                    {
+                        "rpn": "TunnelUptime/60/60",
+                        "dataPointName": "tunnelUptime",
+                        "displayType": "colorBar",
+                        "minValue": 0,
+                        "unitLabel": " hours",
+                        "maxValue": 100,
+                        "colorThresholds":
+                        [
+                            {
+                                "level": 4,
+                                "threshold": 0,
+                                "relation": ">"
+                            },
+                            {
+                                "level": 3,
+                                "threshold": 1,
+                                "relation": "<"
+                            },
+                            {
+                                "level": 2,
+                                "threshold": 2,
+                                "relation": "<"
+                            }
+                        ],
+                        "columnName": "TunnelUptime",
+                        "enableForecast": false,
+                        "roundingDecimal": 0
+                    },
+                    {
+                        "rpn": "",
+                        "dataPointName": "tunnelUptimeReset",
+                        "displayType": "raw",
+                        "minValue": 0,
+                        "unitLabel": "",
+                        "maxValue": 100,
+                        "colorThresholds":
+                        [],
+                        "columnName": "Tunnel Uptime Reset",
+                        "enableForecast": false,
+                        "roundingDecimal": 0
+                    }
+                ],
+                "description": "",
+                "forecast":
+                {
+                    "severity": "warn",
+                    "confidence": 70,
+                    "timeRange": "Last 30 days",
+                    "algorithm": "ARIMA"
+                },
+                "type": "dynamicTable",
+                "rows":
+                [
+                    {
+                        "instanceName": "*",
+                        "label": "##INSTANCE## - ##RESOURCENAME##",
+                        "deviceDisplayName": "##defaultResourceName##",
+                        "groupFullPath": "##defaultResourceGroup##"
+                    }
+                ],
+                "version": 2,
+                "topX": -1,
+                "dataSourceFullName": "Cato SDWAN Tunnels (Cato_SDWAN_Tunnels)",
+                "sortOrder": "descending",
+                "name": "Top Cato SD-WAN Tunnels by Uptime (Realtime)",
+                "theme": "newSolidDarkBlue",
+                "interval": 3,
+                "timescale": "day"
+            }
+        },
+        {
+            "position":
+            {
+                "col": 1,
+                "sizex": 6,
+                "row": 5,
+                "sizey": 4
+            },
+            "config":
+            {
+                "displaySettings":
+                {},
+                "name": "Cato Tunnels Upstream Traffic (Trend)",
+                "description": "Bytes Upstream and Downstream for each CATO Tunnel",
+                "theme": "newSolidDarkBlue",
+                "interval": 3,
+                "graphInfo":
+                {
+                    "virtualDataPoints":
+                    [
+                        {
+                            "rpn": "bytesUpstream/1024000000",
+                            "display":
+                            {
+                                "color": "Auto",
+                                "legend": "##INSTANCE## - ##RESOURCENAME##",
+                                "type": "stack",
+                                "option": "custom"
+                            },
+                            "name": "GbUpstream"
+                        },
+                        {
+                            "rpn": "bytesDownstream/1024000000",
+                            "display":
+                            {
+                                "color": null,
+                                "legend": null,
+                                "type": "line",
+                                "option": "none"
+                            },
+                            "name": "GbDownstream"
+                        }
+                    ],
+                    "minValue": "NaN",
+                    "topX": 25,
+                    "maxValue": "NaN",
+                    "dataPoints":
+                    [
+                        {
+                            "dataPointName": "bytesUpstream",
+                            "instanceName":
+                            {
+                                "isGlob": true,
+                                "value": "*"
+                            },
+                            "dataSourceFullName": "Cato SDWAN Tunnels (Cato_SDWAN_Tunnels)",
+                            "consolidateFunction": "average",
+                            "display":
+                            {
+                                "color": null,
+                                "legend": null,
+                                "type": "line",
+                                "option": "none"
+                            },
+                            "name": "bytesUpstream",
+                            "aggregateFunction": "SUM",
+                            "deviceDisplayName":
+                            {
+                                "isGlob": true,
+                                "value": "*"
+                            },
+                            "deviceGroupFullPath":
+                            {
+                                "isGlob": true,
+                                "value": "##defaultResourceGroup##"
+                            }
+                        },
+                        {
+                            "dataPointName": "bytesDownstream",
+                            "instanceName":
+                            {
+                                "isGlob": true,
+                                "value": "*"
+                            },
+                            "dataSourceFullName": "Cato SDWAN Tunnels (Cato_SDWAN_Tunnels)",
+                            "consolidateFunction": "average",
+                            "display":
+                            {
+                                "color": null,
+                                "legend": null,
+                                "type": "line",
+                                "option": "none"
+                            },
+                            "name": "bytesDownstream",
+                            "aggregateFunction": "SUM",
+                            "deviceDisplayName":
+                            {
+                                "isGlob": true,
+                                "value": "*"
+                            },
+                            "deviceGroupFullPath":
+                            {
+                                "isGlob": true,
+                                "value": "##defaultResourceGroup##"
+                            }
+                        }
+                    ],
+                    "verticalLabel": "Gb",
+                    "aggregate": false,
+                    "desc": true,
+                    "scaleUnit": 1000,
+                    "globalConsolidateFunction": "VaST"
+                },
+                "type": "cgraph",
+                "timescale": "2days",
+                "version": 2
+            }
+        },
+        {
+            "position":
+            {
+                "col": 1,
+                "sizex": 3,
+                "row": 3,
+                "sizey": 2
+            },
+            "config":
+            {
+                "bigNumberInfo":
+                {
+                    "virtualDataPoints":
+                    [],
+                    "counters":
+                    [],
+                    "dataPoints":
+                    [
+                        {
+                            "dataPointName": "devices",
+                            "instanceName": "*",
+                            "dataSourceFullName": "Cato SDWAN API (Cato_SDWAN_API)",
+                            "name": "devices",
+                            "aggregateFunction": "AVERAGE",
+                            "deviceGroupFullPath": "##defaultResourceGroup##",
+                            "deviceDisplayName": "*"
+                        }
+                    ],
+                    "bigNumberItems":
+                    [
+                        {
+                            "dataPointName": "devices",
+                            "useCommaSeparators": false,
+                            "bottomLabel": "",
+                            "rounding": 0,
+                            "position": 1,
+                            "rightLabel": "Cato SD-WAN Devices",
+                            "colorThresholds": null
+                        }
+                    ]
+                },
+                "displaySettings":
+                {},
+                "name": "Cato SD-WAN API Statistics",
+                "description": "",
+                "theme": "newSolidDarkBlue",
+                "interval": 3,
+                "type": "bigNumber",
+                "timescale": "day",
+                "version": 2
+            }
+        },
+        {
+            "position":
+            {
+                "col": 4,
+                "sizex": 3,
+                "row": 3,
+                "sizey": 2
+            },
+            "config":
+            {
+                "bigNumberInfo":
+                {
+                    "virtualDataPoints":
+                    [],
+                    "counters":
+                    [],
+                    "dataPoints":
+                    [
+                        {
+                            "dataPointName": "sites",
+                            "instanceName": "*",
+                            "dataSourceFullName": "Cato SDWAN API (Cato_SDWAN_API)",
+                            "name": "sites",
+                            "aggregateFunction": "AVERAGE",
+                            "deviceGroupFullPath": "##defaultResourceGroup##",
+                            "deviceDisplayName": "*"
+                        }
+                    ],
+                    "bigNumberItems":
+                    [
+                        {
+                            "dataPointName": "sites",
+                            "useCommaSeparators": false,
+                            "bottomLabel": "",
+                            "rounding": 0,
+                            "position": 1,
+                            "rightLabel": "Cato SD-WAN Sites",
+                            "colorThresholds": null
+                        }
+                    ]
+                },
+                "displaySettings":
+                {},
+                "name": "Cato SD-WAN API Statistics",
+                "description": "",
+                "theme": "newSolidDarkBlue",
+                "interval": 3,
+                "type": "bigNumber",
+                "timescale": "day",
+                "version": 2
+            }
+        },
+        {
+            "position":
+            {
+                "col": 4,
+                "sizex": 3,
+                "row": 14,
+                "sizey": 3
+            },
+            "config":
+            {
+                "displaySettings":
+                {},
+                "name": "Top Cato Tunnels by Upstream Jitter (Trend)",
+                "description": "",
+                "theme": "newSolidDarkBlue",
+                "interval": 3,
+                "graphInfo":
+                {
+                    "virtualDataPoints":
+                    [],
+                    "minValue": 0,
+                    "topX": 25,
+                    "maxValue": "NaN",
+                    "dataPoints":
+                    [
+                        {
+                            "dataPointName": "jitterUpstream",
+                            "instanceName":
+                            {
+                                "isGlob": true,
+                                "value": "*"
+                            },
+                            "dataSourceFullName": "Cato SDWAN Tunnels (Cato_SDWAN_Tunnels)",
+                            "consolidateFunction": "average",
+                            "display":
+                            {
+                                "color": "Auto",
+                                "legend": "",
+                                "type": "line",
+                                "option": "default"
+                            },
+                            "name": "JitterUpstream",
+                            "aggregateFunction": "SUM",
+                            "deviceDisplayName":
+                            {
+                                "isGlob": true,
+                                "value": "*"
+                            },
+                            "deviceGroupFullPath":
+                            {
+                                "isGlob": true,
+                                "value": "##defaultResourceGroup##"
+                            }
+                        },
+                        {
+                            "dataPointName": "jitterDownstream",
+                            "instanceName":
+                            {
+                                "isGlob": true,
+                                "value": "*"
+                            },
+                            "dataSourceFullName": "Cato SDWAN Tunnels (Cato_SDWAN_Tunnels)",
+                            "consolidateFunction": "average",
+                            "display":
+                            {
+                                "color": null,
+                                "legend": null,
+                                "type": "line",
+                                "option": "none"
+                            },
+                            "name": "JitterDownstream",
+                            "aggregateFunction": "SUM",
+                            "deviceDisplayName":
+                            {
+                                "isGlob": true,
+                                "value": "*"
+                            },
+                            "deviceGroupFullPath":
+                            {
+                                "isGlob": true,
+                                "value": "##defaultResourceGroup##"
+                            }
+                        }
+                    ],
+                    "verticalLabel": "ms",
+                    "aggregate": false,
+                    "desc": true,
+                    "scaleUnit": 1000,
+                    "globalConsolidateFunction": "VaST"
+                },
+                "type": "cgraph",
+                "timescale": "1day",
+                "version": 2
+            }
+        },
+        {
+            "position":
+            {
+                "col": 10,
+                "sizex": 3,
+                "row": 14,
+                "sizey": 3
+            },
+            "config":
+            {
+                "displaySettings":
+                {},
+                "name": "Top Cato Tunnels by Upstream Packet Loss (Trend)",
+                "description": "Upstream and Downstream Loss Percentages",
+                "theme": "newSolidDarkBlue",
+                "interval": 3,
+                "graphInfo":
+                {
+                    "virtualDataPoints":
+                    [],
+                    "minValue": 0,
+                    "topX": 25,
+                    "maxValue": 100,
+                    "dataPoints":
+                    [
+                        {
+                            "dataPointName": "lostUpstreamPcnt",
+                            "instanceName":
+                            {
+                                "isGlob": true,
+                                "value": "*"
+                            },
+                            "dataSourceFullName": "Cato SDWAN Tunnels (Cato_SDWAN_Tunnels)",
+                            "consolidateFunction": "average",
+                            "display":
+                            {
+                                "color": "Auto",
+                                "legend": "##INSTANCE## - ##RESOURCENAME##",
+                                "type": "area",
+                                "option": "custom"
+                            },
+                            "name": "lostUpstreamPcnt",
+                            "aggregateFunction": "SUM",
+                            "deviceDisplayName":
+                            {
+                                "isGlob": true,
+                                "value": "*"
+                            },
+                            "deviceGroupFullPath":
+                            {
+                                "isGlob": false,
+                                "value": "##defaultResourceGroup##"
+                            }
+                        },
+                        {
+                            "dataPointName": "lostDownstreamPcnt",
+                            "instanceName":
+                            {
+                                "isGlob": true,
+                                "value": "*"
+                            },
+                            "dataSourceFullName": "Cato SDWAN Tunnels (Cato_SDWAN_Tunnels)",
+                            "consolidateFunction": "average",
+                            "display":
+                            {
+                                "color": null,
+                                "legend": null,
+                                "type": "line",
+                                "option": "none"
+                            },
+                            "name": "lostDownstreamPcnt",
+                            "aggregateFunction": "SUM",
+                            "deviceDisplayName":
+                            {
+                                "isGlob": true,
+                                "value": "*"
+                            },
+                            "deviceGroupFullPath":
+                            {
+                                "isGlob": false,
+                                "value": "##defaultResourceGroup##"
+                            }
+                        }
+                    ],
+                    "verticalLabel": "%",
+                    "aggregate": false,
+                    "desc": true,
+                    "scaleUnit": 1000,
+                    "globalConsolidateFunction": "VaST"
+                },
+                "type": "cgraph",
+                "timescale": "1day",
+                "version": 2
+            }
+        }
+    ],
+    "version": 2,
+  "group": {
+    "name": "Network",
+    "fullPath": "LogicMonitor Dashboards/Network",
+    "description": ""
+  }
+}

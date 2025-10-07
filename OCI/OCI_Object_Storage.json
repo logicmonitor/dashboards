@@ -1,0 +1,1750 @@
+{
+  "santabaRelease": 228,
+  "defaultDashboardFilters": {
+    "defaultDashboardFilterDetails": []
+  },
+  "widgetTokens": [
+    {
+      "name": "ociServiceName",
+      "value": "OCI Object Storage"
+    }
+  ],
+  "name": "OCI Object Storage",
+  "description": "",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "supportCustomProperty": false,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "isSupportCustomProperty": false,
+        "displayColumn": 7,
+        "name": "##ociServiceName## Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "##RESOURCENAME##",
+            "dataSourceDisplayName": "Object Storage *",
+            "groupBy": "device",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }
+        ]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "zoomLevel": 100,
+          "showFilter": false,
+          "fontSize": "medium"
+        },
+        "vizInfo": {
+          "alertFilters": {
+            "datapointsFilterMode": "INCLUDE",
+            "isIgnoreSdtAlerts": false,
+            "datapointFilters": []
+          },
+          "groupBy": [
+            {
+              "name": "system.norm.region",
+              "label": "Region",
+              "type": "RESOURCE_PROPERTY"
+            }
+          ],
+          "filterBy": {
+            "severityFilters": {
+              "critical": true,
+              "warning": true,
+              "none": true,
+              "error": true
+            },
+            "filters": [
+              {
+                "name": "system.device.provider",
+                "label": "Provider",
+                "type": "RESOURCE_PROPERTY",
+                "inclusionType": "INCLUDE",
+                "value": [
+                  {
+                    "label": "OCI",
+                    "value": "OCI"
+                  }
+                ]
+              },
+              {
+                "name": "predef.externalresourcetype",
+                "label": "Resource Type",
+                "type": "RESOURCE_PROPERTY",
+                "inclusionType": "INCLUDE",
+                "value": [
+                  {
+                    "label": "OCI/ObjectStorage",
+                    "value": "OCI/ObjectStorage"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Resource Overview",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "type": "viz",
+        "timescale": "day",
+        "version": 2,
+        "widgetConfig": "{\"vizInfo\": {\n  \"alertFilters\": {\n    \"datapointsFilterMode\": \"INCLUDE\",\n    \"isIgnoreSdtAlerts\": false,\n    \"datapointFilters\": []\n  },\n  \"groupBy\": [{\n    \"name\": \"system.norm.region\",\n    \"label\": \"Region\",\n    \"type\": \"RESOURCE_PROPERTY\"\n  }],\n  \"filterBy\": {\n    \"severityFilters\": {\n      \"critical\": true,\n      \"warning\": true,\n      \"none\": true,\n      \"error\": true\n    },\n    \"filters\": [\n      {\n        \"name\": \"system.device.provider\",\n        \"label\": \"Provider\",\n        \"type\": \"RESOURCE_PROPERTY\",\n        \"inclusionType\": \"INCLUDE\",\n        \"value\": [{\n          \"label\": \"OCI\",\n          \"value\": \"OCI\"\n        }]\n      },\n      {\n        \"name\": \"predef.externalresourcetype\",\n        \"label\": \"Resource Type\",\n        \"type\": \"RESOURCE_PROPERTY\",\n        \"inclusionType\": \"INCLUDE\",\n        \"value\": [{\n          \"label\": \"OCI/ObjectStorage\",\n          \"value\": \"OCI/ObjectStorage\"\n        }]\n      }\n    ]\n  }\n}}"
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 9,
+        "row": 3,
+        "sizey": 7
+      },
+      "config": {
+        "displaySettings": {
+          "propertyColumns": [],
+          "pageSize": "10",
+          "columnsV4": [
+            {
+              "maxValue": 100,
+              "index": 0,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "ObjectCount",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " objects",
+              "id": "undefined_0",
+              "position": 0,
+              "colorThresholds": [],
+              "columnName": "ObjectCount"
+            },
+            {
+              "maxValue": 100,
+              "index": 1,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "StoredBytes",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " bytes",
+              "id": "undefined_1",
+              "position": 1,
+              "colorThresholds": [],
+              "columnName": "StoredBytes"
+            },
+            {
+              "maxValue": 100,
+              "index": 2,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "UncommittedParts",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " parts",
+              "id": "undefined_2",
+              "position": 2,
+              "colorThresholds": [],
+              "columnName": "UncommittedParts"
+            }
+          ]
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "ObjectCount",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " objects",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "ObjectCount",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "StoredBytes",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " bytes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "StoredBytes",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "UncommittedParts",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " parts",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "UncommittedParts",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "supportCustomProperty": false,
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "ARIMA"
+        },
+        "type": "dynamicTable",
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
+        "version": 2,
+        "isSupportCustomProperty": false,
+        "topX": 10,
+        "dataSourceFullName": "Object Storage Default (OCI_ObjectStorage_Default)",
+        "sortOrder": "descending",
+        "name": "##ociServiceName## Information (Real-time)",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 7,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Object Count (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "ObjectCount",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Object Storage Default (OCI_ObjectStorage_Default)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "ObjectCount",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "objects",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "7days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 10,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Request Types (Aggregate)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "ArchiveRequests",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "auto",
+                "legend": "Archive Requests",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "ArchiveRequests",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "CopyRequests",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "auto",
+                "legend": "Copy Requests",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "CopyRequests",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "GetRequests",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "auto",
+                "legend": "Get Requests",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "GetRequests",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "HeadRequests",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "auto",
+                "legend": "Head Requests",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "HeadRequests",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "PutRequests",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "auto",
+                "legend": "Put Requests",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "PutRequests",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "RenameRequests",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "auto",
+                "legend": "Rename Requests",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "RenameRequests",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "requests",
+          "aggregate": true,
+          "desc": false,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 10,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Total Request Latency (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "TotalRequestLatency",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "TotalRequestLatency",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "milliseconds",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 10,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## First Byte Latency (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "FirstByteLatency",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "FirstByteLatency",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "milliseconds",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 23,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "Severity",
+              "isVisibleByDefault": true,
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "ServiceNow incident",
+              "columnKey": "alertExternalTicketUrl"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Grouping Criteria",
+              "columnKey": "alert-grouping-criteria"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Log Metadata",
+              "columnKey": "alert-log-metadata"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Logs Partition",
+              "columnKey": "alert-log-partition"
+            }
+          ],
+          "playSound": {
+            "criticalAlertAudioFileName": "none",
+            "errorAlertAudioFileName": "none",
+            "warningAlertAudioFileName": "none",
+            "shouldPlay": false
+          },
+          "fontsize": "medium-font",
+          "sort": "-startEpoch"
+        },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Alert Detail",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "*",
+          "anomaly": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
+          "keyword": "",
+          "dataSource": "*,Object Storage Default,Object Storage Custom",
+          "cleared": "no",
+          "group": "##defaultResourceGroup##"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 16,
+        "sizey": 7
+      },
+      "config": {
+        "displaySettings": {
+          "propertyColumns": [],
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "Name",
+              "columnSize": 266,
+              "columnKey": "name"
+            },
+            {
+              "visible": true,
+              "columnLabel": "AllRequests",
+              "columnSize": 150,
+              "columnKey": "AllRequests"
+            },
+            {
+              "visible": true,
+              "columnLabel": "ArchiveRequests",
+              "columnSize": 150,
+              "columnKey": "ArchiveRequests"
+            },
+            {
+              "visible": true,
+              "columnLabel": "CopyRequests",
+              "columnSize": 150,
+              "columnKey": "CopyRequests"
+            },
+            {
+              "visible": true,
+              "columnLabel": "DeleteRequests",
+              "columnSize": 150,
+              "columnKey": "DeleteRequests"
+            },
+            {
+              "visible": true,
+              "columnLabel": "GetRequests",
+              "columnSize": 150,
+              "columnKey": "GetRequests"
+            },
+            {
+              "visible": true,
+              "columnLabel": "HeadRequests",
+              "columnSize": 150,
+              "columnKey": "HeadRequests"
+            },
+            {
+              "visible": true,
+              "columnLabel": "ListRequests",
+              "columnSize": 150,
+              "columnKey": "ListRequests"
+            },
+            {
+              "visible": true,
+              "columnLabel": "PostRequests",
+              "columnSize": 150,
+              "columnKey": "PostRequests"
+            },
+            {
+              "visible": true,
+              "columnLabel": "PutRequests",
+              "columnSize": 150,
+              "columnKey": "PutRequests"
+            },
+            {
+              "visible": true,
+              "columnLabel": "RenameRequests",
+              "columnSize": 150,
+              "columnKey": "RenameRequests"
+            }
+          ],
+          "pageSize": "25",
+          "columnsV4": [
+            {
+              "maxValue": 100,
+              "index": 0,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "AllRequests",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " requests",
+              "id": "undefined_0",
+              "position": 0,
+              "colorThresholds": [],
+              "columnName": "AllRequests"
+            },
+            {
+              "maxValue": 100,
+              "index": 1,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "ArchiveRequests",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " requests",
+              "id": "undefined_1",
+              "position": 1,
+              "colorThresholds": [],
+              "columnName": "ArchiveRequests"
+            },
+            {
+              "maxValue": 100,
+              "index": 2,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "CopyRequests",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " requests",
+              "id": "undefined_2",
+              "position": 2,
+              "colorThresholds": [],
+              "columnName": "CopyRequests"
+            },
+            {
+              "maxValue": 100,
+              "index": 3,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "DeleteRequests",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " requests",
+              "id": "undefined_3",
+              "position": 3,
+              "colorThresholds": [],
+              "columnName": "DeleteRequests"
+            },
+            {
+              "maxValue": 100,
+              "index": 4,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "GetRequests",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " requests",
+              "id": "undefined_4",
+              "position": 4,
+              "colorThresholds": [],
+              "columnName": "GetRequests"
+            },
+            {
+              "maxValue": 100,
+              "index": 5,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "HeadRequests",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " requests",
+              "id": "undefined_5",
+              "position": 5,
+              "colorThresholds": [],
+              "columnName": "HeadRequests"
+            },
+            {
+              "maxValue": 100,
+              "index": 6,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "ListRequests",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " requests",
+              "id": "undefined_6",
+              "position": 6,
+              "colorThresholds": [],
+              "columnName": "ListRequests"
+            },
+            {
+              "maxValue": 100,
+              "index": 7,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "PostRequests",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " requests",
+              "id": "undefined_7",
+              "position": 7,
+              "colorThresholds": [],
+              "columnName": "PostRequests"
+            },
+            {
+              "maxValue": 100,
+              "index": 8,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "PutRequests",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " requests",
+              "id": "undefined_8",
+              "position": 8,
+              "colorThresholds": [],
+              "columnName": "PutRequests"
+            },
+            {
+              "maxValue": 100,
+              "index": 9,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "RenameRequests",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " requests",
+              "id": "undefined_9",
+              "position": 9,
+              "colorThresholds": [],
+              "columnName": "RenameRequests"
+            }
+          ]
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "AllRequests",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " requests",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "AllRequests",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "ArchiveRequests",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " requests",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "ArchiveRequests",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "CopyRequests",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " requests",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "CopyRequests",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "DeleteRequests",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " requests",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "DeleteRequests",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "GetRequests",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " requests",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "GetRequests",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "HeadRequests",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " requests",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "HeadRequests",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "ListRequests",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " requests",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "ListRequests",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "PostRequests",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " requests",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "PostRequests",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "PutRequests",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " requests",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "PutRequests",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "RenameRequests",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " requests",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "RenameRequests",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "supportCustomProperty": false,
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "ARIMA"
+        },
+        "type": "dynamicTable",
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
+        "version": 2,
+        "isSupportCustomProperty": false,
+        "topX": 10,
+        "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+        "sortOrder": "descending",
+        "name": "##ociServiceName## Requests (Real-time)",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 2,
+        "row": 14,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "AllRequests",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "AllRequests",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "ClientErrors",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "ClientErrors",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "DeleteRequests",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "DeleteRequests",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "GetRequests",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "GetRequests",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "TotalRequestLatency",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "TotalRequestLatency",
+              "aggregateFunction": "AVERAGE",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "PostRequests",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "PostRequests",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [
+            {
+              "dataPointName": "AllRequests",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "All Requests",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
+        },
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 2,
+        "row": 14,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "AllRequests",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "AllRequests",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "ClientErrors",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "ClientErrors",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "DeleteRequests",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "DeleteRequests",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "GetRequests",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "GetRequests",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "TotalRequestLatency",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "TotalRequestLatency",
+              "aggregateFunction": "AVERAGE",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "PostRequests",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "PostRequests",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [
+            {
+              "dataPointName": "ClientErrors",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Client Errors",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
+        },
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 2,
+        "row": 14,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "AllRequests",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "AllRequests",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "ClientErrors",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "ClientErrors",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "DeleteRequests",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "DeleteRequests",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "GetRequests",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "GetRequests",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "TotalRequestLatency",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "TotalRequestLatency",
+              "aggregateFunction": "AVERAGE",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "PostRequests",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "PostRequests",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [
+            {
+              "dataPointName": "DeleteRequests",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Delete Requests",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
+        },
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 2,
+        "row": 14,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "AllRequests",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "AllRequests",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "ClientErrors",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "ClientErrors",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "DeleteRequests",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "DeleteRequests",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "GetRequests",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "GetRequests",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "TotalRequestLatency",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "TotalRequestLatency",
+              "aggregateFunction": "AVERAGE",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "PostRequests",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "PostRequests",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [
+            {
+              "dataPointName": "GetRequests",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Get Requests",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
+        },
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 3,
+        "sizex": 2,
+        "row": 14,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "AllRequests",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "AllRequests",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "ClientErrors",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "ClientErrors",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "DeleteRequests",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "DeleteRequests",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "GetRequests",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "GetRequests",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "TotalRequestLatency",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "TotalRequestLatency",
+              "aggregateFunction": "AVERAGE",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "PostRequests",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "PostRequests",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [
+            {
+              "dataPointName": "TotalRequestLatency",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Average Latency (ms.)",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
+        },
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 14,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "AllRequests",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "AllRequests",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "ClientErrors",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "ClientErrors",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "DeleteRequests",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "DeleteRequests",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "GetRequests",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "GetRequests",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "TotalRequestLatency",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "TotalRequestLatency",
+              "aggregateFunction": "AVERAGE",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "PostRequests",
+              "instanceName": "*",
+              "dataSourceFullName": "Object Storage Custom (OCI_ObjectStorage_Custom)",
+              "name": "PostRequests",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [
+            {
+              "dataPointName": "PostRequests",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Post Requests",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
+        },
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Statistics_clone",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2,
+  "group": {
+    "fullPath": "OCI Dashboards",
+    "name": "OCI Dashboards",
+    "description": "2025.09.18 KD"
+  }
+}

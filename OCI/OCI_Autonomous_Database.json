@@ -1,0 +1,2077 @@
+{
+  "santabaRelease": 228,
+  "defaultDashboardFilters": {
+    "defaultDashboardFilterDetails": []
+  },
+  "widgetTokens": [
+    {
+      "name": "ociServiceName",
+      "value": "OCI Autonomous Database"
+    }
+  ],
+  "name": "OCI Autonomous Database",
+  "description": "",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "supportCustomProperty": false,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "isSupportCustomProperty": false,
+        "displayColumn": 7,
+        "name": "##ociServiceName## Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "##RESOURCENAME##",
+            "dataSourceDisplayName": "Autonomous Database*",
+            "groupBy": "device",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }
+        ]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 3,
+        "sizey": 6
+      },
+      "config": {
+        "displaySettings": {
+          "zoomLevel": 100,
+          "showFilter": false,
+          "fontSize": "medium"
+        },
+        "vizInfo": {
+          "alertFilters": {
+            "datapointsFilterMode": "INCLUDE",
+            "isIgnoreSdtAlerts": false,
+            "datapointFilters": []
+          },
+          "groupBy": [
+            {
+              "name": "system.norm.region",
+              "label": "Region",
+              "type": "RESOURCE_PROPERTY"
+            }
+          ],
+          "filterBy": {
+            "severityFilters": {
+              "critical": true,
+              "warning": true,
+              "none": true,
+              "error": true
+            },
+            "filters": [
+              {
+                "name": "system.device.provider",
+                "label": "Provider",
+                "type": "RESOURCE_PROPERTY",
+                "inclusionType": "INCLUDE",
+                "value": [
+                  {
+                    "label": "OCI",
+                    "value": "OCI"
+                  }
+                ]
+              },
+              {
+                "name": "predef.externalresourcetype",
+                "label": "Resource Type",
+                "type": "RESOURCE_PROPERTY",
+                "inclusionType": "INCLUDE",
+                "value": [
+                  {
+                    "label": "OCI/AutonomousDatabase",
+                    "value": "OCI/AutonomousDatabase"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Resource Overview",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "type": "viz",
+        "timescale": "day",
+        "version": 2,
+        "widgetConfig": "{\"vizInfo\": {\n  \"alertFilters\": {\n    \"datapointsFilterMode\": \"INCLUDE\",\n    \"isIgnoreSdtAlerts\": false,\n    \"datapointFilters\": []\n  },\n  \"groupBy\": [{\n    \"name\": \"system.norm.region\",\n    \"label\": \"Region\",\n    \"type\": \"RESOURCE_PROPERTY\"\n  }],\n  \"filterBy\": {\n    \"severityFilters\": {\n      \"critical\": true,\n      \"warning\": true,\n      \"none\": true,\n      \"error\": true\n    },\n    \"filters\": [\n      {\n        \"name\": \"system.device.provider\",\n        \"label\": \"Provider\",\n        \"type\": \"RESOURCE_PROPERTY\",\n        \"inclusionType\": \"INCLUDE\",\n        \"value\": [{\n          \"label\": \"OCI\",\n          \"value\": \"OCI\"\n        }]\n      },\n      {\n        \"name\": \"predef.externalresourcetype\",\n        \"label\": \"Resource Type\",\n        \"type\": \"RESOURCE_PROPERTY\",\n        \"inclusionType\": \"INCLUDE\",\n        \"value\": [{\n          \"label\": \"OCI/AutonomousDatabase\",\n          \"value\": \"OCI/AutonomousDatabase\"\n        }]\n      }\n    ]\n  }\n}}"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 7,
+        "row": 25,
+        "sizey": 6
+      },
+      "config": {
+        "displaySettings": {
+          "propertyColumns": [],
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "Name",
+              "columnSize": 277,
+              "columnKey": "name"
+            },
+            {
+              "visible": true,
+              "columnLabel": "StorageUtilization",
+              "columnSize": 150,
+              "columnKey": "StorageUtilization"
+            },
+            {
+              "visible": true,
+              "columnLabel": "StorageAllocated",
+              "columnSize": 150,
+              "columnKey": "StorageAllocated"
+            },
+            {
+              "visible": true,
+              "columnLabel": "StorageMax",
+              "columnSize": 150,
+              "columnKey": "StorageMax"
+            },
+            {
+              "visible": true,
+              "columnLabel": "StorageUsed",
+              "columnSize": 150,
+              "columnKey": "StorageUsed"
+            }
+          ],
+          "pageSize": "25",
+          "columnsV4": [
+            {
+              "maxValue": 100,
+              "index": 0,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "StorageUtilization",
+              "minValue": 0,
+              "displayType": "percent",
+              "unitLabel": "",
+              "id": "undefined_0",
+              "position": 0,
+              "colorThresholds": [
+                {
+                  "level": 4,
+                  "threshold": 90,
+                  "relation": ">"
+                },
+                {
+                  "level": 3,
+                  "threshold": 80,
+                  "relation": ">"
+                },
+                {
+                  "level": 2,
+                  "threshold": 70,
+                  "relation": ">"
+                }
+              ],
+              "columnName": "StorageUtilization"
+            },
+            {
+              "maxValue": 100,
+              "index": 1,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "StorageAllocated",
+              "minValue": 0,
+              "displayType": "raw",
+              "unitLabel": " bytes",
+              "id": "StorageAllocated_1",
+              "position": 1,
+              "colorThresholds": [],
+              "columnName": "StorageAllocated"
+            },
+            {
+              "maxValue": 100,
+              "index": 2,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "StorageMax",
+              "minValue": 0,
+              "displayType": "raw",
+              "unitLabel": " bytes",
+              "id": "StorageMax_2",
+              "position": 2,
+              "colorThresholds": [],
+              "columnName": "StorageMax"
+            },
+            {
+              "maxValue": 100,
+              "index": 3,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "StorageUsed",
+              "minValue": 0,
+              "displayType": "raw",
+              "unitLabel": " bytes",
+              "id": "StorageUsed_3",
+              "position": 3,
+              "colorThresholds": [],
+              "columnName": "StorageUsed"
+            }
+          ]
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "StorageUtilization",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [
+              {
+                "level": 4,
+                "threshold": 90,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 80,
+                "relation": ">"
+              },
+              {
+                "level": 2,
+                "threshold": 70,
+                "relation": ">"
+              }
+            ],
+            "columnName": "StorageUtilization",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "StorageAllocated",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " bytes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "StorageAllocated",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "StorageMax",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " bytes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "StorageMax",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "StorageUsed",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " bytes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "StorageUsed",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "supportCustomProperty": false,
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "ARIMA"
+        },
+        "type": "dynamicTable",
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
+        "version": 2,
+        "isSupportCustomProperty": false,
+        "topX": 10,
+        "dataSourceFullName": "Autonomous Database Storage (OCI_Autonomous_Database_Storage)",
+        "sortOrder": "descending",
+        "name": "##ociServiceName## Storage Statistics (Real-time)",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 8,
+        "sizex": 5,
+        "row": 25,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Storage Utilization (Trend)",
+        "description": "",
+        "theme": "borderGray",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [
+            {
+              "dataPointName": "StorageUtilization",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Autonomous Database Storage (OCI_Autonomous_Database_Storage)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "StorageUtilization",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "percent",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 18,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Transaction Count (Trend)",
+        "description": "",
+        "theme": "borderGray",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "TransactionCount",
+              "instanceName": {
+                "isGlob": false,
+                "value": "OCI_Autonomous_Database"
+              },
+              "dataSourceFullName": "Autonomous Database (OCI_Autonomous_Database)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "TransactionCount",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "TransactionCount",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": false,
+                "value": "phx:AutonomousDatabase:QA-auto-db-root"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            }
+          ],
+          "verticalLabel": "transactions",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 22,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## User Commits (Trend)",
+        "description": "",
+        "theme": "borderGray",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "UserCommits",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Autonomous Database (OCI_Autonomous_Database)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "UserCommits",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "commits",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 9,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Query Latency (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "QueryLatency",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Autonomous Database (OCI_Autonomous_Database)",
+              "consolidateFunction": "max",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "QueryLatency",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "milliseconds",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 12,
+        "sizey": 6
+      },
+      "config": {
+        "displaySettings": {
+          "propertyColumns": [],
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "Name",
+              "columnSize": 242,
+              "columnKey": "name"
+            },
+            {
+              "visible": true,
+              "columnLabel": "SessionUtilization",
+              "columnSize": 150,
+              "columnKey": "SessionUtilization"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Sessions",
+              "columnSize": 98,
+              "columnKey": "Sessions"
+            },
+            {
+              "visible": true,
+              "columnLabel": "AverageActive",
+              "columnSize": 122,
+              "columnKey": "AverageActive"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Blocking",
+              "columnSize": 150,
+              "columnKey": "Blocking"
+            }
+          ],
+          "pageSize": "10",
+          "columnsV4": [
+            {
+              "maxValue": 100,
+              "index": 0,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "Sessions",
+              "minValue": 0,
+              "displayType": "raw",
+              "unitLabel": " sessions",
+              "id": "undefined_1",
+              "position": 1,
+              "colorThresholds": [],
+              "columnName": "Sessions"
+            },
+            {
+              "maxValue": 100,
+              "index": 1,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "SessionUtilization",
+              "minValue": 0,
+              "displayType": "percent",
+              "unitLabel": "",
+              "id": "undefined_0",
+              "position": 0,
+              "colorThresholds": [
+                {
+                  "level": 4,
+                  "threshold": 0,
+                  "relation": ">"
+                },
+                {
+                  "level": 3,
+                  "threshold": 0,
+                  "relation": ">"
+                },
+                {
+                  "level": 2,
+                  "threshold": 0,
+                  "relation": ">"
+                }
+              ],
+              "columnName": "SessionUtilization"
+            },
+            {
+              "maxValue": 100,
+              "index": 2,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "AverageActiveSessions",
+              "minValue": 0,
+              "displayType": "raw",
+              "unitLabel": " sessions",
+              "id": "undefined_2",
+              "position": 2,
+              "colorThresholds": [],
+              "columnName": "AverageActive"
+            },
+            {
+              "maxValue": 100,
+              "index": 3,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "BlockingSessions",
+              "minValue": 0,
+              "displayType": "raw",
+              "unitLabel": " sessions",
+              "id": "undefined_3",
+              "position": 3,
+              "colorThresholds": [],
+              "columnName": "Blocking"
+            }
+          ]
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "Sessions",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " sessions",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Sessions",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "SessionUtilization",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [
+              {
+                "level": 4,
+                "threshold": 0,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 0,
+                "relation": ">"
+              },
+              {
+                "level": 2,
+                "threshold": 0,
+                "relation": ">"
+              }
+            ],
+            "columnName": "SessionUtilization",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "AverageActiveSessions",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " sessions",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "AverageActive",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "BlockingSessions",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " sessions",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Blocking",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "supportCustomProperty": false,
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "ARIMA"
+        },
+        "type": "dynamicTable",
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
+        "version": 2,
+        "isSupportCustomProperty": false,
+        "topX": 25,
+        "dataSourceFullName": "Autonomous Database (OCI_Autonomous_Database)",
+        "sortOrder": "descending",
+        "name": "##ociServiceName## Session Statistics (Real-time)",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 9,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Connection Latency (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "ConnectionLatency",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Autonomous Database (OCI_Autonomous_Database)",
+              "consolidateFunction": "max",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "ConnectionLatency",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "milliseconds",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 3,
+        "row": 12,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Sessions (Trend)",
+        "description": "",
+        "theme": "borderGray",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "Sessions",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Autonomous Database (OCI_Autonomous_Database)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## Sessions",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "Sessions",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "sessions",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 3,
+        "row": 15,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Session Utilization (Trend)",
+        "description": "",
+        "theme": "borderGray",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [
+            {
+              "dataPointName": "SessionUtilization",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Autonomous Database (OCI_Autonomous_Database)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "SessionUtilization",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "percent",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 12,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Blocking Sessions (Trend)",
+        "description": "",
+        "theme": "borderGray",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "BlockingSessions",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Autonomous Database (OCI_Autonomous_Database)",
+              "consolidateFunction": "max",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "BlockingSessions",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "blocking sessions",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 15,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Average Active Sessions (Trend)",
+        "description": "",
+        "theme": "borderGray",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "AverageActiveSessions",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Autonomous Database (OCI_Autonomous_Database)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "AverageActiveSessions",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "active sessions",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 9,
+        "row": 3,
+        "sizey": 6
+      },
+      "config": {
+        "displaySettings": {
+          "propertyColumns": [],
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "Name",
+              "columnSize": 327,
+              "columnKey": "name"
+            },
+            {
+              "visible": true,
+              "columnLabel": "CPU Utilization",
+              "columnSize": 150,
+              "columnKey": "CPU Utilization"
+            },
+            {
+              "visible": true,
+              "columnLabel": "DatabaseAvailability",
+              "columnSize": 150,
+              "columnKey": "DatabaseAvailability"
+            },
+            {
+              "visible": true,
+              "columnLabel": "ConnectionLatency",
+              "columnSize": 150,
+              "columnKey": "ConnectionLatency"
+            },
+            {
+              "visible": true,
+              "columnLabel": "QueryLatency",
+              "columnSize": 131,
+              "columnKey": "QueryLatency"
+            },
+            {
+              "visible": true,
+              "columnLabel": "CurrentLogons",
+              "columnSize": 150,
+              "columnKey": "CurrentLogons"
+            },
+            {
+              "visible": true,
+              "columnLabel": "FailedLogons",
+              "columnSize": 150,
+              "columnKey": "FailedLogons"
+            },
+            {
+              "visible": true,
+              "columnLabel": "ParseFailures",
+              "columnSize": 137,
+              "columnKey": "ParseFailures"
+            },
+            {
+              "visible": true,
+              "columnLabel": "RedoGenerated",
+              "columnSize": 150,
+              "columnKey": "RedoGenerated"
+            }
+          ],
+          "pageSize": "25",
+          "columnsV4": [
+            {
+              "maxValue": 100,
+              "index": 0,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "CpuUtilization",
+              "minValue": 0,
+              "displayType": "percent",
+              "unitLabel": "",
+              "id": "undefined_0",
+              "position": 0,
+              "colorThresholds": [
+                {
+                  "level": 4,
+                  "threshold": 90,
+                  "relation": ">"
+                },
+                {
+                  "level": 3,
+                  "threshold": 80,
+                  "relation": ">"
+                },
+                {
+                  "level": 2,
+                  "threshold": 70,
+                  "relation": ">"
+                }
+              ],
+              "columnName": "CPU Utilization"
+            },
+            {
+              "maxValue": 0,
+              "index": 1,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "DatabaseAvailability",
+              "minValue": -1,
+              "displayType": "colorBar",
+              "unitLabel": " ( 1 = available )",
+              "id": "undefined_1",
+              "position": 1,
+              "colorThresholds": [
+                {
+                  "level": 4,
+                  "threshold": 1,
+                  "relation": ">"
+                },
+                {
+                  "level": 3,
+                  "threshold": 1,
+                  "relation": ">"
+                },
+                {
+                  "level": 2,
+                  "threshold": 1,
+                  "relation": ">"
+                }
+              ],
+              "columnName": "DatabaseAvailability"
+            },
+            {
+              "maxValue": 100,
+              "index": 2,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "ConnectionLatency",
+              "minValue": 0,
+              "displayType": "raw",
+              "unitLabel": " ms.",
+              "id": "undefined_2",
+              "position": 2,
+              "colorThresholds": [],
+              "columnName": "ConnectionLatency"
+            },
+            {
+              "maxValue": 100,
+              "index": 3,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "QueryLatency",
+              "minValue": 0,
+              "displayType": "raw",
+              "unitLabel": " ms.",
+              "id": "undefined_3",
+              "position": 3,
+              "colorThresholds": [],
+              "columnName": "QueryLatency"
+            },
+            {
+              "maxValue": 100,
+              "index": 4,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "CurrentLogons",
+              "minValue": 0,
+              "displayType": "raw",
+              "unitLabel": " logons",
+              "id": "undefined_4",
+              "position": 4,
+              "colorThresholds": [],
+              "columnName": "CurrentLogons"
+            },
+            {
+              "maxValue": 100,
+              "index": 5,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "FailedLogons",
+              "minValue": 0,
+              "displayType": "raw",
+              "unitLabel": " logons",
+              "id": "FailedLogons_5",
+              "position": 5,
+              "colorThresholds": [],
+              "columnName": "FailedLogons"
+            },
+            {
+              "maxValue": 100,
+              "index": 6,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "ParseFailureCount",
+              "minValue": 0,
+              "displayType": "raw",
+              "unitLabel": " failures",
+              "id": "undefined_6",
+              "position": 6,
+              "colorThresholds": [],
+              "columnName": "ParseFailures"
+            },
+            {
+              "maxValue": 100,
+              "index": 7,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "RedoGenerated",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " bytes",
+              "id": "undefined_7",
+              "position": 7,
+              "colorThresholds": [],
+              "columnName": "RedoGenerated"
+            }
+          ]
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "CpuUtilization",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [
+              {
+                "level": 4,
+                "threshold": 90,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 80,
+                "relation": ">"
+              },
+              {
+                "level": 2,
+                "threshold": 70,
+                "relation": ">"
+              }
+            ],
+            "columnName": "CPU Utilization",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "DatabaseAvailability",
+            "displayType": "colorBar",
+            "minValue": -1,
+            "unitLabel": " ( 1 = available )",
+            "maxValue": 0,
+            "colorThresholds": [
+              {
+                "level": 4,
+                "threshold": 1,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 1,
+                "relation": ">"
+              },
+              {
+                "level": 2,
+                "threshold": 1,
+                "relation": ">"
+              }
+            ],
+            "columnName": "DatabaseAvailability",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "ConnectionLatency",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ms.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "ConnectionLatency",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "QueryLatency",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ms.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "QueryLatency",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "CurrentLogons",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " logons",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "CurrentLogons",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "FailedLogons",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " logons",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "FailedLogons",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "ParseFailureCount",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " failures",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "ParseFailures",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "RedoGenerated",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " bytes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "RedoGenerated",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "supportCustomProperty": false,
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "ARIMA"
+        },
+        "type": "dynamicTable",
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
+        "version": 2,
+        "isSupportCustomProperty": false,
+        "topX": 10,
+        "dataSourceFullName": "Autonomous Database (OCI_Autonomous_Database)",
+        "sortOrder": "descending",
+        "name": "##ociServiceName## Statistics (Real-time)",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 8,
+        "sizex": 5,
+        "row": 28,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Storage Used (Trend)",
+        "description": "",
+        "theme": "borderGray",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "StorageUsed",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Autonomous Database Storage (OCI_Autonomous_Database_Storage)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "StorageUsed",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bytes",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 9,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Database Availability (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "DatabaseAvailability",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Autonomous Database (OCI_Autonomous_Database)",
+              "consolidateFunction": "max",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "DatabaseAvailability",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "milliseconds",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 31,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "Severity",
+              "isVisibleByDefault": true,
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "ServiceNow incident",
+              "columnKey": "alertExternalTicketUrl"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Grouping Criteria",
+              "columnKey": "alert-grouping-criteria"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Log Metadata",
+              "columnKey": "alert-log-metadata"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Logs Partition",
+              "columnKey": "alert-log-partition"
+            }
+          ],
+          "playSound": {
+            "criticalAlertAudioFileName": "none",
+            "errorAlertAudioFileName": "none",
+            "warningAlertAudioFileName": "none",
+            "shouldPlay": false
+          },
+          "fontsize": "medium-font",
+          "sort": "-startEpoch"
+        },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Alert Detail",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "*",
+          "anomaly": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
+          "keyword": "",
+          "dataSource": "*,Autonomous Database Storage,Autonomous Database",
+          "cleared": "no",
+          "group": "##defaultResourceGroup##"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 8,
+        "row": 18,
+        "sizey": 7
+      },
+      "config": {
+        "displaySettings": {
+          "propertyColumns": [],
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "Name",
+              "columnSize": 150,
+              "columnKey": "name"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicalReads",
+              "columnSize": 127,
+              "columnKey": "LogicalReads"
+            },
+            {
+              "visible": true,
+              "columnLabel": "PhysicalReads",
+              "columnSize": 150,
+              "columnKey": "PhysicalReads"
+            },
+            {
+              "visible": true,
+              "columnLabel": "PhysicalReadTotal",
+              "columnSize": 150,
+              "columnKey": "PhysicalReadTotal"
+            },
+            {
+              "visible": true,
+              "columnLabel": "PhysicalWrites",
+              "columnSize": 132,
+              "columnKey": "PhysicalWrites"
+            },
+            {
+              "visible": true,
+              "columnLabel": "PhysicalWriteTotal",
+              "columnSize": 150,
+              "columnKey": "PhysicalWriteTotal"
+            },
+            {
+              "visible": true,
+              "columnLabel": "PeerLag",
+              "columnSize": 111,
+              "columnKey": "PeerLag"
+            },
+            {
+              "visible": true,
+              "columnLabel": "RunningStatements",
+              "columnSize": 150,
+              "columnKey": "RunningStatements"
+            }
+          ],
+          "pageSize": "25",
+          "columnsV4": [
+            {
+              "maxValue": 100,
+              "index": 0,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "LogicalReads",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " reads",
+              "id": "undefined_0",
+              "position": 0,
+              "colorThresholds": [],
+              "columnName": "LogicalReads"
+            },
+            {
+              "maxValue": 100,
+              "index": 1,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "PhysicalReads",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " reads",
+              "id": "undefined_1",
+              "position": 1,
+              "colorThresholds": [],
+              "columnName": "PhysicalReads"
+            },
+            {
+              "maxValue": 100,
+              "index": 2,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "PhysicalReadTotalBytes",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " bytes",
+              "id": "PhysicalReadTotal_2",
+              "position": 2,
+              "colorThresholds": [],
+              "columnName": "PhysicalReadTotal"
+            },
+            {
+              "maxValue": 100,
+              "index": 3,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "PhysicalWrites",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " writes",
+              "id": "undefined_3",
+              "position": 3,
+              "colorThresholds": [],
+              "columnName": "PhysicalWrites"
+            },
+            {
+              "maxValue": 100,
+              "index": 4,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "PhysicalWriteTotalBytes",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " bytes",
+              "id": "PhysicalWriteTotal_4",
+              "position": 4,
+              "colorThresholds": [],
+              "columnName": "PhysicalWriteTotal"
+            },
+            {
+              "maxValue": 100,
+              "index": 5,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "PeerLag",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " seconds",
+              "id": "undefined_5",
+              "position": 5,
+              "colorThresholds": [],
+              "columnName": "PeerLag"
+            },
+            {
+              "maxValue": 100,
+              "index": 6,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "RunningStatements",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " statements",
+              "id": "undefined_6",
+              "position": 6,
+              "colorThresholds": [],
+              "columnName": "RunningStatements"
+            }
+          ]
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "LogicalReads",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " reads",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "LogicalReads",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "PhysicalReads",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " reads",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "PhysicalReads",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "PhysicalReadTotalBytes",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " bytes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "PhysicalReadTotal",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "PhysicalWrites",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " writes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "PhysicalWrites",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "PhysicalWriteTotalBytes",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " bytes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "PhysicalWriteTotal",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "PeerLag",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " seconds",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "PeerLag",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "RunningStatements",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " statements",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "RunningStatements",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "supportCustomProperty": false,
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "ARIMA"
+        },
+        "type": "dynamicTable",
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
+        "version": 2,
+        "isSupportCustomProperty": false,
+        "topX": 10,
+        "dataSourceFullName": "Autonomous Database (OCI_Autonomous_Database)",
+        "sortOrder": "descending",
+        "name": "##ociServiceName## Workload Statistics (Real-time)",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    }
+  ],
+  "version": 2,
+  "group": {
+    "fullPath": "OCI Dashboards",
+    "name": "OCI Dashboards",
+    "description": "2025.09.18 KD"
+  }
+}

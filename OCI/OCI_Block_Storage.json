@@ -1,0 +1,1115 @@
+{
+  "santabaRelease": 228,
+  "defaultDashboardFilters": {
+    "defaultDashboardFilterDetails": []
+  },
+  "widgetTokens": [
+    {
+      "name": "ociServiceName",
+      "value": "OCI Block Storage"
+    }
+  ],
+  "name": "OCI Block Storage",
+  "description": "",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "supportCustomProperty": false,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "isSupportCustomProperty": false,
+        "displayColumn": 7,
+        "name": "##ociServiceName## Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "##RESOURCENAME##",
+            "dataSourceDisplayName": "Block Storage*",
+            "groupBy": "device",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }
+        ]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 3,
+        "sizey": 6
+      },
+      "config": {
+        "displaySettings": {
+          "zoomLevel": 100,
+          "showFilter": false,
+          "fontSize": "medium"
+        },
+        "vizInfo": {
+          "alertFilters": {
+            "datapointsFilterMode": "INCLUDE",
+            "isIgnoreSdtAlerts": false,
+            "datapointFilters": []
+          },
+          "groupBy": [
+            {
+              "name": "system.norm.region",
+              "label": "Region",
+              "type": "RESOURCE_PROPERTY"
+            }
+          ],
+          "filterBy": {
+            "severityFilters": {
+              "critical": true,
+              "warning": true,
+              "none": true,
+              "error": true
+            },
+            "filters": [
+              {
+                "name": "system.device.provider",
+                "label": "Provider",
+                "type": "RESOURCE_PROPERTY",
+                "inclusionType": "INCLUDE",
+                "value": [
+                  {
+                    "label": "OCI",
+                    "value": "OCI"
+                  }
+                ]
+              },
+              {
+                "name": "predef.externalresourcetype",
+                "label": "Resource Type",
+                "type": "RESOURCE_PROPERTY",
+                "inclusionType": "INCLUDE",
+                "value": [
+                  {
+                    "label": "OCI/BlockStorage",
+                    "value": "OCI/BlockStorage"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Resource Overview",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "type": "viz",
+        "timescale": "day",
+        "version": 2,
+        "widgetConfig": "{\"vizInfo\": {\n  \"alertFilters\": {\n    \"datapointsFilterMode\": \"INCLUDE\",\n    \"isIgnoreSdtAlerts\": false,\n    \"datapointFilters\": []\n  },\n  \"groupBy\": [{\n    \"name\": \"system.norm.region\",\n    \"label\": \"Region\",\n    \"type\": \"RESOURCE_PROPERTY\"\n  }],\n  \"filterBy\": {\n    \"severityFilters\": {\n      \"critical\": true,\n      \"warning\": true,\n      \"none\": true,\n      \"error\": true\n    },\n    \"filters\": [\n      {\n        \"name\": \"system.device.provider\",\n        \"label\": \"Provider\",\n        \"type\": \"RESOURCE_PROPERTY\",\n        \"inclusionType\": \"INCLUDE\",\n        \"value\": [{\n          \"label\": \"OCI\",\n          \"value\": \"OCI\"\n        }]\n      },\n      {\n        \"name\": \"predef.externalresourcetype\",\n        \"label\": \"Resource Type\",\n        \"type\": \"RESOURCE_PROPERTY\",\n        \"inclusionType\": \"INCLUDE\",\n        \"value\": [{\n          \"label\": \"OCI/BlockStorage\",\n          \"value\": \"OCI/BlockStorage\"\n        }]\n      }\n    ]\n  }\n}}"
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 9,
+        "row": 3,
+        "sizey": 6
+      },
+      "config": {
+        "displaySettings": {
+          "propertyColumns": [],
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "Name",
+              "columnSize": 413,
+              "columnKey": "name"
+            },
+            {
+              "visible": true,
+              "columnLabel": "VolumeReadOps",
+              "columnSize": 137,
+              "columnKey": "VolumeReadOps"
+            },
+            {
+              "visible": true,
+              "columnLabel": "VolumeReadThroughput",
+              "columnSize": 150,
+              "columnKey": "VolumeReadThroughput"
+            },
+            {
+              "visible": true,
+              "columnLabel": "VolumeWriteOps",
+              "columnSize": 150,
+              "columnKey": "VolumeWriteOps"
+            },
+            {
+              "visible": true,
+              "columnLabel": "VolumeThrottledIOs",
+              "columnSize": 150,
+              "columnKey": "VolumeThrottledIOs"
+            }
+          ],
+          "pageSize": "25",
+          "columnsV4": [
+            {
+              "maxValue": 100,
+              "index": 0,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "VolumeReadOps",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " reads",
+              "id": "undefined_0",
+              "position": 0,
+              "colorThresholds": [],
+              "columnName": "VolumeReadOps"
+            },
+            {
+              "maxValue": 100,
+              "index": 1,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "VolumeReadThroughput/1024/1024",
+              "dataPointName": "VolumeReadThroughput",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " MB",
+              "id": "undefined_1",
+              "position": 1,
+              "colorThresholds": [],
+              "columnName": "VolumeReadThroughput"
+            },
+            {
+              "maxValue": 100,
+              "index": 2,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "VolumeWriteOps",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " writes",
+              "id": "undefined_2",
+              "position": 2,
+              "colorThresholds": [],
+              "columnName": "VolumeWriteOps"
+            },
+            {
+              "maxValue": 100,
+              "index": 3,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "VolumeWriteThroughput/1024/1024",
+              "dataPointName": "VolumeWriteThroughput",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " MB",
+              "id": "undefined_3",
+              "position": 3,
+              "colorThresholds": [],
+              "columnName": "VolumeWriteThroughput"
+            },
+            {
+              "maxValue": 100,
+              "index": 4,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "VolumeThrottledIOs",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " throttles",
+              "id": "undefined_4",
+              "position": 4,
+              "colorThresholds": [],
+              "columnName": "VolumeThrottledIOs"
+            }
+          ]
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "VolumeReadOps",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " reads",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "VolumeReadOps",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "VolumeReadThroughput/1024/1024",
+            "dataPointName": "VolumeReadThroughput",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " MB",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "VolumeReadThroughput",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "VolumeWriteOps",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " writes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "VolumeWriteOps",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "VolumeWriteThroughput/1024/1024",
+            "dataPointName": "VolumeWriteThroughput",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " MB",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "VolumeWriteThroughput",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "VolumeThrottledIOs",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " throttles",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "VolumeThrottledIOs",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "supportCustomProperty": false,
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "ARIMA"
+        },
+        "type": "dynamicTable",
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
+        "version": 2,
+        "isSupportCustomProperty": false,
+        "topX": 10,
+        "dataSourceFullName": "Block Storage (OCI_BlockStorage)",
+        "sortOrder": "descending",
+        "name": "##ociServiceName## Performance (Real-time)",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 13,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Volume Read Throughput (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "VolumeReadThroughput",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Block Storage (OCI_BlockStorage)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "VolumeReadThroughput",
+              "aggregateFunction": "AVERAGE",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bytes",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 9,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Volume Throttled IOs (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "VolumeThrottledIOs",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Block Storage (OCI_BlockStorage)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "VolumeThrottledIOs",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "operations",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 9,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Volume Write Ops (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "VolumeWriteOps",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Block Storage (OCI_BlockStorage)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "VolumeWriteOps",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "operations",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 13,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Volume Write Throughput (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "VolumeWriteThroughput",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Block Storage (OCI_BlockStorage)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "VolumeWriteThroughput",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bytes",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 9,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Volume Read Ops (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "VolumeReadOps",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Block Storage (OCI_BlockStorage)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "VolumeReadOps",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "operations",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 24,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "Severity",
+              "isVisibleByDefault": true,
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "ServiceNow incident",
+              "columnKey": "alertExternalTicketUrl"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Grouping Criteria",
+              "columnKey": "alert-grouping-criteria"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Log Metadata",
+              "columnKey": "alert-log-metadata"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Logs Partition",
+              "columnKey": "alert-log-partition"
+            }
+          ],
+          "playSound": {
+            "criticalAlertAudioFileName": "none",
+            "errorAlertAudioFileName": "none",
+            "warningAlertAudioFileName": "none",
+            "shouldPlay": false
+          },
+          "fontsize": "medium-font",
+          "sort": "-startEpoch"
+        },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Alert Detail",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "*",
+          "anomaly": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
+          "keyword": "",
+          "dataSource": "*,Block Storage Replication Enabled,Block Storage Replica,Block Storage",
+          "cleared": "no",
+          "group": "##defaultResourceGroup##"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 16,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "propertyColumns": [],
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "Name",
+              "columnSize": 286,
+              "columnKey": "name"
+            },
+            {
+              "visible": true,
+              "columnLabel": "SecondsSinceLastSync",
+              "columnSize": 150,
+              "columnKey": "SecondsSinceLastSync"
+            }
+          ],
+          "pageSize": "5",
+          "columnsV4": [
+            {
+              "maxValue": 100,
+              "index": 0,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "VolumeReplicationSecondsSinceLastSync",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " seconds",
+              "id": "undefined_0",
+              "position": 0,
+              "colorThresholds": [],
+              "columnName": "SecondsSinceLastSync"
+            }
+          ]
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "VolumeReplicationSecondsSinceLastSync",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " seconds",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "SecondsSinceLastSync",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "supportCustomProperty": false,
+        "description": "https://docs.oracle.com/en-us/iaas/Content/Block/References/volumemetrics-reference.htm#replicatmetrics",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "ARIMA"
+        },
+        "type": "dynamicTable",
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
+        "version": 2,
+        "isSupportCustomProperty": false,
+        "topX": 10,
+        "dataSourceFullName": "Block Storage Replica (OCI_BlockStorage_Replica)",
+        "sortOrder": "descending",
+        "name": "##ociServiceName## Replica Resource  Seconds Since Last Sync (Real-time)",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 8,
+        "row": 16,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Replica Resource Seconds Since Last Sync (Trend)",
+        "description": "https://docs.oracle.com/en-us/iaas/Content/Block/References/volumemetrics-reference.htm#replicatmetrics",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "VolumeReplicationSecondsSinceLastSync",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Block Storage Replica (OCI_BlockStorage_Replica)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "VolumeReplicationSecondsSinceLastSync",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "seconds",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 20,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "propertyColumns": [],
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "Name",
+              "columnSize": 286,
+              "columnKey": "name"
+            },
+            {
+              "visible": true,
+              "columnLabel": "SecondsSinceLastSync",
+              "columnSize": 150,
+              "columnKey": "SecondsSinceLastSync"
+            }
+          ],
+          "pageSize": "5",
+          "columnsV4": [
+            {
+              "maxValue": 100,
+              "index": 0,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "VolumeReplicationSecondsSinceLastUpload",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " seconds",
+              "id": "undefined_0",
+              "position": 0,
+              "colorThresholds": [],
+              "columnName": "SecondsSinceLastUpload"
+            }
+          ]
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "VolumeReplicationSecondsSinceLastUpload",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " seconds",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "SecondsSinceLastUpload",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "supportCustomProperty": false,
+        "description": "https://docs.oracle.com/en-us/iaas/Content/Block/References/volumemetrics-reference.htm#replicatmetrics",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "ARIMA"
+        },
+        "type": "dynamicTable",
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
+        "version": 2,
+        "isSupportCustomProperty": false,
+        "topX": 10,
+        "dataSourceFullName": "Block Storage Replication Enabled (OCI_BlockStorage_ReplicationEnabled)",
+        "sortOrder": "descending",
+        "name": "##ociServiceName## Volume Resource Seconds Since Last Upload (Real-time)",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 8,
+        "row": 20,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##ociServiceName## Volume Resource Seconds Since Last Upload (Trend)",
+        "description": "https://docs.oracle.com/en-us/iaas/Content/Block/References/volumemetrics-reference.htm#replicatmetrics",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "VolumeReplicationSecondsSinceLastUpload",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Block Storage Replication Enabled (OCI_BlockStorage_ReplicationEnabled)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "VolumeReplicationSecondsSinceLastUpload",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "seconds",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2,
+  "group": {
+    "fullPath": "OCI Dashboards",
+    "name": "OCI Dashboards",
+    "description": "2025.09.18 KD"
+  }
+}
