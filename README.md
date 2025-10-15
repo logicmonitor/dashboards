@@ -1,6 +1,6 @@
 # Dashboards
 
-LogicMonitor dashboards, provisioned with all new LogicMonitor accounts. When importing to an existing account, change the value of the ##defaultResourceGroup## or ##defaultResourceName## token to select the relevant group of devices (or individual device) for which you wish to visualize data. Intended to be examples to get the creativity flowing! (LogicMonitor Support can always help with adjustments)
+LogicMonitor dashboards, provisioned with all new LogicMonitor accounts. When importing to an existing account, change the value of the ##defaultResourceGroup## token to select the relevant group of devices for which you wish to visualize data. Intended to be examples to get the creativity flowing! (LogicMonitor Support can always help with adjustments)
 
 These dashboards depend on the presence of the latest versions of LogicMonitor datasources, and dynamic groups in the 'Devices by Type' device group. If these groups don't exist, they can be created using the out-of-box PropertySources from LogicMonitor together with the below documentation. [So make sure you have the latest PropertySources (and DataSources) from the repository!](https://www.logicmonitor.com/support/settings/logicmodules/keeping-your-datasources-up-to-date/)
 
@@ -21,6 +21,7 @@ Format: Dashboard Name | Required Dynamic Group Name | Dynamic Group Definition
 
 **Applications**
 - Apache | Devices by Type/ Linux Servers | isLinux()
+- Citrix Virtual Apps and Desktops | * | (No specific group requirement)
 - Citrix XenApp / XenDesktop | * | (No specific group requirement)
 - Docker | Devices by Type/ Linux Servers | isLinux()
 - Nginx | Devices by Type/ Linux Servers | isLinux()
@@ -31,6 +32,7 @@ Format: Dashboard Name | Required Dynamic Group Name | Dynamic Group Definition
 - Resource Utilization | * | (No specific group requirement)
 
 **Databases**
+- MongoDB | * | (No specific group requirement)
 - MySQL | * | (No specific group requirement)
 - Oracle | * | (No specific group requirement)
 - SQL Server | Devices by Type/ SQL Servers | hasCategory("MSSQL")
@@ -40,6 +42,7 @@ Format: Dashboard Name | Required Dynamic Group Name | Dynamic Group Definition
 
 **Hardware**
 - Cisco UCS | * | (No specific group requirement)
+- Cisco UCS Fabric Interconnects | * | (No specific group requirement)
 - Dell iDRAC | * | (No specific group requirement)
 - HP iLO | * | (No specific group requirement)
 
@@ -58,10 +61,24 @@ Format: Dashboard Name | Required Dynamic Group Name | Dynamic Group Definition
 - Linux - SSH | Devices by Type/ Linux Servers | isLinux()
 
 **LogicMonitor**
+- LM Config Collection | * | (No specific group requirement)
+- LM Uptime | * | (No specific group requirement)
 - Collectors | Devices by Type/ Collectors | hasCategory("Collectors")
-- LogicMonitor Portal Metrics | * | (Requires the LogicMonitor Portal Metrics datasource)
+- LogicMonitor Alerts | * | (Requires the LogicMonitor Portal Metrics datasource suite)
+- LogicMonitor Collectors | * | (Requires the LogicMonitor Portal Metrics datasource suite)
+- LogicMonitor Dashboards and Reports | * | (Requires the LogicMonitor Portal Metrics datasource suite)
+- LogicMonitor Overview | * | (Requires the LogicMonitor Portal Metrics datasource suite)
+- LogicMonitor Resources | * | (Requires the LogicMonitor Portal Metrics datasource suite)
+- LogicMonitor Users | * | (Requires the LogicMonitor Portal Metrics datasource suite)
+- LogicMonitor Websites | * | (Requires the LogicMonitor Portal Metrics datasource suite)
 - Minimal Monitoring | \*Minimal Monitoring\* | *
+- Portal Metrics Legacy | * | (Requires the LogicMonitor Portal Metrics datasource)
 - Welcome to LogicMonitor | * | (No specific group requirement)
+
+**Logs**
+- LM Logs Collection | * | (No specific group requirement)
+- LM Logs Usage Overview | * | (No specific group requirement)
+- Windows Event Log Collection | * | (No specific group requirement)
 
 **Microsoft**
 - Active Directory | Devices by Type/ Windows Servers | isWindows()
@@ -74,30 +91,43 @@ Format: Dashboard Name | Required Dynamic Group Name | Dynamic Group Definition
 - Microsoft .NET Framework | Devices by Type/ Windows Servers | isWindows()
 - Microsoft Message Queue | Devices by Type/ Windows Servers | isWindows()
 - Windows Servers| Devices by Type/ Windows Servers | isWindows()
+- Windows Time| Devices by Type/ Windows Servers | isWindows()
 
 **Network**
 
 - Arista | * | (No specific group requirement)
 - Aruba Wireless | * | (No specific group requirement)
 - BGP | * | (No specific group requirement)
+- Cato SD-WAN | * | (No specific group requirement)
 - Cisco APIC | * | (No specific group requirement)
 - Cisco ASA | * | (No specific group requirement)
 - Cisco DNA Center | * | (No specific group requirement)
-- Cisco Meraki | * | (No specific group requirement)
-- Cisco Viptela | * | (No specific group requirement)
+- Cisco Meraki Overview | * | (No specific group requirement)
+- Cisco Meraki Performance | * | (No specific group requirement)
+- Cisco SD-WAN - Catalyst Devices | * | (No specific group requirement)
+- Cisco SD-WAN - Catalyst Manager | * | (No specific group requirement)
+- Cisco SD-WAN - Viptela Devices | * | (No specific group requirement)
+- Cisco SD-WAN - Viptela vManage | * | (No specific group requirement)
 - Cisco Wireless | * | (No specific group requirement)
 - EIGRP | * | (No specific group requirement)
 - F5 BIG-IP | * | (No specific group requirement)
 - Fortinet Fortigate | * | (No specific group requirement)
 - Infoblox | * | (No specific group requirement)
-- Local Network Latency | Devices by Type/* | (No specific group requirement)
+- Juniper Mist | * | (No specific group requirement)
+- Netflow | Devices by Type/ Network | isNetwork()
+- Network Latency | Devices by Type/* | (No specific group requirement)
 - Network Performance | Devices by Type/ Network | isNetwork()
+- NTP | Devices by Type/ Network | isNetwork()
 - OSPF | * | (No specific group requirement)
 - Palo Alto Networks | Devices by Type/ Palo Alto | hasCategory("PaloAlto")
 - Palo Alto Networks - BGP | Devices by Type/ Palo Alto | hasCategory("PaloAlto")
+- Palo Alto Networks - IPSEC Tunnels | Devices by Type/ Palo Alto | hasCategory("PaloAlto")
+- Palo Alto Networks - Predefined Reports | Devices by Type/ Palo Alto | hasCategory("PaloAlto")
 - Pulse Secure | * | (No specific group requirement)
 - SSL Certificates | * | (No specific group requirement)
 - Ubiquiti Unifi | Devices by Type/ Network | isNetwork()
+- VMware SD-WAN Overview | Devices by Type/ Network | isNetwork()
+- VMware SD-WAN Tunnels | Devices by Type/ Network | isNetwork()
 
 **SaaS**
 - Office 365 | * | (No specific group requirement)
@@ -107,6 +137,7 @@ Format: Dashboard Name | Required Dynamic Group Name | Dynamic Group Definition
 
 **Storage**
 - Dell EMC Isilon | * | (No specific group requirement)
+- Dell EMC Unity | * | (No specific group requirement)
 - HP 3PAR | * | (No specific group requirement)
 - NetApp 7-mode | * | (No specific group requirement)
 - NetApp Cluster Mode | * | (No specific group requirement)
