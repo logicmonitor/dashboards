@@ -1,40 +1,46 @@
 {
+  "santabaRelease": 156,
   "widgetTokens": [],
   "name": "AWS Account Overview",
   "description": "",
+  "overwriteGroupFields": false,
   "widgetsConfigVersion": 2,
+  "type": "dashboard",
   "widgets": [
     {
       "position": {
         "col": 1,
-        "sizex": 12,
-        "row": 5,
-        "sizey": 4
+        "sizex": 8,
+        "row": 1,
+        "sizey": 6
       },
       "config": {
         "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
         "displayWarnAlert": true,
         "description": "",
         "type": "noc",
         "version": 2,
         "displayErrorAlert": true,
-        "extra": "{\"displayAs\":\"table\",\"showTypeIcon\":true}",
-        "displayColumn": 5,
-        "name": "##defaultDeviceGroup## NOC",
+        "displayColumn": 7,
+        "name": "##defaultResourceGroup## Alert Status",
         "displayCriticalAlert": true,
-        "theme": "newBorderBlue",
+        "theme": "newSolidDarkBlue",
         "interval": 5,
-        "sortBy": "name",
+        "sortBy": "alertSeverity",
         "timescale": "day",
         "sdtChecked": true,
         "items": [{
           "dataPointName": "*",
           "instanceName": "*",
-          "name": "##DEVICEGROUP##",
+          "name": "##RESOURCEGROUP##",
           "dataSourceDisplayName": "*",
           "groupBy": "deviceGroup",
           "type": "device",
-          "deviceGroupFullPath": "(##defaultDeviceGroup##|##defaultDeviceGroup##/!(*/*))",
+          "deviceGroupFullPath": "(##defaultResourceGroup##|##defaultResourceGroup##/!(*/*))",
           "deviceDisplayName": "*"
         }]
       }
@@ -43,14 +49,137 @@
       "position": {
         "col": 1,
         "sizex": 6,
-        "row": 1,
-        "sizey": 4
+        "row": 7,
+        "sizey": 6
       },
       "config": {
-        "extra": "{\"columns\":[{\"columnKey\":\"alert-severity\",\"columnLabel\":\"Severity\",\"visible\":false},{\"columnKey\":\"alert-full-path\",\"columnLabel\":\"Full Path\",\"visible\":false},{\"columnKey\":\"alert-began\",\"columnLabel\":\"Began\",\"visible\":true},{\"columnKey\":\"alert-device\",\"columnLabel\":\"\\n    Device/Service\\n\\n    \",\"visible\":true},{\"columnKey\":\"alert-datasource\",\"columnLabel\":\"LogicModule\",\"visible\":true},{\"columnKey\":\"alert-datasource-instance\",\"columnLabel\":\"Instance\",\"visible\":true},{\"columnKey\":\"alert-datapoint\",\"columnLabel\":\"Datapoint\",\"visible\":true},{\"columnKey\":\"alert-value\",\"columnLabel\":\"Value\",\"visible\":true},{\"columnKey\":\"alert-thresholds\",\"columnLabel\":\"Effective Thresholds\",\"visible\":true},{\"columnKey\":\"alert-group\",\"columnLabel\":\"Group\",\"visible\":true},{\"columnKey\":\"alert-notes\",\"columnLabel\":\"Notes\",\"visible\":true},{\"columnKey\":\"alert-acked-by\",\"columnLabel\":\"Acknowledged By\",\"visible\":true},{\"columnKey\":\"alert-acked-on\",\"columnLabel\":\"Acknowledged On\",\"visible\":true},{\"columnKey\":\"alert-cleared-on\",\"columnLabel\":\"Cleared On\",\"visible\":true},{\"columnKey\":\"alert-in-sdt\",\"columnLabel\":\"In SDT\",\"visible\":true},{\"columnKey\":\"alert-rule-name\",\"columnLabel\":\"Alert Rule\",\"visible\":true},{\"columnKey\":\"alert-escalation-chain\",\"columnLabel\":\"Escalation Chain\",\"visible\":true},{\"columnKey\":\"alert-datasource-instance-description\",\"columnLabel\":\"Instance Description\",\"visible\":true}],\"showFilter\":false,\"fontsize\":\"normal-font\",\"sortBy\":\"startEpoch\",\"sortDirection\":\"desc\",\"playSound\":{},\"isShowAll\":true}",
-        "name": "##defaultDeviceGroup## Alerts",
+        "displaySettings": {
+          "isShowAll": true,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            }
+          ],
+          "playSound": {
+            "criticalAlertAudioFileName": "",
+            "errorAlertAudioFileName": "",
+            "warningAlertAudioFileName": "",
+            "shouldPlay": false
+          },
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "name": "##defaultResourceGroup## Alerts",
         "description": "",
-        "theme": "newSolidBlue",
+        "theme": "newSolidDarkBlue",
         "interval": 3,
         "filters": {
           "severity": "",
@@ -58,13 +187,15 @@
           "chain": "",
           "instance": "",
           "dataPoint": "",
-          "host": "",
           "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
           "keyword": "",
           "dataSource": "!(AWS%20Service%20Health)",
-          "acked": "all",
           "cleared": "no",
-          "group": "%23%23defaultDeviceGroup%23%23*"
+          "group": "%23%23defaultResourceGroup%23%23*"
         },
         "type": "alert",
         "timescale": "day",
@@ -75,14 +206,132 @@
       "position": {
         "col": 7,
         "sizex": 6,
-        "row": 1,
-        "sizey": 4
+        "row": 7,
+        "sizey": 6
       },
       "config": {
-        "extra": "{\"columns\":[{\"columnKey\":\"alert-severity\",\"columnLabel\":\"Severity\",\"visible\":false},{\"columnKey\":\"alert-full-path\",\"columnLabel\":\"Full Path\",\"visible\":false},{\"columnKey\":\"alert-began\",\"columnLabel\":\"Began\",\"visible\":true},{\"columnKey\":\"alert-device\",\"columnLabel\":\"\\n    Device/Service\\n\\n    \",\"visible\":true},{\"columnKey\":\"alert-datasource\",\"columnLabel\":\"DataSource\",\"visible\":true},{\"columnKey\":\"alert-datasource-instance\",\"columnLabel\":\"Instance\",\"visible\":true},{\"columnKey\":\"alert-datapoint\",\"columnLabel\":\"Datapoint\",\"visible\":true},{\"columnKey\":\"alert-value\",\"columnLabel\":\"Value\",\"visible\":true},{\"columnKey\":\"alert-thresholds\",\"columnLabel\":\"Effective Thresholds\",\"visible\":true},{\"columnKey\":\"alert-group\",\"columnLabel\":\"Group\",\"visible\":true},{\"columnKey\":\"alert-notes\",\"columnLabel\":\"Notes\",\"visible\":true},{\"columnKey\":\"alert-acked-by\",\"columnLabel\":\"Acknowledged By\",\"visible\":true},{\"columnKey\":\"alert-acked-on\",\"columnLabel\":\"Acknowledged On\",\"visible\":true},{\"columnKey\":\"alert-cleared-on\",\"columnLabel\":\"Cleared On\",\"visible\":true},{\"columnKey\":\"alert-in-sdt\",\"columnLabel\":\"In SDT\",\"visible\":true},{\"columnKey\":\"alert-rule-name\",\"columnLabel\":\"Alert Rule\",\"visible\":true},{\"columnKey\":\"alert-escalation-chain\",\"columnLabel\":\"Escalation Chain\",\"visible\":true},{\"columnKey\":\"alert-datasource-instance-description\",\"columnLabel\":\"Instance Description\",\"visible\":true}],\"showFilter\":false,\"fontsize\":\"normal-font\",\"sortBy\":\"startEpoch\",\"sortDirection\":\"desc\",\"playSound\":{},\"isShowAll\":true}",
-        "name": "AWS Service Health",
+        "displaySettings": {
+          "isShowAll": true,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": true,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "name": "##defaultResourceGroup## Service Health",
         "description": "",
-        "theme": "newSolidBlue",
+        "theme": "newSolidDarkBlue",
         "interval": 3,
         "filters": {
           "severity": "",
@@ -90,15 +339,162 @@
           "chain": "",
           "instance": "",
           "dataPoint": "",
-          "host": "",
           "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
           "keyword": "",
           "dataSource": "AWS%20Service%20Health",
-          "acked": "all",
           "cleared": "no",
-          "group": "%23%23defaultDeviceGroup%23%23*"
+          "group": "%23%23defaultResourceGroup%23%23*"
         },
         "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 1,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## Resources by Region",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "pieChart",
+        "timescale": "day",
+        "pieChartInfo": {
+          "maxSlicesCanBeShown": 25,
+          "virtualDataPoints": [],
+          "showLabelsAndLinesOnPC": true,
+          "counters": [
+            {
+              "name": "Europe",
+              "appliesTo": "join(system.staticgroups, \",\") =~ \"##defaultResourceGroup##\" && system.aws.region =~ \"eu\" && system.devicetype == \"2\""
+            },
+            {
+              "name": "Asia",
+              "appliesTo": "join(system.staticgroups, \",\") =~ \"##defaultResourceGroup##\" && system.aws.region =~ \"ap\" && system.devicetype == \"2\""
+            },
+            {
+              "name": "North America",
+              "appliesTo": "join(system.staticgroups, \",\") =~ \"##defaultResourceGroup##\" && system.aws.region =~ \"us|ca\" && system.devicetype == \"2\""
+            },
+            {
+              "name": "South America",
+              "appliesTo": "join(system.staticgroups, \",\") =~ \"##defaultResourceGroup##\" && system.aws.region =~ \"sa\" && system.devicetype == \"2\""
+            }
+          ],
+          "dataPoints": [],
+          "hideZeroPercentSlices": false,
+          "groupRemainingAsOthers": true,
+          "pieChartItems": [
+            {
+              "dataPointName": "South America",
+              "color": "Auto",
+              "legend": "South America"
+            },
+            {
+              "dataPointName": "North America",
+              "color": "Auto",
+              "legend": "North America"
+            },
+            {
+              "dataPointName": "Asia",
+              "color": "Auto",
+              "legend": "Asia"
+            },
+            {
+              "dataPointName": "Europe",
+              "color": "Auto",
+              "legend": "Europe"
+            }
+          ],
+          "title": "##defaultResourceGroup## Resources by Region"
+        },
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 4,
+        "sizey": 3
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [
+            {
+              "name": "Europe",
+              "appliesTo": "join(system.staticgroups, \",\") =~ \"##defaultResourceGroup##\" && system.aws.region\t =~ \"eu\" && system.devicetype == \"2\""
+            },
+            {
+              "name": "Asia",
+              "appliesTo": "join(system.staticgroups, \",\") =~ \"##defaultResourceGroup##\" && system.aws.region\t =~ \"ap\" && system.devicetype == \"2\""
+            },
+            {
+              "name": "North America",
+              "appliesTo": "join(system.staticgroups, \",\") =~ \"##defaultResourceGroup##\" && system.aws.region\t =~ \"us|ca\" && system.devicetype == \"2\""
+            },
+            {
+              "name": "South America",
+              "appliesTo": "join(system.staticgroups, \",\") =~ \"##defaultResourceGroup##\" && system.aws.region\t =~ \"sa\" && system.devicetype == \"2\""
+            }
+          ],
+          "dataPoints": [],
+          "bigNumberItems": [
+            {
+              "dataPointName": "Asia",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Asia",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "Europe",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 2,
+              "rightLabel": "Europe",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "North America",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 3,
+              "rightLabel": "North America",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "South America",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 4,
+              "rightLabel": "South America",
+              "colorThresholds": null
+            }
+          ]
+        },
+        "displaySettings": {},
+        "name": "##defaultResourceGroup## Resources by Region",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
         "timescale": "day",
         "version": 2
       }

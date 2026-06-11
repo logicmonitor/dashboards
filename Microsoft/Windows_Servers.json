@@ -1,1630 +1,1495 @@
 {
-    "santabaRelease": 209,
-    "widgetTokens":
-    [
-        {
-            "name": "defaultResourceGroup",
-            "value": "Devices by Type/Windows Servers"
+  "santabaRelease": 223,
+  "widgetTokens": [
+    {
+      "name": "defaultResourceGroup",
+      "value": "Devices by Type/Windows Servers"
+    }
+  ],
+  "name": "Windows Servers",
+  "description": "",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 16,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "legend": "",
+        "maxValue": 100,
+        "dataPoint": {
+          "rpn": "",
+          "dataPointName": "CPUBusyPercent",
+          "instanceName": "*",
+          "dataSourceFullName": "CPU (Microsoft_Windows_CPU)",
+          "dataSeries": "average",
+          "aggregateFunction": "AVERAGE",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
         },
-        {
-            "name": "defaultResourceName",
-            "value": "*"
-        }
-    ],
-    "name": "Windows Servers",
-    "description": "",
-    "overwriteGroupFields": false,
-    "widgetsConfigVersion": 2,
-    "type": "dashboard",
-    "widgets":
-    [
-        {
-            "position":
+        "supportCustomProperty": false,
+        "description": "",
+        "displayUnit": "",
+        "type": "gauge",
+        "version": 2,
+        "minValue": 0,
+        "displayType": 0,
+        "isSupportCustomProperty": false,
+        "peakTimeRange": "1day",
+        "showPeak": true,
+        "name": "Average CPU across all Windows Resources (Real-time)",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day",
+        "colorThresholds": [
+          {
+            "level": 2,
+            "threshold": 90,
+            "relation": ">="
+          },
+          {
+            "level": 3,
+            "threshold": 95,
+            "relation": ">="
+          }
+        ]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 13,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top Windows Disks by Read Operations (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
             {
-                "col": 1,
-                "sizex": 4,
-                "row": 15,
-                "sizey": 4
+              "dataPointName": "DiskReadsPerSec",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Physical Disks- (WinPhysicalDrive-)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## ##INSTANCE##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "DiskReadsPerSec",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "read operations",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 8,
+        "row": 10,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top Windows Disks by Total Operations (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [
+            {
+              "rpn": "DiskReadsPerSec+ DiskWritesPerSec",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## ##INSTANCE##",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "TotalWritesPerSec"
+            }
+          ],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "DiskReadsPerSec",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Physical Disks- (WinPhysicalDrive-)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "DiskReadsPerSec",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             },
-            "config":
             {
-                "displaySettings":
-                {},
+              "dataPointName": "DiskWritesPerSec",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Physical Disks- (WinPhysicalDrive-)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "DiskWritesPerSec",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "total operations",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 13,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top Windows Disks by Write Operations (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "DiskWritesPerSec",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Physical Disks- (WinPhysicalDrive-)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## ##INSTANCE##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "DiskWritesPerSec",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "write operations",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 20,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top Windows Network Interfaces by Inbound Bandwidth (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [
+            {
+              "rpn": "ReceivedBitsPerSec/1000000",
+              "display": {
+                "color": "Auto",
                 "legend": "",
-                "maxValue": 100,
-                "dataPoint":
-                {
-                    "rpn": "",
-                    "dataPointName": "CPUBusyPercent",
-                    "instanceName": "*",
-                    "dataSourceFullName": "CPU (Microsoft_Windows_CPU)",
-                    "dataSeries": "average",
-                    "aggregateFunction": "AVERAGE",
-                    "deviceGroupFullPath": "##defaultResourceGroup##",
-                    "deviceDisplayName": "*"
-                },
-                "description": "",
-                "displayUnit": "",
-                "type": "gauge",
-                "version": 2,
-                "minValue": 0,
-                "displayType": 0,
-                "peakTimeRange": "1day",
-                "showPeak": true,
-                "name": "Average CPU across all Windows Resources (Real-time)",
-                "theme": "newSolidDarkBlue",
-                "interval": 3,
-                "timescale": "day",
-                "colorThresholds":
-                [
-                    {
-                        "level": 2,
-                        "threshold": 90,
-                        "relation": ">="
-                    },
-                    {
-                        "level": 3,
-                        "threshold": 95,
-                        "relation": ">="
-                    }
-                ]
+                "type": "line",
+                "option": "default"
+              },
+              "name": "Mbps"
             }
+          ],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "ReceivedBitsPerSec",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Interfaces- (WinIf-)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "ReceivedBitsPerSec",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "Mbps",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
         },
-        {
-            "position":
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 20,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top Windows Network Interfaces by Outbound Bandwidth (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [
             {
-                "col": 1,
-                "sizex": 6,
-                "row": 12,
-                "sizey": 3
-            },
-            "config":
-            {
-                "displaySettings":
-                {},
-                "name": "Top Windows Disks by Read Operations (Trend)",
-                "description": "",
-                "theme": "newSolidDarkBlue",
-                "interval": 3,
-                "graphInfo":
-                {
-                    "virtualDataPoints":
-                    [],
-                    "minValue": 0,
-                    "topX": 10,
-                    "maxValue": "NaN",
-                    "dataPoints":
-                    [
-                        {
-                            "dataPointName": "DiskReadsPerSec",
-                            "instanceName":
-                            {
-                                "isGlob": true,
-                                "value": "*"
-                            },
-                            "dataSourceFullName": "Physical Disks- (WinPhysicalDrive-)",
-                            "consolidateFunction": "average",
-                            "display":
-                            {
-                                "color": "Auto",
-                                "legend": "##RESOURCENAME## ##INSTANCE##",
-                                "type": "line",
-                                "option": "custom"
-                            },
-                            "name": "DiskReadsPerSec",
-                            "aggregateFunction": "SUM",
-                            "deviceDisplayName":
-                            {
-                                "isGlob": true,
-                                "value": "##defaultResourceName##"
-                            },
-                            "deviceGroupFullPath":
-                            {
-                                "isGlob": true,
-                                "value": "##defaultResourceGroup##"
-                            }
-                        }
-                    ],
-                    "verticalLabel": "read operations",
-                    "aggregate": false,
-                    "desc": true,
-                    "scaleUnit": 1000,
-                    "globalConsolidateFunction": "default"
-                },
-                "type": "cgraph",
-                "timescale": "1day",
-                "version": 2
+              "rpn": "OutboundBitsPerSec/1000000",
+              "display": {
+                "color": "Auto",
+                "legend": "",
+                "type": "line",
+                "option": "default"
+              },
+              "name": "Mbps"
             }
+          ],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "OutboundBitsPerSec",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Interfaces- (WinIf-)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "OutboundBitsPerSec",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "Mbps",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
         },
-        {
-            "position":
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 7,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top Windows Resources by CPU Utilization (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [
             {
-                "col": 5,
-                "sizex": 8,
-                "row": 9,
-                "sizey": 3
-            },
-            "config":
-            {
-                "displaySettings":
-                {},
-                "name": "Top Windows Disks by Total Operations (Trend)",
-                "description": "",
-                "theme": "newSolidDarkBlue",
-                "interval": 3,
-                "graphInfo":
-                {
-                    "virtualDataPoints":
-                    [
-                        {
-                            "rpn": "DiskReadsPerSec+ DiskWritesPerSec",
-                            "display":
-                            {
-                                "color": "Auto",
-                                "legend": "##RESOURCENAME## ##INSTANCE##",
-                                "type": "area",
-                                "option": "custom"
-                            },
-                            "name": "TotalWritesPerSec"
-                        }
-                    ],
-                    "minValue": 0,
-                    "topX": 10,
-                    "maxValue": "NaN",
-                    "dataPoints":
-                    [
-                        {
-                            "dataPointName": "DiskReadsPerSec",
-                            "instanceName":
-                            {
-                                "isGlob": true,
-                                "value": "*"
-                            },
-                            "dataSourceFullName": "Physical Disks- (WinPhysicalDrive-)",
-                            "consolidateFunction": "average",
-                            "display":
-                            {
-                                "color": null,
-                                "legend": null,
-                                "type": "line",
-                                "option": "none"
-                            },
-                            "name": "DiskReadsPerSec",
-                            "aggregateFunction": "SUM",
-                            "deviceDisplayName":
-                            {
-                                "isGlob": true,
-                                "value": "*"
-                            },
-                            "deviceGroupFullPath":
-                            {
-                                "isGlob": true,
-                                "value": "##defaultResourceGroup##"
-                            }
-                        },
-                        {
-                            "dataPointName": "DiskWritesPerSec",
-                            "instanceName":
-                            {
-                                "isGlob": true,
-                                "value": "*"
-                            },
-                            "dataSourceFullName": "Physical Disks- (WinPhysicalDrive-)",
-                            "consolidateFunction": "average",
-                            "display":
-                            {
-                                "color": null,
-                                "legend": null,
-                                "type": "line",
-                                "option": "none"
-                            },
-                            "name": "DiskWritesPerSec",
-                            "aggregateFunction": "SUM",
-                            "deviceDisplayName":
-                            {
-                                "isGlob": true,
-                                "value": "*"
-                            },
-                            "deviceGroupFullPath":
-                            {
-                                "isGlob": true,
-                                "value": "##defaultResourceGroup##"
-                            }
-                        }
-                    ],
-                    "verticalLabel": "total operations",
-                    "aggregate": false,
-                    "desc": true,
-                    "scaleUnit": 1000,
-                    "globalConsolidateFunction": "default"
-                },
-                "type": "cgraph",
-                "timescale": "1day",
-                "version": 2
+              "dataPointName": "CPUBusyPercent",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Microsoft_Windows_CPU"
+              },
+              "dataSourceFullName": "CPU (Microsoft_Windows_CPU)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "CPUBusyPercent",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             }
+          ],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
         },
-        {
-            "position":
+        "type": "cgraph",
+        "timescale": "12hour",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
             {
-                "col": 7,
-                "sizex": 6,
-                "row": 12,
-                "sizey": 3
+              "visible": true,
+              "columnLabel": "Name",
+              "columnSize": 105,
+              "columnKey": "name"
             },
-            "config":
             {
-                "displaySettings":
-                {},
-                "name": "Top Windows Disks by Write Operations (Trend)",
-                "description": "",
-                "theme": "newSolidDarkBlue",
-                "interval": 3,
-                "graphInfo":
-                {
-                    "virtualDataPoints":
-                    [],
-                    "minValue": 0,
-                    "topX": 10,
-                    "maxValue": "NaN",
-                    "dataPoints":
-                    [
-                        {
-                            "dataPointName": "DiskWritesPerSec",
-                            "instanceName":
-                            {
-                                "isGlob": true,
-                                "value": "*"
-                            },
-                            "dataSourceFullName": "Physical Disks- (WinPhysicalDrive-)",
-                            "consolidateFunction": "average",
-                            "display":
-                            {
-                                "color": "Auto",
-                                "legend": "##RESOURCENAME## ##INSTANCE##",
-                                "type": "line",
-                                "option": "custom"
-                            },
-                            "name": "DiskWritesPerSec",
-                            "aggregateFunction": "SUM",
-                            "deviceDisplayName":
-                            {
-                                "isGlob": true,
-                                "value": "##defaultResourceName##"
-                            },
-                            "deviceGroupFullPath":
-                            {
-                                "isGlob": true,
-                                "value": "##defaultResourceGroup##"
-                            }
-                        }
-                    ],
-                    "verticalLabel": "write operations",
-                    "aggregate": false,
-                    "desc": true,
-                    "scaleUnit": 1000,
-                    "globalConsolidateFunction": "VaST"
-                },
-                "type": "cgraph",
-                "timescale": "1day",
-                "version": 2
+              "visible": true,
+              "columnLabel": "CPU Utilization",
+              "columnSize": 155,
+              "columnKey": "CPU Utilization"
             }
+          ],
+          "pageSize": "10"
         },
-        {
-            "position":
-            {
-                "col": 1,
-                "sizex": 6,
-                "row": 19,
-                "sizey": 3
-            },
-            "config":
-            {
-                "displaySettings":
-                {},
-                "name": "Top Windows Network Interfaces by Inbound Bandwidth (Trend)",
-                "description": "",
-                "theme": "newSolidDarkBlue",
-                "interval": 3,
-                "graphInfo":
-                {
-                    "virtualDataPoints":
-                    [
-                        {
-                            "rpn": "ReceivedBitsPerSec/1000000",
-                            "display":
-                            {
-                                "color": "Auto",
-                                "legend": "",
-                                "type": "line",
-                                "option": "default"
-                            },
-                            "name": "Mbps"
-                        }
-                    ],
-                    "minValue": 0,
-                    "topX": 10,
-                    "maxValue": "NaN",
-                    "dataPoints":
-                    [
-                        {
-                            "dataPointName": "ReceivedBitsPerSec",
-                            "instanceName":
-                            {
-                                "isGlob": true,
-                                "value": "*"
-                            },
-                            "dataSourceFullName": "Interfaces- (WinIf-)",
-                            "consolidateFunction": "average",
-                            "display":
-                            {
-                                "color": null,
-                                "legend": null,
-                                "type": "line",
-                                "option": "none"
-                            },
-                            "name": "ReceivedBitsPerSec",
-                            "aggregateFunction": "SUM",
-                            "deviceDisplayName":
-                            {
-                                "isGlob": true,
-                                "value": "##defaultResourceName##"
-                            },
-                            "deviceGroupFullPath":
-                            {
-                                "isGlob": true,
-                                "value": "##defaultResourceGroup##"
-                            }
-                        }
-                    ],
-                    "verticalLabel": "Mbps",
-                    "aggregate": false,
-                    "desc": true,
-                    "scaleUnit": 1000,
-                    "globalConsolidateFunction": "default"
-                },
-                "type": "cgraph",
-                "timescale": "2days",
-                "version": 2
-            }
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "CPUBusyPercent",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 85,
+                "relation": ">="
+              },
+              {
+                "level": 3,
+                "threshold": 90,
+                "relation": ">="
+              },
+              {
+                "level": 4,
+                "threshold": 95,
+                "relation": ">="
+              }
+            ],
+            "columnName": "CPU Utilization",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "supportCustomProperty": false,
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
         },
-        {
-            "position":
+        "type": "dynamicTable",
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
+        "version": 2,
+        "isSupportCustomProperty": false,
+        "topX": 25,
+        "dataSourceFullName": "CPU (Microsoft_Windows_CPU)",
+        "sortOrder": "descending",
+        "name": "Top Windows Resources by CPU Utilization (Real-time)",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top Windows Resources by Memory Utilization (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [
             {
-                "col": 7,
-                "sizex": 6,
-                "row": 19,
-                "sizey": 3
-            },
-            "config":
-            {
-                "displaySettings":
-                {},
-                "name": "Top Windows Network Interfaces by Outbound Bandwidth (Trend)",
-                "description": "",
-                "theme": "newSolidDarkBlue",
-                "interval": 3,
-                "graphInfo":
-                {
-                    "virtualDataPoints":
-                    [
-                        {
-                            "rpn": "OutboundBitsPerSec/1000000",
-                            "display":
-                            {
-                                "color": "Auto",
-                                "legend": "",
-                                "type": "line",
-                                "option": "default"
-                            },
-                            "name": "Mbps"
-                        }
-                    ],
-                    "minValue": 0,
-                    "topX": 10,
-                    "maxValue": "NaN",
-                    "dataPoints":
-                    [
-                        {
-                            "dataPointName": "OutboundBitsPerSec",
-                            "instanceName":
-                            {
-                                "isGlob": true,
-                                "value": "*"
-                            },
-                            "dataSourceFullName": "Interfaces- (WinIf-)",
-                            "consolidateFunction": "average",
-                            "display":
-                            {
-                                "color": null,
-                                "legend": null,
-                                "type": "line",
-                                "option": "none"
-                            },
-                            "name": "OutboundBitsPerSec",
-                            "aggregateFunction": "SUM",
-                            "deviceDisplayName":
-                            {
-                                "isGlob": true,
-                                "value": "##defaultResourceName##"
-                            },
-                            "deviceGroupFullPath":
-                            {
-                                "isGlob": true,
-                                "value": "##defaultResourceGroup##"
-                            }
-                        }
-                    ],
-                    "verticalLabel": "Mbps",
-                    "aggregate": false,
-                    "desc": true,
-                    "scaleUnit": 1000,
-                    "globalConsolidateFunction": "VaST"
-                },
-                "type": "cgraph",
-                "timescale": "2days",
-                "version": 2
+              "dataPointName": "MemoryUtilizationPercent",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Memory and Processes (WinOS)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "MemoryUtilizationPercent",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             }
+          ],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
         },
-        {
-            "position":
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
             {
-                "col": 1,
-                "sizex": 3,
-                "row": 6,
-                "sizey": 3
+              "visible": true,
+              "columnLabel": "Name",
+              "columnSize": 221,
+              "columnKey": "name"
             },
-            "config":
             {
-                "displaySettings":
-                {},
-                "name": "Top Windows Resources by CPU Utilization (Trend)",
-                "description": "",
-                "theme": "newSolidDarkBlue",
-                "interval": 3,
-                "graphInfo":
-                {
-                    "virtualDataPoints":
-                    [],
-                    "minValue": 0,
-                    "topX": 10,
-                    "maxValue": 100,
-                    "dataPoints":
-                    [
-                        {
-                            "dataPointName": "CPUBusyPercent",
-                            "instanceName":
-                            {
-                                "isGlob": false,
-                                "value": "Microsoft_Windows_CPU"
-                            },
-                            "dataSourceFullName": "CPU (Microsoft_Windows_CPU)",
-                            "consolidateFunction": "average",
-                            "display":
-                            {
-                                "color": "Auto",
-                                "legend": "##RESOURCENAME##",
-                                "type": "line",
-                                "option": "custom"
-                            },
-                            "name": "CPUBusyPercent",
-                            "aggregateFunction": "SUM",
-                            "deviceDisplayName":
-                            {
-                                "isGlob": true,
-                                "value": "##defaultResourceName##"
-                            },
-                            "deviceGroupFullPath":
-                            {
-                                "isGlob": true,
-                                "value": "##defaultResourceGroup##"
-                            }
-                        }
-                    ],
-                    "verticalLabel": "%",
-                    "aggregate": false,
-                    "desc": true,
-                    "scaleUnit": 1000,
-                    "globalConsolidateFunction": "VaST"
-                },
-                "type": "cgraph",
-                "timescale": "12hour",
-                "version": 2
+              "visible": true,
+              "columnLabel": "Memory Utilization",
+              "columnSize": 217,
+              "columnKey": "Memory Utilization"
+            },
+            {
+              "visible": true,
+              "columnLabel": "0-forecast",
+              "columnSize": 150,
+              "columnKey": "0-forecast"
             }
+          ],
+          "propertyColumns": [],
+          "pageSize": "10",
+          "columnsV4": [
+            {
+              "maxValue": 100,
+              "index": 0,
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "propertiesOptions": "1",
+              "rpn": "",
+              "dataPointName": "MemoryUtilizationPercent",
+              "displayType": "percent",
+              "minValue": 0,
+              "unitLabel": "",
+              "position": 0,
+              "id": "undefined_0",
+              "colorThresholds": [
+                {
+                  "level": 2,
+                  "threshold": 85,
+                  "relation": ">="
+                },
+                {
+                  "level": 3,
+                  "threshold": 90,
+                  "relation": ">="
+                },
+                {
+                  "level": 4,
+                  "threshold": 95,
+                  "relation": ">="
+                }
+              ],
+              "columnName": "Memory Utilization"
+            }
+          ]
         },
-        {
-            "position":
-            {
-                "col": 1,
-                "sizex": 3,
-                "row": 3,
-                "sizey": 3
-            },
-            "config":
-            {
-                "displaySettings":
-                {
-                    "columns":
-                    [
-                        {
-                            "visible": true,
-                            "columnLabel": "Name",
-                            "columnSize": 91,
-                            "columnKey": "name"
-                        },
-                        {
-                            "visible": true,
-                            "columnLabel": "CPU Utilization",
-                            "columnSize": 161,
-                            "columnKey": "CPU Utilization"
-                        }
-                    ],
-                    "pageSize": "10"
-                },
-                "columns":
-                [
-                    {
-                        "rpn": "",
-                        "dataPointName": "CPUBusyPercent",
-                        "displayType": "percent",
-                        "minValue": 0,
-                        "unitLabel": "",
-                        "maxValue": 100,
-                        "colorThresholds":
-                        [
-                            {
-                                "level": 2,
-                                "threshold": 85,
-                                "relation": ">="
-                            },
-                            {
-                                "level": 3,
-                                "threshold": 90,
-                                "relation": ">="
-                            },
-                            {
-                                "level": 4,
-                                "threshold": 95,
-                                "relation": ">="
-                            }
-                        ],
-                        "columnName": "CPU Utilization",
-                        "enableForecast": false,
-                        "roundingDecimal": 2
-                    }
-                ],
-                "description": "",
-                "forecast":
-                {
-                    "severity": "warn",
-                    "confidence": 70,
-                    "timeRange": "Last 30 days",
-                    "algorithm": "Linear"
-                },
-                "type": "dynamicTable",
-                "rows":
-                [
-                    {
-                        "instanceName": "*",
-                        "label": "##RESOURCENAME##",
-                        "deviceDisplayName": "*",
-                        "groupFullPath": "##defaultResourceGroup##"
-                    }
-                ],
-                "version": 2,
-                "topX": 25,
-                "dataSourceFullName": "CPU (Microsoft_Windows_CPU)",
-                "sortOrder": "descending",
-                "name": "Top Windows Resources by CPU Utilization (Real-time)",
-                "theme": "newSolidDarkBlue",
-                "interval": 3,
-                "timescale": "day"
-            }
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "MemoryUtilizationPercent",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 85,
+                "relation": ">="
+              },
+              {
+                "level": 3,
+                "threshold": 90,
+                "relation": ">="
+              },
+              {
+                "level": 4,
+                "threshold": 95,
+                "relation": ">="
+              }
+            ],
+            "columnName": "Memory Utilization",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "supportCustomProperty": false,
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "ARIMA"
         },
-        {
-            "position":
+        "type": "dynamicTable",
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
+        "version": 2,
+        "isSupportCustomProperty": false,
+        "topX": 25,
+        "dataSourceFullName": "Memory and Processes (WinOS)",
+        "sortOrder": "descending",
+        "name": "Top Windows Resources by Memory Utilization (Real-time)",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 8,
+        "sizex": 5,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
             {
-                "col": 4,
-                "sizex": 4,
-                "row": 6,
-                "sizey": 3
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 405,
+              "columnKey": "device-name-1452842526600"
             },
-            "config":
             {
-                "displaySettings":
-                {},
-                "name": "Top Windows Resources by Memory Utilization (Trend)",
-                "description": "",
-                "theme": "newSolidDarkBlue",
-                "interval": 3,
-                "graphInfo":
-                {
-                    "virtualDataPoints":
-                    [],
-                    "minValue": 0,
-                    "topX": 10,
-                    "maxValue": 100,
-                    "dataPoints":
-                    [
-                        {
-                            "dataPointName": "MemoryUtilizationPercent",
-                            "instanceName":
-                            {
-                                "isGlob": true,
-                                "value": "*"
-                            },
-                            "dataSourceFullName": "Memory and Processes (WinOS)",
-                            "consolidateFunction": "average",
-                            "display":
-                            {
-                                "color": "Auto",
-                                "legend": "##RESOURCENAME##",
-                                "type": "line",
-                                "option": "custom"
-                            },
-                            "name": "MemoryUtilizationPercent",
-                            "aggregateFunction": "SUM",
-                            "deviceDisplayName":
-                            {
-                                "isGlob": true,
-                                "value": "*"
-                            },
-                            "deviceGroupFullPath":
-                            {
-                                "isGlob": true,
-                                "value": "##defaultResourceGroup##"
-                            }
-                        }
-                    ],
-                    "verticalLabel": "%",
-                    "aggregate": false,
-                    "desc": true,
-                    "scaleUnit": 1000,
-                    "globalConsolidateFunction": "default"
-                },
-                "type": "cgraph",
-                "timescale": "2days",
-                "version": 2
+              "visible": true,
+              "columnLabel": "\n            Volume Utilization\n            \n        ",
+              "columnSize": 152,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n                    Days Until Alert\n                ",
+              "columnSize": 173,
+              "columnKey": "0-forecast"
             }
+          ],
+          "pageSize": "10"
         },
-        {
-            "position":
-            {
-                "col": 4,
-                "sizex": 4,
-                "row": 3,
-                "sizey": 3
-            },
-            "config":
-            {
-                "displaySettings":
-                {
-                    "columns":
-                    [
-                        {
-                            "visible": true,
-                            "columnLabel": "Name",
-                            "columnSize": 221,
-                            "columnKey": "name"
-                        },
-                        {
-                            "visible": true,
-                            "columnLabel": "Memory Utilization",
-                            "columnSize": 175,
-                            "columnKey": "Memory Utilization"
-                        },
-                        {
-                            "visible": true,
-                            "columnLabel": "0-forecast",
-                            "columnSize": 142,
-                            "columnKey": "0-forecast"
-                        }
-                    ],
-                    "propertyColumns":
-                    [],
-                    "pageSize": "5"
-                },
-                "columns":
-                [
-                    {
-                        "rpn": "",
-                        "dataPointName": "MemoryUtilizationPercent",
-                        "displayType": "percent",
-                        "minValue": 0,
-                        "unitLabel": "",
-                        "maxValue": 100,
-                        "colorThresholds":
-                        [
-                            {
-                                "level": 2,
-                                "threshold": 85,
-                                "relation": ">="
-                            },
-                            {
-                                "level": 3,
-                                "threshold": 90,
-                                "relation": ">="
-                            },
-                            {
-                                "level": 4,
-                                "threshold": 95,
-                                "relation": ">="
-                            }
-                        ],
-                        "columnName": "Memory Utilization",
-                        "enableForecast": true,
-                        "roundingDecimal": 2
-                    }
-                ],
-                "description": "",
-                "forecast":
-                {
-                    "severity": "warn",
-                    "confidence": 70,
-                    "timeRange": "Last 7 days",
-                    "algorithm": "Linear"
-                },
-                "type": "dynamicTable",
-                "rows":
-                [
-                    {
-                        "instanceName": "*",
-                        "label": "##RESOURCENAME##",
-                        "deviceDisplayName": "*",
-                        "groupFullPath": "##defaultResourceGroup##"
-                    }
-                ],
-                "version": 2,
-                "topX": 25,
-                "dataSourceFullName": "Memory and Processes (WinOS)",
-                "sortOrder": "descending",
-                "name": "Top Windows Resources by Memory Utilization (Real-time)",
-                "theme": "newSolidDarkBlue",
-                "interval": 3,
-                "timescale": "day"
-            }
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "PercentUsed",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 91,
+                "relation": ">="
+              },
+              {
+                "level": 3,
+                "threshold": 95,
+                "relation": ">="
+              },
+              {
+                "level": 4,
+                "threshold": 98,
+                "relation": ">="
+              }
+            ],
+            "columnName": "Volume Utilization",
+            "enableForecast": true,
+            "roundingDecimal": 2
+          }
+        ],
+        "supportCustomProperty": false,
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 7 days",
+          "algorithm": "Linear"
         },
-        {
-            "position":
+        "type": "dynamicTable",
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME## - ##INSTANCE##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
+        "version": 2,
+        "isSupportCustomProperty": false,
+        "topX": 25,
+        "dataSourceFullName": "Volume Capacity (WinVolumeUsage-)",
+        "sortOrder": "descending",
+        "name": "Top Windows Resources by Volume Utilization (Real-time)",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 8,
+        "sizex": 5,
+        "row": 7,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top Windows Resources by Volume Utilization (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [
             {
-                "col": 8,
-                "sizex": 5,
-                "row": 3,
-                "sizey": 3
-            },
-            "config":
-            {
-                "displaySettings":
-                {
-                    "columns":
-                    [
-                        {
-                            "visible": true,
-                            "columnLabel": "\n        Name\n        \n    ",
-                            "columnSize": 347,
-                            "columnKey": "device-name-1452842526600"
-                        },
-                        {
-                            "visible": true,
-                            "columnLabel": "\n            Volume Utilization\n            \n        ",
-                            "columnSize": 152,
-                            "columnKey": "0"
-                        },
-                        {
-                            "visible": true,
-                            "columnLabel": "\n                    Days Until Alert\n                ",
-                            "columnSize": 151,
-                            "columnKey": "0-forecast"
-                        }
-                    ],
-                    "pageSize": "10"
-                },
-                "columns":
-                [
-                    {
-                        "rpn": "",
-                        "dataPointName": "PercentUsed",
-                        "displayType": "percent",
-                        "minValue": 0,
-                        "unitLabel": "",
-                        "maxValue": 100,
-                        "colorThresholds":
-                        [
-                            {
-                                "level": 2,
-                                "threshold": 91,
-                                "relation": ">="
-                            },
-                            {
-                                "level": 3,
-                                "threshold": 95,
-                                "relation": ">="
-                            },
-                            {
-                                "level": 4,
-                                "threshold": 98,
-                                "relation": ">="
-                            }
-                        ],
-                        "columnName": "Volume Utilization",
-                        "enableForecast": true,
-                        "roundingDecimal": 2
-                    }
-                ],
-                "description": "",
-                "forecast":
-                {
-                    "severity": "warn",
-                    "confidence": 70,
-                    "timeRange": "Last 7 days",
-                    "algorithm": "Linear"
-                },
-                "type": "dynamicTable",
-                "rows":
-                [
-                    {
-                        "instanceName": "*",
-                        "label": "##RESOURCENAME## - ##INSTANCE##",
-                        "deviceDisplayName": "##defaultResourceName##",
-                        "groupFullPath": "##defaultResourceGroup##"
-                    }
-                ],
-                "version": 2,
-                "topX": 25,
-                "dataSourceFullName": "Volume Capacity (WinVolumeUsage-)",
-                "sortOrder": "descending",
-                "name": "Top Windows Resources by Volume Utilization (Real-time)",
-                "theme": "newSolidDarkBlue",
-                "interval": 3,
-                "timescale": "day"
+              "dataPointName": "PercentUsed",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Volume Capacity (WinVolumeUsage-)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## - ##INSTANCE##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "PercentUsed",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             }
+          ],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
         },
-        {
-            "position":
+        "type": "cgraph",
+        "timescale": "1month",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 10,
+        "sizey": 3
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [
             {
-                "col": 8,
-                "sizex": 5,
-                "row": 6,
-                "sizey": 3
+              "rpn": "Capacity/1024/1024/1024",
+              "name": "CapacityGB"
             },
-            "config":
             {
-                "displaySettings":
-                {},
-                "name": "Top Windows Resources by Volume Utilization (Trend)",
-                "description": "",
-                "theme": "newSolidDarkBlue",
-                "interval": 3,
-                "graphInfo":
-                {
-                    "virtualDataPoints":
-                    [],
-                    "minValue": 0,
-                    "topX": 10,
-                    "maxValue": 100,
-                    "dataPoints":
-                    [
-                        {
-                            "dataPointName": "PercentUsed",
-                            "instanceName":
-                            {
-                                "isGlob": true,
-                                "value": "*"
-                            },
-                            "dataSourceFullName": "Volume Capacity (WinVolumeUsage-)",
-                            "consolidateFunction": "average",
-                            "display":
-                            {
-                                "color": "Auto",
-                                "legend": "##RESOURCENAME## - ##INSTANCE##",
-                                "type": "line",
-                                "option": "custom"
-                            },
-                            "name": "PercentUsed",
-                            "aggregateFunction": "SUM",
-                            "deviceDisplayName":
-                            {
-                                "isGlob": true,
-                                "value": "##defaultResourceName##"
-                            },
-                            "deviceGroupFullPath":
-                            {
-                                "isGlob": true,
-                                "value": "##defaultResourceGroup##"
-                            }
-                        }
-                    ],
-                    "verticalLabel": "%",
-                    "aggregate": false,
-                    "desc": true,
-                    "scaleUnit": 1000,
-                    "globalConsolidateFunction": "default"
-                },
-                "type": "cgraph",
-                "timescale": "1month",
-                "version": 2
+              "rpn": "FreeSpace /1024/1024/1024",
+              "name": "FreeSpaceGB"
             }
+          ],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "Capacity",
+              "instanceName": "*",
+              "dataSourceFullName": "Volume Capacity (WinVolumeUsage-)",
+              "name": "Capacity",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "FreeSpace",
+              "instanceName": "*",
+              "dataSourceFullName": "Volume Capacity (WinVolumeUsage-)",
+              "name": "FreeSpace",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [
+            {
+              "dataPointName": "FreeSpaceGB",
+              "useCommaSeparators": true,
+              "bottomLabel": "",
+              "rounding": 2,
+              "position": 1,
+              "rightLabel": "Available (GB)",
+              "colorThresholds": null,
+              "actions": []
+            },
+            {
+              "dataPointName": "CapacityGB",
+              "useCommaSeparators": true,
+              "bottomLabel": "",
+              "rounding": 2,
+              "position": 2,
+              "rightLabel": "Capacity (GB)",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
         },
-        {
-            "position":
-            {
-                "col": 1,
-                "sizex": 4,
-                "row": 9,
-                "sizey": 3
-            },
-            "config":
-            {
-                "bigNumberInfo":
-                {
-                    "virtualDataPoints":
-                    [
-                        {
-                            "rpn": "Capacity/1024/1024/1024",
-                            "name": "CapacityGB"
-                        },
-                        {
-                            "rpn": "FreeSpace /1024/1024/1024",
-                            "name": "FreeSpaceGB"
-                        }
-                    ],
-                    "counters":
-                    [],
-                    "dataPoints":
-                    [
-                        {
-                            "dataPointName": "Capacity",
-                            "instanceName": "*",
-                            "dataSourceFullName": "Volume Capacity (WinVolumeUsage-)",
-                            "name": "Capacity",
-                            "aggregateFunction": "SUM",
-                            "deviceGroupFullPath": "##defaultResourceGroup##",
-                            "deviceDisplayName": "*"
-                        },
-                        {
-                            "dataPointName": "FreeSpace",
-                            "instanceName": "*",
-                            "dataSourceFullName": "Volume Capacity (WinVolumeUsage-)",
-                            "name": "FreeSpace",
-                            "aggregateFunction": "SUM",
-                            "deviceGroupFullPath": "##defaultResourceGroup##",
-                            "deviceDisplayName": "*"
-                        }
-                    ],
-                    "bigNumberItems":
-                    [
-                        {
-                            "dataPointName": "FreeSpaceGB",
-                            "useCommaSeparators": true,
-                            "bottomLabel": "",
-                            "rounding": 0,
-                            "position": 1,
-                            "rightLabel": "Available (GB)",
-                            "colorThresholds": null
-                        },
-                        {
-                            "dataPointName": "CapacityGB",
-                            "useCommaSeparators": true,
-                            "bottomLabel": "",
-                            "rounding": 0,
-                            "position": 2,
-                            "rightLabel": "Capacity (GB)",
-                            "colorThresholds": null
-                        }
-                    ]
-                },
-                "displaySettings":
-                {},
-                "name": "Total Disk Space across all Windows Resources",
-                "description": "",
-                "theme": "newSolidDarkBlue",
-                "interval": 3,
-                "type": "bigNumber",
-                "timescale": "day",
-                "version": 2
-            }
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Total Disk Space across all Windows Resources",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
         },
-        {
-            "position":
+        "displayWarnAlert": true,
+        "supportCustomProperty": false,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "isSupportCustomProperty": false,
+        "displayColumn": 6,
+        "name": "Windows Resources Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "##RESOURCENAME##",
+            "dataSourceDisplayName": "*",
+            "groupBy": "device",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }
+        ]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 23,
+        "sizey": 5
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
             {
-                "col": 1,
-                "sizex": 12,
-                "row": 1,
-                "sizey": 2
+              "visible": true,
+              "columnLabel": "Severity",
+              "columnSize": 84,
+              "isSortable": true,
+              "isVisibleByDefault": true,
+              "componentName": "SeverityCell",
+              "columnKey": "alert-severity"
             },
-            "config":
             {
-                "ackChecked": true,
-                "displaySettings":
-                {
-                    "showTypeIcon": true,
-                    "displayAs": "table"
-                },
-                "displayWarnAlert": true,
-                "description": "",
-                "type": "noc",
-                "version": 2,
-                "displayErrorAlert": true,
-                "displayColumn": 6,
-                "name": "Windows Alert Status",
-                "displayCriticalAlert": true,
-                "theme": "newSolidDarkBlue",
-                "interval": 3,
-                "sortBy": "alertSeverity",
-                "timescale": "day",
-                "sdtChecked": true,
-                "items":
-                [
-                    {
-                        "dataPointName": "*",
-                        "instanceName": "*",
-                        "name": "##RESOURCENAME##",
-                        "dataSourceDisplayName": "*",
-                        "groupBy": "device",
-                        "type": "device",
-                        "deviceGroupFullPath": "##defaultResourceGroup##",
-                        "deviceDisplayName": "##defaultResourceName##"
-                    }
-                ]
+              "visible": true,
+              "columnLabel": "Reported At",
+              "passthroughProps": {
+                "hasRelativeTime": true
+              },
+              "columnSize": 316,
+              "isSortable": true,
+              "componentName": "SpaceDateTime",
+              "columnKey": "alert-began",
+              "dataPath": [
+                "reportedAtMS"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "passthroughProps": {
+                "hasDisplayName": true,
+                "hasIcon": false
+              },
+              "columnSize": 183,
+              "isSortable": true,
+              "componentName": "ForeignKeyCell",
+              "columnKey": "alert-device",
+              "dataPath": [
+                "monitoredObjectId"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "passthroughProps": {
+                "hasDisplayName": true,
+                "hasIcon": false
+              },
+              "columnSize": 186,
+              "isSortable": true,
+              "componentName": "ForeignKeyCell",
+              "columnKey": "alert-datasource",
+              "dataPath": [
+                "moduleId"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "passthroughProps": {
+                "hasIcon": false
+              },
+              "columnSize": 311,
+              "isSortable": true,
+              "componentName": "ForeignKeyCell",
+              "columnKey": "alert-datasource-instance",
+              "dataPath": [
+                "instanceId"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnSize": 146,
+              "isSortable": true,
+              "componentName": "SpaceId",
+              "columnKey": "alert-datapoint",
+              "dataPath": [
+                "datapointId"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Alert Value",
+              "columnSize": 120,
+              "componentName": "AlertValue",
+              "columnKey": "alert-value",
+              "dataPath": [
+                "alertValue"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "passthroughProps": {
+                "hasIcon": false,
+                "type": "dg"
+              },
+              "columnSize": 120,
+              "componentName": "ForeignKeyList",
+              "columnKey": "alert-group",
+              "dataPath": [
+                "monitoredObjectGroups"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Notes",
+              "columnSize": 101,
+              "componentName": "Body1",
+              "columnKey": "alert-notes",
+              "dataPath": [
+                "notes"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "ACK By",
+              "columnSize": 120,
+              "componentName": "Body1",
+              "columnKey": "alert-acked-by",
+              "dataPath": [
+                "ACKBy"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "ACK At",
+              "passthroughProps": {
+                "hasRelativeTime": false
+              },
+              "columnSize": 120,
+              "componentName": "SpaceDateTime",
+              "columnKey": "alert-acked-on",
+              "dataPath": [
+                "ACKAtMS"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared At",
+              "passthroughProps": {
+                "hasRelativeTime": true
+              },
+              "columnSize": 120,
+              "componentName": "SpaceDateTime",
+              "columnKey": "alert-cleared-on",
+              "dataPath": [
+                "clearedAtMS"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Is In SDT",
+              "columnSize": 120,
+              "componentName": "Body1",
+              "columnKey": "alert-in-sdt",
+              "dataPath": [
+                "isSDT"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnSize": 120,
+              "componentName": "SpaceId",
+              "columnKey": "alert-rule-name",
+              "dataPath": [
+                "ruleId"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnSize": 120,
+              "componentName": "SpaceId",
+              "columnKey": "alert-escalation-chain",
+              "dataPath": [
+                "escalationChainId"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnSize": 120,
+              "componentName": "Body1",
+              "columnKey": "alert-datasource-instance-description",
+              "dataPath": [
+                "instanceDescription"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnSize": 120,
+              "componentName": "Body1",
+              "columnKey": "alert-full-path",
+              "dataPath": [
+                "fullPath"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnSize": 126,
+              "componentName": "ThresholdCell",
+              "columnKey": "alert-static-threshold",
+              "dataPath": [
+                "threshold"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnSize": 508,
+              "componentName": "ThresholdCell",
+              "columnKey": "alert-dynamic-threshold",
+              "dataPath": [
+                "threshold"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notification State",
+              "columnSize": 120,
+              "columnKey": "alert-routing-state",
+              "dataPath": [
+                "dependencyRoutingState"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnSize": 120,
+              "componentName": "Body1",
+              "columnKey": "alert-dependency-role",
+              "dataPath": [
+                "dependencyRole"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts Count",
+              "columnSize": 120,
+              "componentName": "Body1",
+              "columnKey": "alert-dependent-alerts",
+              "dataPath": [
+                "dependentAlertsCount"
+              ]
             }
+          ],
+          "playSound": {
+            "criticalAlertAudioFileName": "",
+            "errorAlertAudioFileName": "",
+            "warningAlertAudioFileName": "",
+            "shouldPlay": false
+          },
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
         },
-        {
-            "position":
-            {
-                "col": 1,
-                "sizex": 12,
-                "row": 22,
-                "sizey": 5
-            },
-            "config":
-            {
-                "displaySettings":
-                {
-                    "isShowAll": false,
-                    "showFilter": false,
-                    "columns":
-                    [
-                        {
-                            "visible": true,
-                            "columnLabel": "Severity",
-                            "columnSize": 112,
-                            "isSortable": true,
-                            "isVisibleByDefault": true,
-                            "componentName": "SeverityCell",
-                            "columnKey": "alert-severity"
-                        },
-                        {
-                            "visible": true,
-                            "columnLabel": "Reported At",
-                            "passthroughProps":
-                            {
-                                "hasRelativeTime": true
-                            },
-                            "columnSize": 270,
-                            "isSortable": true,
-                            "componentName": "SpaceDateTime",
-                            "columnKey": "alert-began",
-                            "dataPath":
-                            [
-                                "reportedAtMS"
-                            ]
-                        },
-                        {
-                            "visible": true,
-                            "columnLabel": "Resource/Website",
-                            "passthroughProps":
-                            {
-                                "hasDisplayName": true,
-                                "hasIcon": false
-                            },
-                            "columnSize": 213,
-                            "isSortable": true,
-                            "componentName": "ForeignKeyCell",
-                            "columnKey": "alert-device",
-                            "dataPath":
-                            [
-                                "monitoredObjectId"
-                            ]
-                        },
-                        {
-                            "visible": true,
-                            "columnLabel": "LogicModule",
-                            "passthroughProps":
-                            {
-                                "hasDisplayName": true,
-                                "hasIcon": false
-                            },
-                            "columnSize": 229,
-                            "isSortable": true,
-                            "componentName": "ForeignKeyCell",
-                            "columnKey": "alert-datasource",
-                            "dataPath":
-                            [
-                                "moduleId"
-                            ]
-                        },
-                        {
-                            "visible": true,
-                            "columnLabel": "Instance",
-                            "passthroughProps":
-                            {
-                                "hasIcon": false
-                            },
-                            "columnSize": 406,
-                            "isSortable": true,
-                            "componentName": "ForeignKeyCell",
-                            "columnKey": "alert-datasource-instance",
-                            "dataPath":
-                            [
-                                "instanceId"
-                            ]
-                        },
-                        {
-                            "visible": true,
-                            "columnLabel": "Datapoint",
-                            "columnSize": 141,
-                            "isSortable": true,
-                            "componentName": "SpaceId",
-                            "columnKey": "alert-datapoint",
-                            "dataPath":
-                            [
-                                "datapointId"
-                            ]
-                        },
-                        {
-                            "visible": true,
-                            "columnLabel": "Alert Value",
-                            "columnSize": 120,
-                            "componentName": "AlertValue",
-                            "columnKey": "alert-value",
-                            "dataPath":
-                            [
-                                "alertValue"
-                            ]
-                        },
-                        {
-                            "visible": false,
-                            "columnLabel": "Group",
-                            "passthroughProps":
-                            {
-                                "hasIcon": false,
-                                "type": "dg"
-                            },
-                            "columnSize": 120,
-                            "componentName": "ForeignKeyList",
-                            "columnKey": "alert-group",
-                            "dataPath":
-                            [
-                                "monitoredObjectGroups"
-                            ]
-                        },
-                        {
-                            "visible": false,
-                            "columnLabel": "Notes",
-                            "columnSize": 70,
-                            "componentName": "Body1",
-                            "columnKey": "alert-notes",
-                            "dataPath":
-                            [
-                                "notes"
-                            ]
-                        },
-                        {
-                            "visible": false,
-                            "columnLabel": "ACK By",
-                            "columnSize": 77,
-                            "componentName": "Body1",
-                            "columnKey": "alert-acked-by",
-                            "dataPath":
-                            [
-                                "ACKBy"
-                            ]
-                        },
-                        {
-                            "visible": false,
-                            "columnLabel": "ACK At",
-                            "passthroughProps":
-                            {
-                                "hasRelativeTime": false
-                            },
-                            "columnSize": 120,
-                            "componentName": "SpaceDateTime",
-                            "columnKey": "alert-acked-on",
-                            "dataPath":
-                            [
-                                "ACKAtMS"
-                            ]
-                        },
-                        {
-                            "visible": false,
-                            "columnLabel": "Cleared At",
-                            "passthroughProps":
-                            {
-                                "hasRelativeTime": true
-                            },
-                            "columnSize": 120,
-                            "componentName": "SpaceDateTime",
-                            "columnKey": "alert-cleared-on",
-                            "dataPath":
-                            [
-                                "clearedAtMS"
-                            ]
-                        },
-                        {
-                            "visible": false,
-                            "columnLabel": "Is In SDT",
-                            "columnSize": 120,
-                            "componentName": "Body1",
-                            "columnKey": "alert-in-sdt",
-                            "dataPath":
-                            [
-                                "isSDT"
-                            ]
-                        },
-                        {
-                            "visible": false,
-                            "columnLabel": "Alert Rule",
-                            "columnSize": 120,
-                            "componentName": "SpaceId",
-                            "columnKey": "alert-rule-name",
-                            "dataPath":
-                            [
-                                "ruleId"
-                            ]
-                        },
-                        {
-                            "visible": false,
-                            "columnLabel": "Escalation Chain",
-                            "columnSize": 120,
-                            "componentName": "SpaceId",
-                            "columnKey": "alert-escalation-chain",
-                            "dataPath":
-                            [
-                                "escalationChainId"
-                            ]
-                        },
-                        {
-                            "visible": false,
-                            "columnLabel": "Instance Description",
-                            "columnSize": 120,
-                            "componentName": "Body1",
-                            "columnKey": "alert-datasource-instance-description",
-                            "dataPath":
-                            [
-                                "detailMessage",
-                                "body"
-                            ]
-                        },
-                        {
-                            "visible": false,
-                            "columnLabel": "Full Path",
-                            "columnSize": 120,
-                            "componentName": "Body1",
-                            "columnKey": "alert-full-path",
-                            "dataPath":
-                            [
-                                "fullPath"
-                            ]
-                        },
-                        {
-                            "visible": true,
-                            "columnLabel": "Static Threshold",
-                            "columnSize": 103,
-                            "componentName": "ThresholdCell",
-                            "columnKey": "alert-static-threshold",
-                            "dataPath":
-                            [
-                                "threshold"
-                            ]
-                        },
-                        {
-                            "visible": true,
-                            "columnLabel": "Dynamic Threshold",
-                            "columnSize": 508,
-                            "componentName": "ThresholdCell",
-                            "columnKey": "alert-dynamic-threshold",
-                            "dataPath":
-                            [
-                                "threshold"
-                            ]
-                        },
-                        {
-                            "visible": false,
-                            "columnLabel": "Notification State",
-                            "columnSize": 120,
-                            "columnKey": "alert-routing-state",
-                            "dataPath":
-                            [
-                                "routingState"
-                            ]
-                        },
-                        {
-                            "visible": false,
-                            "columnLabel": "Dependency Role",
-                            "columnSize": 120,
-                            "componentName": "Body1",
-                            "columnKey": "alert-dependency-role",
-                            "dataPath":
-                            [
-                                "dependencyRole"
-                            ]
-                        },
-                        {
-                            "visible": false,
-                            "columnLabel": "Dependent Alerts Count",
-                            "columnSize": 120,
-                            "componentName": "Body1",
-                            "columnKey": "alert-dependent-alerts",
-                            "dataPath":
-                            [
-                                "dependentAlertsCount"
-                            ]
-                        },
-                        {
-                            "visible": false,
-                            "columnLabel": "Alert Grouping Criteria",
-                            "columnSize": 120,
-                            "componentName": "Body1",
-                            "columnKey": "alert-grouping-criteria",
-                            "dataPath":
-                            [
-                                "alertGroupEntityValue"
-                            ]
-                        },
-                        {
-                            "visible": false,
-                            "columnLabel": "Log Metadata",
-                            "columnSize": 120,
-                            "componentName": "Body1",
-                            "columnKey": "alert-log-metadata",
-                            "dataPath":
-                            [
-                                "logMetaData"
-                            ]
-                        }
-                    ],
-                    "playSound":
-                    {
-                        "criticalAlertAudioFileName": "",
-                        "errorAlertAudioFileName": "",
-                        "warningAlertAudioFileName": "",
-                        "shouldPlay": false
-                    },
-                    "fontsize": "small-font",
-                    "sort": "-startEpoch"
-                },
-                "name": "Windows Alerts",
-                "description": "",
-                "theme": "newSolidDarkBlue",
-                "interval": 3,
-                "filters":
-                {
-                    "severity": "",
-                    "sdted": "all",
-                    "chain": "",
-                    "instance": "",
-                    "anomaly": "all",
-                    "dataPoint": "",
-                    "rule": "",
-                    "acked": "all",
-                    "dependencyRoutingState": "",
-                    "dependencyRole": "",
-                    "host": "",
-                    "keyword": "",
-                    "dataSource": "",
-                    "cleared": "no",
-                    "group": "%23%23defaultResourceGroup%23%23*"
-                },
-                "type": "alert",
-                "timescale": "day",
-                "version": 2
-            }
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Windows Alerts",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "anomaly": "all",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
+          "keyword": "",
+          "dataSource": "",
+          "cleared": "no",
+          "group": "Devices by Type/Windows Servers*"
         },
-        {
-            "position":
-            {
-                "col": 5,
-                "sizex": 4,
-                "row": 15,
-                "sizey": 4
-            },
-            "config":
-            {
-                "displaySettings":
-                {
-                    "visualizationType": "pie"
-                },
-                "name": "Windows Operating Systems",
-                "description": "",
-                "theme": "newSolidDarkBlue",
-                "interval": 3,
-                "type": "pieChart",
-                "timescale": "day",
-                "pieChartInfo":
-                {
-                    "maxSlicesCanBeShown": 25,
-                    "virtualDataPoints":
-                    [],
-                    "showLabelsAndLinesOnPC": true,
-                    "counters":
-                    [
-                        {
-                            "name": "windows2003",
-                            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"2003\""
-                        },
-                        {
-                            "name": "windows2008",
-                            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"2008\""
-                        },
-                        {
-                            "name": "windows2012",
-                            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"2012\""
-                        },
-                        {
-                            "name": "windows2016",
-                            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"2016\""
-                        },
-                        {
-                            "name": "windows2019",
-                            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"2019\""
-                        },
-                        {
-                            "name": "windows10",
-                            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"Windows 10\""
-                        },
-                        {
-                            "name": "windows7",
-                            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"Windows 7\""
-                        },
-                        {
-                            "name": "windows2022",
-                            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"2022\""
-                        },
-                        {
-                            "name": "windows2025",
-                            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"2025\""
-                        },
-                        {
-                            "name": "windows11",
-                            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"Windows 11\""
-                        }
-                    ],
-                    "dataPoints":
-                    [],
-                    "hideZeroPercentSlices": true,
-                    "groupRemainingAsOthers": false,
-                    "pieChartItems":
-                    [
-                        {
-                            "dataPointName": "windows2019",
-                            "color": "auto",
-                            "legend": "Windows Server 2019"
-                        },
-                        {
-                            "dataPointName": "windows2003",
-                            "color": "auto",
-                            "legend": "Windows Server 2003"
-                        },
-                        {
-                            "dataPointName": "windows2008",
-                            "color": "auto",
-                            "legend": "Windows Server 2008"
-                        },
-                        {
-                            "dataPointName": "windows2012",
-                            "color": "auto",
-                            "legend": "Windows Server 2012"
-                        },
-                        {
-                            "dataPointName": "windows2016",
-                            "color": "auto",
-                            "legend": "Windows Server 2016"
-                        },
-                        {
-                            "dataPointName": "windows10",
-                            "color": "auto",
-                            "legend": "Windows 10"
-                        },
-                        {
-                            "dataPointName": "windows7",
-                            "color": "auto",
-                            "legend": "Windows 7"
-                        },
-                        {
-                            "dataPointName": "windows11",
-                            "color": "auto",
-                            "legend": "Windows 11"
-                        },
-                        {
-                            "dataPointName": "windows2022",
-                            "color": "auto",
-                            "legend": "Windows Server 2022"
-                        },
-                        {
-                            "dataPointName": "windows2025",
-                            "color": "auto",
-                            "legend": "Windows Server 2025"
-                        }
-                    ],
-                    "title": "Windows Operating Systems"
-                },
-                "version": 2
-            }
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 16,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "visualizationType": "pie"
         },
-        {
-            "position":
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Windows Operating Systems",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "pieChart",
+        "timescale": "day",
+        "pieChartInfo": {
+          "maxSlicesCanBeShown": 25,
+          "virtualDataPoints": [],
+          "showLabelsAndLinesOnPC": true,
+          "counters": [
             {
-                "col": 9,
-                "sizex": 4,
-                "row": 15,
-                "sizey": 4
+              "name": "windows2003",
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"2003\""
             },
-            "config":
             {
-                "bigNumberInfo":
-                {
-                    "virtualDataPoints":
-                    [],
-                    "counters":
-                    [
-                        {
-                            "name": "Devices",
-                            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows()"
-                        },
-                        {
-                            "name": "Servers",
-                            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"Server\""
-                        },
-                        {
-                            "name": "Desktops",
-                            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo !~ \"Server\""
-                        }
-                    ],
-                    "dataPoints":
-                    [],
-                    "bigNumberItems":
-                    [
-                        {
-                            "dataPointName": "Devices",
-                            "useCommaSeparators": false,
-                            "bottomLabel": "",
-                            "rounding": 0,
-                            "position": 1,
-                            "rightLabel": "Windows Devices",
-                            "colorThresholds": null
-                        },
-                        {
-                            "dataPointName": "Servers",
-                            "useCommaSeparators": false,
-                            "bottomLabel": "",
-                            "rounding": 0,
-                            "position": 2,
-                            "rightLabel": "Windows Servers",
-                            "colorThresholds": null
-                        },
-                        {
-                            "dataPointName": "Desktops",
-                            "useCommaSeparators": false,
-                            "bottomLabel": "",
-                            "rounding": 0,
-                            "position": 3,
-                            "rightLabel": "Windows Desktops",
-                            "colorThresholds": null
-                        }
-                    ]
-                },
-                "displaySettings":
-                {},
-                "name": "Windows Resources Breakdown",
-                "description": "",
-                "theme": "newSolidDarkBlue",
-                "interval": 3,
-                "type": "bigNumber",
-                "timescale": "day",
-                "version": 2
+              "name": "windows2008",
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"2008\""
+            },
+            {
+              "name": "windows2012",
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"2012\""
+            },
+            {
+              "name": "windows2016",
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"2016\""
+            },
+            {
+              "name": "windows2019",
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"2019\""
+            },
+            {
+              "name": "windows10",
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"Windows 10\""
+            },
+            {
+              "name": "windows7",
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"Windows 7\""
+            },
+            {
+              "name": "windows2022",
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"2022\""
+            },
+            {
+              "name": "windows2025",
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"2025\""
+            },
+            {
+              "name": "windows11",
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"Windows 11\""
             }
-        }
-    ],
-    "version": 2,
+          ],
+          "dataPoints": [],
+          "hideZeroPercentSlices": true,
+          "groupRemainingAsOthers": false,
+          "pieChartItems": [
+            {
+              "dataPointName": "windows2019",
+              "color": "auto",
+              "legend": "Windows Server 2019"
+            },
+            {
+              "dataPointName": "windows2003",
+              "color": "auto",
+              "legend": "Windows Server 2003"
+            },
+            {
+              "dataPointName": "windows2008",
+              "color": "auto",
+              "legend": "Windows Server 2008"
+            },
+            {
+              "dataPointName": "windows2012",
+              "color": "auto",
+              "legend": "Windows Server 2012"
+            },
+            {
+              "dataPointName": "windows2016",
+              "color": "auto",
+              "legend": "Windows Server 2016"
+            },
+            {
+              "dataPointName": "windows10",
+              "color": "auto",
+              "legend": "Windows 10"
+            },
+            {
+              "dataPointName": "windows7",
+              "color": "auto",
+              "legend": "Windows 7"
+            },
+            {
+              "dataPointName": "windows2022",
+              "color": "auto",
+              "legend": "Windows Server 2022"
+            },
+            {
+              "dataPointName": "windows2025",
+              "color": "auto",
+              "legend": "Windows Server 2025"
+            },
+            {
+              "dataPointName": "windows11",
+              "color": "auto",
+              "legend": "Windows 11"
+            }
+          ],
+          "title": "Windows Operating Systems"
+        },
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 16,
+        "sizey": 4
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [
+            {
+              "name": "Devices",
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows()"
+            },
+            {
+              "name": "Servers",
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo =~ \"Server\""
+            },
+            {
+              "name": "Desktops",
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && isWindows() && system.sysinfo !~ \"Server\""
+            }
+          ],
+          "dataPoints": [],
+          "bigNumberItems": [
+            {
+              "dataPointName": "Devices",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Windows Resources",
+              "colorThresholds": null,
+              "actions": []
+            },
+            {
+              "dataPointName": "Servers",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 2,
+              "rightLabel": "Windows Servers",
+              "colorThresholds": null,
+              "actions": []
+            },
+            {
+              "dataPointName": "Desktops",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 3,
+              "rightLabel": "Windows Desktops",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
+        },
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Windows Resources Breakdown",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2,
   "group": {
     "name": "Microsoft",
     "fullPath": "LogicMonitor Dashboards/Microsoft",

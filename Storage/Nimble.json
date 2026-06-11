@@ -1,12 +1,8 @@
 {
-  "santabaRelease": 139,
+  "santabaRelease": 222,
   "widgetTokens": [
     {
       "name": "defaultResourceGroup",
-      "value": "*"
-    },
-    {
-      "name": "defaultResourceName",
       "value": "*"
     }
   ],
@@ -25,6 +21,8 @@
       },
       "config": {
         "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "Top Nimble Resources by CPU Load (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
@@ -34,31 +32,33 @@
           "minValue": 0,
           "topX": 10,
           "maxValue": "NaN",
-          "dataPoints": [{
-            "dataPointName": "5MinLoadAverage",
-            "instanceName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "dataSourceFullName": "CPU Load (Nimble CPU load)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "Auto",
-              "legend": "##RESOURCENAME##",
-              "type": "area",
-              "option": "custom"
-            },
-            "name": "5MinLoadAverage",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "##defaultResourceName##"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
+          "dataPoints": [
+            {
+              "dataPointName": "5MinLoadAverage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "CPU Load (Nimble CPU load)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "5MinLoadAverage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             }
-          }],
+          ],
           "verticalLabel": "load",
           "aggregate": false,
           "desc": true,
@@ -72,46 +72,8 @@
     },
     {
       "position": {
-        "col": 8,
-        "sizex": 5,
-        "row": 1,
-        "sizey": 2
-      },
-      "config": {
-        "ackChecked": true,
-        "displaySettings": {
-          "showTypeIcon": true,
-          "displayAs": "table"
-        },
-        "displayWarnAlert": true,
-        "description": "",
-        "type": "noc",
-        "version": 2,
-        "displayErrorAlert": true,
-        "displayColumn": 3,
-        "name": "Nimble HDD Alert Status",
-        "displayCriticalAlert": true,
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "sortBy": "alertSeverity",
-        "timescale": "day",
-        "sdtChecked": true,
-        "items": [{
-          "dataPointName": "*",
-          "instanceName": "*",
-          "name": "##INSTANCE##",
-          "dataSourceDisplayName": "HDD Disks",
-          "groupBy": "instance",
-          "type": "device",
-          "deviceGroupFullPath": "##defaultResourceGroup##",
-          "deviceDisplayName": "*"
-        }]
-      }
-    },
-    {
-      "position": {
         "col": 4,
-        "sizex": 4,
+        "sizex": 9,
         "row": 1,
         "sizey": 2
       },
@@ -122,10 +84,12 @@
           "displayAs": "table"
         },
         "displayWarnAlert": true,
+        "supportCustomProperty": false,
         "description": "",
         "type": "noc",
         "version": 2,
         "displayErrorAlert": true,
+        "isSupportCustomProperty": false,
         "displayColumn": 3,
         "name": "Nimble SSD Alert Status",
         "displayCriticalAlert": true,
@@ -134,106 +98,18 @@
         "sortBy": "alertSeverity",
         "timescale": "day",
         "sdtChecked": true,
-        "items": [{
-          "dataPointName": "*",
-          "instanceName": "*",
-          "name": "##INSTANCE## - ##RESOURCENAME##",
-          "dataSourceDisplayName": "SSD Disks",
-          "groupBy": "instance",
-          "type": "device",
-          "deviceGroupFullPath": "##defaultResourceGroup##",
-          "deviceDisplayName": "*"
-        }]
-      }
-    },
-    {
-      "position": {
-        "col": 7,
-        "sizex": 6,
-        "row": 14,
-        "sizey": 4
-      },
-      "config": {
-        "displaySettings": {},
-        "name": "Top Nimble Volumes by Total IOPS (Trend)",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "graphInfo": {
-          "virtualDataPoints": [{
-            "rpn": "TotalReads+TotalWrites",
-            "display": {
-              "color": "Auto",
-              "legend": "##INSTANCE##",
-              "type": "line",
-              "option": "custom"
-            },
-            "name": "IOPS"
-          }],
-          "minValue": 0,
-          "topX": 10,
-          "maxValue": "NaN",
-          "dataPoints": [
-            {
-              "dataPointName": "TotalReads",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "Volume Latency (Nimble_Volume_Latency)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": null,
-                "legend": null,
-                "type": "line",
-                "option": "none"
-              },
-              "name": "TotalReads",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "##defaultResourceGroup##"
-              }
-            },
-            {
-              "dataPointName": "TotalWrites",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "Volume Latency (Nimble_Volume_Latency)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": null,
-                "legend": null,
-                "type": "line",
-                "option": "none"
-              },
-              "name": "TotalWrites",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "##defaultResourceGroup##"
-              }
-            }
-          ],
-          "verticalLabel": "IOPS",
-          "aggregate": false,
-          "desc": true,
-          "scaleUnit": 1000,
-          "globalConsolidateFunction": "VaST"
-        },
-        "type": "cgraph",
-        "timescale": "2days",
-        "version": 2
+        "items": [
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "##INSTANCE## - ##RESOURCENAME##",
+            "dataSourceDisplayName": "SSD Disks",
+            "groupBy": "instance",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }
+        ]
       }
     },
     {
@@ -241,7 +117,7 @@
         "col": 1,
         "sizex": 6,
         "row": 11,
-        "sizey": 7
+        "sizey": 4
       },
       "config": {
         "displaySettings": {
@@ -346,6 +222,7 @@
             "roundingDecimal": 2
           }
         ],
+        "supportCustomProperty": false,
         "description": "",
         "forecast": {
           "severity": "warn",
@@ -354,13 +231,16 @@
           "algorithm": "Linear"
         },
         "type": "dynamicTable",
-        "rows": [{
-          "instanceName": "*",
-          "label": "##INSTANCE## - ##RESOURCENAME##",
-          "deviceDisplayName": "##defaultResourceName##",
-          "groupFullPath": "##defaultResourceGroup##"
-        }],
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##INSTANCE## - ##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
         "version": 2,
+        "isSupportCustomProperty": false,
         "topX": 25,
         "dataSourceFullName": "Volume Usage (Nimble Volume Usage)",
         "sortOrder": "descending",
@@ -379,6 +259,8 @@
       },
       "config": {
         "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "Top Nimble Resources by I/O Latency (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
@@ -460,21 +342,25 @@
       },
       "config": {
         "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "Top Nimble Resources by Total IOPS (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "graphInfo": {
-          "virtualDataPoints": [{
-            "rpn": "ioReads + ioWrites",
-            "display": {
-              "color": "Auto",
-              "legend": "##RESOURCENAME##",
-              "type": "area",
-              "option": "custom"
-            },
-            "name": "total"
-          }],
+          "virtualDataPoints": [
+            {
+              "rpn": "ioReads + ioWrites",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "total"
+            }
+          ],
           "minValue": 0,
           "topX": 10,
           "maxValue": "NaN",
@@ -545,7 +431,7 @@
       "position": {
         "col": 1,
         "sizex": 12,
-        "row": 22,
+        "row": 15,
         "sizey": 4
       },
       "config": {
@@ -676,6 +562,8 @@
           "fontsize": "normal-font",
           "sort": "-startEpoch"
         },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "Nimble Array Alerts",
         "description": "",
         "theme": "newSolidDarkBlue",
@@ -685,12 +573,13 @@
           "sdted": "all",
           "chain": "",
           "instance": "",
+          "anomaly": "all",
           "dataPoint": "",
           "rule": "",
           "acked": "all",
           "dependencyRoutingState": "",
           "dependencyRole": "",
-          "host": "%23%23defaultResourceName%23%23",
+          "host": "*",
           "keyword": "",
           "dataSource": "Array%20Info%7CCPU%20Load%7CGlobal%20Stats%7CHDD%20Disks%7CSSD%20Disks%7CVolume%20Latency%7CVolume%20Usage",
           "cleared": "no",
@@ -830,6 +719,7 @@
             "roundingDecimal": 2
           }
         ],
+        "supportCustomProperty": false,
         "description": "",
         "forecast": {
           "severity": "warn",
@@ -838,13 +728,16 @@
           "algorithm": "Linear"
         },
         "type": "dynamicTable",
-        "rows": [{
-          "instanceName": "*",
-          "label": "##RESOURCENAME##",
-          "deviceDisplayName": "##defaultResourceName##",
-          "groupFullPath": "##defaultResourceGroup##"
-        }],
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
         "version": 2,
+        "isSupportCustomProperty": false,
         "topX": 25,
         "dataSourceFullName": "Global Stats (Nimble Global Stats)",
         "sortOrder": "descending",
@@ -868,10 +761,12 @@
           "displayAs": "table"
         },
         "displayWarnAlert": true,
+        "supportCustomProperty": false,
         "description": "",
         "type": "noc",
         "version": 2,
         "displayErrorAlert": true,
+        "isSupportCustomProperty": false,
         "displayColumn": 2,
         "name": "Nimble Resource Alert Status",
         "displayCriticalAlert": true,
@@ -880,16 +775,67 @@
         "sortBy": "alertSeverity",
         "timescale": "day",
         "sdtChecked": true,
-        "items": [{
-          "dataPointName": "*",
-          "instanceName": "*",
-          "name": "##RESOURCENAME##",
-          "dataSourceDisplayName": "(Array Info|CPU Load|HDD Disks|SSD Disks|Volume Latency|Volume Usage)",
-          "groupBy": "device",
-          "type": "device",
-          "deviceGroupFullPath": "##defaultResourceGroup##",
-          "deviceDisplayName": "##defaultResourceName##"
-        }]
+        "items": [
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "##RESOURCENAME##",
+            "dataSourceDisplayName": "(Array Info|CPU Load|HDD Disks|SSD Disks|Volume Latency|Volume Usage)",
+            "groupBy": "device",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }
+        ]
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 11,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Nimble Volume Storage Utilization Distribution",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "pieChart",
+        "timescale": "day",
+        "pieChartInfo": {
+          "maxSlicesCanBeShown": 25,
+          "virtualDataPoints": [],
+          "showLabelsAndLinesOnPC": true,
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "VolUsageGBytes",
+              "top10": false,
+              "instanceName": "*",
+              "dataSourceFullName": "Volume Usage (Nimble Volume Usage)",
+              "name": "VolUsageGBytes",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*",
+              "aggregate": false
+            }
+          ],
+          "hideZeroPercentSlices": false,
+          "groupRemainingAsOthers": false,
+          "pieChartItems": [
+            {
+              "dataPointName": "VolUsageGBytes",
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##RESOURCENAME##"
+            }
+          ],
+          "title": "Nimble Volume Storage Utilization Distribution"
+        },
+        "version": 2
       }
     },
     {
@@ -905,59 +851,47 @@
             {
               "visible": true,
               "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 223,
+              "columnSize": 466,
               "columnKey": "device-name-1452842526600"
             },
             {
               "visible": true,
               "columnLabel": "\n            Array Utilization\n            \n        ",
-              "columnSize": 137,
+              "columnSize": 128,
               "columnKey": "0"
             },
             {
               "visible": true,
               "columnLabel": "\n            Used\n            \n        ",
-              "columnSize": 99,
+              "columnSize": 87,
               "columnKey": "1"
             },
             {
               "visible": true,
               "columnLabel": "\n            Capacity\n            \n        ",
-              "columnSize": 95,
+              "columnSize": 90,
               "columnKey": "2"
             },
             {
               "visible": true,
-              "columnLabel": "\n            Volume Utilization\n            \n        ",
-              "columnSize": 115,
+              "columnLabel": "\n            Volume Usage\n            \n        ",
+              "columnSize": 127,
               "columnKey": "3"
             },
             {
               "visible": true,
-              "columnLabel": "\n            Volume Saved\n            \n        ",
-              "columnSize": 100,
+              "columnLabel": "\n            Snapshot Used\n            \n        ",
+              "columnSize": 137,
               "columnKey": "4"
             },
             {
               "visible": true,
-              "columnLabel": "\n            Snapshot Used\n            \n        ",
-              "columnSize": 101,
-              "columnKey": "5"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            Snapshot Saved\n            \n        ",
-              "columnSize": 110,
-              "columnKey": "6"
-            },
-            {
-              "visible": true,
               "columnLabel": "\n            Status\n            \n        ",
-              "columnSize": 112,
-              "columnKey": "7"
+              "columnSize": 161,
+              "columnKey": "5"
             }
           ],
-          "pageSize": "10"
+          "pageSize": "25"
         },
         "columns": [
           {
@@ -990,7 +924,7 @@
           },
           {
             "rpn": "",
-            "dataPointName": "TotalUsage",
+            "dataPointName": "totalArrayUsage",
             "displayType": "raw",
             "minValue": 0,
             "unitLabel": " MiB",
@@ -1002,10 +936,10 @@
           },
           {
             "rpn": "",
-            "dataPointName": "TotalCapacity",
+            "dataPointName": "totalArrayCapacity",
             "displayType": "raw",
             "minValue": 0,
-            "unitLabel": " MiB",
+            "unitLabel": "MiB",
             "maxValue": 100,
             "colorThresholds": [],
             "columnName": "Capacity",
@@ -1014,10 +948,10 @@
           },
           {
             "rpn": "",
-            "dataPointName": "TotalVolumeUsage",
+            "dataPointName": "totalVolumeUsage",
             "displayType": "raw",
             "minValue": 0,
-            "unitLabel": " MiB",
+            "unitLabel": "MiB",
             "maxValue": 100,
             "colorThresholds": [],
             "columnName": "Volume Usage",
@@ -1026,22 +960,10 @@
           },
           {
             "rpn": "",
-            "dataPointName": "VolumeSpaceSaved",
+            "dataPointName": "uncompressedSnapshotUsage",
             "displayType": "raw",
             "minValue": 0,
-            "unitLabel": " MiB",
-            "maxValue": 100,
-            "colorThresholds": [],
-            "columnName": "Volume Saved",
-            "enableForecast": false,
-            "roundingDecimal": 2
-          },
-          {
-            "rpn": "",
-            "dataPointName": "SnapshotUsage",
-            "displayType": "raw",
-            "minValue": 0,
-            "unitLabel": " MiB",
+            "unitLabel": "MiB",
             "maxValue": 100,
             "colorThresholds": [],
             "columnName": "Snapshot Used",
@@ -1050,19 +972,7 @@
           },
           {
             "rpn": "",
-            "dataPointName": "SnapshotSpaceSaved",
-            "displayType": "raw",
-            "minValue": 0,
-            "unitLabel": " MiB",
-            "maxValue": 100,
-            "colorThresholds": [],
-            "columnName": "Snapshot Saved",
-            "enableForecast": false,
-            "roundingDecimal": 2
-          },
-          {
-            "rpn": "",
-            "dataPointName": "NodeStatus",
+            "dataPointName": "status",
             "displayType": "raw",
             "minValue": 0,
             "unitLabel": "",
@@ -1073,6 +983,7 @@
             "roundingDecimal": 2
           }
         ],
+        "supportCustomProperty": false,
         "description": "",
         "forecast": {
           "severity": "warn",
@@ -1081,171 +992,23 @@
           "algorithm": "Linear"
         },
         "type": "dynamicTable",
-        "rows": [{
-          "instanceName": "*",
-          "label": "##RESOURCENAME##",
-          "deviceDisplayName": "##defaultResourceName##",
-          "groupFullPath": "##defaultResourceGroup##"
-        }],
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
         "version": 2,
+        "isSupportCustomProperty": false,
         "topX": 25,
-        "dataSourceFullName": "Array Info (Nimble Array Info)",
+        "dataSourceFullName": "Array Info (Nimble_Array_Info)",
         "sortOrder": "descending",
         "name": "Nimble Utilization Statistics",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
-      }
-    },
-    {
-      "position": {
-        "col": 1,
-        "sizex": 6,
-        "row": 18,
-        "sizey": 4
-      },
-      "config": {
-        "displaySettings": {},
-        "name": "Top Nimble Volumes by Read Latency (Trend)",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "graphInfo": {
-          "virtualDataPoints": [],
-          "minValue": 0,
-          "topX": 10,
-          "maxValue": "NaN",
-          "dataPoints": [{
-            "dataPointName": "WeightedReadLatency",
-            "instanceName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "dataSourceFullName": "Volume Latency (Nimble_Volume_Latency)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "Auto",
-              "legend": "##INSTANCE## - ##RESOURCENAME##",
-              "type": "line",
-              "option": "custom"
-            },
-            "name": "WeightedReadLatency",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "##defaultResourceName##"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
-            }
-          }],
-          "verticalLabel": "ms",
-          "aggregate": false,
-          "desc": true,
-          "scaleUnit": 1000,
-          "globalConsolidateFunction": "default"
-        },
-        "type": "cgraph",
-        "timescale": "2days",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 7,
-        "sizex": 6,
-        "row": 18,
-        "sizey": 4
-      },
-      "config": {
-        "displaySettings": {},
-        "name": "Top Nimble Volumes by Write Latency (Trend)",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "graphInfo": {
-          "virtualDataPoints": [],
-          "minValue": 0,
-          "topX": 10,
-          "maxValue": "NaN",
-          "dataPoints": [{
-            "dataPointName": "WeightedWriteLatency",
-            "instanceName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "dataSourceFullName": "Volume Latency (Nimble_Volume_Latency)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "Auto",
-              "legend": "##INSTANCE## - ##RESOURCENAME##",
-              "type": "line",
-              "option": "custom"
-            },
-            "name": "WeightedWriteLatency",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "##defaultResourceName##"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
-            }
-          }],
-          "verticalLabel": "ms",
-          "aggregate": false,
-          "desc": true,
-          "scaleUnit": 1000,
-          "globalConsolidateFunction": "default"
-        },
-        "type": "cgraph",
-        "timescale": "2days",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 7,
-        "sizex": 6,
-        "row": 11,
-        "sizey": 3
-      },
-      "config": {
-        "displaySettings": {},
-        "name": "Nimble Volume Storage Utilization Distribution",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "type": "pieChart",
-        "timescale": "day",
-        "pieChartInfo": {
-          "maxSlicesCanBeShown": 25,
-          "virtualDataPoints": [],
-          "showLabelsAndLinesOnPC": true,
-          "counters": [],
-          "dataPoints": [{
-            "dataPointName": "VolUsageGBytes",
-            "top10": false,
-            "instanceName": "*",
-            "dataSourceFullName": "Volume Usage (Nimble Volume Usage)",
-            "name": "VolUsageGBytes",
-            "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "*",
-            "aggregate": false
-          }],
-          "hideZeroPercentSlices": false,
-          "groupRemainingAsOthers": false,
-          "pieChartItems": [{
-            "dataPointName": "VolUsageGBytes",
-            "color": "Auto",
-            "legend": "##INSTANCE## - ##RESOURCENAME##"
-          }],
-          "title": "Nimble Volume Storage Utilization Distribution"
-        },
-        "version": 2
       }
     }
   ],

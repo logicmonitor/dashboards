@@ -1,17 +1,12 @@
 {
-  "santabaRelease": 190,
+  "santabaRelease": 229,
+  "defaultDashboardFilters": {
+    "defaultDashboardFilterDetails": []
+  },
   "widgetTokens": [
-    {
-      "name": "defaultInstanceName",
-      "value": "*"
-    },
     {
       "name": "defaultResourceGroup",
       "value": "Devices by Type/Network"
-    },
-    {
-      "name": "defaultResourceName",
-      "value": "*"
     }
   ],
   "name": "Network Performance",
@@ -22,13 +17,15 @@
   "widgets": [
     {
       "position": {
-        "col": 9,
-        "sizex": 4,
-        "row": 5,
-        "sizey": 3
+        "col": 1,
+        "sizex": 6,
+        "row": 11,
+        "sizey": 2
       },
       "config": {
         "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "Aggregate Inbound Interface Throughput (Trend)",
         "description": "",
         "theme": "newBorderDarkBlue",
@@ -38,31 +35,33 @@
           "minValue": 0,
           "topX": 0,
           "maxValue": "NaN",
-          "dataPoints": [{
-            "dataPointName": "InMbps",
-            "instanceName": {
-              "isGlob": true,
-              "value": "##defaultInstanceName##"
-            },
-            "dataSourceFullName": "Network Interfaces (SNMP_Network_Interfaces)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "Auto",
-              "legend": "##RESOURCENAME##",
-              "type": "area",
-              "option": "custom"
-            },
-            "name": "InMbps",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "##defaultResourceName##"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
+          "dataPoints": [
+            {
+              "dataPointName": "InMbps",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Network Interfaces (SNMP_Network_Interfaces)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "InMbps",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             }
-          }],
+          ],
           "verticalLabel": "Mbps",
           "aggregate": true,
           "desc": true,
@@ -76,13 +75,15 @@
     },
     {
       "position": {
-        "col": 9,
-        "sizex": 4,
-        "row": 8,
-        "sizey": 3
+        "col": 7,
+        "sizex": 6,
+        "row": 11,
+        "sizey": 2
       },
       "config": {
         "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "Aggregate Outbound Interface Throughput (Trend)",
         "description": "",
         "theme": "newBorderDarkBlue",
@@ -92,31 +93,33 @@
           "minValue": 0,
           "topX": 0,
           "maxValue": "NaN",
-          "dataPoints": [{
-            "dataPointName": "OutMbps",
-            "instanceName": {
-              "isGlob": true,
-              "value": "##defaultInstanceName##"
-            },
-            "dataSourceFullName": "Network Interfaces (SNMP_Network_Interfaces)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "Auto",
-              "legend": "##RESOURCENAME##",
-              "type": "area",
-              "option": "custom"
-            },
-            "name": "OutMbps",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "##defaultResourceName##"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
+          "dataPoints": [
+            {
+              "dataPointName": "OutMbps",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Network Interfaces (SNMP_Network_Interfaces)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "OutMbps",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             }
-          }],
+          ],
           "verticalLabel": "Mbps",
           "aggregate": true,
           "desc": true,
@@ -137,7 +140,9 @@
       },
       "config": {
         "displaySettings": {},
-        "name": "Average SSH Port Response Time",
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Average SSH Port Response Time (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -146,31 +151,33 @@
           "minValue": "NaN",
           "topX": 10,
           "maxValue": "NaN",
-          "dataPoints": [{
-            "dataPointName": "ResponseTime",
-            "instanceName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "dataSourceFullName": "Port-",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "Auto",
-              "legend": "##RESOURCENAME## port ##INSTANCE##",
-              "type": "area",
-              "option": "custom"
-            },
-            "name": "ResponseTime",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "##defaultResourceName##"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
+          "dataPoints": [
+            {
+              "dataPointName": "ResponseTime",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Port-",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## port ##INSTANCE##",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "ResponseTime",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             }
-          }],
+          ],
           "verticalLabel": "ms",
           "aggregate": false,
           "desc": true,
@@ -186,12 +193,14 @@
       "position": {
         "col": 9,
         "sizex": 4,
-        "row": 3,
-        "sizey": 2
+        "row": 5,
+        "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Maximum Ping Response Time",
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Maximum Ping Response Time (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -200,31 +209,33 @@
           "minValue": "NaN",
           "topX": 10,
           "maxValue": "NaN",
-          "dataPoints": [{
-            "dataPointName": "maxrtt",
-            "instanceName": {
-              "isGlob": true,
-              "value": "##defaultInstanceName##"
-            },
-            "dataSourceFullName": "Ping",
-            "consolidateFunction": "max",
-            "display": {
-              "color": "Auto",
-              "legend": "##RESOURCENAME##",
-              "type": "area",
-              "option": "custom"
-            },
-            "name": "maxrtt",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "##defaultResourceName##"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
+          "dataPoints": [
+            {
+              "dataPointName": "maxrtt",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Ping",
+              "consolidateFunction": "max",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "maxrtt",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             }
-          }],
+          ],
           "verticalLabel": "ms",
           "aggregate": false,
           "desc": true,
@@ -249,124 +260,291 @@
           "showFilter": false,
           "columns": [
             {
-              "visible": false,
+              "visible": true,
               "columnLabel": "Severity",
+              "columnSize": 89,
+              "isSortable": true,
+              "isVisibleByDefault": true,
+              "componentName": "SeverityCell",
               "columnKey": "alert-severity"
             },
             {
               "visible": true,
-              "columnLabel": "Began",
-              "columnSize": 220,
-              "columnKey": "alert-began"
+              "columnLabel": "Reported At",
+              "passthroughProps": {
+                "hasRelativeTime": true
+              },
+              "columnSize": 239,
+              "isSortable": true,
+              "componentName": "SpaceDateTime",
+              "columnKey": "alert-began",
+              "dataPath": [
+                "reportedAtMS"
+              ]
             },
             {
               "visible": true,
               "columnLabel": "Resource/Website",
+              "passthroughProps": {
+                "hasDisplayName": true,
+                "hasIcon": false
+              },
               "columnSize": 218,
-              "columnKey": "alert-device"
+              "isSortable": true,
+              "componentName": "ForeignKeyCell",
+              "columnKey": "alert-device",
+              "dataPath": [
+                "monitoredObjectId"
+              ]
             },
             {
               "visible": true,
               "columnLabel": "LogicModule",
-              "columnSize": 163,
-              "columnKey": "alert-datasource"
+              "passthroughProps": {
+                "hasDisplayName": true,
+                "hasIcon": false
+              },
+              "columnSize": 216,
+              "isSortable": true,
+              "componentName": "ForeignKeyCell",
+              "columnKey": "alert-datasource",
+              "dataPath": [
+                "moduleId"
+              ]
             },
             {
               "visible": true,
               "columnLabel": "Instance",
-              "columnSize": 321,
-              "columnKey": "alert-datasource-instance"
+              "passthroughProps": {
+                "hasIcon": false
+              },
+              "columnSize": 363,
+              "isSortable": true,
+              "componentName": "ForeignKeyCell",
+              "columnKey": "alert-datasource-instance",
+              "dataPath": [
+                "instanceId"
+              ]
             },
             {
               "visible": true,
               "columnLabel": "Datapoint",
-              "columnSize": 193,
-              "columnKey": "alert-datapoint"
+              "columnSize": 306,
+              "isSortable": true,
+              "componentName": "SpaceId",
+              "columnKey": "alert-datapoint",
+              "dataPath": [
+                "datapointId"
+              ]
             },
             {
               "visible": true,
-              "columnLabel": "Value",
-              "columnSize": 278,
-              "columnKey": "alert-value"
-            },
-            {
-              "visible": false,
-              "columnLabel": "Group",
-              "columnKey": "alert-group"
-            },
-            {
-              "visible": true,
-              "columnLabel": "Notes",
-              "columnSize": 49,
-              "columnKey": "alert-notes"
-            },
-            {
-              "visible": true,
-              "columnLabel": "Acknowledged By",
-              "columnSize": 120,
-              "columnKey": "alert-acked-by"
-            },
-            {
-              "visible": false,
-              "columnLabel": "Acknowledged On",
-              "columnKey": "alert-acked-on"
-            },
-            {
-              "visible": false,
-              "columnLabel": "Cleared On",
-              "columnKey": "alert-cleared-on"
-            },
-            {
-              "visible": false,
-              "columnLabel": "In SDT",
-              "columnKey": "alert-in-sdt"
-            },
-            {
-              "visible": false,
-              "columnLabel": "Alert Rule",
-              "columnKey": "alert-rule-name"
-            },
-            {
-              "visible": false,
-              "columnLabel": "Escalation Chain",
-              "columnKey": "alert-escalation-chain"
-            },
-            {
-              "visible": false,
-              "columnLabel": "Instance Description",
-              "columnKey": "alert-datasource-instance-description"
-            },
-            {
-              "visible": false,
-              "columnLabel": "Full Path",
-              "columnKey": "alert-full-path"
-            },
-            {
-              "visible": false,
-              "columnLabel": "Routing State",
-              "columnKey": "alert-routing-state"
-            },
-            {
-              "visible": false,
-              "columnLabel": "Dependency Role",
-              "columnKey": "alert-dependency-role"
+              "columnLabel": "Alert Value",
+              "columnSize": 90,
+              "componentName": "AlertValue",
+              "columnKey": "alert-value",
+              "dataPath": [
+                "alertValue"
+              ]
             },
             {
               "visible": true,
               "columnLabel": "Static Threshold",
               "columnSize": 103,
-              "columnKey": "alert-static-threshold"
+              "componentName": "ThresholdCell",
+              "columnKey": "alert-static-threshold",
+              "dataPath": [
+                "threshold"
+              ]
             },
             {
               "visible": true,
               "columnLabel": "Dynamic Threshold",
               "columnSize": 119,
-              "columnKey": "alert-dynamic-threshold"
+              "componentName": "ThresholdCell",
+              "columnKey": "alert-dynamic-threshold",
+              "dataPath": [
+                "threshold"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "ServiceNow incident",
+              "columnSize": 120,
+              "componentName": "SNIncidentCell",
+              "columnKey": "alertExternalTicketUrl",
+              "dataPath": [
+                "alertExternalTicketUrl"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Group",
+              "passthroughProps": {
+                "hasIcon": false,
+                "type": "dg"
+              },
+              "columnSize": 256,
+              "componentName": "ForeignKeyList",
+              "columnKey": "alert-group",
+              "dataPath": [
+                "monitoredObjectGroups"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Notes",
+              "columnSize": 49,
+              "componentName": "Body1",
+              "columnKey": "alert-notes",
+              "dataPath": [
+                "notes"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "ACK By",
+              "columnSize": 120,
+              "componentName": "Body1",
+              "columnKey": "alert-acked-by",
+              "dataPath": [
+                "ACKBy"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "ACK At",
+              "passthroughProps": {
+                "hasRelativeTime": false
+              },
+              "columnSize": 120,
+              "componentName": "SpaceDateTime",
+              "columnKey": "alert-acked-on",
+              "dataPath": [
+                "ACKAtMS"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Cleared At",
+              "passthroughProps": {
+                "hasRelativeTime": true
+              },
+              "columnSize": 120,
+              "componentName": "SpaceDateTime",
+              "columnKey": "alert-cleared-on",
+              "dataPath": [
+                "clearedAtMS"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Is In SDT",
+              "columnSize": 120,
+              "componentName": "Body1",
+              "columnKey": "alert-in-sdt",
+              "dataPath": [
+                "isSDT"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Alert Rule",
+              "columnSize": 186,
+              "componentName": "SpaceId",
+              "columnKey": "alert-rule-name",
+              "dataPath": [
+                "ruleId"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Escalation Chain",
+              "columnSize": 120,
+              "componentName": "SpaceId",
+              "columnKey": "alert-escalation-chain",
+              "dataPath": [
+                "escalationChainId"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance Description",
+              "columnSize": 120,
+              "componentName": "Body1",
+              "columnKey": "alert-datasource-instance-description",
+              "dataPath": [
+                "instanceDescription"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Full Path",
+              "columnSize": 120,
+              "componentName": "Body1",
+              "columnKey": "alert-full-path",
+              "dataPath": [
+                "fullPath"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Notification State",
+              "columnSize": 120,
+              "columnKey": "alert-routing-state",
+              "dataPath": [
+                "dependencyRoutingState"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dependency Role",
+              "columnSize": 120,
+              "componentName": "Body1",
+              "columnKey": "alert-dependency-role",
+              "dataPath": [
+                "dependencyRole"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dependent Alerts Count",
+              "columnSize": 120,
+              "componentName": "Body1",
+              "columnKey": "alert-dependent-alerts",
+              "dataPath": [
+                "dependentAlertsCount"
+              ]
             },
             {
               "visible": false,
-              "columnLabel": "Dependent Alerts",
-              "columnKey": "alert-dependent-alerts"
+              "columnLabel": "Alert Grouping Criteria",
+              "columnSize": 120,
+              "componentName": "Body1",
+              "columnKey": "alert-grouping-criteria",
+              "dataPath": [
+                "alertGroupEntityValue"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Log Metadata",
+              "columnSize": 120,
+              "componentName": "Body1",
+              "columnKey": "alert-log-metadata",
+              "dataPath": [
+                "logMetaData"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Logs Partition",
+              "columnSize": 120,
+              "componentName": "Body1",
+              "columnKey": "alert-log-partition",
+              "dataPath": [
+                "logPartition"
+              ]
             }
           ],
           "playSound": {
@@ -378,9 +556,11 @@
           "fontsize": "normal-font",
           "sort": "-startEpoch"
         },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "Network Alerts",
         "description": "",
-        "theme": "newSolidDarkBlue",
+        "theme": "newBorderDarkBlue",
         "interval": 3,
         "filters": {
           "severity": "",
@@ -393,11 +573,11 @@
           "acked": "all",
           "dependencyRoutingState": "",
           "dependencyRole": "",
-          "host": "%23%23defaultResourceName%23%23",
+          "host": "*",
           "keyword": "",
           "dataSource": "",
           "cleared": "no",
-          "group": "%23%23defaultResourceGroup%23%23*"
+          "group": "Devices by Type/Network*"
         },
         "type": "alert",
         "timescale": "day",
@@ -418,10 +598,12 @@
           "displayAs": "table"
         },
         "displayWarnAlert": true,
+        "supportCustomProperty": false,
         "description": "",
         "type": "noc",
         "version": 2,
         "displayErrorAlert": true,
+        "isSupportCustomProperty": false,
         "displayColumn": 2,
         "name": "Network Interfaces: Alert Status",
         "displayCriticalAlert": true,
@@ -430,16 +612,18 @@
         "sortBy": "alertSeverity",
         "timescale": "day",
         "sdtChecked": true,
-        "items": [{
-          "dataPointName": "Status",
-          "instanceName": "*",
-          "name": "##INSTANCE## - ##RESOURCENAME##",
-          "dataSourceDisplayName": "Network Interfaces",
-          "groupBy": "instance",
-          "type": "device",
-          "deviceGroupFullPath": "##defaultResourceGroup##",
-          "deviceDisplayName": "##defaultResourceName##"
-        }]
+        "items": [
+          {
+            "dataPointName": "Status",
+            "instanceName": "*",
+            "name": "##INSTANCE## - ##RESOURCENAME##",
+            "dataSourceDisplayName": "Network Interfaces",
+            "groupBy": "instance",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }
+        ]
       }
     },
     {
@@ -452,12 +636,14 @@
       "config": {
         "displaySettings": {},
         "timezone": "America/Los_Angeles",
+        "supportCustomProperty": false,
         "description": "What percentage of time in the last 30 days did the monitored resource(s) stay within the defined thresholds of the SLA?",
         "type": "deviceSLA",
         "version": 2,
         "calculationMethod": 1,
         "daysInWeek": "1,2,3,4,5,6,7",
         "displayType": 0,
+        "isSupportCustomProperty": false,
         "topX": 1,
         "bottomLabel": "Time Available",
         "name": "Overall Average Availability (30 Days)",
@@ -465,16 +651,18 @@
         "periodInOneDay": "*",
         "theme": "newSolidDarkBlue",
         "interval": 5,
-        "metrics": [{
-          "groupName": "##defaultResourceGroup##",
-          "instances": "*",
-          "metric": "idleInterval",
-          "dataSourceFullName": "Host Status (HostStatus)",
-          "bottomLabel": "##RESOURCENAME##",
-          "threshold": "< 300",
-          "deviceName": "##defaultResourceName##",
-          "exclusionSDTType": "ResourceSDT"
-        }],
+        "metrics": [
+          {
+            "groupName": "##defaultResourceGroup##",
+            "instances": "*",
+            "metric": "idleInterval",
+            "dataSourceFullName": "Host Status (HostStatus)",
+            "bottomLabel": "##RESOURCENAME##",
+            "threshold": "< 300",
+            "deviceName": "*",
+            "exclusionSDTType": "ResourceSDT"
+          }
+        ],
         "timescale": "Last 30 days",
         "unmonitoredTimeType": 0,
         "colorThresholds": [
@@ -510,10 +698,12 @@
           "displayAs": "table"
         },
         "displayWarnAlert": true,
+        "supportCustomProperty": false,
         "description": "",
         "type": "noc",
         "version": 2,
         "displayErrorAlert": true,
+        "isSupportCustomProperty": false,
         "displayColumn": 7,
         "name": "Resource Alerts",
         "displayCriticalAlert": true,
@@ -522,16 +712,18 @@
         "sortBy": "alertSeverity",
         "timescale": "day",
         "sdtChecked": true,
-        "items": [{
-          "dataPointName": "*",
-          "instanceName": "##defaultInstanceName##",
-          "name": "##RESOURCENAME##",
-          "dataSourceDisplayName": "*",
-          "groupBy": "device",
-          "type": "device",
-          "deviceGroupFullPath": "##defaultResourceGroup##",
-          "deviceDisplayName": "##defaultResourceName##"
-        }]
+        "items": [
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "##RESOURCENAME##",
+            "dataSourceDisplayName": "*",
+            "groupBy": "device",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }
+        ]
       }
     },
     {
@@ -542,37 +734,56 @@
         "sizey": 4
       },
       "config": {
-        "displaySettings": {},
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "node",
+              "columnSize": 367,
+              "columnKey": "node"
+            },
+            {
+              "visible": true,
+              "columnLabel": "availability",
+              "columnSize": 120,
+              "columnKey": "availability"
+            }
+          ]
+        },
         "timezone": "America/Los_Angeles",
+        "supportCustomProperty": false,
         "description": "What percentage of time in the last 30 days did the monitored resource stay within the defined thresholds of the SLA?",
         "type": "deviceSLA",
         "version": 2,
         "calculationMethod": 1,
         "daysInWeek": "1,2,3,4,5,6,7",
         "displayType": 2,
+        "isSupportCustomProperty": false,
         "topX": 25,
         "bottomLabel": "Time Available",
         "name": "Resource Time Available: Last 30 Days",
         "displayPercentageBar": false,
         "periodInOneDay": "*",
-        "theme": "newSolidDarkBlue",
+        "theme": "newBorderBlue",
         "interval": 5,
-        "metrics": [{
-          "groupName": "##defaultResourceGroup##",
-          "instances": "*",
-          "metric": "idleInterval",
-          "dataSourceFullName": "Host Status (HostStatus)",
-          "bottomLabel": "##RESOURCENAME##",
-          "threshold": "< 300",
-          "deviceName": "##defaultResourceName##",
-          "exclusionSDTType": "ResourceSDT"
-        }],
+        "metrics": [
+          {
+            "groupName": "##defaultResourceGroup##",
+            "instances": "*",
+            "metric": "idleInterval",
+            "dataSourceFullName": "Host Status (HostStatus)",
+            "bottomLabel": "##RESOURCENAME##",
+            "threshold": "< 300",
+            "deviceName": "*",
+            "exclusionSDTType": "ResourceSDT"
+          }
+        ],
         "timescale": "Last 30 days",
         "unmonitoredTimeType": 0,
         "colorThresholds": [
           {
-            "level": 2,
-            "threshold": 98,
+            "level": 4,
+            "threshold": 90,
             "relation": "<"
           },
           {
@@ -581,8 +792,8 @@
             "relation": "<"
           },
           {
-            "level": 4,
-            "threshold": 90,
+            "level": 2,
+            "threshold": 98,
             "relation": "<"
           }
         ]
@@ -600,48 +811,179 @@
           "columns": [
             {
               "visible": true,
-              "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 416,
-              "columnKey": "device-name-1452842526600"
+              "columnLabel": "Name",
+              "columnSize": 331,
+              "columnKey": "name"
             },
             {
               "visible": true,
-              "columnLabel": "\n            Discards (In)\n            \n        ",
-              "columnSize": 91,
-              "columnKey": "0"
+              "columnLabel": "Discards (In)",
+              "columnSize": 112,
+              "columnKey": "Discards (In)"
             },
             {
               "visible": true,
-              "columnLabel": "\n            Discard Percent (In)\n            \n        ",
+              "columnLabel": "Discard Percent (In)",
               "columnSize": 122,
-              "columnKey": "1"
+              "columnKey": "Discard Percent (In)"
             },
             {
               "visible": true,
-              "columnLabel": "\n            Errors (In)\n            \n        ",
-              "columnSize": 74,
-              "columnKey": "2"
+              "columnLabel": "Errors (In)",
+              "columnSize": 118,
+              "columnKey": "Errors (In)"
             },
             {
               "visible": true,
-              "columnLabel": "\n            Discards (Out)\n            \n        ",
+              "columnLabel": "Discards (Out)",
               "columnSize": 94,
-              "columnKey": "3"
+              "columnKey": "Discards (Out)"
             },
             {
               "visible": true,
-              "columnLabel": "\n            OutDiscardPercent\n            \n        ",
+              "columnLabel": "OutDiscardPercent",
               "columnSize": 137,
-              "columnKey": "4"
+              "columnKey": "OutDiscardPercent"
             },
             {
               "visible": true,
-              "columnLabel": "\n            Errors (Out)\n            \n        ",
+              "columnLabel": "Errors (Out)",
               "columnSize": 111,
-              "columnKey": "5"
+              "columnKey": "Errors (Out)"
             }
           ],
-          "pageSize": "15"
+          "propertyColumns": [],
+          "pageSize": "10",
+          "columnsV4": [
+            {
+              "maxValue": 100,
+              "index": 0,
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "propertiesOptions": "1",
+              "rpn": "",
+              "dataPointName": "InDiscards",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " pkts/sec.",
+              "position": 0,
+              "id": "undefined_0",
+              "colorThresholds": [],
+              "columnName": "Discards (In)"
+            },
+            {
+              "maxValue": 100,
+              "index": 1,
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "propertiesOptions": "1",
+              "rpn": "",
+              "dataPointName": "InDiscardPercent",
+              "displayType": "colorBar",
+              "minValue": 0,
+              "unitLabel": "%",
+              "position": 1,
+              "id": "undefined_1",
+              "colorThresholds": [
+                {
+                  "level": 2,
+                  "threshold": 0,
+                  "relation": ">"
+                },
+                {
+                  "level": 3,
+                  "threshold": 0,
+                  "relation": ">"
+                },
+                {
+                  "level": 4,
+                  "threshold": 0,
+                  "relation": ">"
+                }
+              ],
+              "columnName": "Discard Percent (In)"
+            },
+            {
+              "maxValue": 100,
+              "index": 2,
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "propertiesOptions": "1",
+              "rpn": "",
+              "dataPointName": "InErrors",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " pkts/sec.",
+              "position": 2,
+              "id": "undefined_2",
+              "colorThresholds": [],
+              "columnName": "Errors (In)"
+            },
+            {
+              "maxValue": 100,
+              "index": 3,
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "propertiesOptions": "1",
+              "rpn": "",
+              "dataPointName": "OutDiscards",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " pkts/sec.",
+              "position": 3,
+              "id": "undefined_3",
+              "colorThresholds": [],
+              "columnName": "Discards (Out)"
+            },
+            {
+              "maxValue": 100,
+              "index": 4,
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "propertiesOptions": "1",
+              "rpn": "",
+              "dataPointName": "OutDiscardPercent",
+              "displayType": "colorBar",
+              "minValue": 0,
+              "unitLabel": "%",
+              "position": 4,
+              "id": "undefined_4",
+              "colorThresholds": [
+                {
+                  "level": 2,
+                  "threshold": 0,
+                  "relation": ">"
+                },
+                {
+                  "level": 3,
+                  "threshold": 0,
+                  "relation": ">"
+                },
+                {
+                  "level": 4,
+                  "threshold": 0,
+                  "relation": ">"
+                }
+              ],
+              "columnName": "OutDiscardPercent"
+            },
+            {
+              "maxValue": 100,
+              "index": 5,
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "propertiesOptions": "1",
+              "rpn": "",
+              "dataPointName": "OutErrors",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " pkts/sec.",
+              "position": 5,
+              "id": "undefined_5",
+              "colorThresholds": [],
+              "columnName": "Errors (Out)"
+            }
+          ]
         },
         "columns": [
           {
@@ -663,7 +1005,23 @@
             "minValue": 0,
             "unitLabel": "%",
             "maxValue": 100,
-            "colorThresholds": [],
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 0,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 0,
+                "relation": ">"
+              },
+              {
+                "level": 4,
+                "threshold": 0,
+                "relation": ">"
+              }
+            ],
             "columnName": "Discard Percent (In)",
             "enableForecast": false,
             "roundingDecimal": 2
@@ -699,7 +1057,23 @@
             "minValue": 0,
             "unitLabel": "%",
             "maxValue": 100,
-            "colorThresholds": [],
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 0,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 0,
+                "relation": ">"
+              },
+              {
+                "level": 4,
+                "threshold": 0,
+                "relation": ">"
+              }
+            ],
             "columnName": "OutDiscardPercent",
             "enableForecast": false,
             "roundingDecimal": 2
@@ -717,25 +1091,29 @@
             "roundingDecimal": 2
           }
         ],
+        "supportCustomProperty": false,
         "description": "",
         "forecast": {
           "severity": "warn",
           "confidence": 70,
           "timeRange": "Last 30 days",
-          "algorithm": "Linear"
+          "algorithm": "ARIMA"
         },
         "type": "dynamicTable",
-        "rows": [{
-          "instanceName": "*",
-          "label": "##INSTANCE## - ##RESOURCENAME##",
-          "deviceDisplayName": "##defaultResourceName##",
-          "groupFullPath": "##defaultResourceGroup##"
-        }],
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##INSTANCE## - ##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
         "version": 2,
+        "isSupportCustomProperty": false,
         "topX": -1,
         "dataSourceFullName": "Network Interfaces (SNMP_Network_Interfaces)",
         "sortOrder": "descending",
-        "name": "Top Interfaces by Discards and Errors",
+        "name": "Top Interfaces by Discards and Errors (Real-time)",
         "theme": "newSolidDarkBlue",
         "interval": 5,
         "timescale": "day"
@@ -750,6 +1128,8 @@
       },
       "config": {
         "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "Top Interfaces by Relative Inbound Bandwidth",
         "description": "",
         "theme": "newBorderDarkBlue",
@@ -761,24 +1141,28 @@
           "virtualDataPoints": [],
           "showLabelsAndLinesOnPC": true,
           "counters": [],
-          "dataPoints": [{
-            "dataPointName": "InMbps",
-            "top10": true,
-            "instanceName": "*",
-            "dataSourceFullName": "Network Interfaces (SNMP_Network_Interfaces)",
-            "name": "InMbps",
-            "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "##defaultResourceName##",
-            "aggregate": false
-          }],
+          "dataPoints": [
+            {
+              "dataPointName": "InMbps",
+              "top10": true,
+              "instanceName": "*",
+              "dataSourceFullName": "Network Interfaces (SNMP_Network_Interfaces)",
+              "name": "InMbps",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*",
+              "aggregate": false
+            }
+          ],
           "hideZeroPercentSlices": true,
           "groupRemainingAsOthers": true,
-          "pieChartItems": [{
-            "dataPointName": "InMbps",
-            "color": "Auto",
-            "legend": "##INSTANCE## - ##RESOURCENAME##"
-          }],
+          "pieChartItems": [
+            {
+              "dataPointName": "InMbps",
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##RESOURCENAME##"
+            }
+          ],
           "title": "Top Interfaces by Relative Inbound Bandwidth"
         },
         "version": 2
@@ -793,6 +1177,8 @@
       },
       "config": {
         "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "Top Interfaces by Relative Outbound Bandwidth",
         "description": "",
         "theme": "newBorderDarkBlue",
@@ -804,24 +1190,28 @@
           "virtualDataPoints": [],
           "showLabelsAndLinesOnPC": true,
           "counters": [],
-          "dataPoints": [{
-            "dataPointName": "OutMbps",
-            "top10": true,
-            "instanceName": "*",
-            "dataSourceFullName": "Network Interfaces (SNMP_Network_Interfaces)",
-            "name": "OutMbps",
-            "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "##defaultResourceName##",
-            "aggregate": false
-          }],
+          "dataPoints": [
+            {
+              "dataPointName": "OutMbps",
+              "top10": true,
+              "instanceName": "*",
+              "dataSourceFullName": "Network Interfaces (SNMP_Network_Interfaces)",
+              "name": "OutMbps",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*",
+              "aggregate": false
+            }
+          ],
           "hideZeroPercentSlices": true,
           "groupRemainingAsOthers": true,
-          "pieChartItems": [{
-            "dataPointName": "OutMbps",
-            "color": "Auto",
-            "legend": "##INSTANCE## - ##RESOURCENAME##"
-          }],
+          "pieChartItems": [
+            {
+              "dataPointName": "OutMbps",
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##RESOURCENAME##"
+            }
+          ],
           "title": "Top Interfaces by Relative Outbound Bandwidth"
         },
         "version": 2
@@ -836,7 +1226,9 @@
       },
       "config": {
         "displaySettings": {},
-        "name": "Top Interfaces by TCP Connection Rate",
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top Interfaces by TCP Connection Rate (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -850,7 +1242,7 @@
               "dataPointName": "tcpAttemptFails",
               "instanceName": {
                 "isGlob": true,
-                "value": "##defaultInstanceName##"
+                "value": "*"
               },
               "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
               "consolidateFunction": "max",
@@ -864,7 +1256,7 @@
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
-                "value": "##defaultResourceName##"
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
@@ -875,7 +1267,7 @@
               "dataPointName": "tcpPassiveOpens",
               "instanceName": {
                 "isGlob": true,
-                "value": "##defaultInstanceName##"
+                "value": "*"
               },
               "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
               "consolidateFunction": "max",
@@ -889,7 +1281,7 @@
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
-                "value": "##defaultResourceName##"
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
@@ -917,7 +1309,9 @@
       },
       "config": {
         "displaySettings": {},
-        "name": "Top Interfaces by TCP Retransmission %",
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top Interfaces by TCP Retransmission % (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -926,31 +1320,33 @@
           "minValue": 0,
           "topX": 10,
           "maxValue": 100,
-          "dataPoints": [{
-            "dataPointName": "RetransPercent",
-            "instanceName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "Auto",
-              "legend": "##RESOURCENAME## Retransmissions",
-              "type": "line",
-              "option": "custom"
-            },
-            "name": "RetransPercent",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "##defaultResourceName##"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
+          "dataPoints": [
+            {
+              "dataPointName": "RetransPercent",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## Retransmissions",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "RetransPercent",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             }
-          }],
+          ],
           "verticalLabel": "%",
           "aggregate": false,
           "desc": true,
@@ -966,140 +1362,243 @@
       "position": {
         "col": 1,
         "sizex": 12,
-        "row": 11,
-        "sizey": 7
+        "row": 13,
+        "sizey": 5
       },
       "config": {
         "displaySettings": {
           "columns": [
             {
               "visible": true,
-              "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 478,
-              "columnKey": "device-name-1452842526600"
+              "columnLabel": "Name",
+              "columnSize": 441,
+              "columnKey": "name"
             },
             {
               "visible": true,
-              "columnLabel": "\n            Broadcast (In)\n            \n        ",
+              "columnLabel": "Broadcast (In)",
+              "columnSize": 178,
+              "columnKey": "Broadcast (In)"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Multicast (In)",
+              "columnSize": 142,
+              "columnKey": "Multicast (In)"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Unicast (In)",
               "columnSize": 93,
-              "columnKey": "0"
+              "columnKey": "Unicast (In)"
             },
             {
               "visible": true,
-              "columnLabel": "\n                    Days Until Alert\n                ",
-              "columnSize": 85,
-              "columnKey": "0-forecast"
+              "columnLabel": "Octets (In)",
+              "columnSize": 108,
+              "columnKey": "Octets (In)"
             },
             {
               "visible": true,
-              "columnLabel": "\n            Multicast (In)\n            \n        ",
-              "columnSize": 131,
-              "columnKey": "1"
+              "columnLabel": "Inbound Mbps",
+              "columnSize": 111,
+              "columnKey": "Inbound Mbps"
             },
             {
               "visible": true,
-              "columnLabel": "\n                    Days Until Alert\n                ",
-              "columnSize": 85,
-              "columnKey": "1-forecast"
+              "columnLabel": "Broadcast (Out)",
+              "columnSize": 120,
+              "columnKey": "Broadcast (Out)"
             },
             {
               "visible": true,
-              "columnLabel": "\n            Unicast (In)\n            \n        ",
-              "columnSize": 92,
-              "columnKey": "2"
+              "columnLabel": "Multicast (Out)",
+              "columnSize": 80,
+              "columnKey": "Multicast (Out)"
             },
             {
               "visible": true,
-              "columnLabel": "\n                    Days Until Alert\n                ",
-              "columnSize": 85,
-              "columnKey": "2-forecast"
+              "columnLabel": "Unicast (Out)",
+              "columnSize": 94,
+              "columnKey": "Unicast (Out)"
             },
             {
               "visible": true,
-              "columnLabel": "\n            Octets (In)\n            \n        ",
-              "columnSize": 109,
-              "columnKey": "3"
+              "columnLabel": "Octets (Out)",
+              "columnSize": 108,
+              "columnKey": "Octets (Out)"
             },
             {
               "visible": true,
-              "columnLabel": "\n                    Days Until Alert\n                ",
-              "columnSize": 85,
-              "columnKey": "3-forecast"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            Inbound Mbps\n            \n        ",
-              "columnSize": 145,
-              "columnKey": "4"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n                    Days Until Alert\n                ",
-              "columnSize": 85,
-              "columnKey": "4-forecast"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            Broadcast (Out)\n            \n        ",
-              "columnSize": 104,
-              "columnKey": "5"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n                    Days Until Alert\n                ",
-              "columnSize": 85,
-              "columnKey": "5-forecast"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            Multicast (Out)\n            \n        ",
-              "columnSize": 100,
-              "columnKey": "6"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n                    Days Until Alert\n                ",
-              "columnSize": 85,
-              "columnKey": "6-forecast"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            Unicast (Out)\n            \n        ",
-              "columnSize": 91,
-              "columnKey": "7"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n                    Days Until Alert\n                ",
-              "columnSize": 85,
-              "columnKey": "7-forecast"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            Octets (Out)\n            \n        ",
-              "columnSize": 113,
-              "columnKey": "8"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n                    Days Until Alert\n                ",
-              "columnSize": 85,
-              "columnKey": "8-forecast"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            Outbound Mbps\n            \n        ",
-              "columnSize": 145,
-              "columnKey": "9"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n                    Days Until Alert\n                ",
-              "columnSize": 84,
-              "columnKey": "9-forecast"
+              "columnLabel": "Outbound Mbps",
+              "columnSize": 236,
+              "columnKey": "Outbound Mbps"
             }
           ],
-          "pageSize": "15"
+          "propertyColumns": [],
+          "pageSize": "15",
+          "columnsV4": [
+            {
+              "maxValue": 100,
+              "index": 0,
+              "enableForecast": false,
+              "roundingDecimal": 0,
+              "propertiesOptions": "1",
+              "rpn": "",
+              "dataPointName": "InBroadcastPkts",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " pkts/sec.",
+              "position": 0,
+              "id": "undefined_0",
+              "colorThresholds": [],
+              "columnName": "Broadcast (In)"
+            },
+            {
+              "maxValue": 100,
+              "index": 1,
+              "enableForecast": false,
+              "roundingDecimal": 0,
+              "propertiesOptions": "1",
+              "rpn": "",
+              "dataPointName": "InMulticastPkts",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " pkts/sec.",
+              "position": 1,
+              "id": "undefined_1",
+              "colorThresholds": [],
+              "columnName": "Multicast (In)"
+            },
+            {
+              "maxValue": 100,
+              "index": 2,
+              "enableForecast": false,
+              "roundingDecimal": 0,
+              "propertiesOptions": "1",
+              "rpn": "",
+              "dataPointName": "InUcastPkts",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " Pkts/sec.",
+              "position": 2,
+              "id": "undefined_2",
+              "colorThresholds": [],
+              "columnName": "Unicast (In)"
+            },
+            {
+              "maxValue": 100,
+              "index": 3,
+              "enableForecast": false,
+              "roundingDecimal": 0,
+              "propertiesOptions": "1",
+              "rpn": "",
+              "dataPointName": "InOctets",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " oct/sec.",
+              "position": 3,
+              "id": "undefined_3",
+              "colorThresholds": [],
+              "columnName": "Octets (In)"
+            },
+            {
+              "maxValue": 100,
+              "index": 4,
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "propertiesOptions": "1",
+              "rpn": "",
+              "dataPointName": "InMbps",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " Mbps",
+              "position": 4,
+              "id": "undefined_4",
+              "colorThresholds": [],
+              "columnName": "Inbound Mbps"
+            },
+            {
+              "maxValue": 100,
+              "index": 5,
+              "enableForecast": false,
+              "roundingDecimal": 0,
+              "propertiesOptions": "1",
+              "rpn": "",
+              "dataPointName": "OutBroadcastPkts",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " pkts/sec.",
+              "position": 5,
+              "id": "undefined_5",
+              "colorThresholds": [],
+              "columnName": "Broadcast (Out)"
+            },
+            {
+              "maxValue": 100,
+              "index": 6,
+              "enableForecast": false,
+              "roundingDecimal": 0,
+              "propertiesOptions": "1",
+              "rpn": "",
+              "dataPointName": "OutMulticastPkts",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " pkts/sec.",
+              "position": 6,
+              "id": "undefined_6",
+              "colorThresholds": [],
+              "columnName": "Multicast (Out)"
+            },
+            {
+              "maxValue": 100,
+              "index": 7,
+              "enableForecast": false,
+              "roundingDecimal": 0,
+              "propertiesOptions": "1",
+              "rpn": "",
+              "dataPointName": "OutUcastPkts",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " pkts/sec.",
+              "position": 7,
+              "id": "undefined_7",
+              "colorThresholds": [],
+              "columnName": "Unicast (Out)"
+            },
+            {
+              "maxValue": 100,
+              "index": 8,
+              "enableForecast": false,
+              "roundingDecimal": 0,
+              "propertiesOptions": "1",
+              "rpn": "",
+              "dataPointName": "OutOctets",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " oct/sec.",
+              "position": 8,
+              "id": "undefined_8",
+              "colorThresholds": [],
+              "columnName": "Octets (Out)"
+            },
+            {
+              "maxValue": 100,
+              "index": 9,
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "propertiesOptions": "1",
+              "rpn": "",
+              "dataPointName": "OutMbps",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " Mpbs",
+              "position": 9,
+              "id": "undefined_9",
+              "colorThresholds": [],
+              "columnName": "Outbound Mbps"
+            }
+          ]
         },
         "columns": [
           {
@@ -1223,25 +1722,29 @@
             "roundingDecimal": 2
           }
         ],
+        "supportCustomProperty": false,
         "description": "",
         "forecast": {
           "severity": "warn",
           "confidence": 70,
-          "timeRange": "Last 7 days",
-          "algorithm": "Linear"
+          "timeRange": "Last 30 days",
+          "algorithm": "ARIMA"
         },
         "type": "dynamicTable",
-        "rows": [{
-          "instanceName": "*",
-          "label": "##INSTANCE## - ##RESOURCENAME##",
-          "deviceDisplayName": "##defaultResourceName##",
-          "groupFullPath": "##defaultResourceGroup##"
-        }],
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##INSTANCE## - ##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
         "version": 2,
+        "isSupportCustomProperty": false,
         "topX": 25,
         "dataSourceFullName": "Network Interfaces (SNMP_Network_Interfaces)",
         "sortOrder": "descending",
-        "name": "Top Interfaces: Throughput Statistics",
+        "name": "Top Interfaces: Throughput Statistics (Real-time)",
         "theme": "newSolidDarkBlue",
         "interval": 5,
         "timescale": "day"
@@ -1250,46 +1753,50 @@
     {
       "position": {
         "col": 1,
-        "sizex": 4,
+        "sizex": 6,
         "row": 8,
         "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Top Network Interfaces by Inbound Throughput",
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top Network Interfaces by Inbound Throughput (Trend)",
         "description": "",
-        "theme": "newSolidDarkBlue",
+        "theme": "newBorderDarkBlue",
         "interval": 3,
         "graphInfo": {
           "virtualDataPoints": [],
           "minValue": 0,
           "topX": 5,
           "maxValue": "NaN",
-          "dataPoints": [{
-            "dataPointName": "InMbps",
-            "instanceName": {
-              "isGlob": true,
-              "value": "##defaultInstanceName##"
-            },
-            "dataSourceFullName": "Network Interfaces (SNMP_Network_Interfaces)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "Auto",
-              "legend": "##INSTANCE## - ##RESOURCENAME##",
-              "type": "line",
-              "option": "custom"
-            },
-            "name": "InMbps",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "##defaultResourceName##"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
+          "dataPoints": [
+            {
+              "dataPointName": "InMbps",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Network Interfaces (SNMP_Network_Interfaces)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## - ##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "InMbps",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             }
-          }],
+          ],
           "verticalLabel": "Mbps",
           "aggregate": false,
           "desc": true,
@@ -1303,47 +1810,51 @@
     },
     {
       "position": {
-        "col": 5,
-        "sizex": 4,
+        "col": 7,
+        "sizex": 6,
         "row": 8,
         "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Top Network Interfaces by Outbound Throughput",
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top Network Interfaces by Outbound Throughput (Trend)",
         "description": "",
-        "theme": "newSolidDarkBlue",
+        "theme": "newBorderDarkBlue",
         "interval": 3,
         "graphInfo": {
           "virtualDataPoints": [],
           "minValue": 0,
           "topX": 10,
           "maxValue": "NaN",
-          "dataPoints": [{
-            "dataPointName": "OutMbps",
-            "instanceName": {
-              "isGlob": true,
-              "value": "##defaultInstanceName##"
-            },
-            "dataSourceFullName": "Network Interfaces (SNMP_Network_Interfaces)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "Auto",
-              "legend": "##INSTANCE## - ##RESOURCENAME##",
-              "type": "line",
-              "option": "custom"
-            },
-            "name": "OutMbps",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "##defaultResourceName##"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
+          "dataPoints": [
+            {
+              "dataPointName": "OutMbps",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Network Interfaces (SNMP_Network_Interfaces)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## - ##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "OutMbps",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": false,
+                "value": "##defaultResourceGroup##"
+              }
             }
-          }],
+          ],
           "verticalLabel": "Mbps",
           "aggregate": false,
           "desc": true,
@@ -1364,21 +1875,25 @@
       },
       "config": {
         "displaySettings": {},
-        "name": "Top Network Interfaces by Total Throughput",
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top Network Interfaces by Total Throughput (Trend)",
         "description": "",
-        "theme": "newSolidDarkBlue",
+        "theme": "newBorderDarkBlue",
         "interval": 3,
         "graphInfo": {
-          "virtualDataPoints": [{
-            "rpn": "InMbps + OutMbps",
-            "display": {
-              "color": "Auto",
-              "legend": "##INSTANCE## - ##RESOURCENAME##",
-              "type": "line",
-              "option": "custom"
-            },
-            "name": "totalMbps"
-          }],
+          "virtualDataPoints": [
+            {
+              "rpn": "InMbps + OutMbps",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## - ##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "totalMbps"
+            }
+          ],
           "minValue": 0,
           "topX": 10,
           "maxValue": "NaN",
@@ -1387,7 +1902,7 @@
               "dataPointName": "InMbps",
               "instanceName": {
                 "isGlob": true,
-                "value": "##defaultInstanceName##"
+                "value": "*"
               },
               "dataSourceFullName": "Network Interfaces (SNMP_Network_Interfaces)",
               "consolidateFunction": "average",
@@ -1401,7 +1916,7 @@
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
-                "value": "##defaultResourceName##"
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
@@ -1412,7 +1927,7 @@
               "dataPointName": "OutMbps",
               "instanceName": {
                 "isGlob": true,
-                "value": "##defaultInstanceName##"
+                "value": "*"
               },
               "dataSourceFullName": "Network Interfaces (SNMP_Network_Interfaces)",
               "consolidateFunction": "average",
@@ -1426,7 +1941,7 @@
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
-                "value": "##defaultResourceName##"
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
@@ -1454,7 +1969,9 @@
       },
       "config": {
         "displaySettings": {},
-        "name": "Top Resources by TCP Connections",
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top Resources by TCP Connections (Trend)",
         "description": "",
         "theme": "newBorderDarkBlue",
         "interval": 3,
@@ -1463,31 +1980,33 @@
           "minValue": 0,
           "topX": 10,
           "maxValue": "NaN",
-          "dataPoints": [{
-            "dataPointName": "tcpCurrEstab",
-            "instanceName": {
-              "isGlob": true,
-              "value": "##defaultInstanceName##"
-            },
-            "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
-            "consolidateFunction": "max",
-            "display": {
-              "color": "Auto",
-              "legend": "##RESOURCENAME## Connections EST or in Close Wait",
-              "type": "line",
-              "option": "custom"
-            },
-            "name": "CurrEstab",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "##defaultResourceName##"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
+          "dataPoints": [
+            {
+              "dataPointName": "tcpCurrEstab",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
+              "consolidateFunction": "max",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## Connections EST or in Close Wait",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "CurrEstab",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             }
-          }],
+          ],
           "verticalLabel": "connections",
           "aggregate": false,
           "desc": true,
@@ -1508,7 +2027,9 @@
       },
       "config": {
         "displaySettings": {},
-        "name": "Top Resources by TCP Segments",
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top Resources by TCP Segments (Trend)",
         "description": "",
         "theme": "newBorderDarkBlue",
         "interval": 3,
@@ -1522,7 +2043,7 @@
               "dataPointName": "tcpOutSegs",
               "instanceName": {
                 "isGlob": true,
-                "value": "##defaultInstanceName##"
+                "value": "*"
               },
               "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
               "consolidateFunction": "average",
@@ -1536,7 +2057,7 @@
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
-                "value": "##defaultResourceName##"
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
@@ -1547,7 +2068,7 @@
               "dataPointName": "tcpRetransSegs",
               "instanceName": {
                 "isGlob": true,
-                "value": "##defaultInstanceName##"
+                "value": "*"
               },
               "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
               "consolidateFunction": "average",
@@ -1561,7 +2082,7 @@
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
-                "value": "##defaultResourceName##"
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
@@ -1589,7 +2110,9 @@
       },
       "config": {
         "displaySettings": {},
-        "name": "Top Resources by UDP Datagrams",
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top Resources by UDP Datagrams (Trend)",
         "description": "",
         "theme": "newBorderDarkBlue",
         "interval": 3,
@@ -1603,7 +2126,7 @@
               "dataPointName": "UDPInDatagrams",
               "instanceName": {
                 "isGlob": true,
-                "value": "##defaultInstanceName##"
+                "value": "*"
               },
               "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
               "consolidateFunction": "average",
@@ -1617,7 +2140,7 @@
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
-                "value": "##defaultResourceName##"
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
@@ -1628,7 +2151,7 @@
               "dataPointName": "UDPOutDatagrams",
               "instanceName": {
                 "isGlob": true,
-                "value": "##defaultInstanceName##"
+                "value": "*"
               },
               "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
               "consolidateFunction": "average",
@@ -1642,7 +2165,7 @@
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
-                "value": "##defaultResourceName##"
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
@@ -1670,7 +2193,9 @@
       },
       "config": {
         "displaySettings": {},
-        "name": "Top Resources by UDP Errors",
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top Resources by UDP Errors (Trend)",
         "description": "",
         "theme": "newBorderDarkBlue",
         "interval": 3,
@@ -1679,31 +2204,33 @@
           "minValue": 0,
           "topX": 10,
           "maxValue": "NaN",
-          "dataPoints": [{
-            "dataPointName": "udpInErrors",
-            "instanceName": {
-              "isGlob": true,
-              "value": "##defaultInstanceName##"
-            },
-            "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "Auto",
-              "legend": "##RESOURCENAME## UDP Drops",
-              "type": "line",
-              "option": "custom"
-            },
-            "name": "UDPDrops",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "##defaultResourceName##"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
+          "dataPoints": [
+            {
+              "dataPointName": "udpInErrors",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## UDP Drops",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "UDPDrops",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             }
-          }],
+          ],
           "verticalLabel": "drops/sec",
           "aggregate": false,
           "desc": true,
@@ -1718,7 +2245,7 @@
     {
       "position": {
         "col": 1,
-        "sizex": 2,
+        "sizex": 3,
         "row": 3,
         "sizey": 2
       },
@@ -1726,26 +2253,33 @@
         "bigNumberInfo": {
           "virtualDataPoints": [],
           "counters": [],
-          "dataPoints": [{
-            "dataPointName": "InMbps",
-            "instanceName": "##defaultInstanceName##",
-            "dataSourceFullName": "Network Interfaces (SNMP_Network_Interfaces)",
-            "name": "InMbps",
-            "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "##defaultResourceName##"
-          }],
-          "bigNumberItems": [{
-            "dataPointName": "InMbps",
-            "useCommaSeparators": true,
-            "bottomLabel": "",
-            "rounding": 0,
-            "position": 1,
-            "rightLabel": "Inbound Mbps",
-            "colorThresholds": null
-          }]
+          "dataPoints": [
+            {
+              "dataPointName": "InMbps",
+              "instanceName": "*",
+              "dataSourceFullName": "Network Interfaces (SNMP_Network_Interfaces)",
+              "name": "InMbps",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [
+            {
+              "dataPointName": "InMbps",
+              "useCommaSeparators": true,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Inbound Mbps",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
         },
         "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "Traffic Statistics",
         "description": "",
         "theme": "newSolidDarkBlue",
@@ -1757,8 +2291,8 @@
     },
     {
       "position": {
-        "col": 3,
-        "sizex": 2,
+        "col": 4,
+        "sizex": 3,
         "row": 3,
         "sizey": 2
       },
@@ -1766,82 +2300,33 @@
         "bigNumberInfo": {
           "virtualDataPoints": [],
           "counters": [],
-          "dataPoints": [{
-            "dataPointName": "OutMbps",
-            "instanceName": "##defaultInstanceName##",
-            "dataSourceFullName": "Network Interfaces (SNMP_Network_Interfaces)",
-            "name": "OutMbps",
-            "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "##defaultResourceName##"
-          }],
-          "bigNumberItems": [{
-            "dataPointName": "OutMbps",
-            "useCommaSeparators": true,
-            "bottomLabel": "",
-            "rounding": 0,
-            "position": 1,
-            "rightLabel": "Outbound Mbps",
-            "colorThresholds": null
-          }]
+          "dataPoints": [
+            {
+              "dataPointName": "OutMbps",
+              "instanceName": "*",
+              "dataSourceFullName": "Network Interfaces (SNMP_Network_Interfaces)",
+              "name": "OutMbps",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [
+            {
+              "dataPointName": "OutMbps",
+              "useCommaSeparators": true,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Outbound Mbps",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
         },
         "displaySettings": {},
-        "name": "Traffic Statistics",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "type": "bigNumber",
-        "timescale": "day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 5,
-        "sizex": 2,
-        "row": 3,
-        "sizey": 2
-      },
-      "config": {
-        "bigNumberInfo": {
-          "virtualDataPoints": [],
-          "counters": [],
-          "dataPoints": [{
-            "dataPointName": "InErrors",
-            "instanceName": "##defaultInstanceName##",
-            "dataSourceFullName": "Network Interfaces (SNMP_Network_Interfaces)",
-            "name": "InErrors",
-            "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "##defaultResourceName##"
-          }],
-          "bigNumberItems": [{
-            "dataPointName": "InErrors",
-            "useCommaSeparators": false,
-            "bottomLabel": "",
-            "rounding": 2,
-            "position": 1,
-            "rightLabel": "Inbound Errors",
-            "colorThresholds": [
-              {
-                "level": 2,
-                "threshold": 0,
-                "relation": ">"
-              },
-              {
-                "level": 3,
-                "threshold": 0,
-                "relation": ">"
-              },
-              {
-                "level": 4,
-                "threshold": 0,
-                "relation": ">"
-              }
-            ]
-          }]
-        },
-        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "Traffic Statistics",
         "description": "",
         "theme": "newSolidDarkBlue",
@@ -1854,7 +2339,7 @@
     {
       "position": {
         "col": 7,
-        "sizex": 2,
+        "sizex": 3,
         "row": 3,
         "sizey": 2
       },
@@ -1862,26 +2347,96 @@
         "bigNumberInfo": {
           "virtualDataPoints": [],
           "counters": [],
-          "dataPoints": [{
-            "dataPointName": "OutErrors",
-            "instanceName": "##defaultInstanceName##",
-            "dataSourceFullName": "Network Interfaces (SNMP_Network_Interfaces)",
-            "name": "OutErrors",
-            "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "##defaultResourceName##"
-          }],
-          "bigNumberItems": [{
-            "dataPointName": "OutErrors",
-            "useCommaSeparators": false,
-            "bottomLabel": "",
-            "rounding": 2,
-            "position": 1,
-            "rightLabel": "Outbound Errors",
-            "colorThresholds": null
-          }]
+          "dataPoints": [
+            {
+              "dataPointName": "InErrors",
+              "instanceName": "*",
+              "dataSourceFullName": "Network Interfaces (SNMP_Network_Interfaces)",
+              "name": "InErrors",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [
+            {
+              "dataPointName": "InErrors",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 2,
+              "position": 1,
+              "rightLabel": "Inbound Errors",
+              "colorThresholds": [
+                {
+                  "level": 2,
+                  "threshold": 0,
+                  "relation": ">"
+                },
+                {
+                  "level": 3,
+                  "threshold": 0,
+                  "relation": ">"
+                },
+                {
+                  "level": 4,
+                  "threshold": 0,
+                  "relation": ">"
+                }
+              ],
+              "actions": []
+            }
+          ]
         },
         "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Traffic Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 3,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "OutErrors",
+              "instanceName": "*",
+              "dataSourceFullName": "Network Interfaces (SNMP_Network_Interfaces)",
+              "name": "OutErrors",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [
+            {
+              "dataPointName": "OutErrors",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Outbound Errors",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
+        },
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "Traffic Statistics",
         "description": "",
         "theme": "newSolidDarkBlue",
@@ -1892,5 +2447,10 @@
       }
     }
   ],
-  "version": 2
+  "version": 2,
+  "group": {
+    "name": "Common",
+    "fullPath": "LogicMonitor Dashboards/Network/Common",
+    "description": ""
+  }
 }

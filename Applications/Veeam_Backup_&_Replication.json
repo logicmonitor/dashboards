@@ -1,9 +1,11 @@
 {
-  "santabaRelease": 138,
-  "widgetTokens": [{
-    "name": "defaultResourceGroup",
-    "value": "*"
-  }],
+  "santabaRelease": 222,
+  "widgetTokens": [
+    {
+      "name": "defaultResourceGroup",
+      "value": "*"
+    }
+  ],
   "name": "Veeam Backup & Replication",
   "description": "",
   "overwriteGroupFields": false,
@@ -152,6 +154,8 @@
           "fontsize": "normal-font",
           "sort": "-startEpoch"
         },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "Veeam Backup Alert Detail",
         "description": "",
         "theme": "newSolidDarkBlue",
@@ -161,6 +165,7 @@
           "sdted": "all",
           "chain": "",
           "instance": "",
+          "anomaly": "all",
           "dataPoint": "",
           "rule": "",
           "acked": "all",
@@ -186,49 +191,55 @@
       },
       "config": {
         "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "Top Veeam Backups by Duration (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 10,
         "graphInfo": {
-          "virtualDataPoints": [{
-            "rpn": "Duration/60",
-            "display": {
-              "color": "Auto",
-              "legend": "##INSTANCE## - ##RESOURCENAME##",
-              "type": "stack",
-              "option": "custom"
-            },
-            "name": "minutes"
-          }],
+          "virtualDataPoints": [
+            {
+              "rpn": "Duration/60",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## - ##RESOURCENAME##",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "minutes"
+            }
+          ],
           "minValue": 0,
           "topX": 10,
           "maxValue": "NaN",
-          "dataPoints": [{
-            "dataPointName": "Duration",
-            "instanceName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "dataSourceFullName": "Veeam Jobs: Backups (Veeam_BackupAndReplication_Jobs_Backups)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": null,
-              "legend": null,
-              "type": "line",
-              "option": "none"
-            },
-            "name": "Duration",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
+          "dataPoints": [
+            {
+              "dataPointName": "Duration",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Veeam Jobs: Backups (Veeam_BackupAndReplication_Jobs_Backups)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "Duration",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             }
-          }],
+          ],
           "verticalLabel": "minutes",
           "aggregate": false,
           "desc": true,
@@ -249,6 +260,8 @@
       },
       "config": {
         "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "Top Veeam Repositories by Free Space (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
@@ -258,31 +271,33 @@
           "minValue": 0,
           "topX": 10,
           "maxValue": "NaN",
-          "dataPoints": [{
-            "dataPointName": "CachedFreeSpace",
-            "instanceName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "dataSourceFullName": "Veeam Repositories (Veeam_BackupAndReplication_Repositories)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "Auto",
-              "legend": "##INSTANCE## - ##RESOURCENAME##",
-              "type": "area",
-              "option": "custom"
-            },
-            "name": "CachedFreeSpace",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
+          "dataPoints": [
+            {
+              "dataPointName": "CachedFreeSpace",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Veeam Repositories (Veeam_BackupAndReplication_Repositories)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## - ##RESOURCENAME##",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "CachedFreeSpace",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             }
-          }],
+          ],
           "verticalLabel": "bytes",
           "aggregate": false,
           "desc": true,
@@ -308,10 +323,12 @@
           "displayAs": "table"
         },
         "displayWarnAlert": true,
+        "supportCustomProperty": false,
         "description": "",
         "type": "noc",
         "version": 2,
         "displayErrorAlert": true,
+        "isSupportCustomProperty": false,
         "displayColumn": 1,
         "name": "Veeam Backup Alert Status",
         "displayCriticalAlert": true,
@@ -320,16 +337,18 @@
         "sortBy": "alertSeverity",
         "timescale": "day",
         "sdtChecked": true,
-        "items": [{
-          "dataPointName": "*",
-          "instanceName": "*",
-          "name": "##RESOURCENAME##",
-          "dataSourceDisplayName": "veeam*",
-          "groupBy": "device",
-          "type": "device",
-          "deviceGroupFullPath": "##defaultResourceGroup##",
-          "deviceDisplayName": "*"
-        }]
+        "items": [
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "##RESOURCENAME##",
+            "dataSourceDisplayName": "veeam*",
+            "groupBy": "device",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }
+        ]
       }
     },
     {
@@ -341,49 +360,55 @@
       },
       "config": {
         "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "Top Veeam Backup Sessions by Duration (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "graphInfo": {
-          "virtualDataPoints": [{
-            "rpn": "Duration/60",
-            "display": {
-              "color": "Auto",
-              "legend": "##INSTANCE## - ##RESOURCENAME##",
-              "type": "stack",
-              "option": "custom"
-            },
-            "name": "minutes"
-          }],
+          "virtualDataPoints": [
+            {
+              "rpn": "Duration/60",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## - ##RESOURCENAME##",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "minutes"
+            }
+          ],
           "minValue": 0,
           "topX": 10,
           "maxValue": "NaN",
-          "dataPoints": [{
-            "dataPointName": "Duration",
-            "instanceName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "dataSourceFullName": "Veeam Jobs: Backup Sessions (Veeam_BackupAndReplication_BackupSessions)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": null,
-              "legend": null,
-              "type": "line",
-              "option": "none"
-            },
-            "name": "Duration",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
+          "dataPoints": [
+            {
+              "dataPointName": "Duration",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Veeam Jobs: Backup Sessions (Veeam_BackupAndReplication_BackupSessions)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "Duration",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             }
-          }],
+          ],
           "verticalLabel": "minutes",
           "aggregate": false,
           "desc": true,
@@ -482,11 +507,13 @@
             "minValue": 0,
             "unitLabel": "",
             "maxValue": 100,
-            "colorThresholds": [{
-              "level": 2,
-              "threshold": 100,
-              "relation": "!="
-            }],
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 100,
+                "relation": "!="
+              }
+            ],
             "columnName": "Progress",
             "enableForecast": false,
             "roundingDecimal": 2
@@ -580,6 +607,7 @@
             "roundingDecimal": 2
           }
         ],
+        "supportCustomProperty": false,
         "description": "",
         "forecast": {
           "severity": "warn",
@@ -588,13 +616,16 @@
           "algorithm": "Linear"
         },
         "type": "dynamicTable",
-        "rows": [{
-          "instanceName": "*",
-          "label": "##INSTANCE## - ##RESOURCENAME##",
-          "deviceDisplayName": "*",
-          "groupFullPath": "##defaultResourceGroup##"
-        }],
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##INSTANCE## - ##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
         "version": 2,
+        "isSupportCustomProperty": false,
         "topX": 25,
         "dataSourceFullName": "Veeam Jobs: Backup Sessions (Veeam_BackupAndReplication_BackupSessions)",
         "sortOrder": "descending",
@@ -614,22 +645,29 @@
       "config": {
         "bigNumberInfo": {
           "virtualDataPoints": [],
-          "counters": [{
-            "name": "veeam_servers",
-            "appliesTo": "hasCategory(\"VeeamBackupAndReplicationPowerShell\")"
-          }],
+          "counters": [
+            {
+              "name": "veeam_servers",
+              "appliesTo": "hasCategory(\"VeeamBackupAndReplicationPowerShell\")"
+            }
+          ],
           "dataPoints": [],
-          "bigNumberItems": [{
-            "dataPointName": "veeam_servers",
-            "useCommaSeparators": false,
-            "bottomLabel": "",
-            "rounding": 0,
-            "position": 1,
-            "rightLabel": "Veeam Server(s)",
-            "colorThresholds": null
-          }]
+          "bigNumberItems": [
+            {
+              "dataPointName": "veeam_servers",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Veeam Server(s)",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
         },
         "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "Veeam Statistics",
         "description": "",
         "theme": "newSolidDarkBlue",
@@ -653,10 +691,12 @@
           "displayAs": "table"
         },
         "displayWarnAlert": true,
+        "supportCustomProperty": false,
         "description": "",
         "type": "noc",
         "version": 2,
         "displayErrorAlert": true,
+        "isSupportCustomProperty": false,
         "displayColumn": 6,
         "name": "Veeam Backup Session Alert Status",
         "displayCriticalAlert": true,
@@ -665,16 +705,18 @@
         "sortBy": "alertSeverity",
         "timescale": "day",
         "sdtChecked": true,
-        "items": [{
-          "dataPointName": "*",
-          "instanceName": "*",
-          "name": "##INSTANCE## - ##RESOURCENAME##",
-          "dataSourceDisplayName": "Veeam Jobs: Backup Sessions",
-          "groupBy": "instance",
-          "type": "device",
-          "deviceGroupFullPath": "##defaultResourceGroup##",
-          "deviceDisplayName": "*"
-        }]
+        "items": [
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "##INSTANCE## - ##RESOURCENAME##",
+            "dataSourceDisplayName": "Veeam Jobs: Backup Sessions",
+            "groupBy": "instance",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }
+        ]
       }
     },
     {
@@ -722,11 +764,13 @@
             "minValue": -1,
             "unitLabel": "",
             "maxValue": 4,
-            "colorThresholds": [{
-              "level": 2,
-              "threshold": 0,
-              "relation": "!="
-            }],
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 0,
+                "relation": "!="
+              }
+            ],
             "columnName": "Status",
             "enableForecast": false,
             "roundingDecimal": 2
@@ -756,6 +800,7 @@
             "roundingDecimal": 2
           }
         ],
+        "supportCustomProperty": false,
         "description": "",
         "forecast": {
           "severity": "warn",
@@ -764,13 +809,16 @@
           "algorithm": "Linear"
         },
         "type": "dynamicTable",
-        "rows": [{
-          "instanceName": "*",
-          "label": "##INSTANCE## - ##RESOURCENAME##",
-          "deviceDisplayName": "*",
-          "groupFullPath": "##defaultResourceGroup##"
-        }],
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##INSTANCE## - ##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
         "version": 2,
+        "isSupportCustomProperty": false,
         "topX": 25,
         "dataSourceFullName": "Veeam Repositories (Veeam_BackupAndReplication_Repositories)",
         "sortOrder": "descending",
@@ -783,7 +831,7 @@
     {
       "position": {
         "col": 1,
-        "sizex": 6,
+        "sizex": 10,
         "row": 7,
         "sizey": 2
       },
@@ -794,10 +842,12 @@
           "displayAs": "table"
         },
         "displayWarnAlert": true,
+        "supportCustomProperty": false,
         "description": "",
         "type": "noc",
         "version": 2,
         "displayErrorAlert": true,
+        "isSupportCustomProperty": false,
         "displayColumn": 6,
         "name": "Veeam Backup Alert Status",
         "displayCriticalAlert": true,
@@ -806,96 +856,18 @@
         "sortBy": "alertSeverity",
         "timescale": "day",
         "sdtChecked": true,
-        "items": [{
-          "dataPointName": "*",
-          "instanceName": "*",
-          "name": "##INSTANCE## - ##RESOURCENAME##",
-          "dataSourceDisplayName": "Veeam Jobs: Backups",
-          "groupBy": "instance",
-          "type": "device",
-          "deviceGroupFullPath": "##defaultResourceGroup##",
-          "deviceDisplayName": "*"
-        }]
-      }
-    },
-    {
-      "position": {
-        "col": 7,
-        "sizex": 2,
-        "row": 7,
-        "sizey": 2
-      },
-      "config": {
-        "bigNumberInfo": {
-          "virtualDataPoints": [],
-          "counters": [],
-          "dataPoints": [{
-            "dataPointName": "RetryCounter",
+        "items": [
+          {
+            "dataPointName": "*",
             "instanceName": "*",
-            "dataSourceFullName": "Veeam Jobs: Backups (Veeam_BackupAndReplication_Jobs_Backups)",
-            "name": "RetryCounter",
-            "aggregateFunction": "SUM",
+            "name": "##INSTANCE## - ##RESOURCENAME##",
+            "dataSourceDisplayName": "Veeam Jobs: Backups",
+            "groupBy": "instance",
+            "type": "device",
             "deviceGroupFullPath": "##defaultResourceGroup##",
             "deviceDisplayName": "*"
-          }],
-          "bigNumberItems": [{
-            "dataPointName": "RetryCounter",
-            "useCommaSeparators": false,
-            "bottomLabel": "",
-            "rounding": 0,
-            "position": 1,
-            "rightLabel": "Backup Retries",
-            "colorThresholds": null
-          }]
-        },
-        "displaySettings": {},
-        "name": "Veeam Backup Retries",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 10,
-        "type": "bigNumber",
-        "timescale": "day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 9,
-        "sizex": 2,
-        "row": 7,
-        "sizey": 2
-      },
-      "config": {
-        "bigNumberInfo": {
-          "virtualDataPoints": [],
-          "counters": [],
-          "dataPoints": [{
-            "dataPointName": "RetryCounter",
-            "instanceName": "*",
-            "dataSourceFullName": "Veeam Jobs: BackupSync (Veeam_BackupAndReplication_Jobs_BackupSync)",
-            "name": "BackupSync",
-            "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "*"
-          }],
-          "bigNumberItems": [{
-            "dataPointName": "BackupSync",
-            "useCommaSeparators": false,
-            "bottomLabel": "",
-            "rounding": 0,
-            "position": 1,
-            "rightLabel": "Backup Sync Retries",
-            "colorThresholds": null
-          }]
-        },
-        "displaySettings": {},
-        "name": "Veeam Backup Retries",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 10,
-        "type": "bigNumber",
-        "timescale": "day",
-        "version": 2
+          }
+        ]
       }
     },
     {
@@ -909,27 +881,34 @@
         "bigNumberInfo": {
           "virtualDataPoints": [],
           "counters": [],
-          "dataPoints": [{
-            "dataPointName": "RetryCounter",
-            "instanceName": "*",
-            "dataSourceFullName": "Veeam Jobs: Replicas (Veeam_BackupAndReplication_Jobs_Replicas)",
-            "name": "ReplicaCounter",
-            "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "*"
-          }],
-          "bigNumberItems": [{
-            "dataPointName": "ReplicaCounter",
-            "useCommaSeparators": false,
-            "bottomLabel": "",
-            "rounding": 0,
-            "position": 1,
-            "rightLabel": "Replica Retries",
-            "colorThresholds": null
-          }]
+          "dataPoints": [
+            {
+              "dataPointName": "RetryCounter",
+              "instanceName": "*",
+              "dataSourceFullName": "Veeam Jobs: Backups (Veeam_BackupAndReplication_Jobs_Backups)",
+              "name": "RetryCounter",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [
+            {
+              "dataPointName": "RetryCounter",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Backup Retries",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
         },
         "displaySettings": {},
-        "name": "Veeam Replication Retries",
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Veeam Backup Retries",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 10,
@@ -947,6 +926,8 @@
       },
       "config": {
         "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "Veeam Backup Session Size Breakdown",
         "description": "",
         "theme": "newSolidDarkBlue",
@@ -958,24 +939,28 @@
           "virtualDataPoints": [],
           "showLabelsAndLinesOnPC": true,
           "counters": [],
-          "dataPoints": [{
-            "dataPointName": "TotalUsedSize",
-            "top10": false,
-            "instanceName": "*",
-            "dataSourceFullName": "Veeam Jobs: Backup Sessions (Veeam_BackupAndReplication_BackupSessions)",
-            "name": "TotalUsedSize",
-            "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "*",
-            "aggregate": false
-          }],
+          "dataPoints": [
+            {
+              "dataPointName": "TotalUsedSize",
+              "top10": false,
+              "instanceName": "*",
+              "dataSourceFullName": "Veeam Jobs: Backup Sessions (Veeam_BackupAndReplication_BackupSessions)",
+              "name": "TotalUsedSize",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*",
+              "aggregate": false
+            }
+          ],
           "hideZeroPercentSlices": false,
           "groupRemainingAsOthers": false,
-          "pieChartItems": [{
-            "dataPointName": "TotalUsedSize",
-            "color": "Auto",
-            "legend": "##INSTANCE## - ##RESOURCENAME##"
-          }],
+          "pieChartItems": [
+            {
+              "dataPointName": "TotalUsedSize",
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##RESOURCENAME##"
+            }
+          ],
           "title": "Veeam Backup Session Size Breakdown"
         },
         "version": 2

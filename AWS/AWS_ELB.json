@@ -1,17 +1,15 @@
 {
-  "santabaRelease": 110,
-  "widgetTokens": [{
-    "name": "defaultDeviceGroup",
-    "value": "*AWS*"
-  }],
-  "name": "AWS ELB Overview",
+  "santabaRelease": 135,
+  "widgetTokens": [],
+  "name": "AWS ELB",
   "description": "",
   "widgetsConfigVersion": 2,
+  "type": "dashboard",
   "widgets": [
     {
       "position": {
-        "col": 3,
-        "sizex": 8,
+        "col": 7,
+        "sizex": 6,
         "row": 1,
         "sizey": 3
       },
@@ -27,7 +25,7 @@
         "version": 2,
         "displayErrorAlert": true,
         "displayColumn": 7,
-        "name": "AWS Elastic Load Balancing Alert Status",
+        "name": "##defaultResourceGroup## ELB Alert Status",
         "displayCriticalAlert": true,
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -37,25 +35,25 @@
         "items": [{
           "dataPointName": "*",
           "instanceName": "*",
-          "name": "##HOSTNAME##",
+          "name": "##RESOURCENAME##",
           "dataSourceDisplayName": "*",
           "groupBy": "device",
           "type": "device",
-          "deviceGroupFullPath": "##defaultDeviceGroup##/Load Balancers",
+          "deviceGroupFullPath": "##defaultResourceGroup##/Load Balancers",
           "deviceDisplayName": "*"
         }]
       }
     },
     {
       "position": {
-        "col": 5,
+        "col": 9,
         "sizex": 4,
         "row": 4,
         "sizey": 4
       },
       "config": {
         "displaySettings": {},
-        "name": "Top ELBs by Latency",
+        "name": "Top ##defaultResourceGroup## ELBs by Latency",
         "description": "",
         "theme": "newBorderDarkBlue",
         "interval": 3,
@@ -86,7 +84,7 @@
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "ms",
@@ -102,14 +100,14 @@
     },
     {
       "position": {
-        "col": 1,
+        "col": 5,
         "sizex": 4,
         "row": 4,
         "sizey": 4
       },
       "config": {
         "displaySettings": {},
-        "name": "Top ELBs by Requests per Second",
+        "name": "Top ##defaultResourceGroup## ELBs by Requests per Second",
         "description": "",
         "theme": "newBorderDarkBlue",
         "interval": 3,
@@ -140,7 +138,7 @@
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "requests per second",
@@ -158,19 +156,36 @@
       "position": {
         "col": 1,
         "sizex": 4,
-        "row": 8,
+        "row": 4,
         "sizey": 4
       },
       "config": {
-        "displaySettings": {"pageSize": "25"},
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 440,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Unhealthy Hosts\n            \n        ",
+              "columnSize": 132,
+              "columnKey": "0"
+            }
+          ],
+          "pageSize": "25"
+        },
         "columns": [{
           "rpn": "",
           "dataPointName": "UnhealthyHosts",
           "displayType": "raw",
           "minValue": 0,
+          "unitLabel": "",
           "maxValue": 100,
           "colorThresholds": [],
-          "columnName": "UnhealthyHosts",
+          "columnName": "Unhealthy Hosts",
           "enableForecast": false,
           "roundingDecimal": 2
         }],
@@ -184,15 +199,15 @@
         "type": "dynamicTable",
         "rows": [{
           "instanceName": "*",
-          "label": "##HOSTNAME##_##INSTANCE##",
+          "label": "##RESOURCENAME##_##INSTANCE##",
           "deviceDisplayName": "*",
-          "groupFullPath": "##defaultDeviceGroup##/Load Balancers"
+          "groupFullPath": "##defaultResourceGroup##/Load Balancers"
         }],
         "version": 2,
         "topX": 10,
         "dataSourceFullName": "Load Balancer (AWS_ELB)",
         "sortOrder": "descending",
-        "name": "Top ELBs by Unhealthy Host Count",
+        "name": "##defaultResourceGroup## ELB Unhealthy Host Statistics",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -207,7 +222,6 @@
       },
       "config": {
         "displaySettings": {
-          "sortDirection": "desc",
           "isShowAll": false,
           "showFilter": false,
           "columns": [
@@ -223,7 +237,7 @@
             },
             {
               "visible": true,
-              "columnLabel": "\n    Device/Website\n\n    ",
+              "columnLabel": "Resource/Website",
               "columnKey": "alert-device"
             },
             {
@@ -300,13 +314,28 @@
               "visible": false,
               "columnLabel": "Full Path",
               "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
             }
           ],
           "playSound": {},
           "fontsize": "normal-font",
-          "sortBy": "startEpoch"
+          "sort": "-startEpoch"
         },
-        "name": "ELB Alerts",
+        "name": "##defaultResourceGroup## ELB Alerts",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -316,13 +345,15 @@
           "chain": "",
           "instance": "",
           "dataPoint": "",
-          "host": "",
           "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
           "keyword": "",
           "dataSource": "",
-          "acked": "all",
           "cleared": "no",
-          "group": "%23%23defaultDeviceGroup%23%23%2FLoad%20Balancers"
+          "group": "%23%23defaultResourceGroup%23%23%2FLoad+Balancers"
         },
         "type": "alert",
         "timescale": "day",
@@ -331,8 +362,8 @@
     },
     {
       "position": {
-        "col": 11,
-        "sizex": 2,
+        "col": 1,
+        "sizex": 3,
         "row": 1,
         "sizey": 3
       },
@@ -356,7 +387,7 @@
               "dataSourceFullName": "Load Balancer (AWS_ELB)",
               "name": "UnHealthyHostCount",
               "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultDeviceGroup##",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
               "deviceDisplayName": "*"
             },
             {
@@ -365,7 +396,7 @@
               "dataSourceFullName": "Load Balancer (AWS_ELB)",
               "name": "HealthHosts",
               "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultDeviceGroup##",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
               "deviceDisplayName": "*"
             }
           ],
@@ -396,7 +427,7 @@
           }]
         },
         "displaySettings": {},
-        "name": "Host Health",
+        "name": "##defaultResourceGroup## ELB Host Health",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -407,8 +438,8 @@
     },
     {
       "position": {
-        "col": 1,
-        "sizex": 2,
+        "col": 4,
+        "sizex": 3,
         "row": 1,
         "sizey": 3
       },
@@ -422,7 +453,7 @@
             "dataSourceFullName": "Load Balancer (AWS_ELB)",
             "name": "SpilloverCount",
             "aggregateFunction": "MAX",
-            "deviceGroupFullPath": "##defaultDeviceGroup##",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
             "deviceDisplayName": "*"
           }],
           "bigNumberItems": [{
@@ -436,7 +467,7 @@
           }]
         },
         "displaySettings": {},
-        "name": "Spillover Count",
+        "name": "##defaultResourceGroup## Spillover Count",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -447,14 +478,14 @@
     },
     {
       "position": {
-        "col": 9,
+        "col": 1,
         "sizex": 4,
-        "row": 4,
+        "row": 8,
         "sizey": 4
       },
       "config": {
         "displaySettings": {},
-        "name": "Top ELBs by Surge Queue Count",
+        "name": "Top ##defaultResourceGroup## ELBs by Surge Queue Count",
         "description": "",
         "theme": "newBorderDarkBlue",
         "interval": 3,
@@ -473,7 +504,7 @@
             "consolidateFunction": "average",
             "display": {
               "color": "Auto",
-              "legend": "##HOSTNAME## Queue Length",
+              "legend": "##RESOURCENAME## Queue Length",
               "type": "line",
               "option": "custom"
             },
@@ -485,7 +516,7 @@
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "#",

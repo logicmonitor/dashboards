@@ -1,5 +1,5 @@
 {
-  "santabaRelease": 185,
+  "santabaRelease": 196,
   "widgetTokens": [],
   "name": "Kubernetes Persistent Volume Claims",
   "description": "",
@@ -185,6 +185,7 @@
           "maxValue": 1,
           "dataPoints": [{
             "dataPointName": "kubePersistentVolumeClaimStatusPhaseBound",
+            "instanceId": null,
             "instanceName": {
               "isGlob": true,
               "value": "*"
@@ -239,6 +240,7 @@
           "maxValue": 1,
           "dataPoints": [{
             "dataPointName": "kubePersistentVolumeClaimStatusPhaseLost",
+            "instanceId": null,
             "instanceName": {
               "isGlob": true,
               "value": "*"
@@ -293,6 +295,7 @@
           "maxValue": 1,
           "dataPoints": [{
             "dataPointName": "kubePersistentVolumeClaimStatusPhasePending",
+            "instanceId": null,
             "instanceName": {
               "isGlob": true,
               "value": "*"
@@ -331,7 +334,7 @@
       "position": {
         "col": 1,
         "sizex": 12,
-        "row": 11,
+        "row": 15,
         "sizey": 4
       },
       "config": {
@@ -454,7 +457,7 @@
           "fontsize": "normal-font",
           "sort": "-startEpoch"
         },
-        "name": "Kubernetes Persistent Volume Claims Alert Details",
+        "name": "Kubernetes Persistent Volume Claims Alert Detail",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -462,7 +465,7 @@
           "severity": "",
           "sdted": "all",
           "chain": "",
-          "instance": "*",
+          "instance": "",
           "anomaly": "",
           "dataPoint": "",
           "rule": "",
@@ -471,9 +474,9 @@
           "dependencyRole": "",
           "host": "",
           "keyword": "",
-          "dataSource": "Kubernetes%20PersistentVolumeClaim%20%5C(KSM%5C)",
+          "dataSource": "Kubernetes%20Persistent*",
           "cleared": "no",
-          "group": "%23%23defaultDeviceGroup%23%23*"
+          "group": "%23%23defaultResourceGroup%23%23*"
         },
         "type": "alert",
         "timescale": "day",
@@ -568,14 +571,14 @@
         },
         "columns": [
           {
-            "rpn": "(Requests_Storage/pow(1024,3))",
+            "rpn": "StorageRequest/1024/1024/1024",
             "dataPointName": "kubePersistentVolumeClaimResourceRequestsStorageBytes",
             "displayType": "raw",
             "minValue": 0,
-            "unitLabel": "gb",
+            "unitLabel": " GB",
             "maxValue": 100,
             "colorThresholds": [],
-            "columnName": "Requests_Storage",
+            "columnName": "StorageRequest",
             "enableForecast": false,
             "roundingDecimal": 2
           },
@@ -635,6 +638,181 @@
         "dataSourceFullName": "Kubernetes PersistentVolumeClaim (KSM) (Kubernetes_KSM_PersistentVolumeClaims)",
         "sortOrder": "descending",
         "name": "Persistent Volume Claim Statistics",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 11,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 724,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Capacity Bytes\n            \n        ",
+              "columnSize": 121,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Used Bytes\n            \n        ",
+              "columnSize": 126,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Available Bytes\n            \n        ",
+              "columnSize": 120,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Percent Used\n            \n        ",
+              "columnSize": 150,
+              "columnKey": "3"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Inodes\n            \n        ",
+              "columnSize": 62,
+              "columnKey": "4"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Used inodes\n            \n        ",
+              "columnSize": 79,
+              "columnKey": "5"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Free inodes\n            \n        ",
+              "columnSize": 117,
+              "columnKey": "6"
+            }
+          ],
+          "pageSize": "10"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "capacityBytesGB",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " GB",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Capacity",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "usedBytesGB",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " GB",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Used",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "availableBytesGB",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " GB",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Available",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "percentUsed",
+            "displayType": "colorBar",
+            "minValue": 0,
+            "unitLabel": "%",
+            "maxValue": 100,
+            "colorThresholds": [{
+              "level": 2,
+              "threshold": 90,
+              "relation": ">="
+            }],
+            "columnName": "Utilization",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "inodes",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " inodes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Total Inodes",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "inodesUsed",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " inodes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Used Inodes",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "inodesFree",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " inodes",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Free Inodes",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": -1,
+        "dataSourceFullName": "Kubernetes PersistentVolumeClaim StorageStats (Kubernetes_PersistentVolumeClaim_StorageStats)",
+        "sortOrder": "descending",
+        "name": "Persistent Volume Claim Storage Statistics",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"

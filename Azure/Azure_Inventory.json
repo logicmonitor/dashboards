@@ -1,9 +1,6 @@
 {
-  "santabaRelease": 131,
-  "widgetTokens": [{
-    "name": "defaultResourceName",
-    "value": "*"
-  }],
+  "santabaRelease": 133,
+  "widgetTokens": [],
   "name": "Azure Inventory",
   "description": "",
   "widgetsConfigVersion": 2,
@@ -238,7 +235,7 @@
               "name": "TotalKeys",
               "aggregateFunction": "SUM",
               "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
+              "deviceDisplayName": "*"
             },
             {
               "dataPointName": "ExpiredKeys",
@@ -247,7 +244,7 @@
               "name": "ExpiredKeys",
               "aggregateFunction": "SUM",
               "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "##defaultResourceName##"
+              "deviceDisplayName": "*"
             }
           ],
           "bigNumberItems": [
@@ -449,8 +446,8 @@
               "appliesTo": "system.azure.status =~ \"Stopped\" && join(system.groups, \",\") =~ \"##defaultResourceGroup##\""
             },
             {
-              "name": "Terminated_Instances",
-              "appliesTo": "system.azure.status =~ \"terminated\" && join(system.groups, \",\") =~ \"##defaultResourceGroup##\""
+              "name": "Deallocated_Instances",
+              "appliesTo": "system.azure.status =~ \"deallocated\" && join(system.groups, \",\") =~ \"##defaultResourceGroup##\""
             }
           ],
           "dataPoints": [],
@@ -474,9 +471,9 @@
               "colorThresholds": null
             },
             {
-              "dataPointName": "Terminated_Instances",
+              "dataPointName": "Deallocated_Instances",
               "useCommaSeparators": false,
-              "bottomLabel": "Terminated Instances",
+              "bottomLabel": "Deallocated Instances",
               "rounding": 0,
               "position": 3,
               "rightLabel": "",

@@ -1,24 +1,220 @@
 {
-  "santabaRelease": 110,
+  "santabaRelease": 188,
   "widgetTokens": [{
-    "name": "defaultDeviceGroup",
-    "value": "*AWS*"
+    "name": "cloudServiceName",
+    "value": "AWS Auto Scaling"
   }],
-  "name": "AWS Auto Scaling Overview",
+  "name": "AWS Auto Scaling",
   "description": "",
+  "overwriteGroupFields": false,
   "widgetsConfigVersion": 2,
+  "type": "dashboard",
   "widgets": [
     {
       "position": {
-        "col": 5,
-        "sizex": 8,
-        "row": 1,
+        "col": 7,
+        "sizex": 3,
+        "row": 9,
         "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##cloudServiceName## Standby Instances (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "GroupStandbyInstances",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Auto Scaling Group (AWS_AutoScaling_Group)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "Standby Instances",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "StandbyInstances",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "instances",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "GroupInServiceInstances",
+              "instanceName": "*",
+              "dataSourceFullName": "Auto Scaling Group (AWS_AutoScaling_Group)",
+              "name": "InService",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "GroupStandbyInstances",
+              "instanceName": "*",
+              "dataSourceFullName": "Auto Scaling Group (AWS_AutoScaling_Group)",
+              "name": "Standby",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [{
+            "dataPointName": "Standby",
+            "useCommaSeparators": true,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 2,
+            "rightLabel": "Groups in Standby",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##cloudServiceName## Instance Status (Realtime)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Auto Scaling Groups",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && contains(system.categories, \"AWS/Autoscaling\")"
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Auto Scaling Groups",
+            "useCommaSeparators": true,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Auto Scaling Groups",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##cloudServiceName##",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 3,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##cloudServiceName## In Service Instances (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "GroupInServiceInstances",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Auto Scaling Group (AWS_AutoScaling_Group)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "In Service Instances",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "InServiceInstances",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "connections",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 1,
+        "sizey": 2
       },
       "config": {
         "ackChecked": true,
         "displaySettings": {
-          "showTypeIcon": false,
+          "showTypeIcon": true,
           "displayAs": "table"
         },
         "displayWarnAlert": true,
@@ -26,37 +222,36 @@
         "type": "noc",
         "version": 2,
         "displayErrorAlert": true,
-        "displayColumn": 5,
-        "name": "Auto Scaling Alert Status",
+        "displayColumn": 6,
+        "name": "##cloudServiceName## Alert Status",
         "displayCriticalAlert": true,
         "theme": "newSolidDarkBlue",
-        "interval": 5,
+        "interval": 3,
         "sortBy": "alertSeverity",
         "timescale": "day",
         "sdtChecked": true,
         "items": [{
           "dataPointName": "*",
           "instanceName": "*",
-          "name": "##DEVICEGROUP##",
-          "dataSourceDisplayName": "*",
-          "groupBy": "deviceGroup",
+          "name": "##RESOURCENAME##",
+          "dataSourceDisplayName": "Application ELB*",
+          "groupBy": "device",
           "type": "device",
-          "deviceGroupFullPath": "##defaultDeviceGroup##/Auto Scaling/*",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
           "deviceDisplayName": "*"
         }]
       }
     },
     {
       "position": {
-        "col": 5,
-        "sizex": 8,
-        "row": 8,
-        "sizey": 3
+        "col": 1,
+        "sizex": 12,
+        "row": 17,
+        "sizey": 4
       },
       "config": {
         "displaySettings": {
-          "sortDirection": "desc",
-          "isShowAll": true,
+          "isShowAll": false,
           "showFilter": false,
           "columns": [
             {
@@ -65,18 +260,13 @@
               "columnKey": "alert-severity"
             },
             {
-              "visible": false,
-              "columnLabel": "Full Path",
-              "columnKey": "alert-full-path"
-            },
-            {
               "visible": true,
               "columnLabel": "Began",
               "columnKey": "alert-began"
             },
             {
               "visible": true,
-              "columnLabel": "\n    Device/Website\n\n    ",
+              "columnLabel": "Resource/Website",
               "columnKey": "alert-device"
             },
             {
@@ -100,61 +290,86 @@
               "columnKey": "alert-value"
             },
             {
-              "visible": true,
-              "columnLabel": "Effective Thresholds",
-              "columnKey": "alert-thresholds"
-            },
-            {
-              "visible": true,
+              "visible": false,
               "columnLabel": "Group",
               "columnKey": "alert-group"
             },
             {
-              "visible": true,
+              "visible": false,
               "columnLabel": "Notes",
               "columnKey": "alert-notes"
             },
             {
-              "visible": true,
+              "visible": false,
               "columnLabel": "Acknowledged By",
               "columnKey": "alert-acked-by"
             },
             {
-              "visible": true,
+              "visible": false,
               "columnLabel": "Acknowledged On",
               "columnKey": "alert-acked-on"
             },
             {
-              "visible": true,
+              "visible": false,
               "columnLabel": "Cleared On",
               "columnKey": "alert-cleared-on"
             },
             {
-              "visible": true,
+              "visible": false,
               "columnLabel": "In SDT",
               "columnKey": "alert-in-sdt"
             },
             {
-              "visible": true,
+              "visible": false,
               "columnLabel": "Alert Rule",
               "columnKey": "alert-rule-name"
             },
             {
-              "visible": true,
+              "visible": false,
               "columnLabel": "Escalation Chain",
               "columnKey": "alert-escalation-chain"
             },
             {
-              "visible": true,
+              "visible": false,
               "columnLabel": "Instance Description",
               "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
             }
           ],
           "playSound": {},
           "fontsize": "normal-font",
-          "sortBy": "startEpoch"
+          "sort": "-startEpoch"
         },
-        "name": "Auto Scaling Alerts",
+        "name": "##cloudServiceName## Alert Detail",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -163,14 +378,17 @@
           "sdted": "all",
           "chain": "",
           "instance": "",
+          "anomaly": "",
           "dataPoint": "",
-          "host": "",
           "rule": "",
-          "keyword": "",
-          "dataSource": "",
           "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
+          "keyword": "",
+          "dataSource": "Auto%20Scaling%20Group,Auto%20Scaling%20Aggregate%20Performance",
           "cleared": "no",
-          "group": "%23%23defaultDeviceGroup%23%23%2FAutoScaling*"
+          "group": "%23%23defaultResourceGroup%23%23*"
         },
         "type": "alert",
         "timescale": "day",
@@ -180,175 +398,96 @@
     {
       "position": {
         "col": 1,
-        "sizex": 4,
-        "row": 5,
-        "sizey": 3
+        "sizex": 6,
+        "row": 6,
+        "sizey": 6
       },
       "config": {
-        "displaySettings": {},
-        "name": "Top Auto Scaling Groups by Aggregate CPU Utilization",
-        "description": "",
-        "theme": "newBorderDarkBlue",
-        "interval": 3,
-        "graphInfo": {
-          "virtualDataPoints": [],
-          "minValue": 0,
-          "topX": 10,
-          "maxValue": 100,
-          "dataPoints": [{
-            "dataPointName": "CPUUtilization",
-            "instanceName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "dataSourceFullName": "Auto Scaling Aggregate Performance (AWS_AutoScalingAggregate)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "Auto",
-              "legend": "",
-              "type": "line",
-              "option": "default"
-            },
-            "name": "CPUUtilization",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultDeviceGroup##/*"
-            }
-          }],
-          "verticalLabel": "percent used",
-          "aggregate": false,
-          "desc": true,
-          "scaleUnit": 1000,
-          "globalConsolidateFunction": "VaST"
-        },
-        "type": "cgraph",
-        "timescale": "1day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 10,
-        "sizex": 3,
-        "row": 4,
-        "sizey": 4
-      },
-      "config": {
-        "bigNumberInfo": {
-          "virtualDataPoints": [],
-          "counters": [],
-          "dataPoints": [
+        "displaySettings": {
+          "columns": [
             {
-              "dataPointName": "GroupPendingInstances",
-              "instanceName": "*",
-              "dataSourceFullName": "Auto Scaling Group (AWS_AutoScaling_Group)",
-              "name": "GroupPendingInstances",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultDeviceGroup##/*",
-              "deviceDisplayName": "*"
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 524,
+              "columnKey": "device-name-1452842526600"
             },
             {
-              "dataPointName": "GroupInServiceInstances",
-              "instanceName": "*",
-              "dataSourceFullName": "Auto Scaling Group (AWS_AutoScaling_Group)",
-              "name": "GroupInServiceInstances",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultDeviceGroup##/*",
-              "deviceDisplayName": "*"
+              "visible": true,
+              "columnLabel": "\n            In Service\n            \n        ",
+              "columnSize": 90,
+              "columnKey": "0"
             },
             {
-              "dataPointName": "GroupStandbyInstances",
-              "instanceName": "*",
-              "dataSourceFullName": "Auto Scaling Group (AWS_AutoScaling_Group)",
-              "name": "GroupStandbyInstances",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultDeviceGroup##/*",
-              "deviceDisplayName": "*"
+              "visible": true,
+              "columnLabel": "\n            Pending\n            \n        ",
+              "columnSize": 87,
+              "columnKey": "1"
             },
             {
-              "dataPointName": "GroupTerminatingInstances",
-              "instanceName": "*",
-              "dataSourceFullName": "Auto Scaling Group (AWS_AutoScaling_Group)",
-              "name": "GroupTerminatingInstances",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultDeviceGroup##/*",
-              "deviceDisplayName": "*"
+              "visible": true,
+              "columnLabel": "\n            Standby\n            \n        ",
+              "columnSize": 90,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Terminating\n            \n        ",
+              "columnSize": 103,
+              "columnKey": "3"
             }
           ],
-          "bigNumberItems": [
-            {
-              "dataPointName": "GroupPendingInstances",
-              "useCommaSeparators": false,
-              "bottomLabel": "Pending",
-              "rounding": 0,
-              "position": 1,
-              "rightLabel": "",
-              "colorThresholds": null
-            },
-            {
-              "dataPointName": "GroupInServiceInstances",
-              "useCommaSeparators": false,
-              "bottomLabel": "In Service",
-              "rounding": 0,
-              "position": 2,
-              "rightLabel": "",
-              "colorThresholds": null
-            },
-            {
-              "dataPointName": "GroupStandbyInstances",
-              "useCommaSeparators": false,
-              "bottomLabel": "Standby",
-              "rounding": 0,
-              "position": 3,
-              "rightLabel": "",
-              "colorThresholds": null
-            },
-            {
-              "dataPointName": "GroupTerminatingInstances",
-              "useCommaSeparators": false,
-              "bottomLabel": "Terminating",
-              "rounding": 0,
-              "position": 4,
-              "rightLabel": "",
-              "colorThresholds": null
-            }
-          ]
+          "pageSize": "15"
         },
-        "displaySettings": {},
-        "name": "Auto Scaling Instances",
-        "description": "",
-        "theme": "newBorderDarkBlue",
-        "interval": 3,
-        "type": "bigNumber",
-        "timescale": "day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 1,
-        "sizex": 4,
-        "row": 1,
-        "sizey": 4
-      },
-      "config": {
-        "displaySettings": {"pageSize": "25"},
-        "columns": [{
-          "rpn": "",
-          "dataPointName": "CPUUtilization",
-          "displayType": "percent",
-          "minValue": 0,
-          "maxValue": 100,
-          "colorThresholds": [],
-          "columnName": "CPUUtilization",
-          "enableForecast": false,
-          "roundingDecimal": 2
-        }],
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "GroupInServiceInstances",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " instances",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "In Service",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "GroupPendingInstances",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " instances",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Pending",
+            "enableForecast": false,
+            "roundingDecimal": 0
+          },
+          {
+            "rpn": "",
+            "dataPointName": "GroupStandbyInstances",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " instances",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Standby",
+            "enableForecast": false,
+            "roundingDecimal": 0
+          },
+          {
+            "rpn": "",
+            "dataPointName": "GroupTerminatingInstances",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " instances",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Terminating",
+            "enableForecast": false,
+            "roundingDecimal": 0
+          }
+        ],
         "description": "",
         "forecast": {
           "severity": "warn",
@@ -359,15 +498,15 @@
         "type": "dynamicTable",
         "rows": [{
           "instanceName": "*",
-          "label": "##HOSTNAME##",
+          "label": "##RESOURCENAME##",
           "deviceDisplayName": "*",
-          "groupFullPath": "##defaultDeviceGroup##/Auto Scaling/*"
+          "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
-        "topX": 10,
-        "dataSourceFullName": "Auto Scaling Aggregate Performance (AWS_AutoScalingAggregate)",
+        "topX": -1,
+        "dataSourceFullName": "Auto Scaling Group (AWS_AutoScaling_Group)",
         "sortOrder": "descending",
-        "name": "Top Auto Scaling Groups by Aggregate CPU Utilization",
+        "name": "##cloudServiceName## Instance Statistics (Realtime)",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -375,24 +514,378 @@
     },
     {
       "position": {
-        "col": 5,
-        "sizex": 5,
-        "row": 4,
-        "sizey": 4
+        "col": 1,
+        "sizex": 12,
+        "row": 12,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": false,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 8,
+        "name": "##cloudServiceName## Aggregate Performance Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##RESOURCENAME##",
+          "dataSourceDisplayName": "Auto Scaling Aggregate Performance",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 14,
+        "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Top Auto Scaling Groups by In Service Instances",
+        "name": "##cloudServiceName## Aggregate CPU Utilization Avg. (Trend)",
         "description": "",
         "theme": "newBorderDarkBlue",
         "interval": 3,
         "graphInfo": {
           "virtualDataPoints": [],
-          "minValue": 0,
-          "topX": 10,
+          "minValue": "NaN",
+          "topX": 0,
           "maxValue": "NaN",
           "dataPoints": [{
-            "dataPointName": "GroupInServiceInstances",
+            "dataPointName": "CPUUtilization",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Auto Scaling Aggregate Performance (AWS_AutoScalingAggregate)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "CPU Avg",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "CPU_Avg",
+            "aggregateFunction": "AVERAGE",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "percent",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 3,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##cloudServiceName## Instances Summary (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "GroupInServiceInstances",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Auto Scaling Group (AWS_AutoScaling_Group)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "aqua",
+                "legend": "In Service Instances",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "InServiceInstances",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "GroupMaxSize",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Auto Scaling Group (AWS_AutoScaling_Group)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "green",
+                "legend": "Max Instances",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "Max_Instances",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "GroupMinSize",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Auto Scaling Group (AWS_AutoScaling_Group)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "lime",
+                "legend": "Min Instances",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "Min_Instances",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "GroupDesiredCapacity",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Auto Scaling Group (AWS_AutoScaling_Group)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "silver",
+                "legend": "Desired Instances",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "Desired_Instances",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "instances",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 6,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##cloudServiceName## Instance Status (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "GroupInServiceInstances",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Auto Scaling Group (AWS_AutoScaling_Group)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "olive",
+                "legend": "In Service",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "GroupInServiceInstances",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "GroupPendingInstances",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Auto Scaling Group (AWS_AutoScaling_Group)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "fuchsia",
+                "legend": "Pending",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "GroupPendingInstances",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "GroupStandbyInstances",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Auto Scaling Group (AWS_AutoScaling_Group)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "orange2",
+                "legend": "Standby",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "GroupStandbyInstances",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "GroupTerminatingInstances",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Auto Scaling Group (AWS_AutoScaling_Group)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "black",
+                "legend": "Terminating",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "GroupTerminatingInstances",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "count",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 9,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##cloudServiceName## Pending Instances (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "GroupPendingInstances",
             "instanceName": {
               "isGlob": true,
               "value": "*"
@@ -401,11 +894,11 @@
             "consolidateFunction": "average",
             "display": {
               "color": "Auto",
-              "legend": "##HOSTNAME##",
-              "type": "stack",
+              "legend": "Pending Instances",
+              "type": "line",
               "option": "custom"
             },
-            "name": "GroupInServiceInstances",
+            "name": "PendingInstances",
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
@@ -413,63 +906,54 @@
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
-          "verticalLabel": "in service instances",
-          "aggregate": false,
+          "verticalLabel": "instances",
+          "aggregate": true,
           "desc": true,
           "scaleUnit": 1000,
           "globalConsolidateFunction": "VaST"
         },
         "type": "cgraph",
-        "timescale": "1day",
+        "timescale": "2days",
         "version": 2
       }
     },
     {
       "position": {
-        "col": 1,
-        "sizex": 4,
-        "row": 8,
+        "col": 7,
+        "sizex": 3,
+        "row": 14,
         "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Top Auto Scaling Groups by Total Network Throughput",
+        "name": "##cloudServiceName## Aggregate Disk Throughput (Trend)",
         "description": "",
         "theme": "newBorderDarkBlue",
         "interval": 3,
         "graphInfo": {
-          "virtualDataPoints": [{
-            "rpn": "NetworkIn + NetworkOut",
-            "display": {
-              "color": "Auto",
-              "legend": "##HOSTNAME##",
-              "type": "line",
-              "option": "custom"
-            },
-            "name": "NetworkTotal"
-          }],
-          "minValue": 0,
-          "topX": 25,
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 0,
           "maxValue": "NaN",
           "dataPoints": [
             {
-              "dataPointName": "InBytesPerSec",
+              "dataPointName": "DiskReadBytes",
               "instanceName": {
-                "isGlob": false,
-                "value": "AWS_AutoScalingAggregate"
+                "isGlob": true,
+                "value": "*"
               },
               "dataSourceFullName": "Auto Scaling Aggregate Performance (AWS_AutoScalingAggregate)",
               "consolidateFunction": "average",
               "display": {
-                "color": null,
-                "legend": null,
+                "color": "Auto",
+                "legend": "DiskReadBytes Avg",
                 "type": "line",
-                "option": "none"
+                "option": "custom"
               },
-              "name": "NetworkIn",
+              "name": "DiskReadBytes",
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
@@ -477,22 +961,184 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
-              "dataPointName": "OutBytesPerSec",
+              "dataPointName": "DiskWriteBytes",
               "instanceName": {
-                "isGlob": false,
-                "value": "AWS_AutoScalingAggregate"
+                "isGlob": true,
+                "value": "*"
               },
               "dataSourceFullName": "Auto Scaling Aggregate Performance (AWS_AutoScalingAggregate)",
               "consolidateFunction": "average",
               "display": {
-                "color": null,
-                "legend": null,
+                "color": "Auto",
+                "legend": "DiskWriteBytes Avg",
                 "type": "line",
-                "option": "none"
+                "option": "custom"
+              },
+              "name": "DiskWriteBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bytes",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 3,
+        "row": 14,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##cloudServiceName## Aggregate Disk IOPS (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "DiskReadOps",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Auto Scaling Aggregate Performance (AWS_AutoScalingAggregate)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "DiskReadOps Avg",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "DiskReadOps",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "DiskWriteOps",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Auto Scaling Aggregate Performance (AWS_AutoScalingAggregate)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "DiskWriteOps Avg",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "DiskWriteOps",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bytes",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 14,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "##cloudServiceName## Aggregate Network Throughput (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "NetworkIn",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Auto Scaling Aggregate Performance (AWS_AutoScalingAggregate)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "lime",
+                "legend": "NetworkIn Avg",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "NetworkIn_Avg",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "NetworkOut",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Auto Scaling Aggregate Performance (AWS_AutoScalingAggregate)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "aqua",
+                "legend": "NetworkOut Avg",
+                "type": "area",
+                "option": "custom"
               },
               "name": "NetworkOut",
               "aggregateFunction": "SUM",
@@ -502,18 +1148,69 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             }
           ],
-          "verticalLabel": "bytes/second",
-          "aggregate": false,
+          "verticalLabel": "bytes/s",
+          "aggregate": true,
           "desc": true,
           "scaleUnit": 1000,
           "globalConsolidateFunction": "VaST"
         },
         "type": "cgraph",
-        "timescale": "1day",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "GroupInServiceInstances",
+              "instanceName": "*",
+              "dataSourceFullName": "Auto Scaling Group (AWS_AutoScaling_Group)",
+              "name": "InService",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "GroupStandbyInstances",
+              "instanceName": "*",
+              "dataSourceFullName": "Auto Scaling Group (AWS_AutoScaling_Group)",
+              "name": "Standby",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [{
+            "dataPointName": "InService",
+            "useCommaSeparators": true,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Groups In Service",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "##cloudServiceName##",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
         "version": 2
       }
     }

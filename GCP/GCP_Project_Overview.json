@@ -1,15 +1,193 @@
-{ 
+{
+  "santabaRelease": 169,
   "widgetTokens": [],
   "name": "GCP Project Overview",
   "description": "",
+  "overwriteGroupFields": false,
   "widgetsConfigVersion": 2,
+  "type": "dashboard",
   "widgets": [
     {
       "position": {
         "col": 1,
-        "sizex": 12,
-        "row": 5,
-        "sizey": 4
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "App Engine Services",
+            "appliesTo": "hasCategory(\"GCP/AppEngine\") && join(system.groups, \",\") =~ \"##defaultResourceGroup##\""
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "App Engine Services",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "App Engine Services",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 3,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Cloud Functions",
+            "appliesTo": "hasCategory(\"GCP/CloudFunction\") && join(system.groups, \",\") =~ \"##defaultResourceGroup##\""
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Cloud Functions",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Cloud Functions",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Cloud SQL Instances",
+            "appliesTo": "hasCategory(\"GCP/CloudSQL\") && join(system.groups, \",\") =~ \"##defaultResourceGroup##\""
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Cloud SQL Instances",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Cloud SQL Instances",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Cloud Storage Buckets",
+            "appliesTo": "hasCategory(\"GCP/CloudStorage\") && join(system.groups, \",\") =~ \"##defaultResourceGroup##\""
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Cloud Storage Buckets",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Cloud Storage Buckets",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Compute Engine Instances",
+            "appliesTo": "hasCategory(\"GCP/ComputeEngine\") && join(system.groups, \",\") =~ \"##defaultResourceGroup##\""
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Compute Engine Instances",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Compute Engine Instances",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 7,
+        "sizey": 5
       },
       "config": {
         "displaySettings": {
@@ -122,13 +300,15 @@
           "chain": "",
           "instance": "",
           "dataPoint": "",
-          "host": "",
           "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "",
           "keyword": "",
           "dataSource": "",
-          "acked": "all",
           "cleared": "no",
-          "group": "%23%23defaultDeviceGroup%23%23*"
+          "group": "%23%23defaultResourceGroup%23%23*"
         },
         "type": "alert",
         "timescale": "day",
@@ -138,8 +318,8 @@
     {
       "position": {
         "col": 1,
-        "sizex": 12,
-        "row": 1,
+        "sizex": 8,
+        "row": 3,
         "sizey": 4
       },
       "config": {
@@ -153,12 +333,12 @@
         "type": "noc",
         "version": 2,
         "displayErrorAlert": true,
-        "displayColumn": 3,
-        "name": "GCP NOC",
+        "displayColumn": 5,
+        "name": "GCP Alert Status",
         "displayCriticalAlert": true,
         "theme": "newBorderBlue",
         "interval": 3,
-        "sortBy": "name",
+        "sortBy": "alertSeverity",
         "timescale": "day",
         "sdtChecked": true,
         "items": [{
@@ -168,162 +348,21 @@
           "dataSourceDisplayName": "*",
           "groupBy": "deviceGroup",
           "type": "device",
-          "deviceGroupFullPath": "##defaultDeviceGroup##/*",
+          "deviceGroupFullPath": "##defaultResourceGroup##/*",
           "deviceDisplayName": "*"
         }]
       }
     },
     {
       "position": {
-        "col": 4,
-        "sizex": 3,
-        "row": 9,
-        "sizey": 4
-      },
-      "config": {
-        "bigNumberInfo": {
-          "virtualDataPoints": [],
-          "counters": [{
-            "name": "App Engine Services",
-            "appliesTo": "hasCategory(\"GCP/AppEngine\") && join(system.groups, \",\") =~ \"##defaultDeviceGroup##\""
-          }],
-          "dataPoints": [],
-          "bigNumberItems": [{
-            "dataPointName": "App Engine Services",
-            "useCommaSeparators": false,
-            "bottomLabel": "",
-            "rounding": 0,
-            "position": 1,
-            "rightLabel": "",
-            "colorThresholds": null
-          }]
-        },
-        "displaySettings": {},
-        "name": "App Engine Services",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "type": "bigNumber",
-        "timescale": "day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 1,
-        "sizex": 3,
-        "row": 9,
-        "sizey": 4
-      },
-      "config": {
-        "bigNumberInfo": {
-          "virtualDataPoints": [],
-          "counters": [{
-            "name": "Compute Engine Instances",
-            "appliesTo": "hasCategory(\"GCP/ComputeEngine\") && join(system.groups, \",\") =~ \"##defaultDeviceGroup##\""
-          }],
-          "dataPoints": [],
-          "bigNumberItems": [{
-            "dataPointName": "Compute Engine Instances",
-            "useCommaSeparators": false,
-            "bottomLabel": "",
-            "rounding": 0,
-            "position": 1,
-            "rightLabel": "",
-            "colorThresholds": null
-          }]
-        },
-        "displaySettings": {},
-        "name": "Compute Engine Instances",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "type": "bigNumber",
-        "timescale": "day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 9,
-        "sizex": 2,
-        "row": 9,
-        "sizey": 4
-      },
-      "config": {
-        "bigNumberInfo": {
-          "virtualDataPoints": [],
-          "counters": [{
-            "name": "Cloud Functions",
-            "appliesTo": "hasCategory(\"GCP/CloudFunction\") && join(system.groups, \",\") =~ \"##defaultDeviceGroup##\""
-          }],
-          "dataPoints": [],
-          "bigNumberItems": [{
-            "dataPointName": "Cloud Functions",
-            "useCommaSeparators": false,
-            "bottomLabel": "",
-            "rounding": 0,
-            "position": 1,
-            "rightLabel": "",
-            "colorThresholds": null
-          }]
-        },
-        "displaySettings": {},
-        "name": "Cloud Functions",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "type": "bigNumber",
-        "timescale": "day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
         "col": 7,
-        "sizex": 2,
-        "row": 9,
-        "sizey": 4
-      },
-      "config": {
-        "bigNumberInfo": {
-          "virtualDataPoints": [],
-          "counters": [{
-            "name": "Cloud SQL Instances",
-            "appliesTo": "hasCategory(\"GCP/CloudSQL\") && join(system.groups, \",\") =~ \"##defaultDeviceGroup##\""
-          }],
-          "dataPoints": [],
-          "bigNumberItems": [{
-            "dataPointName": "Cloud SQL Instances",
-            "useCommaSeparators": false,
-            "bottomLabel": "",
-            "rounding": 0,
-            "position": 1,
-            "rightLabel": "",
-            "colorThresholds": null
-          }]
-        },
-        "displaySettings": {},
-        "name": "Cloud SQL Instances",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "type": "bigNumber",
-        "timescale": "day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 1,
-        "sizex": 12,
-        "row": 13,
-        "sizey": 4
+        "sizex": 6,
+        "row": 7,
+        "sizey": 5
       },
       "config": {
         "displaySettings": {
-          "sortDirection": "desc",
-          "isShowAll": false,
+          "isShowAll": true,
           "showFilter": false,
           "columns": [
             {
@@ -338,7 +377,7 @@
             },
             {
               "visible": true,
-              "columnLabel": "\n    Device/Website\n\n    ",
+              "columnLabel": "Resource/Website",
               "columnKey": "alert-device"
             },
             {
@@ -415,11 +454,26 @@
               "visible": false,
               "columnLabel": "Full Path",
               "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
             }
           ],
           "playSound": {},
           "fontsize": "normal-font",
-          "sortBy": "startEpoch"
+          "sort": "-startEpoch"
         },
         "name": "GCP Service Health",
         "description": "",
@@ -429,15 +483,17 @@
           "severity": "",
           "sdted": "all",
           "chain": "",
-          "instance": "",
+          "instance": "GCP%20Service%20Health",
           "dataPoint": "",
-          "host": "",
           "rule": "",
-          "keyword": "",
-          "dataSource": "GCP%20Service%20Health",
           "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "*",
+          "keyword": "",
+          "dataSource": "",
           "cleared": "no",
-          "group": "%23%23defaultDeviceGroup%23%23*"
+          "group": "%23%23defaultResourceGroup%23%23*"
         },
         "type": "alert",
         "timescale": "day",
@@ -446,21 +502,88 @@
     },
     {
       "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "GCP Resources by Region",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "pieChart",
+        "timescale": "day",
+        "pieChartInfo": {
+          "maxSlicesCanBeShown": 25,
+          "virtualDataPoints": [],
+          "showLabelsAndLinesOnPC": true,
+          "counters": [
+            {
+              "name": "Europe",
+              "appliesTo": "system.gcp.region =~ \"europe\""
+            },
+            {
+              "name": "Asia",
+              "appliesTo": "system.gcp.region =~ \"asia\""
+            },
+            {
+              "name": "United States",
+              "appliesTo": "system.gcp.region =~ \"us-\" || system.gcp.region =~ \"america\""
+            },
+            {
+              "name": "Australia",
+              "appliesTo": "system.gcp.region =~ \"australia\""
+            }
+          ],
+          "dataPoints": [],
+          "hideZeroPercentSlices": false,
+          "groupRemainingAsOthers": true,
+          "pieChartItems": [
+            {
+              "dataPointName": "Australia",
+              "color": "Auto",
+              "legend": "Australia"
+            },
+            {
+              "dataPointName": "United States",
+              "color": "Auto",
+              "legend": "United States"
+            },
+            {
+              "dataPointName": "Asia",
+              "color": "Auto",
+              "legend": "Asia"
+            },
+            {
+              "dataPointName": "Europe",
+              "color": "Auto",
+              "legend": "Europe"
+            }
+          ],
+          "title": "GCP Resources by Region"
+        },
+        "version": 2
+      }
+    },
+    {
+      "position": {
         "col": 11,
         "sizex": 2,
-        "row": 9,
-        "sizey": 4
+        "row": 1,
+        "sizey": 2
       },
       "config": {
         "bigNumberInfo": {
           "virtualDataPoints": [],
           "counters": [{
-            "name": "Cloud Storage Buckets",
-            "appliesTo": "hasCategory(\"GCP/CloudStorage\") && join(system.groups, \",\") =~ \"##defaultDeviceGroup##\""
+            "name": "VPN Gateways",
+            "appliesTo": "hasCategory(\"GCP/VPNGateway\") && join(system.groups, \",\") =~ \"##defaultResourceGroup##\""
           }],
           "dataPoints": [],
           "bigNumberItems": [{
-            "dataPointName": "Cloud Storage Buckets",
+            "dataPointName": "VPN Gateways",
             "useCommaSeparators": false,
             "bottomLabel": "",
             "rounding": 0,
@@ -470,7 +593,7 @@
           }]
         },
         "displaySettings": {},
-        "name": "Cloud Storage Buckets",
+        "name": "VPN Gateways",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,

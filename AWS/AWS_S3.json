@@ -1,12 +1,10 @@
 {
-  "santabaRelease": 110,
-  "widgetTokens": [{
-    "name": "defaultDeviceGroup",
-    "value": "*AWS*"
-  }],
-  "name": "AWS S3 Overview",
-  "description": "AWS Simple Storage Service",
+  "santabaRelease": 135,
+  "widgetTokens": [],
+  "name": "AWS S3",
+  "description": "",
   "widgetsConfigVersion": 2,
+  "type": "dashboard",
   "widgets": [
     {
       "position": {
@@ -27,7 +25,7 @@
         "version": 2,
         "displayErrorAlert": true,
         "displayColumn": 5,
-        "name": "AWS Simple Storage Service Alert Status",
+        "name": "##defaultResourceGroup## Simple Storage Service Alert Status",
         "displayCriticalAlert": true,
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -37,11 +35,11 @@
         "items": [{
           "dataPointName": "*",
           "instanceName": "*",
-          "name": "##HOSTNAME##",
+          "name": "##RESOURCENAME##",
           "dataSourceDisplayName": "S3",
           "groupBy": "device",
           "type": "device",
-          "deviceGroupFullPath": "##defaultDeviceGroup##",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
           "deviceDisplayName": "*"
         }]
       }
@@ -55,7 +53,6 @@
       },
       "config": {
         "displaySettings": {
-          "sortDirection": "desc",
           "isShowAll": false,
           "showFilter": false,
           "columns": [
@@ -71,7 +68,7 @@
             },
             {
               "visible": true,
-              "columnLabel": "\n    Device/Website\n\n    ",
+              "columnLabel": "Resource/Website",
               "columnKey": "alert-device"
             },
             {
@@ -148,13 +145,28 @@
               "visible": false,
               "columnLabel": "Full Path",
               "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
             }
           ],
           "playSound": {},
           "fontsize": "normal-font",
-          "sortBy": "startEpoch"
+          "sort": "-startEpoch"
         },
-        "name": "AWS S3 Alerts",
+        "name": "##defaultResourceGroup## S3 Alerts",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -164,13 +176,15 @@
           "chain": "",
           "instance": "",
           "dataPoint": "",
-          "host": "",
           "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "*",
           "keyword": "",
           "dataSource": "",
-          "acked": "all",
           "cleared": "no",
-          "group": "%23%23defaultDeviceGroup%23%23%2FS3*"
+          "group": "%23%23defaultResourceGroup%23%23%2FS3*"
         },
         "type": "alert",
         "timescale": "day",
@@ -185,12 +199,29 @@
         "sizey": 9
       },
       "config": {
-        "displaySettings": {"pageSize": "20"},
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 478,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Objects\n            \n        ",
+              "columnSize": 94,
+              "columnKey": "0"
+            }
+          ],
+          "pageSize": "20"
+        },
         "columns": [{
           "rpn": "",
           "dataPointName": "NumberOfObjects",
           "displayType": "raw",
           "minValue": 0,
+          "unitLabel": "",
           "maxValue": 100,
           "colorThresholds": [],
           "columnName": "Objects",
@@ -207,15 +238,15 @@
         "type": "dynamicTable",
         "rows": [{
           "instanceName": "*",
-          "label": "##HOSTNAME##",
+          "label": "##RESOURCENAME##_##INSTANCE##",
           "deviceDisplayName": "*",
-          "groupFullPath": "##defaultDeviceGroup##"
+          "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
         "topX": 25,
         "dataSourceFullName": "S3 (AWS_S3)",
         "sortOrder": "descending",
-        "name": "Top S3 Buckets by Number of Objects",
+        "name": "Top ##defaultResourceGroup## S3 Buckets by Number of Objects",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -230,14 +261,14 @@
       },
       "config": {
         "displaySettings": {},
-        "name": "Top S3 Buckets by Size",
+        "name": "Top ##defaultResourceGroup## S3 Buckets by Size (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "graphInfo": {
           "virtualDataPoints": [],
           "minValue": 0,
-          "topX": 25,
+          "topX": 10,
           "maxValue": "NaN",
           "dataPoints": [{
             "dataPointName": "BucketSizeBytes",
@@ -249,7 +280,7 @@
             "consolidateFunction": "average",
             "display": {
               "color": "Auto",
-              "legend": "##HOSTNAME##",
+              "legend": "##RESOURCENAME##",
               "type": "stack",
               "option": "custom"
             },
@@ -261,7 +292,7 @@
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##/S3*"
+              "value": "##defaultResourceGroup##/S3*"
             }
           }],
           "verticalLabel": "bytes",
@@ -271,7 +302,7 @@
           "globalConsolidateFunction": "default"
         },
         "type": "cgraph",
-        "timescale": "7days",
+        "timescale": "1month",
         "version": 2
       }
     }

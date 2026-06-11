@@ -1,12 +1,14 @@
 {
-  "santabaRelease": 110,
-  "widgetTokens": [{
-    "name": "defaultDeviceGroup",
-    "value": "*AWS*"
-  }],
-  "name": "AWS SNS Overview",
+  "santabaRelease": 239,
+  "defaultDashboardFilters": {
+    "defaultDashboardFilterDetails": []
+  },
+  "widgetTokens": [],
+  "name": "AWS SNS",
   "description": "AWS Simple Notification Service",
+  "overwriteGroupFields": false,
   "widgetsConfigVersion": 2,
+  "type": "dashboard",
   "widgets": [
     {
       "position": {
@@ -22,10 +24,12 @@
           "displayAs": "table"
         },
         "displayWarnAlert": true,
+        "supportCustomProperty": false,
         "description": "",
         "type": "noc",
         "version": 2,
         "displayErrorAlert": true,
+        "isSupportCustomProperty": false,
         "displayColumn": 4,
         "name": "AWS Simple Notification Service Alert Status",
         "displayCriticalAlert": true,
@@ -34,16 +38,18 @@
         "sortBy": "alertSeverity",
         "timescale": "day",
         "sdtChecked": true,
-        "items": [{
-          "dataPointName": "*",
-          "instanceName": "*",
-          "name": "##HOSTNAME##",
-          "dataSourceDisplayName": "SNS",
-          "groupBy": "device",
-          "type": "device",
-          "deviceGroupFullPath": "##defaultDeviceGroup##",
-          "deviceDisplayName": "*"
-        }]
+        "items": [
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "##HOSTNAME##",
+            "dataSourceDisplayName": "SNS",
+            "groupBy": "device",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }
+        ]
       }
     },
     {
@@ -60,8 +66,10 @@
           "showFilter": false,
           "columns": [
             {
-              "visible": false,
+              "visible": true,
               "columnLabel": "Severity",
+              "columnSize": 155,
+              "isVisibleByDefault": true,
               "columnKey": "alert-severity"
             },
             {
@@ -148,12 +156,70 @@
               "visible": false,
               "columnLabel": "Full Path",
               "columnKey": "alert-full-path"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "ServiceNow incident",
+              "columnKey": "alertExternalTicketUrl"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Historical SDT",
+              "columnKey": "alert-historical-sdt"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Grouping Criteria",
+              "columnKey": "alert-grouping-criteria"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Log Metadata",
+              "columnKey": "alert-log-metadata"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Logs Partition",
+              "columnKey": "alert-log-partition"
             }
           ],
-          "playSound": {},
+          "playSound": {
+            "criticalAlertAudioFileName": "none",
+            "errorAlertAudioFileName": "none",
+            "warningAlertAudioFileName": "none",
+            "shouldPlay": false
+          },
           "fontsize": "normal-font",
-          "sortBy": "startEpoch"
+          "sortBy": "startEpoch",
+          "sort": "-startEpoch"
         },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "AWS SNS Alerts",
         "description": "",
         "theme": "newSolidDarkBlue",
@@ -163,14 +229,19 @@
           "sdted": "all",
           "chain": "",
           "instance": "",
+          "anomaly": "all",
           "dataPoint": "",
-          "host": "",
           "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "isEscalation": "all",
+          "dependencyRole": "",
+          "host": "",
+          "isHistoricalSdt": "all",
           "keyword": "",
           "dataSource": "",
-          "acked": "all",
           "cleared": "no",
-          "group": "%23%23defaultDeviceGroup%23%23%2FSNS*"
+          "group": "##defaultResourceGroup##/SNS*"
         },
         "type": "alert",
         "timescale": "day",
@@ -186,6 +257,8 @@
       },
       "config": {
         "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "Top SNS Instances by Message Publication Rate",
         "description": "",
         "theme": "newBorderDarkBlue",
@@ -195,31 +268,33 @@
           "minValue": 0,
           "topX": 25,
           "maxValue": "NaN",
-          "dataPoints": [{
-            "dataPointName": "MessagesPublishedPerMin",
-            "instanceName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "dataSourceFullName": "SNS (AWS_SNS)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "Auto",
-              "legend": "##HOSTNAME## Messages Published",
-              "type": "area",
-              "option": "custom"
-            },
-            "name": "MessagesPublishedPerMin",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+          "dataPoints": [
+            {
+              "dataPointName": "MessagesPublishedPerMin",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "SNS (AWS_SNS)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##HOSTNAME## Messages Published",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "MessagesPublishedPerMin",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": false,
+                "value": "##defaultResourceGroup##"
+              }
             }
-          }],
+          ],
           "verticalLabel": "messages / minute",
           "aggregate": false,
           "desc": true,
@@ -228,7 +303,8 @@
         },
         "type": "cgraph",
         "timescale": "1day",
-        "version": 2
+        "version": 2,
+        "widgetFilters": {}
       }
     },
     {
@@ -240,6 +316,8 @@
       },
       "config": {
         "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "Top SNS Instances by Average Message Size",
         "description": "",
         "theme": "newBorderDarkBlue",
@@ -249,31 +327,33 @@
           "minValue": 0,
           "topX": 25,
           "maxValue": "NaN",
-          "dataPoints": [{
-            "dataPointName": "AveragePublishSize",
-            "instanceName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "dataSourceFullName": "SNS (AWS_SNS)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "Auto",
-              "legend": "##HOSTNAME## Size",
-              "type": "area",
-              "option": "custom"
-            },
-            "name": "AveragePublishSize",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+          "dataPoints": [
+            {
+              "dataPointName": "AveragePublishSize",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "SNS (AWS_SNS)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##HOSTNAME## Size",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "AveragePublishSize",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": false,
+                "value": "##defaultResourceGroup##"
+              }
             }
-          }],
+          ],
           "verticalLabel": "bytes",
           "aggregate": false,
           "desc": true,
@@ -282,7 +362,8 @@
         },
         "type": "cgraph",
         "timescale": "1day",
-        "version": 2
+        "version": 2,
+        "widgetFilters": {}
       }
     },
     {
@@ -294,6 +375,8 @@
       },
       "config": {
         "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "Top SNS Instances by Notification Rate",
         "description": "",
         "theme": "newBorderDarkBlue",
@@ -325,8 +408,8 @@
                 "value": "*"
               },
               "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "isGlob": false,
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -350,8 +433,8 @@
                 "value": "*"
               },
               "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "isGlob": false,
+                "value": "##defaultResourceGroup##"
               }
             }
           ],
@@ -363,7 +446,8 @@
         },
         "type": "cgraph",
         "timescale": "1day",
-        "version": 2
+        "version": 2,
+        "widgetFilters": {}
       }
     },
     {
@@ -374,37 +458,88 @@
         "sizey": 4
       },
       "config": {
-        "displaySettings": {"pageSize": "5"},
-        "columns": [{
-          "rpn": "",
-          "dataPointName": "PercentNotificationsFailed",
-          "displayType": "percent",
-          "minValue": 0,
-          "maxValue": 100,
-          "colorThresholds": [{
-            "level": 2,
-            "threshold": 50,
-            "relation": ">"
-          }],
-          "columnName": "PercentNotificationsFailed",
-          "enableForecast": false,
-          "roundingDecimal": 2
-        }],
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 317,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            PercentNotificationsFailed\n            \n        ",
+              "columnSize": 199,
+              "columnKey": "0"
+            }
+          ],
+          "propertyColumns": [],
+          "instanceColumns": [],
+          "pageSize": "5",
+          "columnsV4": [
+            {
+              "maxValue": 100,
+              "index": 0,
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "propertiesOptions": "1",
+              "rpn": "",
+              "dataPointName": "PercentNotificationsFailed",
+              "displayType": "percent",
+              "minValue": 0,
+              "unitLabel": "",
+              "position": 0,
+              "id": "undefined_0",
+              "colorThresholds": [
+                {
+                  "level": 2,
+                  "threshold": 50,
+                  "relation": ">"
+                }
+              ],
+              "columnName": "PercentNotificationsFailed"
+            }
+          ]
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "PercentNotificationsFailed",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 50,
+                "relation": ">"
+              }
+            ],
+            "columnName": "PercentNotificationsFailed",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "supportCustomProperty": false,
         "description": "",
         "forecast": {
           "severity": "warn",
           "confidence": 70,
           "timeRange": "Last 30 days",
-          "algorithm": "Linear"
+          "algorithm": "ARIMA"
         },
         "type": "dynamicTable",
-        "rows": [{
-          "instanceName": "*",
-          "label": "##HOSTNAME##",
-          "deviceDisplayName": "*",
-          "groupFullPath": "##defaultDeviceGroup##"
-        }],
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##HOSTNAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
         "version": 2,
+        "isSupportCustomProperty": false,
         "topX": 25,
         "dataSourceFullName": "SNS (AWS_SNS)",
         "sortOrder": "descending",

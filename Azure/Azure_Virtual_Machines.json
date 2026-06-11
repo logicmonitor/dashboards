@@ -1,11 +1,9 @@
 {
-  "santabaRelease": 131,
-  "widgetTokens": [{
-    "name": "defaultResourceName",
-    "value": "*"
-  }],
+  "santabaRelease": 184,
+  "widgetTokens": [],
   "name": "Azure Virtual Machines",
   "description": "",
+  "overwriteGroupFields": false,
   "widgetsConfigVersion": 2,
   "type": "dashboard",
   "widgets": [
@@ -13,7 +11,7 @@
       "position": {
         "col": 7,
         "sizex": 6,
-        "row": 8,
+        "row": 11,
         "sizey": 4
       },
       "config": {
@@ -55,7 +53,7 @@
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
-                "value": "##defaultResourceName##"
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
@@ -80,7 +78,7 @@
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
-                "value": "##defaultResourceName##"
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
@@ -271,13 +269,13 @@
         },
         "type": "dynamicTable",
         "rows": [{
-          "instanceName": "##defaultResourceName##",
+          "instanceName": "*",
           "label": "##RESOURCENAME##",
           "deviceDisplayName": "*",
           "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
-        "topX": 25,
+        "topX": -1,
         "dataSourceFullName": "Azure Virtual Machines (Microsoft_Azure_VMs)",
         "sortOrder": "descending",
         "name": "Azure Virtual Machines (Real-time)",
@@ -299,7 +297,7 @@
           "counters": [
             {
               "name": "Running_Instances",
-              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && system.azure.status == \"PowerState/running\""
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && system.azure.status == \"PowerState/running\" && system.azure.type == \"Microsoft.Compute/virtualMachines\""
             },
             {
               "name": "Stopped_Instances",
@@ -324,7 +322,18 @@
               "rounding": 0,
               "position": 2,
               "rightLabel": "",
-              "colorThresholds": null
+              "colorThresholds": [
+                {
+                  "level": 2,
+                  "threshold": 0,
+                  "relation": ">"
+                },
+                {
+                  "level": 3,
+                  "threshold": 0,
+                  "relation": ">"
+                }
+              ]
             }
           ]
         },
@@ -342,7 +351,7 @@
       "position": {
         "col": 1,
         "sizex": 12,
-        "row": 16,
+        "row": 21,
         "sizey": 4
       },
       "config": {
@@ -384,11 +393,6 @@
               "visible": true,
               "columnLabel": "Value",
               "columnKey": "alert-value"
-            },
-            {
-              "visible": true,
-              "columnLabel": "Effective Thresholds",
-              "columnKey": "alert-thresholds"
             },
             {
               "visible": false,
@@ -451,6 +455,16 @@
               "columnKey": "alert-dependency-role"
             },
             {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
               "visible": false,
               "columnLabel": "Dependent Alerts",
               "columnKey": "alert-dependent-alerts"
@@ -474,16 +488,17 @@
           "sdted": "all",
           "chain": "",
           "instance": "",
+          "anomaly": "all",
           "dataPoint": "",
           "rule": "",
           "acked": "all",
           "dependencyRoutingState": "",
           "dependencyRole": "",
-          "host": "%23%23defaultResourceName%23%23",
+          "host": "*",
           "keyword": "",
-          "dataSource": "Azure%20Virtual%20Machines,Azure%20Virtual%20Machine%20Scale%20Set",
+          "dataSource": "Azure%20Virtual%20Machines,Azure%20Virtual%20Machine%20Scale%20Set,Resource%20Health",
           "cleared": "no",
-          "group": "%23%23defaultResourceGroup%23%23*"
+          "group": "%23%23defaultResourceGroup%23%23%2FVirtual%20Machine*"
         },
         "type": "alert",
         "timescale": "day",
@@ -520,11 +535,11 @@
           "dataPointName": "*",
           "instanceName": "*",
           "name": "##RESOURCENAME##",
-          "dataSourceDisplayName": "Azure Virtual Machines",
+          "dataSourceDisplayName": "(Azure Virtual Machines|Resource Health)",
           "groupBy": "device",
           "type": "device",
-          "deviceGroupFullPath": "##defaultResourceGroup##",
-          "deviceDisplayName": "##defaultResourceName##"
+          "deviceGroupFullPath": "##defaultResourceGroup##/Virtual Machine",
+          "deviceDisplayName": "*"
         }]
       }
     },
@@ -532,7 +547,7 @@
       "position": {
         "col": 7,
         "sizex": 3,
-        "row": 12,
+        "row": 15,
         "sizey": 4
       },
       "config": {
@@ -564,7 +579,7 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "##defaultResourceName##"
+              "value": "*"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
@@ -586,7 +601,7 @@
       "position": {
         "col": 1,
         "sizex": 3,
-        "row": 12,
+        "row": 15,
         "sizey": 4
       },
       "config": {
@@ -618,7 +633,7 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "##defaultResourceName##"
+              "value": "*"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
@@ -640,7 +655,7 @@
       "position": {
         "col": 10,
         "sizex": 3,
-        "row": 12,
+        "row": 15,
         "sizey": 4
       },
       "config": {
@@ -672,7 +687,7 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "##defaultResourceName##"
+              "value": "*"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
@@ -694,7 +709,7 @@
       "position": {
         "col": 4,
         "sizex": 3,
-        "row": 12,
+        "row": 15,
         "sizey": 4
       },
       "config": {
@@ -726,7 +741,7 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "##defaultResourceName##"
+              "value": "*"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
@@ -748,7 +763,7 @@
       "position": {
         "col": 1,
         "sizex": 6,
-        "row": 8,
+        "row": 11,
         "sizey": 4
       },
       "config": {
@@ -780,7 +795,7 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "##defaultResourceName##"
+              "value": "*"
             },
             "deviceGroupFullPath": {
               "isGlob": true,

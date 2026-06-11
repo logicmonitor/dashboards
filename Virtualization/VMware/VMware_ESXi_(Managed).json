@@ -1,5 +1,5 @@
 {
-  "santabaRelease": 191,
+  "santabaRelease": 222,
   "widgetTokens": [
     {
       "name": "dashboardName",
@@ -7,7 +7,7 @@
     },
     {
       "name": "defaultResourceGroup",
-      "value": "Devices by Type/VMware Hosts"
+      "value": "Devices by Type/VMware ESXi Hosts"
     }
   ],
   "name": "VMware ESXi (Managed)",
@@ -19,7 +19,7 @@
     {
       "position": {
         "col": 1,
-        "sizex": 6,
+        "sizex": 12,
         "row": 3,
         "sizey": 2
       },
@@ -30,10 +30,12 @@
           "displayAs": "table"
         },
         "displayWarnAlert": true,
+        "supportCustomProperty": false,
         "description": "",
         "type": "noc",
         "version": 2,
         "displayErrorAlert": true,
+        "isSupportCustomProperty": false,
         "displayColumn": 4,
         "name": "VMware ESXi Host Alert Status",
         "displayCriticalAlert": true,
@@ -42,152 +44,53 @@
         "sortBy": "alertSeverity",
         "timescale": "day",
         "sdtChecked": true,
-        "items": [{
-          "dataPointName": "*",
-          "instanceName": "*",
-          "name": "##RESOURCENAME##",
-          "dataSourceDisplayName": "VMware ESXi*",
-          "groupBy": "device",
-          "type": "device",
-          "deviceGroupFullPath": "##defaultResourceGroup##",
-          "deviceDisplayName": "*"
-        }]
+        "items": [
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "##RESOURCENAME##",
+            "dataSourceDisplayName": "VMware ESXi*",
+            "groupBy": "device",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }
+        ]
       }
     },
     {
       "position": {
         "col": 1,
-        "sizex": 2,
+        "sizex": 3,
         "row": 1,
         "sizey": 2
       },
       "config": {
         "bigNumberInfo": {
           "virtualDataPoints": [],
-          "counters": [{
-            "name": "hostCount",
-            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && system.virtualization == \"VMWare ESX host\""
-          }],
+          "counters": [
+            {
+              "name": "hostCount",
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && system.virtualization == \"VMWare ESX host\""
+            }
+          ],
           "dataPoints": [],
-          "bigNumberItems": [{
-            "dataPointName": "hostCount",
-            "useCommaSeparators": false,
-            "bottomLabel": "",
-            "rounding": 0,
-            "position": 1,
-            "rightLabel": "##dashboardName## Hosts",
-            "colorThresholds": null
-          }]
-        },
-        "displaySettings": {},
-        "name": "##dashboardName##",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "type": "bigNumber",
-        "timescale": "day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 11,
-        "sizex": 2,
-        "row": 1,
-        "sizey": 2
-      },
-      "config": {
-        "bigNumberInfo": {
-          "virtualDataPoints": [{
-            "rpn": "PercentUsed_Sum / PercentUsed_Avg",
-            "name": "vmDiskCount"
-          }],
-          "counters": [],
-          "dataPoints": [
+          "bigNumberItems": [
             {
-              "dataPointName": "PercentUsed",
-              "instanceName": "*",
-              "dataSourceFullName": "VMware ESXi VM Disk Capacity (VMware_ESXi_VirtualMachineDiskCapacity)",
-              "name": "PercentUsed_Sum",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "*"
-            },
-            {
-              "dataPointName": "PercentUsed",
-              "instanceName": "*",
-              "dataSourceFullName": "VMware ESXi VM Disk Capacity (VMware_ESXi_VirtualMachineDiskCapacity)",
-              "name": "PercentUsed_Avg",
-              "aggregateFunction": "AVERAGE",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "*"
+              "dataPointName": "hostCount",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "##dashboardName## Hosts",
+              "colorThresholds": null,
+              "actions": []
             }
-          ],
-          "bigNumberItems": [{
-            "dataPointName": "vmDiskCount",
-            "useCommaSeparators": false,
-            "bottomLabel": "",
-            "rounding": 0,
-            "position": 1,
-            "rightLabel": "##dashboardName## VM Disks",
-            "colorThresholds": null
-          }]
+          ]
         },
         "displaySettings": {},
-        "name": "##dashboardName##",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "type": "bigNumber",
-        "timescale": "day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 9,
-        "sizex": 2,
-        "row": 1,
-        "sizey": 2
-      },
-      "config": {
-        "bigNumberInfo": {
-          "virtualDataPoints": [{
-            "rpn": "CPUCount_sum / CPUCount_avg",
-            "name": "vmCount"
-          }],
-          "counters": [],
-          "dataPoints": [
-            {
-              "dataPointName": "CPUCount",
-              "instanceName": "*",
-              "dataSourceFullName": "VMware ESXi VM Performance (VMware_ESXi_VirtualMachinePerformance)",
-              "name": "CPUCount_sum",
-              "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "*"
-            },
-            {
-              "dataPointName": "CPUCount",
-              "instanceName": "*",
-              "dataSourceFullName": "VMware ESXi VM Performance (VMware_ESXi_VirtualMachinePerformance)",
-              "name": "CPUCount_avg",
-              "aggregateFunction": "AVERAGE",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "*"
-            }
-          ],
-          "bigNumberItems": [{
-            "dataPointName": "vmCount",
-            "useCommaSeparators": false,
-            "bottomLabel": "",
-            "rounding": 0,
-            "position": 2,
-            "rightLabel": "##dashboardName## Virtual Machines",
-            "colorThresholds": null
-          }]
-        },
-        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "##dashboardName##",
         "description": "",
         "theme": "newSolidDarkBlue",
@@ -202,7 +105,7 @@
         "col": 1,
         "sizex": 3,
         "row": 5,
-        "sizey": 3
+        "sizey": 4
       },
       "config": {
         "displaySettings": {
@@ -210,40 +113,39 @@
             {
               "visible": true,
               "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 137,
+              "columnSize": 228,
               "columnKey": "device-name-1452842526600"
             },
             {
               "visible": true,
               "columnLabel": "\n            CPU Utilization\n            \n        ",
-              "columnSize": 146,
+              "columnSize": 203,
               "columnKey": "0"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            CPU Usage\n            \n        ",
-              "columnSize": 158,
-              "columnKey": "1"
             }
           ],
           "pageSize": "10"
         },
-        "columns": [{
-          "rpn": "",
-          "dataPointName": "UtilizationPercent",
-          "displayType": "percent",
-          "minValue": 0,
-          "unitLabel": "",
-          "maxValue": 100,
-          "colorThresholds": [{
-            "level": 2,
-            "threshold": 80,
-            "relation": ">"
-          }],
-          "columnName": "CPU Utilization",
-          "enableForecast": false,
-          "roundingDecimal": 2
-        }],
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "UtilizationPercent",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 80,
+                "relation": ">"
+              }
+            ],
+            "columnName": "CPU Utilization",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "supportCustomProperty": false,
         "description": "",
         "forecast": {
           "severity": "warn",
@@ -252,13 +154,16 @@
           "algorithm": "Linear"
         },
         "type": "dynamicTable",
-        "rows": [{
-          "instanceName": "*",
-          "label": "##RESOURCENAME##",
-          "deviceDisplayName": "*",
-          "groupFullPath": "##defaultResourceGroup##"
-        }],
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
         "version": 2,
+        "isSupportCustomProperty": false,
         "topX": -1,
         "dataSourceFullName": "VMware ESXi CPU (VMware_ESXi_CPU)",
         "sortOrder": "descending",
@@ -272,11 +177,13 @@
       "position": {
         "col": 1,
         "sizex": 3,
-        "row": 8,
-        "sizey": 3
+        "row": 9,
+        "sizey": 4
       },
       "config": {
         "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "##dashboardName## CPU Utilization (Trend)",
         "description": "",
         "theme": "newBorderDarkBlue",
@@ -286,31 +193,33 @@
           "minValue": 0,
           "topX": 10,
           "maxValue": 100,
-          "dataPoints": [{
-            "dataPointName": "UtilizationPercent",
-            "instanceName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "dataSourceFullName": "VMware ESXi CPU (VMware_ESXi_CPU)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "Auto",
-              "legend": "##RESOURCENAME## CPU utilization",
-              "type": "line",
-              "option": "custom"
-            },
-            "name": "UtilizationPercent",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
+          "dataPoints": [
+            {
+              "dataPointName": "UtilizationPercent",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VMware ESXi CPU (VMware_ESXi_CPU)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## CPU utilization",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "UtilizationPercent",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             }
-          }],
+          ],
           "verticalLabel": "%",
           "aggregate": false,
           "desc": true,
@@ -327,7 +236,7 @@
         "col": 8,
         "sizex": 5,
         "row": 5,
-        "sizey": 3
+        "sizey": 4
       },
       "config": {
         "displaySettings": {
@@ -347,7 +256,7 @@
             {
               "visible": true,
               "columnLabel": "\n            Storage Provisioned\n            \n        ",
-              "columnSize": 177,
+              "columnSize": 108,
               "columnKey": "1"
             },
             {
@@ -359,7 +268,7 @@
             {
               "visible": true,
               "columnLabel": "\n            Capacity\n            \n        ",
-              "columnSize": 102,
+              "columnSize": 133,
               "columnKey": "3"
             }
           ],
@@ -437,6 +346,7 @@
             "roundingDecimal": 2
           }
         ],
+        "supportCustomProperty": false,
         "description": "",
         "forecast": {
           "severity": "warn",
@@ -445,13 +355,16 @@
           "algorithm": "Linear"
         },
         "type": "dynamicTable",
-        "rows": [{
-          "instanceName": "*",
-          "label": "##INSTANCE## - ##RESOURCENAME##",
-          "deviceDisplayName": "*",
-          "groupFullPath": "##defaultResourceGroup##"
-        }],
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##INSTANCE## - ##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
         "version": 2,
+        "isSupportCustomProperty": false,
         "topX": -1,
         "dataSourceFullName": "VMware ESXi Datastore Capacity (VMware_ESXi_DatastoreUsage)",
         "sortOrder": "descending",
@@ -465,11 +378,13 @@
       "position": {
         "col": 8,
         "sizex": 5,
-        "row": 8,
-        "sizey": 3
+        "row": 9,
+        "sizey": 4
       },
       "config": {
         "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "##dashboardName## Datastore Utilization (Trend)",
         "description": "",
         "theme": "newBorderDarkBlue",
@@ -479,31 +394,33 @@
           "minValue": 0,
           "topX": 10,
           "maxValue": 100,
-          "dataPoints": [{
-            "dataPointName": "UsedPercent",
-            "instanceName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "dataSourceFullName": "VMware ESXi Datastore Capacity (VMware_ESXi_DatastoreUsage)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "Auto",
-              "legend": "##INSTANCE## - ##RESOURCENAME##",
-              "type": "line",
-              "option": "custom"
-            },
-            "name": "UsedPercent",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
+          "dataPoints": [
+            {
+              "dataPointName": "UsedPercent",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VMware ESXi Datastore Capacity (VMware_ESXi_DatastoreUsage)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## - ##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "UsedPercent",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             }
-          }],
+          ],
           "verticalLabel": "%",
           "aggregate": false,
           "desc": true,
@@ -520,7 +437,7 @@
         "col": 4,
         "sizex": 4,
         "row": 5,
-        "sizey": 3
+        "sizey": 4
       },
       "config": {
         "displaySettings": {
@@ -528,25 +445,25 @@
             {
               "visible": true,
               "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 233,
+              "columnSize": 219,
               "columnKey": "device-name-1452842526600"
             },
             {
               "visible": true,
               "columnLabel": "\n            Memory Utilization\n            \n        ",
-              "columnSize": 170,
+              "columnSize": 167,
               "columnKey": "0"
             },
             {
               "visible": true,
               "columnLabel": "\n            Active\n            \n        ",
-              "columnSize": 85,
+              "columnSize": 66,
               "columnKey": "1"
             },
             {
               "visible": true,
               "columnLabel": "\n            Consumed\n            \n        ",
-              "columnSize": 104,
+              "columnSize": 126,
               "columnKey": "2"
             }
           ],
@@ -560,11 +477,13 @@
             "minValue": 0,
             "unitLabel": "",
             "maxValue": 100,
-            "colorThresholds": [{
-              "level": 2,
-              "threshold": 98,
-              "relation": ">"
-            }],
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 98,
+                "relation": ">"
+              }
+            ],
             "columnName": "Memory Utilization",
             "enableForecast": false,
             "roundingDecimal": 2
@@ -594,6 +513,7 @@
             "roundingDecimal": 2
           }
         ],
+        "supportCustomProperty": false,
         "description": "",
         "forecast": {
           "severity": "warn",
@@ -602,13 +522,16 @@
           "algorithm": "Linear"
         },
         "type": "dynamicTable",
-        "rows": [{
-          "instanceName": "*",
-          "label": "##RESOURCENAME##",
-          "deviceDisplayName": "*",
-          "groupFullPath": "##defaultResourceGroup##"
-        }],
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
         "version": 2,
+        "isSupportCustomProperty": false,
         "topX": -1,
         "dataSourceFullName": "VMware ESXi Memory (VMware_ESXi_Memory)",
         "sortOrder": "descending",
@@ -622,11 +545,13 @@
       "position": {
         "col": 4,
         "sizex": 4,
-        "row": 8,
-        "sizey": 3
+        "row": 9,
+        "sizey": 4
       },
       "config": {
         "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "##dashboardName## Memory Utilization (Trend)",
         "description": "",
         "theme": "newBorderDarkBlue",
@@ -636,31 +561,33 @@
           "minValue": 0,
           "topX": 10,
           "maxValue": 100,
-          "dataPoints": [{
-            "dataPointName": "UsagePercent",
-            "instanceName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "dataSourceFullName": "VMware ESXi Memory (VMware_ESXi_Memory)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "Auto",
-              "legend": "##RESOURCENAME## memory utilization",
-              "type": "line",
-              "option": "custom"
-            },
-            "name": "UsagePercent",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
+          "dataPoints": [
+            {
+              "dataPointName": "UsagePercent",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VMware ESXi Memory (VMware_ESXi_Memory)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## memory utilization",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "UsagePercent",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             }
-          }],
+          ],
           "verticalLabel": "%",
           "aggregate": false,
           "desc": true,
@@ -676,8 +603,8 @@
       "position": {
         "col": 1,
         "sizex": 8,
-        "row": 11,
-        "sizey": 4
+        "row": 15,
+        "sizey": 5
       },
       "config": {
         "displaySettings": {
@@ -753,11 +680,13 @@
             "minValue": -1,
             "unitLabel": "",
             "maxValue": 0,
-            "colorThresholds": [{
-              "level": 2,
-              "threshold": 0,
-              "relation": "="
-            }],
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 0,
+                "relation": "="
+              }
+            ],
             "columnName": "Status",
             "enableForecast": false,
             "roundingDecimal": 2
@@ -859,6 +788,7 @@
             "roundingDecimal": 2
           }
         ],
+        "supportCustomProperty": false,
         "description": "",
         "forecast": {
           "severity": "warn",
@@ -867,13 +797,16 @@
           "algorithm": "Linear"
         },
         "type": "dynamicTable",
-        "rows": [{
-          "instanceName": "*",
-          "label": "##INSTANCE## - ##RESOURCENAME##",
-          "deviceDisplayName": "*",
-          "groupFullPath": "##defaultResourceGroup##"
-        }],
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##INSTANCE## - ##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
         "version": 2,
+        "isSupportCustomProperty": false,
         "topX": -1,
         "dataSourceFullName": "VMware ESXi Network Interfaces (VMware_ESXi_NetworkInterfaces)",
         "sortOrder": "descending",
@@ -887,26 +820,30 @@
       "position": {
         "col": 9,
         "sizex": 4,
-        "row": 11,
-        "sizey": 4
+        "row": 15,
+        "sizey": 5
       },
       "config": {
         "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "##dashboardName## Network Interfaces by Total Throughput (Trend)",
         "description": "",
         "theme": "newBorderDarkBlue",
         "interval": 3,
         "graphInfo": {
-          "virtualDataPoints": [{
-            "rpn": "DataRateRx + DataRateTx",
-            "display": {
-              "color": "Auto",
-              "legend": "##INSTANCE## - ##RESOURCENAME##",
-              "type": "line",
-              "option": "custom"
-            },
-            "name": "totalThroughput"
-          }],
+          "virtualDataPoints": [
+            {
+              "rpn": "DataRateRx + DataRateTx",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## - ##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "totalThroughput"
+            }
+          ],
           "minValue": 0,
           "topX": 10,
           "maxValue": "NaN",
@@ -975,9 +912,9 @@
     },
     {
       "position": {
-        "col": 7,
-        "sizex": 6,
-        "row": 3,
+        "col": 1,
+        "sizex": 12,
+        "row": 13,
         "sizey": 2
       },
       "config": {
@@ -987,10 +924,12 @@
           "displayAs": "table"
         },
         "displayWarnAlert": true,
+        "supportCustomProperty": false,
         "description": "",
         "type": "noc",
         "version": 2,
         "displayErrorAlert": true,
+        "isSupportCustomProperty": false,
         "displayColumn": 8,
         "name": "##dashboardName## Host Network Alert Status",
         "displayCriticalAlert": true,
@@ -999,23 +938,25 @@
         "sortBy": "alertSeverity",
         "timescale": "day",
         "sdtChecked": true,
-        "items": [{
-          "dataPointName": "*",
-          "instanceName": "*",
-          "name": "##INSTANCE## - ##RESOURCENAME##",
-          "dataSourceDisplayName": "VMware ESXi Network Status",
-          "groupBy": "instance",
-          "type": "device",
-          "deviceGroupFullPath": "##defaultResourceGroup##",
-          "deviceDisplayName": "*"
-        }]
+        "items": [
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "##INSTANCE## - ##RESOURCENAME##",
+            "dataSourceDisplayName": "VMware ESXi Network Status",
+            "groupBy": "instance",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }
+        ]
       }
     },
     {
       "position": {
         "col": 1,
         "sizex": 4,
-        "row": 19,
+        "row": 24,
         "sizey": 4
       },
       "config": {
@@ -1036,18 +977,21 @@
           ],
           "pageSize": "5"
         },
-        "columns": [{
-          "rpn": "",
-          "dataPointName": "Power",
-          "displayType": "raw",
-          "minValue": 0,
-          "unitLabel": " watts",
-          "maxValue": 100,
-          "colorThresholds": [],
-          "columnName": "Power",
-          "enableForecast": false,
-          "roundingDecimal": 2
-        }],
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "Power",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " watts",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Power",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "supportCustomProperty": false,
         "description": "",
         "forecast": {
           "severity": "warn",
@@ -1056,13 +1000,16 @@
           "algorithm": "Linear"
         },
         "type": "dynamicTable",
-        "rows": [{
-          "instanceName": "*",
-          "label": "##RESOURCENAME##",
-          "deviceDisplayName": "*",
-          "groupFullPath": "##defaultResourceGroup##"
-        }],
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
         "version": 2,
+        "isSupportCustomProperty": false,
         "topX": 10,
         "dataSourceFullName": "VMware ESXi Power (VMware_ESXi_Power)",
         "sortOrder": "descending",
@@ -1076,11 +1023,13 @@
       "position": {
         "col": 5,
         "sizex": 4,
-        "row": 19,
+        "row": 24,
         "sizey": 4
       },
       "config": {
         "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "##dashboardName## Power Usage (Trend)",
         "description": "",
         "theme": "newBorderDarkBlue",
@@ -1090,31 +1039,33 @@
           "minValue": 0,
           "topX": 0,
           "maxValue": "NaN",
-          "dataPoints": [{
-            "dataPointName": "Power",
-            "instanceName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "dataSourceFullName": "VMware ESXi Power (VMware_ESXi_Power)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "Auto",
-              "legend": "##DATASOURCENAME##_Power",
-              "type": "line",
-              "option": "custom"
-            },
-            "name": "Power",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
+          "dataPoints": [
+            {
+              "dataPointName": "Power",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VMware ESXi Power (VMware_ESXi_Power)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##DATASOURCENAME##_Power",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "Power",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             }
-          }],
+          ],
           "verticalLabel": "watts",
           "aggregate": true,
           "desc": true,
@@ -1130,7 +1081,7 @@
       "position": {
         "col": 5,
         "sizex": 8,
-        "row": 15,
+        "row": 20,
         "sizey": 4
       },
       "config": {
@@ -1273,6 +1224,7 @@
             "roundingDecimal": 2
           }
         ],
+        "supportCustomProperty": false,
         "description": "",
         "forecast": {
           "severity": "warn",
@@ -1281,13 +1233,16 @@
           "algorithm": "Linear"
         },
         "type": "dynamicTable",
-        "rows": [{
-          "instanceName": "*",
-          "label": "##INSTANCE## - ##RESOURCENAME##",
-          "deviceDisplayName": "*",
-          "groupFullPath": "##defaultResourceGroup##"
-        }],
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##INSTANCE## - ##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
         "version": 2,
+        "isSupportCustomProperty": false,
         "topX": 10,
         "dataSourceFullName": "VMware ESXi Datastore Performance (VMware_ESXi_DatastoreThroughput)",
         "sortOrder": "descending",
@@ -1301,26 +1256,30 @@
       "position": {
         "col": 1,
         "sizex": 4,
-        "row": 15,
+        "row": 20,
         "sizey": 4
       },
       "config": {
         "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "Top ##dashboardName## by Total Datastore IOPS (Trend)",
         "description": "",
         "theme": "newBorderDarkBlue",
         "interval": 3,
         "graphInfo": {
-          "virtualDataPoints": [{
-            "rpn": "ReadAverage + WriteAverage",
-            "display": {
-              "color": "Auto",
-              "legend": "##INSTANCE## - ##RESOURCENAME##",
-              "type": "line",
-              "option": "custom"
-            },
-            "name": "totalIOPS"
-          }],
+          "virtualDataPoints": [
+            {
+              "rpn": "ReadAverage + WriteAverage",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## - ##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "totalIOPS"
+            }
+          ],
           "minValue": 0,
           "topX": 0,
           "maxValue": "NaN",
@@ -1391,11 +1350,15 @@
       "position": {
         "col": 9,
         "sizex": 4,
-        "row": 19,
+        "row": 24,
         "sizey": 4
       },
       "config": {
-        "displaySettings": {},
+        "displaySettings": {
+          "visualizationType": "pie"
+        },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "##dashboardName## OS Version Breakdown",
         "description": "",
         "theme": "newSolidDarkBlue",
@@ -1409,19 +1372,19 @@
           "counters": [
             {
               "name": "vmwareESXi8",
-              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && auto.os.version.description =~ \"ESXi 8\""
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && system.version =~ \"ESXi 8\""
             },
             {
               "name": "vmwareESXi7",
-              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && auto.os.version.description =~ \"ESXi 7\""
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && system.version =~ \"ESXi 7\""
             },
             {
               "name": "vmwareESXi6",
-              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && auto.os.version.description =~ \"ESXi 6\""
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && system.version =~ \"ESXi 6\""
             },
             {
               "name": "vmwareESXi5",
-              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && auto.os.version.description =~ \"ESXi 5\""
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && system.version =~ \"ESXi 5\""
             }
           ],
           "dataPoints": [],
@@ -1430,22 +1393,22 @@
           "pieChartItems": [
             {
               "dataPointName": "vmwareESXi5",
-              "color": "Auto",
+              "color": "auto",
               "legend": "VMware ESXi 5.x Hosts"
             },
             {
               "dataPointName": "vmwareESXi6",
-              "color": "Auto",
+              "color": "auto",
               "legend": "VMware ESXi 6.x Hosts"
             },
             {
               "dataPointName": "vmwareESXi7",
-              "color": "Auto",
+              "color": "auto",
               "legend": "VMware ESXi 7.x Hosts"
             },
             {
               "dataPointName": "vmwareESXi8",
-              "color": "Auto",
+              "color": "auto",
               "legend": "VMware ESXi 8.x Hosts"
             }
           ],
@@ -1456,17 +1419,19 @@
     },
     {
       "position": {
-        "col": 5,
-        "sizex": 2,
+        "col": 7,
+        "sizex": 3,
         "row": 1,
         "sizey": 2
       },
       "config": {
         "bigNumberInfo": {
-          "virtualDataPoints": [{
-            "rpn": "Reads_Sum/ Reads_Avg",
-            "name": "esxiDisks"
-          }],
+          "virtualDataPoints": [
+            {
+              "rpn": "Reads_Sum/ Reads_Avg",
+              "name": "esxiDisks"
+            }
+          ],
           "counters": [],
           "dataPoints": [
             {
@@ -1488,17 +1453,22 @@
               "deviceDisplayName": "*"
             }
           ],
-          "bigNumberItems": [{
-            "dataPointName": "esxiDisks",
-            "useCommaSeparators": false,
-            "bottomLabel": "",
-            "rounding": 0,
-            "position": 1,
-            "rightLabel": "##dashboardName## Host Disks",
-            "colorThresholds": null
-          }]
+          "bigNumberItems": [
+            {
+              "dataPointName": "esxiDisks",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "##dashboardName## Host Disks",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
         },
         "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "##dashboardName##",
         "description": "",
         "theme": "newSolidDarkBlue",
@@ -1510,17 +1480,19 @@
     },
     {
       "position": {
-        "col": 3,
-        "sizex": 2,
+        "col": 4,
+        "sizex": 3,
         "row": 1,
         "sizey": 2
       },
       "config": {
         "bigNumberInfo": {
-          "virtualDataPoints": [{
-            "rpn": "Utilization_Sum/ Utilization_Avg",
-            "name": "esxiCPUs"
-          }],
+          "virtualDataPoints": [
+            {
+              "rpn": "Utilization_Sum/ Utilization_Avg",
+              "name": "esxiCPUs"
+            }
+          ],
           "counters": [],
           "dataPoints": [
             {
@@ -1542,17 +1514,22 @@
               "deviceDisplayName": "*"
             }
           ],
-          "bigNumberItems": [{
-            "dataPointName": "esxiCPUs",
-            "useCommaSeparators": false,
-            "bottomLabel": "",
-            "rounding": 0,
-            "position": 1,
-            "rightLabel": "##dashboardName## Host CPUs",
-            "colorThresholds": null
-          }]
+          "bigNumberItems": [
+            {
+              "dataPointName": "esxiCPUs",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "##dashboardName## Host CPUs",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
         },
         "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "##dashboardName##",
         "description": "",
         "theme": "newSolidDarkBlue",
@@ -1564,17 +1541,19 @@
     },
     {
       "position": {
-        "col": 7,
-        "sizex": 2,
+        "col": 10,
+        "sizex": 3,
         "row": 1,
         "sizey": 2
       },
       "config": {
         "bigNumberInfo": {
-          "virtualDataPoints": [{
-            "rpn": "DataRateTx_Sum / DataRateTx_Avg",
-            "name": "esxiNICs"
-          }],
+          "virtualDataPoints": [
+            {
+              "rpn": "DataRateTx_Sum / DataRateTx_Avg",
+              "name": "esxiNICs"
+            }
+          ],
           "counters": [],
           "dataPoints": [
             {
@@ -1596,17 +1575,22 @@
               "deviceDisplayName": "*"
             }
           ],
-          "bigNumberItems": [{
-            "dataPointName": "esxiNICs",
-            "useCommaSeparators": false,
-            "bottomLabel": "",
-            "rounding": 0,
-            "position": 1,
-            "rightLabel": "##dashboardName## Host Interfaces",
-            "colorThresholds": null
-          }]
+          "bigNumberItems": [
+            {
+              "dataPointName": "esxiNICs",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "##dashboardName## Host Interfaces",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
         },
         "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "##dashboardName##",
         "description": "",
         "theme": "newSolidDarkBlue",
@@ -1620,7 +1604,7 @@
       "position": {
         "col": 1,
         "sizex": 12,
-        "row": 23,
+        "row": 28,
         "sizey": 5
       },
       "config": {
@@ -1636,41 +1620,49 @@
             {
               "visible": true,
               "columnLabel": "Began",
+              "columnSize": 220,
               "columnKey": "alert-began"
             },
             {
               "visible": true,
               "columnLabel": "Resource/Website",
+              "columnSize": 120,
               "columnKey": "alert-device"
             },
             {
               "visible": true,
               "columnLabel": "LogicModule",
+              "columnSize": 377,
               "columnKey": "alert-datasource"
             },
             {
               "visible": true,
               "columnLabel": "Instance",
+              "columnSize": 376,
               "columnKey": "alert-datasource-instance"
             },
             {
               "visible": true,
               "columnLabel": "Datapoint",
+              "columnSize": 291,
               "columnKey": "alert-datapoint"
             },
             {
               "visible": true,
               "columnLabel": "Value",
+              "columnSize": 120,
               "columnKey": "alert-value"
             },
             {
               "visible": true,
               "columnLabel": "Static Threshold",
+              "columnSize": 103,
               "columnKey": "alert-static-threshold"
             },
             {
               "visible": true,
               "columnLabel": "Dynamic Threshold",
+              "columnSize": 787,
               "columnKey": "alert-dynamic-threshold"
             },
             {
@@ -1743,6 +1735,8 @@
           "fontsize": "normal-font",
           "sort": "-startEpoch"
         },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
         "name": "##dashboardName## Host Alert Detail",
         "description": "",
         "theme": "newSolidDarkBlue",
@@ -1752,7 +1746,7 @@
           "sdted": "all",
           "chain": "",
           "instance": "",
-          "anomaly": "",
+          "anomaly": "all",
           "dataPoint": "",
           "rule": "",
           "acked": "all",

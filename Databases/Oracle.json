@@ -1,12 +1,8 @@
 {
-  "santabaRelease": 145,
+  "santabaRelease": 161,
   "widgetTokens": [
     {
       "name": "defaultResourceGroup",
-      "value": "*"
-    },
-    {
-      "name": "defaultResourceName",
       "value": "*"
     }
   ],
@@ -37,7 +33,7 @@
             "name": "AgeInMinutes",
             "aggregateFunction": "SUM",
             "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "##defaultResourceName##"
+            "deviceDisplayName": "*"
           }],
           "bigNumberItems": [{
             "dataPointName": "AgeinHours",
@@ -80,7 +76,7 @@
             "name": "ElapsedSeconds",
             "aggregateFunction": "SUM",
             "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "##defaultResourceName##"
+            "deviceDisplayName": "*"
           }],
           "bigNumberItems": [{
             "dataPointName": "AgeinHours",
@@ -148,7 +144,7 @@
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
-                "value": "##defaultResourceName##"
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
@@ -173,7 +169,7 @@
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
-                "value": "##defaultResourceName##"
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
@@ -198,7 +194,7 @@
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
-                "value": "##defaultResourceName##"
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
@@ -339,7 +335,7 @@
         "rows": [{
           "instanceName": "*",
           "label": "##RESOURCENAME##",
-          "deviceDisplayName": "##defaultResourceName##",
+          "deviceDisplayName": "*",
           "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
@@ -442,7 +438,7 @@
         "rows": [{
           "instanceName": "*",
           "label": "##RESOURCENAME## - ##INSTANCE##",
-          "deviceDisplayName": "##defaultResourceName##",
+          "deviceDisplayName": "*",
           "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
@@ -469,7 +465,16 @@
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "graphInfo": {
-          "virtualDataPoints": [],
+          "virtualDataPoints": [{
+            "rpn": "AgeInMinutes/60",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##RESOURCENAME##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "AgeInHours"
+          }],
           "minValue": 0,
           "topX": 10,
           "maxValue": "NaN",
@@ -482,16 +487,16 @@
             "dataSourceFullName": "Oracle Latest Long Operations (Oracle_Database_LongOperations)",
             "consolidateFunction": "average",
             "display": {
-              "color": "Auto",
-              "legend": "##INSTANCE##",
-              "type": "area",
-              "option": "custom"
+              "color": null,
+              "legend": null,
+              "type": "line",
+              "option": "none"
             },
             "name": "AgeInMinutes",
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "##defaultResourceName##"
+              "value": "*"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
@@ -567,7 +572,7 @@
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
-                "value": "##defaultResourceName##"
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
@@ -592,7 +597,7 @@
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
-                "value": "##defaultResourceName##"
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
@@ -617,7 +622,7 @@
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
-                "value": "##defaultResourceName##"
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
@@ -672,7 +677,7 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "##defaultResourceName##"
+              "value": "*"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
@@ -708,7 +713,7 @@
             "name": "CurrentLogons",
             "aggregateFunction": "SUM",
             "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "##defaultResourceName##"
+            "deviceDisplayName": "*"
           }],
           "bigNumberItems": [{
             "dataPointName": "CurrentLogons",
@@ -764,7 +769,7 @@
           "groupBy": "device",
           "type": "device",
           "deviceGroupFullPath": "##defaultResourceGroup##",
-          "deviceDisplayName": "##defaultResourceName##"
+          "deviceDisplayName": "*"
         }]
       }
     },
@@ -786,7 +791,7 @@
             "name": "BlockedSessionCount",
             "aggregateFunction": "SUM",
             "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "##defaultResourceName##"
+            "deviceDisplayName": "*"
           }],
           "bigNumberItems": [{
             "dataPointName": "BlockedSessionCount",
@@ -1018,7 +1023,7 @@
         "rows": [{
           "instanceName": "*",
           "label": "##RESOURCENAME##",
-          "deviceDisplayName": "##defaultResourceName##",
+          "deviceDisplayName": "*",
           "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
@@ -1059,7 +1064,7 @@
             "name": "UsedSpace",
             "aggregateFunction": "SUM",
             "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "##defaultResourceName##",
+            "deviceDisplayName": "*",
             "aggregate": false
           }],
           "hideZeroPercentSlices": false,
@@ -1142,7 +1147,7 @@
         "rows": [{
           "instanceName": "*",
           "label": "##RESOURCENAME## - ##INSTANCE##",
-          "deviceDisplayName": "##defaultResourceName##",
+          "deviceDisplayName": "*",
           "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
@@ -1201,7 +1206,7 @@
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
-                "value": "##defaultResourceName##"
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
@@ -1226,7 +1231,7 @@
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
-                "value": "##defaultResourceName##"
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
