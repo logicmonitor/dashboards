@@ -1,0 +1,1144 @@
+{
+  "santabaRelease": 239,
+  "defaultDashboardFilters": {
+    "defaultDashboardFilterDetails": []
+  },
+  "widgetTokens": [
+    {
+      "name": "defaultResourceGroup",
+      "value": "VeloCloud*"
+    }
+  ],
+  "name": "VeloCloud SDWAN Overview",
+  "description": "",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "supportCustomProperty": false,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "isSupportCustomProperty": false,
+        "displayColumn": 5,
+        "name": "VeloCloud SDWAN Edges - Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "##RESOURCENAME##",
+            "dataSourceDisplayName": "*",
+            "groupBy": "device",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }
+        ]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [
+            {
+              "name": "VeloCloud",
+              "appliesTo": "hasCategory(\"VeloCloudSDWANEdge\")"
+            }
+          ],
+          "dataPoints": [],
+          "bigNumberItems": [
+            {
+              "dataPointName": "VeloCloud",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Edges",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
+        },
+        "displaySettings": {
+          "showFilter": false,
+          "overrideFilter": false
+        },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "VeloCloud SDWAN Edges",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 6,
+        "row": 3,
+        "sizey": 6
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "mapStyle": "standard"
+        },
+        "displayWarnAlert": true,
+        "supportCustomProperty": false,
+        "description": "",
+        "type": "gmap",
+        "version": 2,
+        "displayErrorAlert": true,
+        "isSupportCustomProperty": false,
+        "name": "VeloCloud SDWAN - Geo Map",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day",
+        "sdtChecked": true,
+        "mapPoints": [
+          {
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          },
+          {
+            "type": "group",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": ""
+          }
+        ]
+      }
+    },
+    {
+      "position": {
+        "col": 3,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "TunnelCount",
+              "instanceName": "*",
+              "dataSourceFullName": "VeloCloud Performance (VeloCloud_SDWAN_Performance)",
+              "name": "TunnelCount",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [
+            {
+              "dataPointName": "TunnelCount",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Tunnels",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
+        },
+        "displaySettings": {
+          "showFilter": false,
+          "overrideFilter": false
+        },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "VeloCloud SDWAN Tunnels",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "FlowCount",
+              "instanceName": "*",
+              "dataSourceFullName": "VeloCloud Performance (VeloCloud_SDWAN_Performance)",
+              "name": "FlowCount",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [
+            {
+              "dataPointName": "FlowCount",
+              "useCommaSeparators": true,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Flows",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
+        },
+        "displaySettings": {
+          "showFilter": false,
+          "overrideFilter": false
+        },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "VeloCloud SDWAN Flows",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 6,
+        "sizey": 3
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": false,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "supportCustomProperty": false,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "isSupportCustomProperty": false,
+        "displayColumn": 2,
+        "name": "VeloCloud SDWAN Status - Links",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "##RESOURCENAME##_##INSTANCE##",
+            "dataSourceDisplayName": "VeloCloud Links",
+            "groupBy": "instance",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }
+        ]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 3,
+        "sizey": 3
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "supportCustomProperty": false,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "isSupportCustomProperty": false,
+        "displayColumn": 1,
+        "name": "VeloCloud SDWAN Status - Paths",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "##INSTANCE##",
+            "dataSourceDisplayName": "VeloCloud Paths",
+            "groupBy": "instance",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }
+        ]
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 6,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top VeloCloud Links by Throughput (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "VceLinkTotRxBytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VeloCloud Links (VeloCloud_SDWAN_Links)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_##INSTANCE## - VceLinkTotRxBytes",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "VceLinkTotRxBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": false,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "VceLinkTotTxBytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VeloCloud Links (VeloCloud_SDWAN_Links)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_##INSTANCE## - VceLinkTotTxBytes",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "VceLinkTotTxBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": false,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bps",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 9,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "supportCustomProperty": false,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "isSupportCustomProperty": false,
+        "displayColumn": 8,
+        "name": "VeloCloud SDWAN Status - BGP Sessions",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "##RESOURCENAME##",
+            "dataSourceDisplayName": "VeloCloud BGP Sessions",
+            "groupBy": "device",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }
+        ]
+      }
+    },
+    {
+      "position": {
+        "col": 8,
+        "sizex": 5,
+        "row": 11,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {
+          "propertyColumns": [],
+          "instanceColumns": [],
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "Name",
+              "columnSize": 150,
+              "columnKey": "name"
+            },
+            {
+              "visible": true,
+              "columnLabel": "CacheCount",
+              "columnSize": 59,
+              "columnKey": "CacheCount"
+            },
+            {
+              "visible": true,
+              "columnLabel": "IsObserver",
+              "columnSize": 63,
+              "columnKey": "IsObserver"
+            },
+            {
+              "visible": true,
+              "columnLabel": "ObserverId",
+              "columnSize": 66,
+              "columnKey": "ObserverId"
+            }
+          ],
+          "pageSize": "5",
+          "columnsV4": [
+            {
+              "maxValue": 100,
+              "index": 0,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "CachedDeviceCount",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": "",
+              "id": "CacheCount_0",
+              "position": 0,
+              "colorThresholds": [],
+              "columnName": "CacheCount"
+            },
+            {
+              "maxValue": 100,
+              "index": 1,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "IsObserver",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": "",
+              "id": "IsObserver_1",
+              "position": 1,
+              "colorThresholds": [],
+              "columnName": "IsObserver"
+            },
+            {
+              "maxValue": 100,
+              "index": 2,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "ObserverId",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": "",
+              "id": "ObserverId_2",
+              "position": 2,
+              "colorThresholds": [],
+              "columnName": "ObserverId"
+            }
+          ]
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "CachedDeviceCount",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "CacheCount",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "IsObserver",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "IsObserver",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "ObserverId",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "ObserverId",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "supportCustomProperty": false,
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "ARIMA"
+        },
+        "type": "dynamicTable",
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
+        "version": 2,
+        "isSupportCustomProperty": false,
+        "topX": -1,
+        "dataSourceFullName": "VeloCloud API (VeloCloud_SDWAN_API)",
+        "sortOrder": "descending",
+        "name": "VeloCloud SDWAN API Collection Statistics (Realtime)",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 7,
+        "row": 11,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {
+          "propertyColumns": [],
+          "instanceColumns": [],
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "Name",
+              "columnSize": 150,
+              "columnKey": "name"
+            },
+            {
+              "visible": true,
+              "columnLabel": "RxLatency",
+              "columnSize": 46,
+              "columnKey": "RxLatency"
+            },
+            {
+              "visible": true,
+              "columnLabel": "TxLatency",
+              "columnSize": 55,
+              "columnKey": "TxLatency"
+            },
+            {
+              "visible": true,
+              "columnLabel": "RxLostPkt",
+              "columnSize": 53,
+              "columnKey": "RxLostPkt"
+            },
+            {
+              "visible": true,
+              "columnLabel": "TxLostPkt",
+              "columnSize": 51,
+              "columnKey": "TxLostPkt"
+            },
+            {
+              "visible": true,
+              "columnLabel": "RxJitter",
+              "columnSize": 52,
+              "columnKey": "RxJitter"
+            },
+            {
+              "visible": true,
+              "columnLabel": "TxJitter",
+              "columnSize": 56,
+              "columnKey": "TxJitter"
+            }
+          ],
+          "pageSize": "5",
+          "columnsV4": [
+            {
+              "maxValue": 100,
+              "index": 0,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "VceLinkRxLatencyGauge",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " ms",
+              "id": "undefined_0",
+              "position": 0,
+              "colorThresholds": [],
+              "columnName": "RxLatency"
+            },
+            {
+              "maxValue": 100,
+              "index": 1,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "VceLinkTxLatencyGauge",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " ms",
+              "id": "undefined_1",
+              "position": 1,
+              "colorThresholds": [],
+              "columnName": "TxLatency"
+            },
+            {
+              "maxValue": 100,
+              "index": 2,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "VceLinkRxJitterGauge",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " ms",
+              "id": "undefined_4",
+              "position": 4,
+              "colorThresholds": [],
+              "columnName": "RxJitter"
+            },
+            {
+              "maxValue": 100,
+              "index": 3,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "VceLinkTxJitterGauge",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " ms",
+              "id": "undefined_5",
+              "position": 5,
+              "colorThresholds": [],
+              "columnName": "TxJitter"
+            },
+            {
+              "maxValue": 100,
+              "index": 4,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "VceLinkRxLostPktGauge",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " pkt",
+              "id": "RxLostPkt_4",
+              "position": 2,
+              "colorThresholds": [],
+              "columnName": "RxLostPkt"
+            },
+            {
+              "maxValue": 100,
+              "index": 5,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "VceLinkTxLostPktGauge",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " pkt",
+              "id": "TxLostPkt_5",
+              "position": 3,
+              "colorThresholds": [],
+              "columnName": "TxLostPkt"
+            }
+          ]
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "VceLinkRxLatencyGauge",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ms",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "RxLatency",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "VceLinkTxLatencyGauge",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ms",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "TxLatency",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "VceLinkRxJitterGauge",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ms",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "RxJitter",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "VceLinkTxJitterGauge",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ms",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "TxJitter",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "VceLinkRxLostPktGauge",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " pkt",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "RxLostPkt",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "VceLinkTxLostPktGauge",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " pkt",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "TxLostPkt",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "supportCustomProperty": false,
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "ARIMA"
+        },
+        "type": "dynamicTable",
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME##_##INSTANCE##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
+        "version": 2,
+        "isSupportCustomProperty": false,
+        "topX": -1,
+        "dataSourceFullName": "VeloCloud Links (VeloCloud_SDWAN_Links)",
+        "sortOrder": "descending",
+        "name": "VeloCloud SDWAN Link Statistics (Realtime)",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 14,
+        "sizey": 5
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "Severity",
+              "columnSize": 155,
+              "isVisibleByDefault": true,
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "ServiceNow incident",
+              "columnKey": "alertExternalTicketUrl"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Historical SDT",
+              "columnKey": "alert-historical-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Grouping Criteria",
+              "columnKey": "alert-grouping-criteria"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Log Metadata",
+              "columnKey": "alert-log-metadata"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Logs Partition",
+              "columnKey": "alert-log-partition"
+            }
+          ],
+          "playSound": {
+            "criticalAlertAudioFileName": "none",
+            "errorAlertAudioFileName": "none",
+            "warningAlertAudioFileName": "none",
+            "shouldPlay": false
+          },
+          "fontsize": "medium-font",
+          "sort": "-startEpoch"
+        },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "VeloCloud SDWAN Alert Detail",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "*",
+          "anomaly": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "isEscalation": "all",
+          "dependencyRole": "",
+          "host": "",
+          "isHistoricalSdt": "all",
+          "keyword": "",
+          "dataSource": "",
+          "cleared": "all",
+          "group": "VeloCloud*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 3,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top VeloCloud Paths by Throughput (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "VcePathRxBytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VeloCloud Paths (VeloCloud_SDWAN_Paths)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## - VcePathTotRxBytes",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "RxBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": false,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "VcePathTxBytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VeloCloud Paths (VeloCloud_SDWAN_Paths)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## - VcePathTotTxBytes",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "TxBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": false,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bps",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    }
+  ],
+  "version": 2
+}

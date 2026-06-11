@@ -1,0 +1,2074 @@
+{
+  "santabaRelease": 239,
+  "defaultDashboardFilters": {
+    "defaultDashboardFilterDetails": []
+  },
+  "widgetTokens": [
+    {
+      "name": "defaultResourceGroup",
+      "value": "VeloCloud*"
+    }
+  ],
+  "name": "VeloCloud SDWAN Performance",
+  "description": "",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 1,
+        "sizey": 4
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "supportCustomProperty": false,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "isSupportCustomProperty": false,
+        "displayColumn": 3,
+        "name": "VeloCloud SDWAN Edge Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "##RESOURCENAME##",
+            "dataSourceDisplayName": "VeloCloud*",
+            "groupBy": "device",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }
+        ]
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 6,
+        "row": 5,
+        "sizey": 5
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top VeloCloud Paths by Rx Throughput (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "VcePathRxBytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VeloCloud Paths (VeloCloud_SDWAN_Paths)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## - VcePathTotRxBytes",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "RxBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bytes",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 5,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top VeloCloud Paths by Rx Latency (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "VcePathRxAvgLatency",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VeloCloud Paths (VeloCloud_SDWAN_Paths)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## - RxLatency",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "RxBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "ms",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 6,
+        "row": 10,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top VeloCloud Paths by Tx Throughput (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "VcePathTxBytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VeloCloud Paths (VeloCloud_SDWAN_Paths)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## - VcePathTotTxBytes",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "TxBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bytes",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 5,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top VeloCloud Paths by Tx Latency (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "VcePathTxAvgLatency",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VeloCloud Paths (VeloCloud_SDWAN_Paths)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## - TxLatency",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "TxLatency",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "ms",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 3,
+        "row": 1,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "propertyColumns": [],
+          "instanceColumns": [],
+          "pageSize": "5",
+          "columnsV4": [
+            {
+              "maxValue": 100,
+              "index": 0,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 1,
+              "rpn": "",
+              "dataPointName": "CpuPercent",
+              "minValue": 0,
+              "displayType": "colorBar",
+              "unitLabel": " %",
+              "id": "CpuPercent_0",
+              "position": 0,
+              "colorThresholds": [
+                {
+                  "level": 4,
+                  "threshold": 98,
+                  "relation": ">"
+                },
+                {
+                  "level": 3,
+                  "threshold": 95,
+                  "relation": ">"
+                },
+                {
+                  "level": 2,
+                  "threshold": 90,
+                  "relation": ">"
+                }
+              ],
+              "columnName": "CpuPercent"
+            }
+          ]
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "CpuPercent",
+            "displayType": "colorBar",
+            "minValue": 0,
+            "unitLabel": " %",
+            "maxValue": 100,
+            "colorThresholds": [
+              {
+                "level": 4,
+                "threshold": 98,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 95,
+                "relation": ">"
+              },
+              {
+                "level": 2,
+                "threshold": 90,
+                "relation": ">"
+              }
+            ],
+            "columnName": "CpuPercent",
+            "enableForecast": false,
+            "roundingDecimal": 1
+          }
+        ],
+        "supportCustomProperty": false,
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "ARIMA"
+        },
+        "type": "dynamicTable",
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
+        "version": 2,
+        "isSupportCustomProperty": false,
+        "topX": 25,
+        "dataSourceFullName": "VeloCloud Performance (VeloCloud_SDWAN_Performance)",
+        "sortOrder": "descending",
+        "name": "Top VeloCloud SDWAN Edges by CPU Utilization",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 3,
+        "row": 1,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "propertyColumns": [],
+          "instanceColumns": [],
+          "pageSize": "5",
+          "columnsV4": [
+            {
+              "maxValue": 100,
+              "index": 0,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 1,
+              "rpn": "",
+              "dataPointName": "MemoryPercent",
+              "minValue": 0,
+              "displayType": "colorBar",
+              "unitLabel": " %",
+              "id": "MemoryPercent_0",
+              "position": 0,
+              "colorThresholds": [
+                {
+                  "level": 4,
+                  "threshold": 98,
+                  "relation": ">"
+                },
+                {
+                  "level": 3,
+                  "threshold": 95,
+                  "relation": ">"
+                },
+                {
+                  "level": 2,
+                  "threshold": 90,
+                  "relation": ">"
+                }
+              ],
+              "columnName": "MemoryPercent"
+            }
+          ]
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "MemoryPercent",
+            "displayType": "colorBar",
+            "minValue": 0,
+            "unitLabel": " %",
+            "maxValue": 100,
+            "colorThresholds": [
+              {
+                "level": 4,
+                "threshold": 98,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 95,
+                "relation": ">"
+              },
+              {
+                "level": 2,
+                "threshold": 90,
+                "relation": ">"
+              }
+            ],
+            "columnName": "MemoryPercent",
+            "enableForecast": false,
+            "roundingDecimal": 1
+          }
+        ],
+        "supportCustomProperty": false,
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "ARIMA"
+        },
+        "type": "dynamicTable",
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
+        "version": 2,
+        "isSupportCustomProperty": false,
+        "topX": 25,
+        "dataSourceFullName": "VeloCloud Performance (VeloCloud_SDWAN_Performance)",
+        "sortOrder": "descending",
+        "name": "Top VeloCloud SDWAN Edges by Memory Utilization",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 8,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top VeloCloud Paths by Rx Jitter (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "VcePathRxJitterGauge",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VeloCloud Paths (VeloCloud_SDWAN_Paths)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## - RxJitter",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "RxJitter",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "ms",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 8,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top VeloCloud Paths by Tx Jitter (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "VcePathTxJitterGauge",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VeloCloud Paths (VeloCloud_SDWAN_Paths)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## - TxJitter",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "TxJitter",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "ms",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 11,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top VeloCloud Paths by Rx LostPkt (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "VcePathRxLostPktGauge",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VeloCloud Paths (VeloCloud_SDWAN_Paths)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## - RxLostPkt",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "RxLostPkt",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "packets",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 11,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top VeloCloud Paths by Tx LostPkt (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "VcePathTxLostPktGauge",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VeloCloud Paths (VeloCloud_SDWAN_Paths)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## - TxLostPkt",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "TxLostPkt",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "packets",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 14,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {
+          "propertyColumns": [],
+          "instanceColumns": [],
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "Name",
+              "columnSize": 150,
+              "columnKey": "name"
+            },
+            {
+              "visible": true,
+              "columnLabel": "RxLatency",
+              "columnSize": 46,
+              "columnKey": "RxLatency"
+            },
+            {
+              "visible": true,
+              "columnLabel": "TxLatency",
+              "columnSize": 55,
+              "columnKey": "TxLatency"
+            },
+            {
+              "visible": true,
+              "columnLabel": "RxLostPkt",
+              "columnSize": 53,
+              "columnKey": "RxLostPkt"
+            },
+            {
+              "visible": true,
+              "columnLabel": "TxLostPkt",
+              "columnSize": 51,
+              "columnKey": "TxLostPkt"
+            },
+            {
+              "visible": true,
+              "columnLabel": "RxJitter",
+              "columnSize": 52,
+              "columnKey": "RxJitter"
+            },
+            {
+              "visible": true,
+              "columnLabel": "TxJitter",
+              "columnSize": 56,
+              "columnKey": "TxJitter"
+            }
+          ],
+          "pageSize": "5",
+          "columnsV4": [
+            {
+              "maxValue": 100,
+              "index": 0,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "VceLinkRxLatencyGauge",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " ms",
+              "id": "undefined_0",
+              "position": 0,
+              "colorThresholds": [],
+              "columnName": "RxLatency"
+            },
+            {
+              "maxValue": 100,
+              "index": 1,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "VceLinkTxLatencyGauge",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " ms",
+              "id": "undefined_1",
+              "position": 1,
+              "colorThresholds": [],
+              "columnName": "TxLatency"
+            },
+            {
+              "maxValue": 100,
+              "index": 2,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "VceLinkRxJitterGauge",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " ms",
+              "id": "undefined_4",
+              "position": 4,
+              "colorThresholds": [],
+              "columnName": "RxJitter"
+            },
+            {
+              "maxValue": 100,
+              "index": 3,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "VceLinkTxJitterGauge",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " ms",
+              "id": "undefined_5",
+              "position": 5,
+              "colorThresholds": [],
+              "columnName": "TxJitter"
+            },
+            {
+              "maxValue": 100,
+              "index": 4,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "VceLinkRxLostPktGauge",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " pkt",
+              "id": "RxLostPkt_2",
+              "position": 2,
+              "colorThresholds": [],
+              "columnName": "RxLostPkt"
+            },
+            {
+              "maxValue": 100,
+              "index": 5,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "VceLinkTxLostPktGauge",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " pkt",
+              "id": "TxLostPkt_3",
+              "position": 3,
+              "colorThresholds": [],
+              "columnName": "TxLostPkt"
+            }
+          ]
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "VceLinkRxLatencyGauge",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ms",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "RxLatency",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "VceLinkTxLatencyGauge",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ms",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "TxLatency",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "VceLinkRxJitterGauge",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ms",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "RxJitter",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "VceLinkTxJitterGauge",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ms",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "TxJitter",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "VceLinkRxLostPktGauge",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " pkt",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "RxLostPkt",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "VceLinkTxLostPktGauge",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " pkt",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "TxLostPkt",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "supportCustomProperty": false,
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "ARIMA"
+        },
+        "type": "dynamicTable",
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME##_##INSTANCE##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
+        "version": 2,
+        "isSupportCustomProperty": false,
+        "topX": -1,
+        "dataSourceFullName": "VeloCloud Links (VeloCloud_SDWAN_Links)",
+        "sortOrder": "descending",
+        "name": "VeloCloud SDWAN Link Statistics (Realtime)",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 14,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {
+          "propertyColumns": [],
+          "instanceColumns": [],
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "Name",
+              "columnSize": 150,
+              "columnKey": "name"
+            },
+            {
+              "visible": true,
+              "columnLabel": "RxLatency",
+              "columnSize": 46,
+              "columnKey": "RxLatency"
+            },
+            {
+              "visible": true,
+              "columnLabel": "TxLatency",
+              "columnSize": 55,
+              "columnKey": "TxLatency"
+            },
+            {
+              "visible": true,
+              "columnLabel": "RxLostPkt",
+              "columnSize": 53,
+              "columnKey": "RxLostPkt"
+            },
+            {
+              "visible": true,
+              "columnLabel": "TxLostPkt",
+              "columnSize": 51,
+              "columnKey": "TxLostPkt"
+            },
+            {
+              "visible": true,
+              "columnLabel": "RxJitter",
+              "columnSize": 52,
+              "columnKey": "RxJitter"
+            },
+            {
+              "visible": true,
+              "columnLabel": "TxJitter",
+              "columnSize": 56,
+              "columnKey": "TxJitter"
+            }
+          ],
+          "pageSize": "5",
+          "columnsV4": [
+            {
+              "maxValue": 100,
+              "index": 0,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "VcePathRxAvgLatency",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " ms",
+              "id": "undefined_0",
+              "position": 0,
+              "colorThresholds": [],
+              "columnName": "RxLatency"
+            },
+            {
+              "maxValue": 100,
+              "index": 1,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "VcePathTxAvgLatency",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " ms",
+              "id": "undefined_1",
+              "position": 1,
+              "colorThresholds": [],
+              "columnName": "TxLatency"
+            },
+            {
+              "maxValue": 100,
+              "index": 2,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "VcePathRxJitterGauge",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " ms",
+              "id": "undefined_2",
+              "position": 2,
+              "colorThresholds": [],
+              "columnName": "RxJitter"
+            },
+            {
+              "maxValue": 100,
+              "index": 3,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "VcePathTxJitterGauge",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " ms",
+              "id": "undefined_3",
+              "position": 3,
+              "colorThresholds": [],
+              "columnName": "TxJitter"
+            },
+            {
+              "maxValue": 100,
+              "index": 4,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "VcePathRxLostPktGauge",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " pkt",
+              "id": "RxLostPkt_4",
+              "position": 4,
+              "colorThresholds": [],
+              "columnName": "RxLostPkt"
+            },
+            {
+              "maxValue": 100,
+              "index": 5,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "VcePathTxLostPktGauge",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " pkt",
+              "id": "TxLostPkt_5",
+              "position": 5,
+              "colorThresholds": [],
+              "columnName": "TxLostPkt"
+            }
+          ]
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "VcePathRxAvgLatency",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ms",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "RxLatency",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "VcePathTxAvgLatency",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ms",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "TxLatency",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "VcePathRxJitterGauge",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ms",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "RxJitter",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "VcePathTxJitterGauge",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " ms",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "TxJitter",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "VcePathRxLostPktGauge",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " pkt",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "RxLostPkt",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "VcePathTxLostPktGauge",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " pkt",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "TxLostPkt",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "supportCustomProperty": false,
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "ARIMA"
+        },
+        "type": "dynamicTable",
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME##_##INSTANCE##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
+        "version": 2,
+        "isSupportCustomProperty": false,
+        "topX": -1,
+        "dataSourceFullName": "VeloCloud Paths (VeloCloud_SDWAN_Paths)",
+        "sortOrder": "descending",
+        "name": "VeloCloud SDWAN Path Statistics (Realtime)",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 6,
+        "row": 17,
+        "sizey": 5
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top VeloCloud Links by Rx Throughput (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "VceLinkTotRxBytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VeloCloud Links (VeloCloud_SDWAN_Links)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_##INSTANCE## - LinkTotRxBytes",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "RxBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bytes",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 6,
+        "row": 22,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top VeloCloud Links by Tx Throughput (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "VceLinkTotTxBytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VeloCloud Links (VeloCloud_SDWAN_Links)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_##INSTANCE## - TotTxBytes",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "TxBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bytes",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 17,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top VeloCloud Links by Rx Latency (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "VceLinkRxLatencyGauge",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VeloCloud Links (VeloCloud_SDWAN_Links)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_##INSTANCE## - RxLatency",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "RxLatency",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "ms",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 20,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top VeloCloud Links by Rx Jitter (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "VceLinkRxJitterGauge",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VeloCloud Links (VeloCloud_SDWAN_Links)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_##INSTANCE## - RxJitter",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "RxJitter",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "ms",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 23,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top VeloCloud Links by Rx LostPkt (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "VceLinkRxLostPktGauge",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VeloCloud Links (VeloCloud_SDWAN_Links)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_##INSTANCE## - RxLostPkt",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "RxLostPkt",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "packets",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 17,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top VeloCloud Links by Tx Latency (Trend)_clone",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "VceLinkTxLatencyGauge",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VeloCloud Links (VeloCloud_SDWAN_Links)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_##INSTANCE## - TxLatency",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "TxLatency",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "ms",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 20,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top VeloCloud Links by Tx Jitter (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "VceLinkTxJitterGauge",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VeloCloud Links (VeloCloud_SDWAN_Links)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_##INSTANCE## - TxJitter",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "TxJitter",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "ms",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 23,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top VeloCloud Links by Tx LostPkt (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "VceLinkTxLostPktGauge",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VeloCloud Links (VeloCloud_SDWAN_Links)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_##INSTANCE## - TxLostPkt",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "TxLostPkt",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "packets",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 1,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "propertyColumns": [],
+          "instanceColumns": [],
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "Name",
+              "columnSize": 150,
+              "columnKey": "name"
+            },
+            {
+              "visible": true,
+              "columnLabel": "CacheCount",
+              "columnSize": 59,
+              "columnKey": "CacheCount"
+            },
+            {
+              "visible": true,
+              "columnLabel": "IsObserver",
+              "columnSize": 63,
+              "columnKey": "IsObserver"
+            },
+            {
+              "visible": true,
+              "columnLabel": "ObserverId",
+              "columnSize": 66,
+              "columnKey": "ObserverId"
+            }
+          ],
+          "pageSize": "5",
+          "columnsV4": [
+            {
+              "maxValue": 100,
+              "index": 0,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "CachedDeviceCount",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": "",
+              "id": "undefined_0",
+              "position": 0,
+              "colorThresholds": [],
+              "columnName": "CacheCount"
+            },
+            {
+              "maxValue": 100,
+              "index": 1,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "IsObserver",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": "",
+              "id": "undefined_1",
+              "position": 1,
+              "colorThresholds": [],
+              "columnName": "IsObserver"
+            },
+            {
+              "maxValue": 100,
+              "index": 2,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "ObserverId",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": "",
+              "id": "undefined_2",
+              "position": 2,
+              "colorThresholds": [],
+              "columnName": "ObserverId"
+            }
+          ]
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "CachedDeviceCount",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "CacheCount",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "IsObserver",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "IsObserver",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "ObserverId",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "ObserverId",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "supportCustomProperty": false,
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "ARIMA"
+        },
+        "type": "dynamicTable",
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
+        "version": 2,
+        "isSupportCustomProperty": false,
+        "topX": -1,
+        "dataSourceFullName": "VeloCloud API (VeloCloud_SDWAN_API)",
+        "sortOrder": "descending",
+        "name": "VeloCloud SDWAN API Collection Statistics (Realtime)",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 26,
+        "sizey": 6
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "Severity",
+              "columnSize": 155,
+              "isVisibleByDefault": true,
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnKey": "alert-static-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnKey": "alert-dynamic-threshold"
+            },
+            {
+              "visible": true,
+              "columnLabel": "ServiceNow incident",
+              "columnKey": "alertExternalTicketUrl"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Historical SDT",
+              "columnKey": "alert-historical-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Grouping Criteria",
+              "columnKey": "alert-grouping-criteria"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Log Metadata",
+              "columnKey": "alert-log-metadata"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Logs Partition",
+              "columnKey": "alert-log-partition"
+            }
+          ],
+          "playSound": {
+            "criticalAlertAudioFileName": "none",
+            "errorAlertAudioFileName": "none",
+            "warningAlertAudioFileName": "none",
+            "shouldPlay": false
+          },
+          "fontsize": "medium-font",
+          "sort": "-startEpoch"
+        },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "VeloCloud SDWAN Alert Detail",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "*",
+          "anomaly": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "isEscalation": "all",
+          "dependencyRole": "",
+          "host": "",
+          "isHistoricalSdt": "all",
+          "keyword": "",
+          "dataSource": "",
+          "cleared": "all",
+          "group": "VeloCloud*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2
+}
