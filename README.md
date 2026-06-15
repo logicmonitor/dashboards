@@ -1,7 +1,5 @@
 # Dashboards
 
-> Review draft generated from the current repository tree. Do not treat this as the live README until reviewed and swapped into `README.md`.
-
 This catalog lists dashboards available in this public repository; product provisioning availability may vary by environment and deployment status.
 
 LogicMonitor dashboards for download and import into LogicMonitor portals. These dashboards are examples and starting points; LogicMonitor Support can help with adjustments for specific environments.
