@@ -1,0 +1,1354 @@
+{
+  "santabaRelease": 245,
+  "defaultDashboardFilters": {
+    "defaultDashboardFilterDetails": []
+  },
+  "widgetTokens": [
+    {
+      "name": "defaultResourceGroup",
+      "value": "*"
+    },
+    {
+      "name": "technologyName",
+      "value": "TCP UDP Statistics"
+    }
+  ],
+  "name": "TCP UDP Stats",
+  "description": "",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 10,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "displayClearedAlert": true,
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "showFilter": false,
+          "displayAs": "table",
+          "overrideFilter": false
+        },
+        "displayWarnAlert": true,
+        "supportCustomProperty": false,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "widgetFilters": {},
+        "displayErrorAlert": true,
+        "isSupportCustomProperty": false,
+        "displayColumn": 6,
+        "name": "##technologyName## - Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "##RESOURCENAME##",
+            "dataSourceDisplayName": "TCP UDP stats",
+            "groupBy": "device",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }
+        ]
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [
+            {
+              "name": "TCP UDP",
+              "appliesTo": "contains(system.categories, \"snmpTCPUDP\")"
+            }
+          ],
+          "dataPoints": [],
+          "bigNumberItems": [
+            {
+              "dataPointName": "TCP UDP",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Monitored Resources",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
+        },
+        "displaySettings": {
+          "showFilter": false,
+          "overrideFilter": false
+        },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName##",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 9,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## - TCP Segments Out (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "tcpOutSegs",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## - Outbound TCP Segments/sec",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "tcpOutSegs",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "segments/sec",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 12,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## - UDP Datagrams (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "UDPInDatagrams",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## - UDP Datagrams Received/sec",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "UDPInDatagrams",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "UDPOutDatagrams",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## - UDP Datagrams Sent/sec",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "UDPOutDatagrams",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "datagrams/sec",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 15,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## - TCP Retransmissions (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": 100,
+          "dataPoints": [
+            {
+              "dataPointName": "RetransPercent",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## - TCP Retransmissions (%)",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "RetransPercent",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 15,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## - TCP Current Connections (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "tcpCurrEstab",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
+              "consolidateFunction": "max",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## - Connections EST or in Close Wait",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "CurrEstab",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "connections",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 15,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## - UDP Receive Errors (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "udpInErrors",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## - UDP Receive Errors/sec",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "UDPDrops",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "errors/sec",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 6,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## - TCP Opens Incoming (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "tcpAttemptFails",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
+              "consolidateFunction": "max",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "TCPFails",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "tcpPassiveOpens",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
+              "consolidateFunction": "max",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## - Incoming TCP Opens/sec",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "tcpPassiveOpens",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": " opens/sec",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 9,
+        "row": 3,
+        "sizey": 12
+      },
+      "config": {
+        "displaySettings": {
+          "showFilter": false,
+          "propertyColumns": [],
+          "instanceColumns": [],
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "Name",
+              "columnSize": 184,
+              "columnKey": "name"
+            },
+            {
+              "visible": true,
+              "columnLabel": "TCP Retransmissions",
+              "columnSize": 167,
+              "columnKey": "TCP Retransmissions"
+            },
+            {
+              "visible": true,
+              "columnLabel": "TCP Connections",
+              "columnSize": 145,
+              "columnKey": "TCP Connections"
+            },
+            {
+              "visible": true,
+              "columnLabel": "TCP Segments Out",
+              "columnSize": 150,
+              "columnKey": "TCP Segments Out"
+            },
+            {
+              "visible": true,
+              "columnLabel": "TCP Passive Opens",
+              "columnSize": 155,
+              "columnKey": "TCP Passive Opens"
+            },
+            {
+              "visible": true,
+              "columnLabel": "TCP Fails",
+              "columnSize": 119,
+              "columnKey": "TCP Fails"
+            },
+            {
+              "visible": true,
+              "columnLabel": "UDP Datagrams In",
+              "columnSize": 150,
+              "columnKey": "UDP Datagrams In"
+            },
+            {
+              "visible": true,
+              "columnLabel": "UDP Datagrams Out",
+              "columnSize": 150,
+              "columnKey": "UDP Datagrams Out"
+            },
+            {
+              "visible": true,
+              "columnLabel": "UDP Errors",
+              "columnSize": 150,
+              "columnKey": "UDP Errors"
+            }
+          ],
+          "pageSize": "25",
+          "columnsV4": [
+            {
+              "maxValue": 100,
+              "index": 0,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "tcpCurrEstab",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " connections",
+              "id": "undefined_1",
+              "position": 1,
+              "colorThresholds": [],
+              "columnName": "TCP Connections"
+            },
+            {
+              "maxValue": 100,
+              "index": 1,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "tcpAttemptFails",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " attempts/sec",
+              "id": "undefined_2",
+              "position": 2,
+              "colorThresholds": [],
+              "columnName": "TCP Failures"
+            },
+            {
+              "maxValue": 100,
+              "index": 2,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "tcpPassiveOpens",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " opens/ sec",
+              "id": "undefined_3",
+              "position": 3,
+              "colorThresholds": [],
+              "columnName": "TCP Passive Opens"
+            },
+            {
+              "maxValue": 100,
+              "index": 3,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "RetransPercent",
+              "displayType": "percent",
+              "minValue": 0,
+              "unitLabel": " %",
+              "id": "undefined_0",
+              "position": 0,
+              "colorThresholds": [
+                {
+                  "level": 4,
+                  "threshold": 3,
+                  "relation": ">"
+                },
+                {
+                  "level": 3,
+                  "threshold": 2,
+                  "relation": ">"
+                },
+                {
+                  "level": 2,
+                  "threshold": 1,
+                  "relation": ">"
+                }
+              ],
+              "columnName": "TCP Retransmissions"
+            },
+            {
+              "maxValue": 100,
+              "index": 4,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "tcpOutSegs",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " segments/ sec",
+              "id": "undefined_4",
+              "position": 4,
+              "colorThresholds": [],
+              "columnName": "TCP Segments Out"
+            },
+            {
+              "maxValue": 100,
+              "index": 5,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "UDPInDatagrams",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " datagrams/sec",
+              "id": "undefined_5",
+              "position": 5,
+              "colorThresholds": [],
+              "columnName": "UDP Datagrams In"
+            },
+            {
+              "maxValue": 100,
+              "index": 6,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "UDPOutDatagrams",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " datagrams/sec",
+              "id": "undefined_6",
+              "position": 6,
+              "colorThresholds": [],
+              "columnName": "UDP Datagrams Out"
+            },
+            {
+              "maxValue": 100,
+              "index": 7,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "udpInErrors",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " errors/sec",
+              "id": "undefined_7",
+              "position": 7,
+              "colorThresholds": [],
+              "columnName": "UDP Errors"
+            }
+          ],
+          "overrideFilter": false
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "tcpCurrEstab",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " connections",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "TCP Connections",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "tcpAttemptFails",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " attempts/sec",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "TCP Failures",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "tcpPassiveOpens",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " opens/ sec",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "TCP Passive Opens",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "RetransPercent",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": " %",
+            "maxValue": 100,
+            "colorThresholds": [
+              {
+                "level": 4,
+                "threshold": 3,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 2,
+                "relation": ">"
+              },
+              {
+                "level": 2,
+                "threshold": 1,
+                "relation": ">"
+              }
+            ],
+            "columnName": "TCP Retransmissions",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "tcpOutSegs",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " segments/ sec",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "TCP Segments Out",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "UDPInDatagrams",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " datagrams/sec",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "UDP Datagrams In",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "UDPOutDatagrams",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " datagrams/sec",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "UDP Datagrams Out",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "udpInErrors",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " errors/sec",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "UDP Errors",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "supportCustomProperty": false,
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "ARIMA"
+        },
+        "type": "dynamicTable",
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
+        "version": 2,
+        "widgetFilters": {},
+        "isSupportCustomProperty": false,
+        "topX": -1,
+        "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
+        "sortOrder": "descending",
+        "name": "##technologyName##",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 18,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "isRightAligned": true,
+              "visible": true,
+              "columnLabel": "Severity",
+              "columnSize": 155,
+              "isSortable": true,
+              "minSize": 82,
+              "componentName": "AlertSeverityChipCell",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Reported At",
+              "passthroughProps": {
+                "hasRelativeTime": true
+              },
+              "columnSize": 196,
+              "isSortable": true,
+              "componentName": "SpaceDateTime",
+              "columnKey": "alert-began",
+              "dataPath": [
+                "reportedAtMS"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource",
+              "passthroughProps": {
+                "hasDisplayName": true,
+                "hasIcon": false
+              },
+              "columnSize": 213,
+              "isSortable": true,
+              "componentName": "ForeignKeyCell",
+              "columnKey": "alert-device",
+              "dataPath": [
+                "monitoredObjectId"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "passthroughProps": {
+                "hasDisplayName": true,
+                "hasIcon": false
+              },
+              "columnSize": 120,
+              "isSortable": true,
+              "componentName": "ForeignKeyCell",
+              "columnKey": "alert-datasource",
+              "dataPath": [
+                "moduleId"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "passthroughProps": {
+                "hasDisplayName": true,
+                "hasIcon": false
+              },
+              "columnSize": 120,
+              "isSortable": true,
+              "componentName": "ForeignKeyCell",
+              "columnKey": "alert-datasource-instance",
+              "dataPath": [
+                "instanceId"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnSize": 120,
+              "isSortable": true,
+              "componentName": "SpaceId",
+              "columnKey": "alert-datapoint",
+              "dataPath": [
+                "datapointId"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Alert Value",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "AlertValue",
+              "columnKey": "alert-value",
+              "dataPath": [
+                "alertValue"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "ThresholdCell",
+              "columnKey": "alert-static-threshold",
+              "dataPath": [
+                "threshold"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "ThresholdCell",
+              "columnKey": "alert-dynamic-threshold",
+              "dataPath": [
+                "threshold"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "ServiceNow incident",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "SNIncidentCell",
+              "columnKey": "alertExternalTicketUrl",
+              "dataPath": [
+                "alertExternalTicketUrl"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "passthroughProps": {
+                "hasIcon": false,
+                "type": "dg"
+              },
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "AlertWidgetGroupsCell",
+              "columnKey": "alert-group",
+              "dataPath": [
+                "monitoredObjectGroups"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-notes",
+              "dataPath": [
+                "notes"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "ACK By",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-acked-by",
+              "dataPath": [
+                "ACKBy"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "ACK At",
+              "passthroughProps": {
+                "hasRelativeTime": false
+              },
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "SpaceDateTime",
+              "columnKey": "alert-acked-on",
+              "dataPath": [
+                "ACKAtMS"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared At",
+              "passthroughProps": {
+                "hasRelativeTime": true
+              },
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "SpaceDateTime",
+              "columnKey": "alert-cleared-on",
+              "dataPath": [
+                "clearedAtMS"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Is In SDT",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-in-sdt",
+              "dataPath": [
+                "isSDT"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Historical SDT",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "HistoricalSdtCell",
+              "columnKey": "alert-historical-sdt",
+              "dataPath": [
+                "sdtIds"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "SpaceId",
+              "columnKey": "alert-rule-name",
+              "dataPath": [
+                "ruleId"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "SpaceId",
+              "columnKey": "alert-escalation-chain",
+              "dataPath": [
+                "escalationChainId"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-datasource-instance-description",
+              "dataPath": [
+                "instanceDescription"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-full-path",
+              "dataPath": [
+                "fullPath"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notification State",
+              "columnSize": 120,
+              "isSortable": false,
+              "columnKey": "alert-routing-state",
+              "dataPath": [
+                "dependencyRoutingState"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-dependency-role",
+              "dataPath": [
+                "dependencyRole"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts Count",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-dependent-alerts",
+              "dataPath": [
+                "dependentAlertsCount"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Grouping Criteria",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-grouping-criteria",
+              "dataPath": [
+                "alertGroupEntityValue"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Log Metadata",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-log-metadata",
+              "dataPath": [
+                "logMetaData"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Logs Partition",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-log-partition",
+              "dataPath": [
+                "logPartition"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Suppression Type",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-suppression-type",
+              "dataPath": [
+                "suppressionType"
+              ]
+            }
+          ],
+          "playSound": {
+            "criticalAlertAudioFileName": "none",
+            "errorAlertAudioFileName": "none",
+            "warningAlertAudioFileName": "none",
+            "shouldPlay": false
+          },
+          "fontsize": "medium-font",
+          "sort": "-startEpoch"
+        },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## - Alert Detail",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "*",
+          "anomaly": "",
+          "dataPoint": "",
+          "isIncludeDeletedResourceOrWebsite": "yes",
+          "rule": "",
+          "acked": "all",
+          "suppressionType": "",
+          "dependencyRoutingState": "",
+          "isEscalation": "all",
+          "dependencyRole": "",
+          "host": "",
+          "isHistoricalSdt": "all",
+          "keyword": "",
+          "dataSource": "TCP UDP stats",
+          "cleared": "all",
+          "group": "*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 3,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## - TCP Failures (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "tcpAttemptFails",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## - Failed TCP Connection Attempts/sec",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "TCPFails",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "tcpPassiveOpens",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
+              "consolidateFunction": "max",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "tcpPassiveOpens",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "attempts/sec ",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    }
+  ],
+  "version": 2,
+  "group": {
+    "name": "Common",
+    "fullPath": "LogicMonitor Dashboards/Network/Common",
+    "description": ""
+  }
+}

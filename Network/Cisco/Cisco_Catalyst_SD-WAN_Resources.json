@@ -1,0 +1,3331 @@
+{
+  "santabaRelease": 245,
+  "defaultDashboardFilters": {
+    "defaultDashboardFilterDetails": []
+  },
+  "widgetTokens": [
+    {
+      "name": "defaultResourceGroup",
+      "value": "Devices by Type/Cisco Catalyst SDWAN"
+    },
+    {
+      "name": "technologyName",
+      "value": "Cisco Catalyst SD-WAN"
+    }
+  ],
+  "name": "Cisco Catalyst SD-WAN Resources",
+  "description": "",
+  "overwriteGroupFields": false,
+  "widgetsConfigVersion": 2,
+  "type": "dashboard",
+  "widgets": [
+    {
+      "position": {
+        "col": 3,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [
+            {
+              "name": "Devices",
+              "appliesTo": "contains(system.categories, \"CiscoSDWANSmart\")"
+            }
+          ],
+          "dataPoints": [],
+          "bigNumberItems": [
+            {
+              "dataPointName": "Devices",
+              "useCommaSeparators": true,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "vSmart Resources",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
+        },
+        "displaySettings": {
+          "showFilter": false,
+          "overrideFilter": false
+        },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 49,
+        "sizey": 5
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": true,
+          "showFilter": false,
+          "columns": [
+            {
+              "isRightAligned": true,
+              "visible": true,
+              "columnLabel": "Severity",
+              "columnSize": 104,
+              "isSortable": true,
+              "minSize": 82,
+              "componentName": "AlertSeverityChipCell",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Reported At",
+              "passthroughProps": {
+                "hasRelativeTime": true
+              },
+              "columnSize": 291,
+              "isSortable": true,
+              "componentName": "SpaceDateTime",
+              "columnKey": "alert-began",
+              "dataPath": [
+                "reportedAtMS"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource",
+              "passthroughProps": {
+                "hasDisplayName": true,
+                "hasIcon": false
+              },
+              "columnSize": 161,
+              "isSortable": true,
+              "componentName": "ForeignKeyCell",
+              "columnKey": "alert-device",
+              "dataPath": [
+                "monitoredObjectId"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "passthroughProps": {
+                "hasDisplayName": true,
+                "hasIcon": false
+              },
+              "columnSize": 220,
+              "isSortable": true,
+              "componentName": "ForeignKeyCell",
+              "columnKey": "alert-datasource",
+              "dataPath": [
+                "moduleId"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "passthroughProps": {
+                "hasDisplayName": true,
+                "hasIcon": false
+              },
+              "columnSize": 194,
+              "isSortable": true,
+              "componentName": "ForeignKeyCell",
+              "columnKey": "alert-datasource-instance",
+              "dataPath": [
+                "instanceId"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnSize": 120,
+              "isSortable": true,
+              "componentName": "SpaceId",
+              "columnKey": "alert-datapoint",
+              "dataPath": [
+                "datapointId"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Alert Value",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "AlertValue",
+              "columnKey": "alert-value",
+              "dataPath": [
+                "alertValue"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "ThresholdCell",
+              "columnKey": "alert-static-threshold",
+              "dataPath": [
+                "threshold"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "ThresholdCell",
+              "columnKey": "alert-dynamic-threshold",
+              "dataPath": [
+                "threshold"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "passthroughProps": {
+                "hasIcon": false,
+                "type": "dg"
+              },
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "AlertWidgetGroupsCell",
+              "columnKey": "alert-group",
+              "dataPath": [
+                "monitoredObjectGroups"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-notes",
+              "dataPath": [
+                "notes"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "ACK By",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-acked-by",
+              "dataPath": [
+                "ACKBy"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "ACK At",
+              "passthroughProps": {
+                "hasRelativeTime": false
+              },
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "SpaceDateTime",
+              "columnKey": "alert-acked-on",
+              "dataPath": [
+                "ACKAtMS"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared At",
+              "passthroughProps": {
+                "hasRelativeTime": true
+              },
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "SpaceDateTime",
+              "columnKey": "alert-cleared-on",
+              "dataPath": [
+                "clearedAtMS"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Is In SDT",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-in-sdt",
+              "dataPath": [
+                "isSDT"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "SpaceId",
+              "columnKey": "alert-rule-name",
+              "dataPath": [
+                "ruleId"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "SpaceId",
+              "columnKey": "alert-escalation-chain",
+              "dataPath": [
+                "escalationChainId"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-datasource-instance-description",
+              "dataPath": [
+                "instanceDescription"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-full-path",
+              "dataPath": [
+                "fullPath"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notification State",
+              "columnSize": 120,
+              "isSortable": false,
+              "columnKey": "alert-routing-state",
+              "dataPath": [
+                "dependencyRoutingState"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-dependency-role",
+              "dataPath": [
+                "dependencyRole"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts Count",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-dependent-alerts",
+              "dataPath": [
+                "dependentAlertsCount"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "ServiceNow incident",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "SNIncidentCell",
+              "columnKey": "alertExternalTicketUrl",
+              "dataPath": [
+                "alertExternalTicketUrl"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Historical SDT",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "HistoricalSdtCell",
+              "columnKey": "alert-historical-sdt",
+              "dataPath": [
+                "sdtIds"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Suppression Type",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-suppression-type",
+              "dataPath": [
+                "suppressionType"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Grouping Criteria",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-grouping-criteria",
+              "dataPath": [
+                "alertGroupEntityValue"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Log Metadata",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-log-metadata",
+              "dataPath": [
+                "logMetaData"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Logs Partition",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-log-partition",
+              "dataPath": [
+                "logPartition"
+              ]
+            }
+          ],
+          "playSound": {
+            "criticalAlertAudioFileName": "none",
+            "errorAlertAudioFileName": "none",
+            "warningAlertAudioFileName": "none",
+            "shouldPlay": false
+          },
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## - Alert Detail",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "anomaly": "",
+          "dataPoint": "",
+          "isIncludeDeletedResourceOrWebsite": "yes",
+          "rule": "",
+          "acked": "all",
+          "suppressionType": "",
+          "dependencyRoutingState": "",
+          "isEscalation": "all",
+          "dependencyRole": "",
+          "host": "",
+          "isHistoricalSdt": "all",
+          "keyword": "",
+          "dataSource": "Catalyst SDWAN*",
+          "cleared": "no",
+          "group": ""
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 8,
+        "sizex": 5,
+        "row": 33,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## - CPU Utilization (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 100,
+          "maxValue": 100,
+          "dataPoints": [
+            {
+              "dataPointName": "cpuUtilization",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Catalyst SDWAN Performance (Cisco_Catalyst_SDWAN_Performance)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "cpuUtilization",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displayClearedAlert": true,
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table",
+          "showFilter": false,
+          "overrideFilter": false
+        },
+        "displayWarnAlert": true,
+        "supportCustomProperty": false,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "widgetFilters": {},
+        "displayErrorAlert": true,
+        "isSupportCustomProperty": false,
+        "displayColumn": 2,
+        "name": "##technologyName## - Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "##RESOURCENAME##",
+            "dataSourceDisplayName": "Catalyst SDWAN*",
+            "groupBy": "device",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }
+        ]
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 24,
+        "sizey": 2
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## - Interfaces by Dropped Packets Rx (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 100,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "receiveDrops",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Catalyst SDWAN Network Interfaces (Cisco_Catalyst_SDWAN_NetworkInterfaces)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##_##INSTANCE##",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "receiveDrops",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            }
+          ],
+          "verticalLabel": "count",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2hour",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 8,
+        "sizex": 5,
+        "row": 36,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## - Memory Utilization (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 100,
+          "maxValue": 100,
+          "dataPoints": [
+            {
+              "dataPointName": "memoryUtilization",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Catalyst SDWAN Performance (Cisco_Catalyst_SDWAN_Performance)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "memoryUtilization",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 28,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## - Network Interfaces by Throughput Rx (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "receiveRate",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Catalyst SDWAN Network Interfaces (Cisco_Catalyst_SDWAN_NetworkInterfaces)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## - ##INSTANCE##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "receiveRate",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            }
+          ],
+          "verticalLabel": "bps",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 28,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## - Network Interfaces by Throughput Tx (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "transmitRate",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Catalyst SDWAN Network Interfaces (Cisco_Catalyst_SDWAN_NetworkInterfaces)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## - ##INSTANCE##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "transmitRate",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            }
+          ],
+          "verticalLabel": "bps",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 8,
+        "row": 21,
+        "sizey": 7
+      },
+      "config": {
+        "displaySettings": {
+          "showFilter": false,
+          "propertyColumns": [],
+          "instanceColumns": [],
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "Name",
+              "columnSize": 309,
+              "columnKey": "name"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Status",
+              "columnSize": 93,
+              "columnKey": "Status"
+            },
+            {
+              "visible": true,
+              "columnLabel": "ReceiveRate",
+              "columnSize": 118,
+              "columnKey": "ReceiveRate"
+            },
+            {
+              "visible": true,
+              "columnLabel": "ReceiveErrors",
+              "columnSize": 133,
+              "columnKey": "ReceiveErrors"
+            },
+            {
+              "visible": true,
+              "columnLabel": "TransmitRate",
+              "columnSize": 136,
+              "columnKey": "TransmitRate"
+            },
+            {
+              "visible": true,
+              "columnLabel": "TransmitErrors",
+              "columnSize": 136,
+              "columnKey": "TransmitErrors"
+            },
+            {
+              "visible": true,
+              "columnLabel": "UpCapacity",
+              "columnSize": 125,
+              "columnKey": "UpCapacity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "DownCapacity",
+              "columnSize": 132,
+              "columnKey": "DownCapacity"
+            }
+          ],
+          "pageSize": "15",
+          "columnsV4": [
+            {
+              "maxValue": 0,
+              "index": 0,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "operatingStatus",
+              "displayType": "colorBar",
+              "minValue": -1,
+              "unitLabel": "",
+              "id": "undefined_0",
+              "position": 0,
+              "colorThresholds": [
+                {
+                  "level": 4,
+                  "threshold": 0,
+                  "relation": "="
+                },
+                {
+                  "level": 3,
+                  "threshold": 0,
+                  "relation": "="
+                },
+                {
+                  "level": 2,
+                  "threshold": 0,
+                  "relation": "="
+                }
+              ],
+              "columnName": "Status"
+            },
+            {
+              "maxValue": 100,
+              "index": 1,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "receiveKbps",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " kbps",
+              "id": "undefined_1",
+              "position": 1,
+              "colorThresholds": [],
+              "columnName": "ReceiveRate"
+            },
+            {
+              "maxValue": 100,
+              "index": 2,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "receiveErrors",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " errors",
+              "id": "undefined_2",
+              "position": 2,
+              "colorThresholds": [],
+              "columnName": "ReceiveErrors"
+            },
+            {
+              "maxValue": 100,
+              "index": 3,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "transmitBytes",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " kbps",
+              "id": "undefined_3",
+              "position": 3,
+              "colorThresholds": [],
+              "columnName": "TransmitRate"
+            },
+            {
+              "maxValue": 100,
+              "index": 4,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "transmitErrors",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " errors",
+              "id": "undefined_4",
+              "position": 4,
+              "colorThresholds": [],
+              "columnName": "TransmitErrors"
+            },
+            {
+              "maxValue": 100,
+              "index": 5,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "upCapacityPercentage",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": "%",
+              "id": "undefined_5",
+              "position": 5,
+              "colorThresholds": [],
+              "columnName": "UpCapacity"
+            },
+            {
+              "maxValue": 100,
+              "index": 6,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "downCapacityPercentage",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": "%",
+              "id": "undefined_6",
+              "position": 6,
+              "colorThresholds": [],
+              "columnName": "DownCapacity"
+            }
+          ],
+          "overrideFilter": false
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "operatingStatus",
+            "displayType": "colorBar",
+            "minValue": -1,
+            "unitLabel": "",
+            "maxValue": 0,
+            "colorThresholds": [
+              {
+                "level": 4,
+                "threshold": 0,
+                "relation": "="
+              },
+              {
+                "level": 3,
+                "threshold": 0,
+                "relation": "="
+              },
+              {
+                "level": 2,
+                "threshold": 0,
+                "relation": "="
+              }
+            ],
+            "columnName": "Status",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "receiveKbps",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " kbps",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "ReceiveRate",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "receiveErrors",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " errors",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "ReceiveErrors",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "transmitBytes",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " kbps",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "TransmitRate",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "transmitErrors",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " errors",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "TransmitErrors",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "upCapacityPercentage",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "%",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "UpCapacity",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "downCapacityPercentage",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "%",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "DownCapacity",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "supportCustomProperty": false,
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "ARIMA"
+        },
+        "type": "dynamicTable",
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME## - ##INSTANCE##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
+        "version": 2,
+        "widgetFilters": {},
+        "isSupportCustomProperty": false,
+        "topX": -1,
+        "dataSourceFullName": "Catalyst SDWAN Network Interfaces (Cisco_Catalyst_SDWAN_NetworkInterfaces)",
+        "sortOrder": "descending",
+        "name": "##technologyName## - Network Interfaces Statistics",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 19,
+        "sizey": 2
+      },
+      "config": {
+        "displayClearedAlert": true,
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table",
+          "showFilter": false,
+          "overrideFilter": false
+        },
+        "displayWarnAlert": true,
+        "supportCustomProperty": false,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "widgetFilters": {},
+        "displayErrorAlert": true,
+        "isSupportCustomProperty": false,
+        "displayColumn": 5,
+        "name": "##technologyName## - Network Interfaces Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "##RESOURCENAME## - ##INSTANCE##",
+            "dataSourceDisplayName": "Catalyst SDWAN Network Interfaces",
+            "groupBy": "instance",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }
+        ]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 8,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "vizInfo": {
+          "alertFilters": {
+            "datapointsFilterMode": "INCLUDE",
+            "isIgnoreSdtAlerts": false,
+            "datapointFilters": []
+          },
+          "groupBy": [
+            {
+              "name": "auto.cisco.sdwan.device.type",
+              "label": "",
+              "type": "RESOURCE_PROPERTY"
+            },
+            {
+              "name": "auto.endpoint.model",
+              "label": "",
+              "type": "RESOURCE_PROPERTY"
+            }
+          ],
+          "filterBy": {
+            "severityFilters": {
+              "critical": true,
+              "warning": true,
+              "none": true,
+              "error": true
+            },
+            "filters": [
+              {
+                "name": "auto.cisco.sdwan.device.type",
+                "label": "",
+                "type": "RESOURCE_PROPERTY",
+                "inclusionType": "INCLUDE",
+                "value": [
+                  {
+                    "label": "",
+                    "value": "0"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "displaySettings": {
+          "zoomLevel": 100,
+          "showFilter": false,
+          "sortType": "ALERT_SEVERITY",
+          "fontSize": "small",
+          "visualizationLayout": "HIVE"
+        },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## - Resource Breakdown",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "type": "viz",
+        "timescale": "day",
+        "version": 2,
+        "widgetConfig": "{\"vizInfo\": {\n  \"alertFilters\": {\n    \"datapointsFilterMode\": \"INCLUDE\",\n    \"isIgnoreSdtAlerts\": false,\n    \"datapointFilters\": []\n  },\n  \"groupBy\": [\n    {\n      \"name\": \"auto.cisco.sdwan.device.type\",\n      \"label\": \"\",\n      \"type\": \"RESOURCE_PROPERTY\"\n    },\n    {\n      \"name\": \"auto.endpoint.model\",\n      \"label\": \"\",\n      \"type\": \"RESOURCE_PROPERTY\"\n    }\n  ],\n  \"filterBy\": {\n    \"severityFilters\": {\n      \"critical\": true,\n      \"warning\": true,\n      \"none\": true,\n      \"error\": true\n    },\n    \"filters\": [{\n      \"name\": \"auto.cisco.sdwan.device.type\",\n      \"label\": \"\",\n      \"type\": \"RESOURCE_PROPERTY\",\n      \"inclusionType\": \"INCLUDE\",\n      \"value\": [{\n        \"label\": \"\",\n        \"value\": \"0\"\n      }]\n    }]\n  }\n}}"
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 8,
+        "row": 42,
+        "sizey": 7
+      },
+      "config": {
+        "displaySettings": {
+          "showFilter": false,
+          "propertyColumns": [
+            {
+              "auto.cisco.sdwan.device.type": {
+                "index": 4,
+                "columnName": "Type"
+              }
+            }
+          ],
+          "instanceColumns": [],
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "Name",
+              "columnSize": 154,
+              "columnKey": "name"
+            },
+            {
+              "visible": true,
+              "columnLabel": "State",
+              "columnSize": 150,
+              "columnKey": "State"
+            },
+            {
+              "visible": true,
+              "columnLabel": "SystemStatus",
+              "columnSize": 109,
+              "columnKey": "SystemStatus"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Reachability",
+              "columnSize": 150,
+              "columnKey": "Reachability"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Validity",
+              "columnSize": 101,
+              "columnKey": "Validity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Uptime",
+              "columnSize": 150,
+              "columnKey": "Uptime"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Type",
+              "columnSize": 150,
+              "columnKey": "Type"
+            }
+          ],
+          "pageSize": "15",
+          "columnsV4": [
+            {
+              "maxValue": 0,
+              "index": 0,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "state",
+              "minValue": -1,
+              "displayType": "colorBar",
+              "unitLabel": "",
+              "id": "undefined_0",
+              "position": 0,
+              "colorThresholds": [
+                {
+                  "level": 4,
+                  "threshold": 4,
+                  "relation": "="
+                },
+                {
+                  "level": 3,
+                  "threshold": 3,
+                  "relation": "="
+                },
+                {
+                  "level": 2,
+                  "threshold": 2,
+                  "relation": "="
+                }
+              ],
+              "columnName": "State"
+            },
+            {
+              "maxValue": 0,
+              "index": 1,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "reachability",
+              "minValue": -1,
+              "displayType": "colorBar",
+              "unitLabel": "",
+              "id": "undefined_1",
+              "position": 1,
+              "colorThresholds": [
+                {
+                  "level": 4,
+                  "threshold": 0,
+                  "relation": "="
+                },
+                {
+                  "level": 3,
+                  "threshold": 0,
+                  "relation": "="
+                },
+                {
+                  "level": 2,
+                  "threshold": 0,
+                  "relation": "="
+                }
+              ],
+              "columnName": "Reachability"
+            },
+            {
+              "maxValue": 100,
+              "index": 2,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "bfdSessionsUp",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " sessions",
+              "id": "undefined_2",
+              "position": 2,
+              "colorThresholds": [],
+              "columnName": "BFD Sessions Up"
+            },
+            {
+              "maxValue": 0,
+              "index": 3,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "systemStatusState",
+              "minValue": -1,
+              "displayType": "raw",
+              "unitLabel": "",
+              "id": "undefined_3",
+              "position": 3,
+              "colorThresholds": [],
+              "columnName": "SystemStatus"
+            },
+            {
+              "maxValue": 0,
+              "index": 5,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "Uptime/60/60",
+              "dataPointName": "uptimeSeconds",
+              "minValue": -1,
+              "displayType": "raw",
+              "unitLabel": " hours",
+              "id": "undefined_4",
+              "position": 4,
+              "colorThresholds": [],
+              "columnName": "Uptime"
+            },
+            {
+              "maxValue": 0,
+              "index": 6,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "validity",
+              "minValue": -1,
+              "displayType": "raw",
+              "unitLabel": "",
+              "id": "undefined_5",
+              "position": 5,
+              "colorThresholds": [],
+              "columnName": "Validity"
+            }
+          ],
+          "overrideFilter": false
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "state",
+            "displayType": "colorBar",
+            "minValue": -1,
+            "unitLabel": "",
+            "maxValue": 0,
+            "colorThresholds": [
+              {
+                "level": 4,
+                "threshold": 4,
+                "relation": "="
+              },
+              {
+                "level": 3,
+                "threshold": 3,
+                "relation": "="
+              },
+              {
+                "level": 2,
+                "threshold": 2,
+                "relation": "="
+              }
+            ],
+            "columnName": "State",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "reachability",
+            "displayType": "colorBar",
+            "minValue": -1,
+            "unitLabel": "",
+            "maxValue": 0,
+            "colorThresholds": [
+              {
+                "level": 4,
+                "threshold": 0,
+                "relation": "="
+              },
+              {
+                "level": 3,
+                "threshold": 0,
+                "relation": "="
+              },
+              {
+                "level": 2,
+                "threshold": 0,
+                "relation": "="
+              }
+            ],
+            "columnName": "Reachability",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "bfdSessionsUp",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " sessions",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "BFD Sessions Up",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "systemStatusState",
+            "displayType": "raw",
+            "minValue": -1,
+            "unitLabel": "",
+            "maxValue": 0,
+            "colorThresholds": [],
+            "columnName": "SystemStatus",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "Uptime/60/60",
+            "dataPointName": "uptimeSeconds",
+            "displayType": "raw",
+            "minValue": -1,
+            "unitLabel": " hours",
+            "maxValue": 0,
+            "colorThresholds": [],
+            "columnName": "Uptime",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "validity",
+            "displayType": "raw",
+            "minValue": -1,
+            "unitLabel": "",
+            "maxValue": 0,
+            "colorThresholds": [],
+            "columnName": "Validity",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "supportCustomProperty": false,
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "ARIMA"
+        },
+        "type": "dynamicTable",
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
+        "version": 2,
+        "widgetFilters": {},
+        "isSupportCustomProperty": false,
+        "topX": -1,
+        "dataSourceFullName": "Catalyst SDWAN Device Health (Cisco_Catalyst_SDWAN_DeviceHealth)",
+        "sortOrder": "descending",
+        "name": "##technologyName## - Resource Health",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 7,
+        "row": 33,
+        "sizey": 9
+      },
+      "config": {
+        "displaySettings": {
+          "showFilter": false,
+          "propertyColumns": [],
+          "instanceColumns": [],
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "Name",
+              "columnSize": 150,
+              "columnKey": "name"
+            },
+            {
+              "visible": true,
+              "columnLabel": "CPU Utilization",
+              "columnSize": 150,
+              "columnKey": "CPU Utilization"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Memory Utilization",
+              "columnSize": 150,
+              "columnKey": "Memory Utilization"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Storage Utilization",
+              "columnSize": 129,
+              "columnKey": "Storage Utilization"
+            },
+            {
+              "visible": true,
+              "columnLabel": "DiskUsed",
+              "columnSize": 111,
+              "columnKey": "DiskUsed"
+            },
+            {
+              "visible": true,
+              "columnLabel": "DiskAvailable",
+              "columnSize": 113,
+              "columnKey": "DiskAvailable"
+            }
+          ],
+          "pageSize": "20",
+          "columnsV4": [
+            {
+              "maxValue": 100,
+              "index": 0,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "cpuUtilization",
+              "minValue": 0,
+              "displayType": "percent",
+              "unitLabel": "",
+              "id": "undefined_0",
+              "position": 0,
+              "colorThresholds": [
+                {
+                  "level": 4,
+                  "threshold": 90,
+                  "relation": ">"
+                },
+                {
+                  "level": 3,
+                  "threshold": 80,
+                  "relation": ">"
+                },
+                {
+                  "level": 2,
+                  "threshold": 70,
+                  "relation": ">"
+                }
+              ],
+              "columnName": "CPU Utilization"
+            },
+            {
+              "maxValue": 100,
+              "index": 1,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "memoryUtilization",
+              "minValue": 0,
+              "displayType": "percent",
+              "unitLabel": "",
+              "id": "undefined_1",
+              "position": 1,
+              "colorThresholds": [
+                {
+                  "level": 4,
+                  "threshold": 90,
+                  "relation": ">"
+                },
+                {
+                  "level": 3,
+                  "threshold": 80,
+                  "relation": ">"
+                },
+                {
+                  "level": 2,
+                  "threshold": 70,
+                  "relation": ">"
+                }
+              ],
+              "columnName": "Memory Utilization"
+            },
+            {
+              "maxValue": 100,
+              "index": 2,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "storageUtilization",
+              "minValue": 0,
+              "displayType": "raw",
+              "unitLabel": "%",
+              "id": "undefined_2",
+              "position": 2,
+              "colorThresholds": [],
+              "columnName": "Storage Utilization"
+            },
+            {
+              "maxValue": 100,
+              "index": 3,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "DiskUsed/1024/1024/1024",
+              "dataPointName": "diskUsed",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": "GB",
+              "id": "undefined_3",
+              "position": 3,
+              "colorThresholds": [],
+              "columnName": "DiskUsed"
+            },
+            {
+              "maxValue": 100,
+              "index": 4,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "DiskAvailable/1024/1024/1024",
+              "dataPointName": "diskAvail",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": "GB",
+              "id": "undefined_4",
+              "position": 4,
+              "colorThresholds": [],
+              "columnName": "DiskAvailable"
+            }
+          ],
+          "overrideFilter": false
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "cpuUtilization",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [
+              {
+                "level": 4,
+                "threshold": 90,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 80,
+                "relation": ">"
+              },
+              {
+                "level": 2,
+                "threshold": 70,
+                "relation": ">"
+              }
+            ],
+            "columnName": "CPU Utilization",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "memoryUtilization",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [
+              {
+                "level": 4,
+                "threshold": 90,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 80,
+                "relation": ">"
+              },
+              {
+                "level": 2,
+                "threshold": 70,
+                "relation": ">"
+              }
+            ],
+            "columnName": "Memory Utilization",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "storageUtilization",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "%",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Storage Utilization",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "DiskUsed/1024/1024/1024",
+            "dataPointName": "diskUsed",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "GB",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "DiskUsed",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "DiskAvailable/1024/1024/1024",
+            "dataPointName": "diskAvail",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "GB",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "DiskAvailable",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "supportCustomProperty": false,
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "ARIMA"
+        },
+        "type": "dynamicTable",
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
+        "version": 2,
+        "widgetFilters": {},
+        "isSupportCustomProperty": false,
+        "topX": 25,
+        "dataSourceFullName": "Catalyst SDWAN Performance (Cisco_Catalyst_SDWAN_Performance)",
+        "sortOrder": "descending",
+        "name": "##technologyName## - Resource Performance",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 45,
+        "sizey": 2
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## - Resources by Least BFD Sessions (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "bfdSessionsUp",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Catalyst SDWAN Device Health (Cisco_Catalyst_SDWAN_DeviceHealth)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "sessions",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": false,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "sessions",
+          "aggregate": false,
+          "desc": false,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 47,
+        "sizey": 2
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## - Resources by Least Reachability (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "reachability",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Catalyst SDWAN Device Health (Cisco_Catalyst_SDWAN_DeviceHealth)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "reachability",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": false,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "",
+          "aggregate": false,
+          "desc": false,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 42,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## - Resources by Least Uptime (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [
+            {
+              "rpn": "uptime/60/60/24",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "uptimeDays"
+            }
+          ],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "uptimeSeconds",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Catalyst SDWAN Device Health (Cisco_Catalyst_SDWAN_DeviceHealth)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "uptime",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": false,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "days",
+          "aggregate": false,
+          "desc": false,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 8,
+        "sizex": 5,
+        "row": 39,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## - Storage Utilization (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": 100,
+          "dataPoints": [
+            {
+              "dataPointName": "storageUtilization",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Catalyst SDWAN Performance (Cisco_Catalyst_SDWAN_Performance)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "storageUtilization",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": false,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "7days",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 9,
+        "row": 7,
+        "sizey": 6
+      },
+      "config": {
+        "displaySettings": {
+          "showFilter": false,
+          "propertyColumns": [],
+          "instanceColumns": [],
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "Name",
+              "columnSize": 408,
+              "columnKey": "name"
+            },
+            {
+              "visible": true,
+              "columnLabel": "State",
+              "columnSize": 150,
+              "columnKey": "State"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Jitter",
+              "columnSize": 94,
+              "columnKey": "Jitter"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Latency",
+              "columnSize": 103,
+              "columnKey": "Latency"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Loss",
+              "columnSize": 150,
+              "columnKey": "Loss"
+            },
+            {
+              "visible": true,
+              "columnLabel": "vQoE.Score",
+              "columnSize": 118,
+              "columnKey": "vQoE.Score"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Receive",
+              "columnSize": 150,
+              "columnKey": "Receive"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Transmit",
+              "columnSize": 150,
+              "columnKey": "Transmit"
+            }
+          ],
+          "pageSize": "10",
+          "columnsV4": [
+            {
+              "maxValue": 0,
+              "index": 0,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "state",
+              "minValue": -1,
+              "displayType": "colorBar",
+              "unitLabel": "",
+              "id": "undefined_0",
+              "position": 0,
+              "colorThresholds": [
+                {
+                  "level": 4,
+                  "threshold": 4,
+                  "relation": "="
+                },
+                {
+                  "level": 3,
+                  "threshold": 3,
+                  "relation": "="
+                },
+                {
+                  "level": 2,
+                  "threshold": 2,
+                  "relation": "="
+                }
+              ],
+              "columnName": "State"
+            },
+            {
+              "maxValue": 0,
+              "index": 1,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "jitter",
+              "minValue": -1,
+              "displayType": "raw",
+              "unitLabel": " ms",
+              "id": "Jitter_1",
+              "position": 1,
+              "colorThresholds": [],
+              "columnName": "Jitter"
+            },
+            {
+              "maxValue": 0,
+              "index": 2,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "latency",
+              "minValue": -1,
+              "displayType": "raw",
+              "unitLabel": " ms",
+              "id": "Latency_2",
+              "position": 2,
+              "colorThresholds": [],
+              "columnName": "Latency"
+            },
+            {
+              "maxValue": 100,
+              "index": 3,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "lossPercentage",
+              "minValue": 0,
+              "displayType": "percent",
+              "unitLabel": "",
+              "id": "undefined_3",
+              "position": 3,
+              "colorThresholds": [
+                {
+                  "level": 4,
+                  "threshold": 90,
+                  "relation": ">"
+                },
+                {
+                  "level": 3,
+                  "threshold": 80,
+                  "relation": ">"
+                },
+                {
+                  "level": 2,
+                  "threshold": 70,
+                  "relation": ">"
+                }
+              ],
+              "columnName": "Loss"
+            },
+            {
+              "maxValue": 100,
+              "index": 4,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "",
+              "dataPointName": "vqoeScore",
+              "minValue": 0,
+              "displayType": "raw",
+              "unitLabel": "",
+              "id": "undefined_4",
+              "position": 4,
+              "colorThresholds": [],
+              "columnName": "vQoE.Score"
+            },
+            {
+              "maxValue": 100,
+              "index": 5,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "Receive/1024/1024",
+              "dataPointName": "receiveOctets",
+              "minValue": 0,
+              "displayType": "raw",
+              "unitLabel": " MB",
+              "id": "undefined_5",
+              "position": 5,
+              "colorThresholds": [],
+              "columnName": "Receive"
+            },
+            {
+              "maxValue": 100,
+              "index": 6,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 2,
+              "rpn": "Transmit/1024/1024",
+              "dataPointName": "transmitOctets",
+              "minValue": 0,
+              "displayType": "raw",
+              "unitLabel": " MB",
+              "id": "undefined_6",
+              "position": 6,
+              "colorThresholds": [],
+              "columnName": "Transmit"
+            }
+          ],
+          "overrideFilter": false
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "state",
+            "displayType": "colorBar",
+            "minValue": -1,
+            "unitLabel": "",
+            "maxValue": 0,
+            "colorThresholds": [
+              {
+                "level": 4,
+                "threshold": 4,
+                "relation": "="
+              },
+              {
+                "level": 3,
+                "threshold": 3,
+                "relation": "="
+              },
+              {
+                "level": 2,
+                "threshold": 2,
+                "relation": "="
+              }
+            ],
+            "columnName": "State",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "jitter",
+            "displayType": "raw",
+            "minValue": -1,
+            "unitLabel": " ms",
+            "maxValue": 0,
+            "colorThresholds": [],
+            "columnName": "Jitter",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "latency",
+            "displayType": "raw",
+            "minValue": -1,
+            "unitLabel": " ms",
+            "maxValue": 0,
+            "colorThresholds": [],
+            "columnName": "Latency",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "lossPercentage",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [
+              {
+                "level": 4,
+                "threshold": 90,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 80,
+                "relation": ">"
+              },
+              {
+                "level": 2,
+                "threshold": 70,
+                "relation": ">"
+              }
+            ],
+            "columnName": "Loss",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "vqoeScore",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "vQoE.Score",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "Receive/1024/1024",
+            "dataPointName": "receiveOctets",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " MB",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Receive",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "Transmit/1024/1024",
+            "dataPointName": "transmitOctets",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " MB",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Transmit",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "supportCustomProperty": false,
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "ARIMA"
+        },
+        "type": "dynamicTable",
+        "rows": [
+          {
+            "instanceName": "*",
+            "label": "##RESOURCENAME## - ##INSTANCE##",
+            "deviceDisplayName": "*",
+            "groupFullPath": "##defaultResourceGroup##"
+          }
+        ],
+        "version": 2,
+        "widgetFilters": {},
+        "isSupportCustomProperty": false,
+        "topX": -1,
+        "dataSourceFullName": "Catalyst SDWAN Tunnels (Cisco_Catalyst_SDWAN_Tunnels)",
+        "sortOrder": "descending",
+        "name": "##technologyName## - Tunnel Health",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 7,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## - Tunnels by Aggregate Throughput (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [
+            {
+              "rpn": "receiveOctets*8",
+              "display": {
+                "color": "aqua",
+                "legend": "Receive bytes",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "receiveBytes"
+            },
+            {
+              "rpn": "transmitOctets*8",
+              "display": {
+                "color": "green",
+                "legend": "Transmit bytes",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "transmitBytes"
+            }
+          ],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "receiveOctets",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Catalyst SDWAN Tunnels (Cisco_Catalyst_SDWAN_Tunnels)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "receiveOctets",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            },
+            {
+              "dataPointName": "transmitOctets",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Catalyst SDWAN Tunnels (Cisco_Catalyst_SDWAN_Tunnels)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "transmitOctets",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            }
+          ],
+          "verticalLabel": "bytes",
+          "aggregate": true,
+          "desc": false,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 16,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## - Tunnels by Jitter (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 100,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "jitter",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Catalyst SDWAN Tunnels (Cisco_Catalyst_SDWAN_Tunnels)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## - ##INSTANCE##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "jitter",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            }
+          ],
+          "verticalLabel": "milliseconds",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 16,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## - Tunnels by Latency (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 100,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "latency",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Catalyst SDWAN Tunnels (Cisco_Catalyst_SDWAN_Tunnels)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## - ##INSTANCE##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "latency",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            }
+          ],
+          "verticalLabel": "milliseconds",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 10,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## - Tunnels by Packet Loss (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 100,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "lossPercentage",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Catalyst SDWAN Tunnels (Cisco_Catalyst_SDWAN_Tunnels)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## - ##INSTANCE##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "lossPercentage",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            }
+          ],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 13,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## - Tunnels by Receive Throughput (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [
+            {
+              "rpn": "receiveOctets*8",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## - ##INSTANCE##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "receiveBytes"
+            }
+          ],
+          "minValue": 0,
+          "topX": 100,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "receiveOctets",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Catalyst SDWAN Tunnels (Cisco_Catalyst_SDWAN_Tunnels)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "receiveOctets",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            }
+          ],
+          "verticalLabel": "bytes",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 13,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## - Tunnels by Transmit Throughput (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [
+            {
+              "rpn": "transmitOctets*8",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## - ##INSTANCE##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "transmitBytes"
+            }
+          ],
+          "minValue": 0,
+          "topX": 100,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "transmitOctets",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Catalyst SDWAN Tunnels (Cisco_Catalyst_SDWAN_Tunnels)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "transmitOctets",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            }
+          ],
+          "verticalLabel": "bytes",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 16,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## - Tunnels by vQoE Score (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "vqoeScore",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Catalyst SDWAN Tunnels (Cisco_Catalyst_SDWAN_Tunnels)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## - ##INSTANCE##",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "vqoeScore",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            }
+          ],
+          "verticalLabel": "score",
+          "aggregate": false,
+          "desc": false,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "state",
+              "instanceName": "*",
+              "dataSourceFullName": "Catalyst SDWAN Tunnels (Cisco_Catalyst_SDWAN_Tunnels)",
+              "name": "tunnels",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [
+            {
+              "dataPointName": "tunnels",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Tunnels Up",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
+        },
+        "displaySettings": {
+          "showFilter": false,
+          "overrideFilter": false
+        },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "operatingStatus",
+              "instanceName": "*",
+              "dataSourceFullName": "Catalyst SDWAN Network Interfaces (Cisco_Catalyst_SDWAN_NetworkInterfaces)",
+              "name": "Interfaces",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [
+            {
+              "dataPointName": "Interfaces",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Network Interfaces Up",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
+        },
+        "displaySettings": {
+          "showFilter": false,
+          "overrideFilter": false
+        },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 21,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Cisco Catalyst SDWAN - Interfaces by Aggregate Throughput Rate (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "receiveRate",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Catalyst SDWAN Network Interfaces (Cisco_Catalyst_SDWAN_NetworkInterfaces)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "aqua",
+                "legend": "Receive Bps",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "receiveRate",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            },
+            {
+              "dataPointName": "transmitRate",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Catalyst SDWAN Network Interfaces (Cisco_Catalyst_SDWAN_NetworkInterfaces)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "olive",
+                "legend": "Transmit Bps",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "transmitRate",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            }
+          ],
+          "verticalLabel": "bps",
+          "aggregate": true,
+          "desc": false,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 26,
+        "sizey": 2
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Cisco Catalyst SDWAN - Interfaces by Dropped Packets Tx (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 100,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "transmitDrops",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Catalyst SDWAN Network Interfaces (Cisco_Catalyst_SDWAN_NetworkInterfaces)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## - ##INSTANCE##",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "transmitDrops",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            }
+          ],
+          "verticalLabel": "count",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2hour",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [
+            {
+              "name": "Devices",
+              "appliesTo": "contains(system.categories, \"CiscoSDWANEdge\")"
+            }
+          ],
+          "dataPoints": [],
+          "bigNumberItems": [
+            {
+              "dataPointName": "Devices",
+              "useCommaSeparators": true,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "vEdge Resources",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
+        },
+        "displaySettings": {
+          "showFilter": false,
+          "overrideFilter": false
+        },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [
+            {
+              "name": "Devices",
+              "appliesTo": "contains(system.categories, \"CiscoSDWANManage\")"
+            }
+          ],
+          "dataPoints": [],
+          "bigNumberItems": [
+            {
+              "dataPointName": "Devices",
+              "useCommaSeparators": true,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "vManage Resources",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
+        },
+        "displaySettings": {
+          "showFilter": false,
+          "overrideFilter": false
+        },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [
+            {
+              "name": "Devices",
+              "appliesTo": "contains(system.categories, \"CiscoSDWANBond\")"
+            }
+          ],
+          "dataPoints": [],
+          "bigNumberItems": [
+            {
+              "dataPointName": "Devices",
+              "useCommaSeparators": true,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "vBond Resources",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
+        },
+        "displaySettings": {
+          "showFilter": false,
+          "overrideFilter": false
+        },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    }
+  ],
+  "version": 2,
+  "group": {
+    "name": "Cisco",
+    "fullPath": "LogicMonitor Dashboards/Network/Cisco",
+    "description": ""
+  }
+}
