@@ -1,202 +1,123 @@
 {
-  "santabaRelease": 222,
+  "santabaRelease": 246,
+  "defaultDashboardFilters": {
+    "defaultDashboardFilterDetails": []
+  },
   "widgetTokens": [
     {
       "name": "defaultResourceGroup",
-      "value": "*"
+      "value": "Devices by Type/Veeam VBR"
+    },
+    {
+      "name": "technologyName",
+      "value": "Veeam"
     }
   ],
   "name": "Veeam Backup & Replication",
-  "description": "",
+  "description": "A dashboard for Veeam VBR Rest API Devices",
   "overwriteGroupFields": false,
   "widgetsConfigVersion": 2,
   "type": "dashboard",
   "widgets": [
     {
       "position": {
-        "col": 1,
-        "sizex": 12,
-        "row": 16,
+        "col": 9,
+        "sizex": 4,
+        "row": 11,
         "sizey": 3
-      },
-      "config": {
-        "displaySettings": {
-          "isShowAll": false,
-          "showFilter": false,
-          "columns": [
-            {
-              "visible": false,
-              "columnLabel": "Severity",
-              "columnKey": "alert-severity"
-            },
-            {
-              "visible": true,
-              "columnLabel": "Began",
-              "columnSize": 220,
-              "columnKey": "alert-began"
-            },
-            {
-              "visible": true,
-              "columnLabel": "Resource/Website",
-              "columnSize": 173,
-              "columnKey": "alert-device"
-            },
-            {
-              "visible": true,
-              "columnLabel": "LogicModule",
-              "columnSize": 202,
-              "columnKey": "alert-datasource"
-            },
-            {
-              "visible": true,
-              "columnLabel": "Instance",
-              "columnSize": 388,
-              "columnKey": "alert-datasource-instance"
-            },
-            {
-              "visible": true,
-              "columnLabel": "Datapoint",
-              "columnSize": 115,
-              "columnKey": "alert-datapoint"
-            },
-            {
-              "visible": true,
-              "columnLabel": "Value",
-              "columnSize": 79,
-              "columnKey": "alert-value"
-            },
-            {
-              "visible": true,
-              "columnLabel": "Routing State",
-              "columnSize": 116,
-              "columnKey": "alert-routing-state"
-            },
-            {
-              "visible": true,
-              "columnLabel": "Static Threshold",
-              "columnSize": 104,
-              "columnKey": "alert-static-threshold"
-            },
-            {
-              "visible": true,
-              "columnLabel": "Dynamic Threshold",
-              "columnSize": 124,
-              "columnKey": "alert-dynamic-threshold"
-            },
-            {
-              "visible": false,
-              "columnLabel": "Group",
-              "columnKey": "alert-group"
-            },
-            {
-              "visible": true,
-              "columnLabel": "Notes",
-              "columnSize": 237,
-              "columnKey": "alert-notes"
-            },
-            {
-              "visible": false,
-              "columnLabel": "Acknowledged By",
-              "columnKey": "alert-acked-by"
-            },
-            {
-              "visible": false,
-              "columnLabel": "Acknowledged On",
-              "columnKey": "alert-acked-on"
-            },
-            {
-              "visible": false,
-              "columnLabel": "Cleared On",
-              "columnKey": "alert-cleared-on"
-            },
-            {
-              "visible": false,
-              "columnLabel": "In SDT",
-              "columnKey": "alert-in-sdt"
-            },
-            {
-              "visible": false,
-              "columnLabel": "Alert Rule",
-              "columnKey": "alert-rule-name"
-            },
-            {
-              "visible": false,
-              "columnLabel": "Escalation Chain",
-              "columnKey": "alert-escalation-chain"
-            },
-            {
-              "visible": false,
-              "columnLabel": "Instance Description",
-              "columnKey": "alert-datasource-instance-description"
-            },
-            {
-              "visible": false,
-              "columnLabel": "Full Path",
-              "columnKey": "alert-full-path"
-            },
-            {
-              "visible": false,
-              "columnLabel": "Dependency Role",
-              "columnKey": "alert-dependency-role"
-            },
-            {
-              "visible": false,
-              "columnLabel": "Dependent Alerts",
-              "columnKey": "alert-dependent-alerts"
-            }
-          ],
-          "playSound": {
-            "criticalAlertAudioFileName": "",
-            "errorAlertAudioFileName": "",
-            "warningAlertAudioFileName": "",
-            "shouldPlay": false
-          },
-          "fontsize": "normal-font",
-          "sort": "-startEpoch"
-        },
-        "isSupportCustomProperty": false,
-        "supportCustomProperty": false,
-        "name": "Veeam Backup Alert Detail",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "filters": {
-          "severity": "",
-          "sdted": "all",
-          "chain": "",
-          "instance": "",
-          "anomaly": "all",
-          "dataPoint": "",
-          "rule": "",
-          "acked": "all",
-          "dependencyRoutingState": "",
-          "dependencyRole": "",
-          "host": "",
-          "keyword": "",
-          "dataSource": "Veeam*",
-          "cleared": "no",
-          "group": "%23%23defaultResourceGroup%23%23*"
-        },
-        "type": "alert",
-        "timescale": "day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 1,
-        "sizex": 7,
-        "row": 9,
-        "sizey": 4
       },
       "config": {
         "displaySettings": {},
         "isSupportCustomProperty": false,
         "supportCustomProperty": false,
-        "name": "Top Veeam Backups by Duration (Trend)",
+        "name": "##technologyName## Repository Capacity (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
-        "interval": 10,
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 5,
+          "maxValue": 100,
+          "dataPoints": [
+            {
+              "dataPointName": "percentUsed",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Veeam VBR Repositories (Veeam_VBR_Repositories)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## used",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "percentUsed",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": false,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "percentFree",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Veeam VBR Repositories (Veeam_VBR_Repositories)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE## free",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "percentFree",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": false,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "percent used",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 8,
+        "sizex": 5,
+        "row": 5,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "Top ##technologyName## Backup Jobs by Duration (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
         "graphInfo": {
           "virtualDataPoints": [
             {
@@ -215,12 +136,12 @@
           "maxValue": "NaN",
           "dataPoints": [
             {
-              "dataPointName": "Duration",
+              "dataPointName": "sessionDurationSeconds",
               "instanceName": {
                 "isGlob": true,
                 "value": "*"
               },
-              "dataSourceFullName": "Veeam Jobs: Backups (Veeam_BackupAndReplication_Jobs_Backups)",
+              "dataSourceFullName": "Veeam VBR Backup Jobs (Veeam_VBR_BackupJobs)",
               "consolidateFunction": "average",
               "display": {
                 "color": null,
@@ -235,7 +156,7 @@
                 "value": "*"
               },
               "deviceGroupFullPath": {
-                "isGlob": true,
+                "isGlob": false,
                 "value": "##defaultResourceGroup##"
               }
             }
@@ -243,94 +164,486 @@
           "verticalLabel": "minutes",
           "aggregate": false,
           "desc": true,
-          "scaleUnit": 1000,
-          "globalConsolidateFunction": "default"
-        },
-        "type": "cgraph",
-        "timescale": "7days",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 6,
-        "sizex": 7,
-        "row": 13,
-        "sizey": 3
-      },
-      "config": {
-        "displaySettings": {},
-        "isSupportCustomProperty": false,
-        "supportCustomProperty": false,
-        "name": "Top Veeam Repositories by Free Space (Trend)",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "graphInfo": {
-          "virtualDataPoints": [],
-          "minValue": 0,
-          "topX": 10,
-          "maxValue": "NaN",
-          "dataPoints": [
-            {
-              "dataPointName": "CachedFreeSpace",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "Veeam Repositories (Veeam_BackupAndReplication_Repositories)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": "Auto",
-                "legend": "##INSTANCE## - ##RESOURCENAME##",
-                "type": "area",
-                "option": "custom"
-              },
-              "name": "CachedFreeSpace",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "##defaultResourceGroup##"
-              }
-            }
-          ],
-          "verticalLabel": "bytes",
-          "aggregate": false,
-          "desc": true,
           "scaleUnit": 1024,
           "globalConsolidateFunction": "default"
         },
         "type": "cgraph",
         "timescale": "7days",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 14,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": true,
+          "showFilter": false,
+          "columns": [
+            {
+              "isRightAligned": true,
+              "visible": true,
+              "columnLabel": "Severity",
+              "columnSize": 112,
+              "isSortable": true,
+              "minSize": 82,
+              "componentName": "AlertSeverityChipCell",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Reported At",
+              "passthroughProps": {
+                "hasRelativeTime": true
+              },
+              "columnSize": 269,
+              "isSortable": true,
+              "componentName": "SpaceDateTime",
+              "columnKey": "alert-began",
+              "dataPath": [
+                "reportedAtMS"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource",
+              "passthroughProps": {
+                "hasDisplayName": true,
+                "hasIcon": false
+              },
+              "columnSize": 173,
+              "isSortable": true,
+              "componentName": "ForeignKeyCell",
+              "columnKey": "alert-device",
+              "dataPath": [
+                "monitoredObjectId"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "passthroughProps": {
+                "hasDisplayName": true,
+                "hasIcon": false
+              },
+              "columnSize": 285,
+              "isSortable": true,
+              "componentName": "ForeignKeyCell",
+              "columnKey": "alert-datasource",
+              "dataPath": [
+                "moduleId"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "passthroughProps": {
+                "hasDisplayName": true,
+                "hasIcon": false
+              },
+              "columnSize": 246,
+              "isSortable": true,
+              "componentName": "ForeignKeyCell",
+              "columnKey": "alert-datasource-instance",
+              "dataPath": [
+                "instanceId"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnSize": 235,
+              "isSortable": true,
+              "componentName": "SpaceId",
+              "columnKey": "alert-datapoint",
+              "dataPath": [
+                "datapointId"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Alert Value",
+              "columnSize": 79,
+              "isSortable": false,
+              "componentName": "AlertValue",
+              "columnKey": "alert-value",
+              "dataPath": [
+                "alertValue"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notification State",
+              "columnSize": 116,
+              "isSortable": false,
+              "columnKey": "alert-routing-state",
+              "dataPath": [
+                "dependencyRoutingState"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Static Threshold",
+              "columnSize": 104,
+              "isSortable": false,
+              "componentName": "ThresholdCell",
+              "columnKey": "alert-static-threshold",
+              "dataPath": [
+                "threshold"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Dynamic Threshold",
+              "columnSize": 124,
+              "isSortable": false,
+              "componentName": "ThresholdCell",
+              "columnKey": "alert-dynamic-threshold",
+              "dataPath": [
+                "threshold"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "passthroughProps": {
+                "hasIcon": false,
+                "type": "dg"
+              },
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "AlertWidgetGroupsCell",
+              "columnKey": "alert-group",
+              "dataPath": [
+                "monitoredObjectGroups"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Notes",
+              "columnSize": 237,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-notes",
+              "dataPath": [
+                "notes"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "ACK By",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-acked-by",
+              "dataPath": [
+                "ACKBy"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "ACK At",
+              "passthroughProps": {
+                "hasRelativeTime": false
+              },
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "SpaceDateTime",
+              "columnKey": "alert-acked-on",
+              "dataPath": [
+                "ACKAtMS"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared At",
+              "passthroughProps": {
+                "hasRelativeTime": true
+              },
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "SpaceDateTime",
+              "columnKey": "alert-cleared-on",
+              "dataPath": [
+                "clearedAtMS"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Is In SDT",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-in-sdt",
+              "dataPath": [
+                "isSDT"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "SpaceId",
+              "columnKey": "alert-rule-name",
+              "dataPath": [
+                "ruleId"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "SpaceId",
+              "columnKey": "alert-escalation-chain",
+              "dataPath": [
+                "escalationChainId"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-datasource-instance-description",
+              "dataPath": [
+                "instanceDescription"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-full-path",
+              "dataPath": [
+                "fullPath"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-dependency-role",
+              "dataPath": [
+                "dependencyRole"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts Count",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-dependent-alerts",
+              "dataPath": [
+                "dependentAlertsCount"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "ServiceNow incident",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "SNIncidentCell",
+              "columnKey": "alertExternalTicketUrl",
+              "dataPath": [
+                "alertExternalTicketUrl"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "ConnectWise incident",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "ExternalTicketLinksCell",
+              "columnKey": "connectwiseTicketLinks",
+              "dataPath": [
+                "alertExternalTicketUrl",
+                "connectwiseTicketLinks"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "PagerDuty incident",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "ExternalTicketLinksCell",
+              "columnKey": "pagerdutyIncidentLinks",
+              "dataPath": [
+                "alertExternalTicketUrl",
+                "pagerdutyIncidentLinks"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "JSM incident",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "ExternalTicketLinksCell",
+              "columnKey": "jsmIssueLinks",
+              "dataPath": [
+                "alertExternalTicketUrl",
+                "jsmIssueLinks"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Custom HTTP incident",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "ExternalTicketLinksCell",
+              "columnKey": "customHttpTicketLinks",
+              "dataPath": [
+                "alertExternalTicketUrl",
+                "customHttpTicketLinks"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Autotask incident",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "ExternalTicketLinksCell",
+              "columnKey": "autotaskTicketLinks",
+              "dataPath": [
+                "alertExternalTicketUrl",
+                "autotaskTicketLinks"
+              ]
+            },
+            {
+              "visible": true,
+              "columnLabel": "Historical SDT",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "HistoricalSdtCell",
+              "columnKey": "alert-historical-sdt",
+              "dataPath": [
+                "sdtIds"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Suppression Type",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-suppression-type",
+              "dataPath": [
+                "suppressionType"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Grouping Criteria",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-grouping-criteria",
+              "dataPath": [
+                "alertGroupEntityValue"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Log Metadata",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-log-metadata",
+              "dataPath": [
+                "logMetaData"
+              ]
+            },
+            {
+              "visible": false,
+              "columnLabel": "Logs Partition",
+              "columnSize": 120,
+              "isSortable": false,
+              "componentName": "Body1",
+              "columnKey": "alert-log-partition",
+              "dataPath": [
+                "logPartition"
+              ]
+            }
+          ],
+          "playSound": {
+            "criticalAlertAudioFileName": "",
+            "errorAlertAudioFileName": "",
+            "warningAlertAudioFileName": "",
+            "shouldPlay": false
+          },
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## Backup Alert Detail",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "anomaly": "all",
+          "dataPoint": "",
+          "isIncludeDeletedResourceOrWebsite": "yes",
+          "rule": "",
+          "acked": "all",
+          "suppressionType": "",
+          "dependencyRoutingState": "",
+          "isEscalation": "all",
+          "dependencyRole": "",
+          "host": "",
+          "isHistoricalSdt": "all",
+          "keyword": "",
+          "dataSource": "*Veeam*",
+          "cleared": "no",
+          "group": ""
+        },
+        "type": "alert",
+        "timescale": "day",
         "version": 2
       }
     },
     {
       "position": {
         "col": 1,
-        "sizex": 3,
-        "row": 1,
+        "sizex": 4,
+        "row": 3,
         "sizey": 2
       },
       "config": {
+        "displayClearedAlert": true,
         "ackChecked": true,
         "displaySettings": {
           "showTypeIcon": true,
-          "displayAs": "table"
+          "displayAs": "table",
+          "showFilter": false,
+          "overrideFilter": false
         },
         "displayWarnAlert": true,
         "supportCustomProperty": false,
         "description": "",
         "type": "noc",
         "version": 2,
+        "widgetFilters": {},
         "displayErrorAlert": true,
         "isSupportCustomProperty": false,
         "displayColumn": 1,
-        "name": "Veeam Backup Alert Status",
+        "name": "##technologyName## Backup Server Alert Status",
         "displayCriticalAlert": true,
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -353,144 +666,167 @@
     },
     {
       "position": {
-        "col": 8,
-        "sizex": 5,
+        "col": 5,
+        "sizex": 4,
         "row": 3,
-        "sizey": 4
+        "sizey": 2
       },
       "config": {
-        "displaySettings": {},
-        "isSupportCustomProperty": false,
+        "displayClearedAlert": false,
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table",
+          "showFilter": false,
+          "overrideFilter": false
+        },
+        "displayWarnAlert": true,
         "supportCustomProperty": false,
-        "name": "Top Veeam Backup Sessions by Duration (Trend)",
         "description": "",
+        "type": "noc",
+        "version": 2,
+        "widgetFilters": {},
+        "displayErrorAlert": true,
+        "isSupportCustomProperty": false,
+        "displayColumn": 6,
+        "name": "##technologyName## Backup Jobs Alert Status",
+        "displayCriticalAlert": true,
         "theme": "newSolidDarkBlue",
         "interval": 3,
-        "graphInfo": {
-          "virtualDataPoints": [
-            {
-              "rpn": "Duration/60",
-              "display": {
-                "color": "Auto",
-                "legend": "##INSTANCE## - ##RESOURCENAME##",
-                "type": "stack",
-                "option": "custom"
-              },
-              "name": "minutes"
-            }
-          ],
-          "minValue": 0,
-          "topX": 10,
-          "maxValue": "NaN",
-          "dataPoints": [
-            {
-              "dataPointName": "Duration",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "Veeam Jobs: Backup Sessions (Veeam_BackupAndReplication_BackupSessions)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": null,
-                "legend": null,
-                "type": "line",
-                "option": "none"
-              },
-              "name": "Duration",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "##defaultResourceGroup##"
-              }
-            }
-          ],
-          "verticalLabel": "minutes",
-          "aggregate": false,
-          "desc": true,
-          "scaleUnit": 1000,
-          "globalConsolidateFunction": "default"
-        },
-        "type": "cgraph",
-        "timescale": "2days",
-        "version": 2
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "##INSTANCE## - ##RESOURCENAME##",
+            "dataSourceDisplayName": "Veeam VBR Backup Jobs",
+            "groupBy": "instance",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }
+        ]
       }
     },
     {
       "position": {
         "col": 1,
         "sizex": 7,
-        "row": 3,
-        "sizey": 4
+        "row": 5,
+        "sizey": 6
       },
       "config": {
         "displaySettings": {
+          "showFilter": false,
           "columns": [
             {
               "visible": true,
-              "columnLabel": "\n        Name\n        \n    ",
+              "columnLabel": "Name",
               "columnSize": 295,
-              "columnKey": "device-name-1452842526600"
+              "columnKey": "name"
             },
             {
               "visible": true,
-              "columnLabel": "\n            Duration\n            \n        ",
+              "columnLabel": "Duration",
               "columnSize": 108,
-              "columnKey": "0"
+              "columnKey": "Duration"
             },
             {
               "visible": true,
-              "columnLabel": "\n            Progress\n            \n        ",
-              "columnSize": 124,
-              "columnKey": "1"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            Speed\n            \n        ",
-              "columnSize": 93,
-              "columnKey": "2"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            Result\n            \n        ",
-              "columnSize": 76,
-              "columnKey": "3"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            State\n            \n        ",
-              "columnSize": 48,
-              "columnKey": "4"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            Will Retry\n            \n        ",
-              "columnSize": 91,
-              "columnKey": "5"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            ProcessedSize\n            \n        ",
+              "columnLabel": "ProcessedSize",
               "columnSize": 104,
-              "columnKey": "6"
+              "columnKey": "ProcessedSize"
             },
             {
               "visible": true,
-              "columnLabel": "\n            TotalSize\n            \n        ",
-              "columnSize": 106,
-              "columnKey": "7"
+              "columnLabel": "ReadSize",
+              "columnSize": 126,
+              "columnKey": "ReadSize"
+            },
+            {
+              "visible": true,
+              "columnLabel": "TransferredSize",
+              "columnSize": 150,
+              "columnKey": "TransferredSize"
             }
           ],
-          "pageSize": "10"
+          "propertyColumns": [],
+          "instanceColumns": [],
+          "pageSize": "10",
+          "columnsV4": [
+            {
+              "maxValue": 100,
+              "index": 0,
+              "enableForecast": false,
+              "roundingDecimal": 0,
+              "propertiesOptions": "1",
+              "rpn": "Duration/60",
+              "dataPointName": "sessionDurationSeconds",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " minutes",
+              "position": 0,
+              "id": "undefined_0",
+              "colorThresholds": [],
+              "columnName": "Duration"
+            },
+            {
+              "maxValue": 100,
+              "index": 1,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 0,
+              "rpn": "processedSize/1000000000",
+              "dataPointName": "processedSizeBytes",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " GB",
+              "id": "undefined_1",
+              "position": 1,
+              "colorThresholds": [],
+              "columnName": "ProcessedSize"
+            },
+            {
+              "maxValue": 100,
+              "index": 2,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 0,
+              "rpn": "ReadSize/1000000000",
+              "dataPointName": "readSizeBytes",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " GB",
+              "id": "undefined_2",
+              "position": 2,
+              "colorThresholds": [],
+              "columnName": "ReadSize"
+            },
+            {
+              "maxValue": 100,
+              "index": 3,
+              "propertiesOptions": "1",
+              "enableForecast": false,
+              "roundingDecimal": 0,
+              "rpn": "transferredSize/1000000000",
+              "dataPointName": "transferredSizeBytes",
+              "displayType": "raw",
+              "minValue": 0,
+              "unitLabel": " GB",
+              "id": "undefined_3",
+              "position": 3,
+              "colorThresholds": [],
+              "columnName": "TransferredSize"
+            }
+          ],
+          "overrideFilter": false
         },
         "columns": [
           {
             "rpn": "Duration/60",
-            "dataPointName": "Duration",
+            "dataPointName": "sessionDurationSeconds",
             "displayType": "raw",
             "minValue": 0,
             "unitLabel": " minutes",
@@ -498,93 +834,11 @@
             "colorThresholds": [],
             "columnName": "Duration",
             "enableForecast": false,
-            "roundingDecimal": 2
+            "roundingDecimal": 0
           },
           {
-            "rpn": "",
-            "dataPointName": "Progress",
-            "displayType": "percent",
-            "minValue": 0,
-            "unitLabel": "",
-            "maxValue": 100,
-            "colorThresholds": [
-              {
-                "level": 2,
-                "threshold": 100,
-                "relation": "!="
-              }
-            ],
-            "columnName": "Progress",
-            "enableForecast": false,
-            "roundingDecimal": 2
-          },
-          {
-            "rpn": "Speed/1024/1024",
-            "dataPointName": "AvgSpeed",
-            "displayType": "raw",
-            "minValue": 0,
-            "unitLabel": " MBps",
-            "maxValue": 100,
-            "colorThresholds": [],
-            "columnName": "Speed",
-            "enableForecast": false,
-            "roundingDecimal": 2
-          },
-          {
-            "rpn": "",
-            "dataPointName": "Result",
-            "displayType": "colorBar",
-            "minValue": -1,
-            "unitLabel": "",
-            "maxValue": 2,
-            "colorThresholds": [
-              {
-                "level": 2,
-                "threshold": -1,
-                "relation": "="
-              },
-              {
-                "level": 3,
-                "threshold": 1,
-                "relation": "="
-              },
-              {
-                "level": 4,
-                "threshold": 2,
-                "relation": "="
-              }
-            ],
-            "columnName": "Result",
-            "enableForecast": false,
-            "roundingDecimal": 2
-          },
-          {
-            "rpn": "",
-            "dataPointName": "State",
-            "displayType": "raw",
-            "minValue": 0,
-            "unitLabel": "",
-            "maxValue": 100,
-            "colorThresholds": [],
-            "columnName": "State",
-            "enableForecast": false,
-            "roundingDecimal": 2
-          },
-          {
-            "rpn": "",
-            "dataPointName": "WillBeRetried",
-            "displayType": "raw",
-            "minValue": 0,
-            "unitLabel": "",
-            "maxValue": 100,
-            "colorThresholds": [],
-            "columnName": "Will Retry",
-            "enableForecast": false,
-            "roundingDecimal": 2
-          },
-          {
-            "rpn": "ProcessedSize/1024/1024/1024",
-            "dataPointName": "ProcessedUsedSize",
+            "rpn": "processedSize/1000000000",
+            "dataPointName": "processedSizeBytes",
             "displayType": "raw",
             "minValue": 0,
             "unitLabel": " GB",
@@ -592,19 +846,31 @@
             "colorThresholds": [],
             "columnName": "ProcessedSize",
             "enableForecast": false,
-            "roundingDecimal": 2
+            "roundingDecimal": 0
           },
           {
-            "rpn": "TotalSize/1024/1024/1024",
-            "dataPointName": "TotalUsedSize",
+            "rpn": "ReadSize/1000000000",
+            "dataPointName": "readSizeBytes",
             "displayType": "raw",
             "minValue": 0,
             "unitLabel": " GB",
             "maxValue": 100,
             "colorThresholds": [],
-            "columnName": "TotalSize",
+            "columnName": "ReadSize",
             "enableForecast": false,
-            "roundingDecimal": 2
+            "roundingDecimal": 0
+          },
+          {
+            "rpn": "transferredSize/1000000000",
+            "dataPointName": "transferredSizeBytes",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " GB",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "TransferredSize",
+            "enableForecast": false,
+            "roundingDecimal": 0
           }
         ],
         "supportCustomProperty": false,
@@ -613,7 +879,7 @@
           "severity": "warn",
           "confidence": 70,
           "timeRange": "Last 30 days",
-          "algorithm": "Linear"
+          "algorithm": "ARIMA"
         },
         "type": "dynamicTable",
         "rows": [
@@ -625,11 +891,12 @@
           }
         ],
         "version": 2,
+        "widgetFilters": {},
         "isSupportCustomProperty": false,
         "topX": 25,
-        "dataSourceFullName": "Veeam Jobs: Backup Sessions (Veeam_BackupAndReplication_BackupSessions)",
+        "dataSourceFullName": "Veeam VBR Backup Jobs (Veeam_VBR_BackupJobs)",
         "sortOrder": "descending",
-        "name": "Veeam Backup Session Statistics",
+        "name": "##technologyName## Backup Jobs Statistics",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -637,7 +904,53 @@
     },
     {
       "position": {
-        "col": 11,
+        "col": 9,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 2
+      },
+      "config": {
+        "displayClearedAlert": false,
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": false,
+          "displayAs": "table",
+          "showFilter": false,
+          "overrideFilter": false
+        },
+        "displayWarnAlert": true,
+        "supportCustomProperty": false,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "widgetFilters": {},
+        "displayErrorAlert": true,
+        "isSupportCustomProperty": false,
+        "displayColumn": 6,
+        "name": "##technologyName## Backup Session Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "##INSTANCE## - ##RESOURCENAME##",
+            "dataSourceDisplayName": "Veeam VBR Backup Jobs Session Health",
+            "groupBy": "instance",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }
+        ]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
         "sizex": 2,
         "row": 1,
         "sizey": 2
@@ -648,7 +961,7 @@
           "counters": [
             {
               "name": "veeam_servers",
-              "appliesTo": "hasCategory(\"VeeamBackupAndReplicationPowerShell\")"
+              "appliesTo": "hasCategory(\"VeeamVBRRestAPI\")"
             }
           ],
           "dataPoints": [],
@@ -665,216 +978,27 @@
             }
           ]
         },
-        "displaySettings": {},
+        "displaySettings": {
+          "showFilter": false,
+          "overrideFilter": false
+        },
         "isSupportCustomProperty": false,
         "supportCustomProperty": false,
-        "name": "Veeam Statistics",
+        "name": "##technologyName## Statistics",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "type": "bigNumber",
         "timescale": "day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 4,
-        "sizex": 7,
-        "row": 1,
-        "sizey": 2
-      },
-      "config": {
-        "ackChecked": true,
-        "displaySettings": {
-          "showTypeIcon": false,
-          "displayAs": "table"
-        },
-        "displayWarnAlert": true,
-        "supportCustomProperty": false,
-        "description": "",
-        "type": "noc",
         "version": 2,
-        "displayErrorAlert": true,
-        "isSupportCustomProperty": false,
-        "displayColumn": 6,
-        "name": "Veeam Backup Session Alert Status",
-        "displayCriticalAlert": true,
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "sortBy": "alertSeverity",
-        "timescale": "day",
-        "sdtChecked": true,
-        "items": [
-          {
-            "dataPointName": "*",
-            "instanceName": "*",
-            "name": "##INSTANCE## - ##RESOURCENAME##",
-            "dataSourceDisplayName": "Veeam Jobs: Backup Sessions",
-            "groupBy": "instance",
-            "type": "device",
-            "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "*"
-          }
-        ]
+        "widgetFilters": {}
       }
     },
     {
       "position": {
-        "col": 1,
-        "sizex": 5,
-        "row": 13,
-        "sizey": 3
-      },
-      "config": {
-        "displaySettings": {
-          "columns": [
-            {
-              "visible": true,
-              "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 339,
-              "columnKey": "device-name-1452842526600"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            Status\n            \n        ",
-              "columnSize": 73,
-              "columnKey": "0"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            Free\n            \n        ",
-              "columnSize": 83,
-              "columnKey": "1"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            Total\n            \n        ",
-              "columnSize": 97,
-              "columnKey": "2"
-            }
-          ],
-          "pageSize": "10"
-        },
-        "columns": [
-          {
-            "rpn": "",
-            "dataPointName": "Status",
-            "displayType": "colorBar",
-            "minValue": -1,
-            "unitLabel": "",
-            "maxValue": 4,
-            "colorThresholds": [
-              {
-                "level": 2,
-                "threshold": 0,
-                "relation": "!="
-              }
-            ],
-            "columnName": "Status",
-            "enableForecast": false,
-            "roundingDecimal": 2
-          },
-          {
-            "rpn": "Free/1024/1024/1024",
-            "dataPointName": "CachedFreeSpace",
-            "displayType": "raw",
-            "minValue": 0,
-            "unitLabel": " GB",
-            "maxValue": 100,
-            "colorThresholds": [],
-            "columnName": "Free",
-            "enableForecast": false,
-            "roundingDecimal": 2
-          },
-          {
-            "rpn": "Total/1024/1024/1024",
-            "dataPointName": "CachedTotalSpace",
-            "displayType": "raw",
-            "minValue": 0,
-            "unitLabel": " GB",
-            "maxValue": 100,
-            "colorThresholds": [],
-            "columnName": "Total",
-            "enableForecast": false,
-            "roundingDecimal": 2
-          }
-        ],
-        "supportCustomProperty": false,
-        "description": "",
-        "forecast": {
-          "severity": "warn",
-          "confidence": 70,
-          "timeRange": "Last 30 days",
-          "algorithm": "Linear"
-        },
-        "type": "dynamicTable",
-        "rows": [
-          {
-            "instanceName": "*",
-            "label": "##INSTANCE## - ##RESOURCENAME##",
-            "deviceDisplayName": "*",
-            "groupFullPath": "##defaultResourceGroup##"
-          }
-        ],
-        "version": 2,
-        "isSupportCustomProperty": false,
-        "topX": 25,
-        "dataSourceFullName": "Veeam Repositories (Veeam_BackupAndReplication_Repositories)",
-        "sortOrder": "descending",
-        "name": "Veeam Repository Statistics",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "timescale": "day"
-      }
-    },
-    {
-      "position": {
-        "col": 1,
-        "sizex": 10,
-        "row": 7,
-        "sizey": 2
-      },
-      "config": {
-        "ackChecked": true,
-        "displaySettings": {
-          "showTypeIcon": true,
-          "displayAs": "table"
-        },
-        "displayWarnAlert": true,
-        "supportCustomProperty": false,
-        "description": "",
-        "type": "noc",
-        "version": 2,
-        "displayErrorAlert": true,
-        "isSupportCustomProperty": false,
-        "displayColumn": 6,
-        "name": "Veeam Backup Alert Status",
-        "displayCriticalAlert": true,
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "sortBy": "alertSeverity",
-        "timescale": "day",
-        "sdtChecked": true,
-        "items": [
-          {
-            "dataPointName": "*",
-            "instanceName": "*",
-            "name": "##INSTANCE## - ##RESOURCENAME##",
-            "dataSourceDisplayName": "Veeam Jobs: Backups",
-            "groupBy": "instance",
-            "type": "device",
-            "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "*"
-          }
-        ]
-      }
-    },
-    {
-      "position": {
-        "col": 11,
+        "col": 5,
         "sizex": 2,
-        "row": 7,
+        "row": 1,
         "sizey": 2
       },
       "config": {
@@ -883,87 +1007,650 @@
           "counters": [],
           "dataPoints": [
             {
-              "dataPointName": "RetryCounter",
+              "dataPointName": "instanceCountFlag",
               "instanceName": "*",
-              "dataSourceFullName": "Veeam Jobs: Backups (Veeam_BackupAndReplication_Jobs_Backups)",
-              "name": "RetryCounter",
+              "dataSourceFullName": "Veeam VBR Backup Jobs (Veeam_VBR_BackupJobs)",
+              "name": "totalJobCount",
               "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceGroupFullPath": "*",
               "deviceDisplayName": "*"
             }
           ],
           "bigNumberItems": [
             {
-              "dataPointName": "RetryCounter",
+              "dataPointName": "totalJobCount",
               "useCommaSeparators": false,
               "bottomLabel": "",
               "rounding": 0,
               "position": 1,
-              "rightLabel": "Backup Retries",
+              "rightLabel": "Total Backup Jobs",
               "colorThresholds": null,
               "actions": []
             }
           ]
         },
+        "displaySettings": {
+          "showFilter": false,
+          "overrideFilter": false
+        },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "isDisabled",
+              "instanceName": "*",
+              "dataSourceFullName": "Veeam VBR Backup Jobs (Veeam_VBR_BackupJobs)",
+              "name": "disabledJobCount",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "*",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [
+            {
+              "dataPointName": "disabledJobCount",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Backup Jobs Disabled",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
+        },
+        "displaySettings": {
+          "showFilter": false,
+          "overrideFilter": false
+        },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "lastCompletedRunFailed",
+              "instanceName": "*",
+              "dataSourceFullName": "Veeam VBR Backup Jobs (Veeam_VBR_BackupJobs)",
+              "name": "failedJobCount",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "*",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [
+            {
+              "dataPointName": "failedJobCount",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Backup Jobs Failed",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
+        },
+        "displaySettings": {
+          "showFilter": false,
+          "overrideFilter": false
+        },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "lastCompletedRunWarning",
+              "instanceName": "*",
+              "dataSourceFullName": "Veeam VBR Backup Jobs (Veeam_VBR_BackupJobs)",
+              "name": "warningJobCount",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "*",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [
+            {
+              "dataPointName": "warningJobCount",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Backup Job Warnings",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
+        },
+        "displaySettings": {
+          "showFilter": false,
+          "overrideFilter": false
+        },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 3,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "instanceCountFlag",
+              "instanceName": "*",
+              "dataSourceFullName": "Veeam VBR Repositories (Veeam_VBR_Repositories)",
+              "name": "instanceCountFlag",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "*",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [
+            {
+              "dataPointName": "instanceCountFlag",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Veeam VBR Repositories",
+              "colorThresholds": null,
+              "actions": []
+            }
+          ]
+        },
+        "displaySettings": {
+          "showFilter": false,
+          "overrideFilter": false
+        },
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 11,
+        "sizey": 3
+      },
+      "config": {
         "displaySettings": {},
         "isSupportCustomProperty": false,
         "supportCustomProperty": false,
-        "name": "Veeam Backup Retries",
+        "name": "##technologyName## Backup Repository Health (Trend)",
         "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 10,
-        "type": "bigNumber",
-        "timescale": "day",
-        "version": 2
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [
+            {
+              "rpn": "instanceCountFlag - isOutOfDate",
+              "display": {
+                "color": "auto",
+                "legend": "Up to Date Count",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "componentsUpToDateCount"
+            },
+            {
+              "rpn": "instanceCountFlag - isOnline",
+              "display": {
+                "color": "auto",
+                "legend": "Offline Count",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "offlineCount"
+            }
+          ],
+          "minValue": "NaN",
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "instanceCountFlag",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Veeam VBR Repositories (Veeam_VBR_Repositories)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "auto",
+                "legend": "Total Count",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "instanceCountFlag",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": false,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "isOnline",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Veeam VBR Repositories (Veeam_VBR_Repositories)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "auto",
+                "legend": "Online Count",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "isOnline",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": false,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "isOutOfDate",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Veeam VBR Repositories (Veeam_VBR_Repositories)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "auto",
+                "legend": "Out of Date Count",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "isOutOfDate",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": false,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "repositories",
+          "aggregate": true,
+          "desc": false,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "7days",
+        "version": 2,
+        "widgetFilters": {}
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 11,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "isSupportCustomProperty": false,
+        "supportCustomProperty": false,
+        "name": "##technologyName## Backup Job Health (Trend)",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "instanceCountFlag",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Veeam VBR Backup Jobs (Veeam_VBR_BackupJobs)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "auto",
+                "legend": "Total Backup Jobs",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "instanceCountFlag",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": false,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "isDisabled",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Veeam VBR Backup Jobs (Veeam_VBR_BackupJobs)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "auto",
+                "legend": "Backup Jobs Disabled",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "isDisabled",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": false,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "lastCompletedRunFailed",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Veeam VBR Backup Jobs (Veeam_VBR_BackupJobs)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "auto",
+                "legend": "Backup Jobs Failed",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "lastCompletedRunFailed",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": false,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "lastCompletedRunWarning",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Veeam VBR Backup Jobs (Veeam_VBR_BackupJobs)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "auto",
+                "legend": "Backup Job Warnings",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "lastCompletedRunWarning",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": false,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "backup jobs",
+          "aggregate": true,
+          "desc": false,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "7days",
+        "version": 2,
+        "widgetFilters": {}
       }
     },
     {
       "position": {
         "col": 8,
         "sizex": 5,
-        "row": 9,
-        "sizey": 4
+        "row": 8,
+        "sizey": 3
       },
       "config": {
         "displaySettings": {},
         "isSupportCustomProperty": false,
         "supportCustomProperty": false,
-        "name": "Veeam Backup Session Size Breakdown",
+        "name": "Top ##technologyName## Backup Jobs by Read Size (Trend)",
         "description": "",
-        "theme": "newSolidDarkBlue",
+        "theme": "newBorderDarkBlue",
         "interval": 3,
-        "type": "pieChart",
-        "timescale": "day",
-        "pieChartInfo": {
-          "maxSlicesCanBeShown": 25,
-          "virtualDataPoints": [],
-          "showLabelsAndLinesOnPC": true,
-          "counters": [],
+        "graphInfo": {
+          "virtualDataPoints": [
+            {
+              "rpn": "readSizeBytes/1000000000",
+              "display": {
+                "color": "Auto",
+                "legend": "##INSTANCE##",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "readSizeGB"
+            },
+            {
+              "rpn": "processedSizeBytes/1000000000",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "processedSizeGB"
+            },
+            {
+              "rpn": "transferredSizeBytes/1000000000",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "transferredSizeGB"
+            }
+          ],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
           "dataPoints": [
             {
-              "dataPointName": "TotalUsedSize",
-              "top10": false,
-              "instanceName": "*",
-              "dataSourceFullName": "Veeam Jobs: Backup Sessions (Veeam_BackupAndReplication_BackupSessions)",
-              "name": "TotalUsedSize",
+              "dataPointName": "readSizeBytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Veeam VBR Backup Jobs (Veeam_VBR_BackupJobs)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "readSizeBytes",
               "aggregateFunction": "SUM",
-              "deviceGroupFullPath": "##defaultResourceGroup##",
-              "deviceDisplayName": "*",
-              "aggregate": false
-            }
-          ],
-          "hideZeroPercentSlices": false,
-          "groupRemainingAsOthers": false,
-          "pieChartItems": [
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": false,
+                "value": "##defaultResourceGroup##"
+              }
+            },
             {
-              "dataPointName": "TotalUsedSize",
-              "color": "Auto",
-              "legend": "##INSTANCE## - ##RESOURCENAME##"
+              "dataPointName": "processedSizeBytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Veeam VBR Backup Jobs (Veeam_VBR_BackupJobs)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "processedSizeBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": false,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "transferredSizeBytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Veeam VBR Backup Jobs (Veeam_VBR_BackupJobs)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "transferredSizeBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": false,
+                "value": "##defaultResourceGroup##"
+              }
             }
           ],
-          "title": "Veeam Backup Session Size Breakdown"
+          "verticalLabel": " GB",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "default"
         },
-        "version": 2
+        "type": "cgraph",
+        "timescale": "7days",
+        "version": 2,
+        "widgetFilters": {}
       }
     }
   ],
@@ -972,5 +1659,7 @@
     "name": "Applications",
     "fullPath": "LogicMonitor Dashboards/Applications",
     "description": ""
-  }
+  },
+  "effectiveTenantIdentifier": null,
+  "tenantIdentifier": null
 }
